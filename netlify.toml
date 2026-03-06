@@ -54,6 +54,16 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
+  for = "/LOGO-captiva.png"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/LOGO-captiva-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
   for = "/demos/*"
   [headers.values]
     Cache-Control = "public, max-age=3600"

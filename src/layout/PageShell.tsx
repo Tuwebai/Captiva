@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from 'react';
+import { type PropsWithChildren, type ReactEventHandler } from 'react';
 import { Link } from 'react-router-dom';
 
 import { siteConfig } from '../config/site';
@@ -10,6 +10,17 @@ import { trackEvent } from '../utils/analytics';
 export function PageShell({ children }: PropsWithChildren) {
   useAnalytics();
   useScrollRestoration();
+  const handleLogoError: ReactEventHandler<HTMLImageElement> = (event) => {
+    const img = event.currentTarget;
+
+    if (!img.dataset.retry) {
+      img.dataset.retry = '1';
+      img.src = `/LOGO-captiva.png?retry=${Date.now()}`;
+      return;
+    }
+
+    img.src = '/LOGO-captiva-icon.png';
+  };
 
   return (
     <div className="site-shell">
@@ -24,6 +35,7 @@ export function PageShell({ children }: PropsWithChildren) {
               height={120}
               decoding="async"
               fetchPriority="high"
+              onError={handleLogoError}
             />
           </a>
 
@@ -64,6 +76,7 @@ export function PageShell({ children }: PropsWithChildren) {
               height={120}
               loading="lazy"
               decoding="async"
+              onError={handleLogoError}
             />
             <p className="footer-title">
               {siteConfig.productName} by{' '}
