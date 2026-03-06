@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO: Estética Aura | Cuidado Personal & Spa</title>
+    <!-- Tailwind CSS (Stack base del repositorio UI UX Pro Max) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Adaptación del theme UI UX Pro Max: Patrón "Soft UI Evolution" para Wellness/Spa
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spa: {
+                            50: '#fff5f5',  // Warm White
+                            100: '#ffe1e4', // Lighter Pink
+                            300: '#f7c8cc', // Soft Pink Accent
+                            500: '#e8b4b8', // Soft Pink (Primary)
+                            600: '#d1999e', // Hover state
+                            700: '#b37f83', // Darker accent
+                            900: '#4a4041', // Charcoal Text Base
+                        },
+                        sage: {
+                            500: '#a8d5ba', // Sage Green (Secondary/Accent)
+                            600: '#92bd2 ', 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+                        display: ['"Cormorant Garamond"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Cormorant Garamond para elegancia (titulares) y Montserrat para legibilidad (cuerpo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Soft UI Animations & Utility classes */
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, .font-elegant { font-family: 'Cormorant Garamond', serif; }
+        
+        .soft-shadow {
+            box-shadow: 0 16px 32px -12px rgba(232, 180, 184, 0.25);
+        }
+        
+        .floating-element {
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .slow-spin {
+            animation: spin 30s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Banner de Demo */
+        .demo-bar {
+            background: repeating-linear-gradient(45deg, #d1999e, #d1999e 10px, #e8b4b8 10px, #e8b4b8 20px);
+            color: #4a4041;
+        }
+        
+        /* Organic shapes for images */
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transition: border-radius 8s ease-in-out infinite alternate;
+        }
+        
+        /* Button hover pulse */
+        .btn-pulse:hover {
+            box-shadow: 0 0 0 8px rgba(232, 180, 184, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-spa-50 text-spa-900 antialiased overflow-x-hidden selection:bg-spa-300 selection:text-white">
+
+    <!-- BARRA DE AVISO MODO DEMO -->
+    <div class="demo-bar text-center py-2 text-xs md:text-sm font-semibold z-50 relative shadow-sm uppercase tracking-widest">
+        ⚠️ Atención: Página de DEMOSTRACIÓN. Centros Estéticos y Spa. Datos ficticios.
+    </div>
+
+    <!-- NAVEGACIÓN (Simulada) -->
+    <nav class="absolute top-10 w-full z-40 transition-all duration-300 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border border-spa-500 flex items-center justify-center text-spa-600 bg-white/50 backdrop-blur-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <span class="font-display font-medium text-2xl tracking-wide text-spa-900">Aura</span>
+            </div>
+            <div class="hidden md:flex space-x-12">
+                <a href="#servicios" class="text-spa-900/70 hover:text-spa-600 font-medium tracking-wide transition-colors text-sm uppercase">Tratamientos</a>
+                <a href="#testimonios" class="text-spa-900/70 hover:text-spa-600 font-medium tracking-wide transition-colors text-sm uppercase">Experiencias</a>
+            </div>
+            <div>
+                <a href="#contacto" class="bg-spa-500 hover:bg-spa-600 text-white font-medium tracking-wider py-3 px-8 rounded-full transition-all duration-300 soft-shadow transform hover:-translate-y-0.5 inline-block text-sm btn-pulse uppercase">
+                    Reservar Turno
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Soft UI Evolution pattern) -->
+    <section class="relative pt-32 pb-40 overflow-hidden bg-spa-50">
+        <!-- Fondos orgánicos borrosos (Efecto calma / spa) -->
+        <div class="absolute top-10 left-0 w-96 h-96 bg-spa-300/40 rounded-full mix-blend-multiply filter blur-[80px] floating-element z-0"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-sage-500/30 rounded-full mix-blend-multiply filter blur-[80px] floating-element z-0" style="animation-delay: 3s"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="max-w-xl">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-spa-300 bg-white/50 backdrop-blur-sm text-spa-700 text-xs font-semibold tracking-widest uppercase mb-8">
+                        ✨ Tu refugio de bienestar
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-display font-medium text-spa-900 leading-[1.1] mb-6">
+                        Realza tu belleza natural con <span class="text-spa-600 italic">delicadeza</span>.
+                    </h1>
+                    <p class="text-lg text-spa-900/70 mb-10 leading-relaxed font-light">
+                        (Texto Demo) Note cómo esta paleta cálida transmite paz, confianza y exclusividad. La tipografía elegante crea una atmósfera premium para servicios de estética.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-5">
+                        <a href="#contacto" class="bg-spa-900 hover:bg-spa-800 text-white text-center font-medium tracking-widest uppercase py-4 px-8 rounded-full transition-all duration-300 soft-shadow transform hover:-translate-y-1 text-sm">
+                            Agendar Diagnóstico
+                        </a>
+                        <a href="#servicios" class="bg-transparent border border-spa-300 hover:border-spa-500 hover:bg-white/50 text-spa-700 text-center font-medium tracking-widest uppercase py-4 px-8 rounded-full transition-all duration-300 text-sm backdrop-blur-sm">
+                            Ver Catálogo
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block">
+                    <!-- Decoración circular trasera -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-spa-300 rounded-full slow-spin opacity-50 border-dashed"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-spa-300 rounded-full slow-spin opacity-30" style="animation-direction: reverse;"></div>
+
+                    <!-- Imagen principal con organic shape -->
+                    <div class="relative w-full aspect-[4/5] mx-auto z-10 p-4">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tratamiento Spa Demo" class="object-cover w-full h-full organic-shape soft-shadow border-8 border-white">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-10 -left-6 bg-white/90 backdrop-blur-md p-5 rounded-3xl soft-shadow flex items-center gap-4 border border-spa-100 floating-element">
+                            <div class="bg-spa-50 text-spa-600 p-3 rounded-2xl">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-spa-900/60 font-medium uppercase tracking-wider">Duración Promedio</p>
+                                <p class="text-sm font-semibold text-spa-900">Sesiones de 45 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS MOCK (Bento Grid con bordes muy redondeados y sombras suaves) -->
+    <section id="servicios" class="py-24 bg-white relative">
+        <div class="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-spa-50 to-white"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-sage-500 font-bold tracking-widest uppercase text-xs mb-3 block">Nuestras Especialidades</span>
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-spa-900 mb-6 italic">Rituales de cuidado</h3>
+                <p class="text-spa-900/70 font-light">Este grid presenta los tratamientos más demandados de forma visual y elegante. El objetivo es que el cliente se visualice recibiendo el servicio y reserve un turno inmediatamente.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Servicio 1: Highlighted (Soft UI Card) -->
+                <div class="md:col-span-2 bg-spa-50 border border-spa-100 p-10 rounded-[2.5rem] soft-shadow hover:-translate-y-2 transition-all duration-500 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-spa-500 mb-8 shadow-sm">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h4 class="text-3xl font-display font-medium text-spa-900 mb-4">Depilación Láser Definitiva</h4>
+                        <p class="text-spa-900/70 mb-8 font-light leading-relaxed max-w-lg">Ejemplo del servicio ancla (core). Texto enfocado en los beneficios principales: sin dolor, resultados desde la primera sesión y piel suave todo el año. Alta conversión.</p>
+                    </div>
+                    <a href="#contacto" class="inline-flex items-center text-spa-600 font-semibold tracking-wide uppercase text-sm hover:text-spa-700 w-fit">
+                        Consultar Promo Actual <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white border text-center border-spa-100 p-10 rounded-[2.5rem] hover:shadow-xl hover:border-spa-300 transition-all duration-500 flex flex-col items-center">
+                    <div class="w-14 h-14 bg-sage-500/10 rounded-full flex items-center justify-center text-sage-500 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-medium text-spa-900 mb-3">Limpieza Facial Profunda</h4>
+                    <p class="text-spa-900/60 font-light text-sm mb-6">Extrae impurezas y devuelve la luminosidad. Ticket medio, ideal para primera visita.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white border text-center border-spa-100 p-10 rounded-[2.5rem] hover:shadow-xl hover:border-spa-300 transition-all duration-500 flex flex-col items-center">
+                    <div class="w-14 h-14 bg-spa-100 rounded-full flex items-center justify-center text-spa-600 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-medium text-spa-900 mb-3">Tratamientos Corporales</h4>
+                    <p class="text-spa-900/60 font-light text-sm mb-6">Reductores, celulitis y modelado. Tratamientos de múltiples sesiones para mayor LTV.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="md:col-span-2 relative overflow-hidden bg-spa-900 rounded-[2.5rem] soft-shadow group">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Spa" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-1000">
+                    </div>
+                    <div class="relative z-10 p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 h-full">
+                        <div>
+                            <h4 class="text-3xl font-display font-medium text-white mb-3 italic">Día de Spa & Relax</h4>
+                            <p class="text-spa-50/80 font-light max-w-sm">Paquetes para regalar o regalarse. Ideal para fechas especiales (Día de la Madre, Cumpleaños).</p>
+                        </div>
+                        <a href="#contacto" class="whitespace-nowrap bg-white text-spa-900 hover:bg-spa-50 font-medium tracking-widest uppercase text-xs py-4 px-8 rounded-full transition-colors flex-shrink-0">
+                            Armar Mi Paquete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULTADOS / TESTIMONIOS FICTICIOS (Social Proof emocional) -->
+    <section id="testimonios" class="py-24 bg-spa-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-sage-500 font-bold tracking-widest uppercase text-xs mb-3 block">Testimonios Demo</span>
+                <h3 class="text-4xl md:text-5xl font-display font-medium text-spa-900 mb-6 italic">Miles de clientas felices</h3>
+                <p class="text-spa-900/70 max-w-2xl mx-auto font-light">Este módulo de validación social refuerza que los tratamientos son seguros y efectivos. Se usa lenguaje emotivo y directo (Demostración visual).</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonio Demo 1 -->
+                <div class="bg-white p-10 rounded-[2rem] soft-shadow border border-spa-100 relative text-center">
+                    <div class="text-spa-300 flex justify-center gap-1 mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="text-spa-900/80 mb-8 font-light italic leading-relaxed">"Me daba miedo hacerme el láser, pero las chicas me explicaron todo súper bien. ¡Es un cambio de vida total! El mejor lugar de la ciudad."</p>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-14 h-14 rounded-full bg-spa-100 object-cover mt-2"></div>
+                        <p class="font-semibold text-spa-900 text-sm mt-3">María (Demo)</p>
+                        <p class="text-xs text-spa-900/50 uppercase tracking-widest">Depilación Definitiva</p>
+                    </div>
+                </div>
+
+                <!-- Testimonio Demo 2 -->
+                <div class="bg-white p-10 rounded-[2rem] soft-shadow border border-spa-100 relative text-center">
+                    <div class="text-spa-300 flex justify-center gap-1 mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="text-spa-900/80 mb-8 font-light italic leading-relaxed">"Fui por una limpieza facial por recomendación de una amiga. El ambiente es súper relajante y me dejaron la piel como nueva, luminosa e hidratada."</p>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-14 h-14 rounded-full bg-spa-100 object-cover mt-2"></div>
+                        <p class="font-semibold text-spa-900 text-sm mt-3">Carolina (Demo)</p>
+                        <p class="text-xs text-spa-900/50 uppercase tracking-widest">Skin Care</p>
+                    </div>
+                </div>
+
+                <!-- Testimonio Demo 3 -->
+                <div class="bg-white p-10 rounded-[2rem] soft-shadow border border-spa-100 relative text-center">
+                    <div class="text-spa-300 flex justify-center gap-1 mb-6">
+                        ★★★★★
+                    </div>
+                    <p class="text-spa-900/80 mb-8 font-light italic leading-relaxed">"Mi lugar de escape de la rutina. Los masajes reductores acompañados de aparatología dieron resultados reales en el primer mes. Las adoro."</p>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="w-14 h-14 rounded-full bg-spa-100 object-cover mt-2"></div>
+                        <p class="font-semibold text-spa-900 text-sm mt-3">Luciana (Demo)</p>
+                        <p class="text-xs text-spa-900/50 uppercase tracking-widest">Tratamiento Corporal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CAPTACIÓN -->
+    <section id="contacto" class="py-32 bg-white relative overflow-hidden">
+        <!-- Decoración trasera -->
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-spa-50 rounded-full mix-blend-multiply filter blur-[100px] opacity-60 z-0"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-spa-50 rounded-full mix-blend-multiply filter blur-[100px] opacity-60 z-0"></div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white/80 backdrop-blur-xl rounded-[3rem] p-8 md:p-14 soft-shadow border border-spa-100 grid lg:grid-cols-5 gap-12 items-center">
+                
+                <!-- Info Panel -->
+                <div class="lg:col-span-2 text-center lg:text-left">
+                    <span class="text-spa-500 font-bold tracking-widest uppercase text-xs mb-3 block">Da el primer paso</span>
+                    <h3 class="text-4xl lg:text-5xl font-display font-medium text-spa-900 mb-6 italic">Reserva tu momento.</h3>
+                    <p class="text-spa-900/70 font-light mb-8">El formulario envía los datos directamente para agendar turno, reduciendo la fricción de llamar por teléfono (Simulación).</p>
+                    
+                    <div class="space-y-6 pt-6 border-t border-spa-100">
+                        <div class="flex items-center gap-4 justify-center lg:justify-start text-sm">
+                            <div class="text-spa-500">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <span class="font-medium text-spa-900">Lunes a Sábado - Estricto Turno Previo</span>
+                        </div>
+                        <div class="flex items-center gap-4 justify-center lg:justify-start text-sm">
+                            <div class="text-spa-500">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                            </div>
+                            <span class="font-medium text-spa-900">Av. Belleza 100, Capital Federal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Form -->
+                <div class="lg:col-span-3 bg-spa-50/50 p-8 rounded-[2rem] border border-white">
+                    <form id="leadForm" class="space-y-5">
+                        <div class="bg-white text-spa-700 text-xs px-4 py-3 rounded-xl mb-4 font-medium border border-spa-100 text-center uppercase tracking-widest">
+                            Simulación de Turno Web
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-spa-900/80 mb-2 uppercase tracking-wide">Nombre Completo</label>
+                                <input type="text" id="name" required class="w-full px-5 py-4 bg-white border border-transparent rounded-[1rem] focus:ring-0 focus:border-spa-300 soft-shadow outline-none transition-all font-light" placeholder="Ej. Ana Clara">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-xs font-semibold text-spa-900/80 mb-2 uppercase tracking-wide">WhatsApp</label>
+                                <input type="tel" id="phone" required class="w-full px-5 py-4 bg-white border border-transparent rounded-[1rem] focus:ring-0 focus:border-spa-300 soft-shadow outline-none transition-all font-light" placeholder="Ej. +54 9 11...">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-xs font-semibold text-spa-900/80 mb-2 uppercase tracking-wide">Tratamiento de Interés</label>
+                            <select id="service" required class="w-full px-5 py-4 bg-white border border-transparent rounded-[1rem] focus:ring-0 focus:border-spa-300 soft-shadow outline-none transition-all font-light appearance-none text-spa-900">
+                                <option value="" disabled selected>Selecciona una opción...</option>
+                                <option value="laser">Depilación Láser</option>
+                                <option value="facial">Limpieza Facial / Skincare</option>
+                                <option value="corporal">Tratamiento Corporal</option>
+                                <option value="spa">Día de Spa</option>
+                                <option value="otro">Asesoramiento / Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-spa-900/80 mb-2 uppercase tracking-wide">Consultas o Zonas (Opcional)</label>
+                            <textarea id="message" rows="2" class="w-full px-5 py-4 bg-white border border-transparent rounded-[1rem] focus:ring-0 focus:border-spa-300 soft-shadow outline-none transition-all font-light resize-none" placeholder="Me gustaría saber si el láser incluye axilas..."></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="w-full bg-spa-900 hover:bg-spa-800 text-white font-medium tracking-widest uppercase py-5 px-6 rounded-[1rem] transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 mt-2">
+                            <span>Solicitar Turno</span>
+                        </button>
+                    </form>
+
+                    <!-- Mensaje de Éxito (Oculto por defecto) -->
+                    <div id="successMessage" class="hidden h-full flex flex-col items-center justify-center text-center py-10">
+                        <div class="w-20 h-20 bg-spa-100 text-spa-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h4 class="text-3xl font-display font-medium text-spa-900 mb-2 italic">Deseo Concedido</h4>
+                        <p class="text-spa-900/70 mb-8 font-light max-w-xs mx-auto">Hemos recibido tu solicitud (Simulación). Nos conectaremos vía WhatsApp para confirmar el horario.</p>
+                        <button onclick="resetForm()" class="text-spa-600 font-semibold uppercase tracking-widest text-xs hover:text-spa-900 transition-colors border-b border-spa-300 pb-1">Ingresar otro turno demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER DEMO -->
+    <footer class="bg-spa-50 border-t border-spa-100 py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6 opacity-30">
+                <hr class="w-12 border-spa-900">
+                <svg class="w-4 h-4 text-spa-900" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
+                <hr class="w-12 border-spa-900">
+            </div>
+            
+            <span class="font-display font-medium text-3xl text-spa-900 tracking-wide mb-6 inline-block">Aura</span>
+            <p class="mb-4 text-spa-900/70 font-light">Template Estético desarrollado por <strong>Juanchi Dev</strong>.</p>
+            <p class="text-xs text-spa-900/40 max-w-xl mx-auto leading-relaxed">Arquitectura de interface construida exclusivamente como prototipado de demostración. Servicios, imágenes y testimonios son ficticios con el único propósito de ilustrar el diseño comercial y captación de leads.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP (Configurable por variable) -->
+    <!-- Variables de configuración -->
+    <script>
+        // CONFIGURACIÓN: Modifique este número para la DEMO
+        const CONFIG = {
+            whatsappNumber: "5491122334455", // Reemplace por el número deseado (sin + y con código de país)
+            defaultMessage: "¡Hola Centro Aura! Ingresé a la landing de demo y quisiera más información sobre los tratamientos disponibles."
+        };
+    </script>
+    <a id="waButton" href="#" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-white text-[#25D366] rounded-full flex items-center justify-center soft-shadow hover:-translate-y-2 transition-transform duration-300 z-50 group border border-spa-100">
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.786 5.768.019 3.181 2.605 5.767 5.786 5.768 3.181 0 5.767-2.586 5.786-5.768-.019-3.181-2.605-5.767-5.786-5.768zm3.328 8.35c-.14.394-.813.766-1.141.815-.316.049-.757.147-2.144-.457-1.664-.72-2.733-2.427-2.815-2.535-.083-.108-.671-.892-.676-1.701-.005-.81.423-1.218.572-1.378.149-.16.326-.2.443-.2.116 0 .233.004.335.008.106.005.25-.044.39.297.145.35.495 1.212.54 1.306.044.094.073.204.015.321-.059.117-.087.19-.175.292-.087.102-.185.228-.261.312-.083.092-.172.193-.075.362.097.17.433.717.929 1.163.642.576 1.177.755 1.346.845.169.09.268.078.367-.034.1-.113.433-.505.549-.68.117-.175.233-.146.39-.087.158.059 1.002.472 1.173.558.17.086.284.128.326.198.043.07.043.398-.097.792z" fill-rule="evenodd" clip-rule="evenodd" /><path d="M12.033 24c2.815 0 5.488-1.077 7.505-3.042C21.507 18.94 22.545 16.321 22.545 13.56c0-6.425-5.323-11.644-11.875-11.644C4.116 1.916-1.206 7.135-1.206 13.56c0 2.228.663 4.417 1.912 6.29L0 24l4.314-1.121c1.801 1.118 3.868 1.706 5.992 1.706h.001c.58 0 1.157-.032 1.726-.095zm0-20.081c5.311 0 9.63 4.246 9.63 9.46 0 2.525-.998 4.897-2.814 6.685-1.815 1.787-4.226 2.774-6.816 2.774h-.001c-1.807 0-3.578-.45-5.132-1.3l-.368-.201-3.812.989.99-3.644-.221-.345A9.227 9.227 0 012.4 13.379c0-5.214 4.319-9.46 9.633-9.46z"/></svg>
+        <span class="absolute right-20 bg-spa-900 text-white text-[10px] font-bold py-1.5 px-3 rounded-full shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none uppercase tracking-widest">Escribinos</span>
+    </a>
+
+    <!-- LÓGICA DE INTERACCIÓN (JS Mínimo Integrado) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. WhatsApp Button Link Builder
+            const waButton = document.getElementById('waButton');
+            const encodedMessage = encodeURIComponent(CONFIG.defaultMessage);
+            waButton.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+
+            // 2. Form Submission Simulation
+            const form = document.getElementById('leadForm');
+            const successMsg = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animación de carga mock suave
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                `;
+                submitBtn.disabled = true;
+
+                // Simular request corto
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                    
+                    // Reset boton para la próxima
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 1200);
+            });
+        });
+
+        // 3. Reset Form Function
+        function resetForm() {
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('leadForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

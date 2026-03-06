@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alegra Salud | Odontología, Fonoaudiología & Psicopedagogía</title>
+    <!-- Tailwind CSS (Stack base del repositorio UI UX Pro Max) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Adaptación del theme UI UX Pro Max: Identidad Alegra Salud
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alegra: {
+                            50: '#f0fdf9',  // Fondo muy claro (Mint soft)
+                            100: '#ccfbf1',
+                            300: '#5eead4',
+                            500: '#14b8a6', // Primario: Verde Agua / Teal de sus uniformes
+                            600: '#0d9488',
+                            900: '#111827', // Texto Navy muy oscuro/Gris mate (contraste)
+                            navy: '#0f172a', // Azul Marino de la tipografía de su logo
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Quicksand"', 'system-ui', 'sans-serif'], // Tipografía súper redondeada y amigable
+                        display: ['"Quicksand"', 'system-ui', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Quicksand para imitar las curvas de su logo "alegra" y dar tono familiar -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos base redondeados y amigables (Alegra Vibe) */
+        body { font-family: 'Quicksand', sans-serif; }
+        
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(20, 184, 166, 0.2); /* Sombra teal */
+        }
+        
+        /* Animación suave para atrapar miradas en fotos de niños/familia */
+        .float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Banner de Demo Educativa */
+        .demo-bar {
+            background: repeating-linear-gradient(45deg, #0f172a, #0f172a 10px, #1e293b 10px, #1e293b 20px);
+            color: #ffffff;
+        }
+
+        /* Formas hiper redondas */
+        .circle-card {
+            border-radius: 3rem;
+            background: #ffffff;
+            border: 2px solid #f0fdf9;
+        }
+        
+        /* Efecto onda para btn principal */
+        .btn-wave:hover {
+            box-shadow: 0 0 0 8px rgba(20, 184, 166, 0.2);
+        }
+
+        /* Animación carrusel infinito (Testimonios) */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            /* Se desplaza el ancho exacto de 3 tarjetas (300px) + 3 gaps (2rem = 32px) */
+            100% { transform: translateX(calc(-900px - 6rem)); } 
+        }
+        
+        .slider-track {
+            display: flex;
+            width: max-content; /* Permite que todas las tarjetas se alinien horizontalmente sin romperse */
+            animation: scroll 30s linear infinite; /* Animación más lenta (30s) como solicitaste */
+        }
+        
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-alegra-50 text-alegra-navy antialiased overflow-x-hidden selection:bg-alegra-300 selection:text-alegra-navy">
+
+    <!-- BARRA DE AVISO MODO DEMO -->
+    <div class="demo-bar text-center py-2 text-[10px] md:text-sm font-bold z-50 relative uppercase tracking-wider">
+        Página de DEMOSTRACIÓN Comercial UX. Estructura adaptada y basada en el branding público de @alegrasalud_
+    </div>
+
+    <!-- NAVEGACIÓN (Clean & Rounded) -->
+    <nav class="absolute top-10 w-full z-40 transition-all duration-300 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/80 backdrop-blur-md rounded-full py-3 px-6 md:px-8 shadow-sm border border-alegra-100">
+            <!-- LOGO SIMULADO (Tipográfico redondeado como el original) -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-alegra-500 flex items-center justify-center text-white soft-shadow">
+                    <span class="font-bold text-2xl lowercase">a</span>
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-bold text-2xl text-alegra-navy lowercase tracking-tight">alegra</span>
+                    <span class="text-[9px] text-alegra-500 uppercase font-bold tracking-widest mt-0.5">Salud & Bienestar</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#especialidades" class="text-alegra-navy/80 hover:text-alegra-500 font-bold transition-colors">Especialidades</a>
+                <a href="#nosotros" class="text-alegra-navy/80 hover:text-alegra-500 font-bold transition-colors">Nuestro Espacio</a>
+            </div>
+            <div>
+                <a href="#contacto" class="bg-alegra-navy hover:bg-alegra-900 text-white font-bold py-2.5 px-6 rounded-full transition-all duration-300 shadow-md transform hover:-translate-y-0.5 inline-block text-sm uppercase tracking-wide">
+                    Sacar Turno
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Family/Kids Friendly) -->
+    <section class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-br from-alegra-50 to-white">
+        <!-- Deco abstracta redonda -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-alegra-100 rounded-bl-[10rem] opacity-50 z-0"></div>
+        <div class="absolute bottom-10 left-10 w-64 h-64 bg-alegra-500 rounded-full opacity-5 filter blur-3xl z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-xl text-center lg:text-left">
+                    <div class="inline-flex justify-center items-center gap-2 px-4 py-2 rounded-full border-2 border-alegra-100 bg-white text-alegra-500 font-bold text-xs uppercase tracking-widest mb-8 shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Odontología sin miedos
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-alegra-navy leading-tight mb-6">
+                        Una sonrisa sana se construye desde la <span class="text-alegra-500">infancia</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-alegra-900/70 mb-6 font-medium leading-relaxed max-w-lg mx-auto lg:mx-0">
+                        Equipo interdisciplinario. Atención cálida y especializada en odontología, ortodoncia, fonoaudiología y psicopedagogía en Río Tercero.
+                    </p>
+                    
+                    <!-- Info de Horarios -->
+                    <div class="flex items-center justify-center lg:justify-start gap-4 mb-10 text-sm font-bold text-alegra-navy/80 bg-white/50 w-fit mx-auto lg:mx-0 px-4 py-2 rounded-full border border-alegra-100 shadow-sm">
+                        <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                        <span>Lunes a Viernes de 9 a 17hs</span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contacto" class="bg-alegra-500 hover:bg-alegra-600 text-white text-center font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 soft-shadow transform hover:-translate-y-1 btn-wave">
+                            Hacer mi ficha médica
+                        </a>
+                        <a href="https://wa.me/543571685233" target="_blank" class="bg-white border-2 border-alegra-100 hover:border-alegra-500 text-alegra-navy text-center font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 shadow-sm flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.786 5.768.019 3.181 2.605 5.767 5.786 5.768 3.181 0 5.767-2.586 5.786-5.768-.019-3.181-2.605-5.767-5.786-5.768zm3.328 8.35c-.14.394-.813.766-1.141.815-.316.049-.757.147-2.144-.457-1.664-.72-2.733-2.427-2.815-2.535-.083-.108-.671-.892-.676-1.701-.005-.81.423-1.218.572-1.378.149-.16.326-.2.443-.2.116 0 .233.004.335.008.106.005.25-.044.39.297.145.35.495 1.212.54 1.306.044.094.073.204.015.321-.059.117-.087.19-.175.292-.087.102-.185.228-.261.312-.083.092-.172.193-.075.362.097.17.433.717.929 1.163.642.576 1.177.755 1.346.845.169.09.268.078.367-.034.1-.113.433-.505.549-.68.117-.175.233-.146.39-.087.158.059 1.002.472 1.173.558.17.086.284.128.326.198.043.07.043.398-.097.792z" fill-rule="evenodd" clip-rule="evenodd" /><path d="M12.033 24c2.815 0 5.488-1.077 7.505-3.042C21.507 18.94 22.545 16.321 22.545 13.56c0-6.425-5.323-11.644-11.875-11.644C4.116 1.916-1.206 7.135-1.206 13.56c0 2.228.663 4.417 1.912 6.29L0 24l4.314-1.121c1.801 1.118 3.868 1.706 5.992 1.706h.001c.58 0 1.157-.032 1.726-.095zm0-20.081c5.311 0 9.63 4.246 9.63 9.46 0 2.525-.998 4.897-2.814 6.685-1.815 1.787-4.226 2.774-6.816 2.774h-.001c-1.807 0-3.578-.45-5.132-1.3l-.368-.201-3.812.989.99-3.644-.221-.345A9.227 9.227 0 012.4 13.379c0-5.214 4.319-9.46 9.633-9.46z"/></svg>
+                            Consulta Rápida
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative mt-12 lg:mt-0 p-4">
+                    <!-- Marco redondeado gigante típico del feed de instagram de Alegra -->
+                    <div class="absolute inset-0 bg-alegra-500 rounded-t-full rounded-b-[4rem] transform rotate-3 scale-105 opacity-20"></div>
+                    <div class="absolute inset-0 bg-alegra-100 rounded-t-full rounded-b-[4rem] transform -rotate-3 scale-100"></div>
+                    
+                    <!-- Imagen Kids/Dentista amigable simulada (Mockup foto Instagram) -->
+                    <div class="relative z-10 w-full aspect-[4/5] object-cover rounded-t-full rounded-b-[4rem] overflow-hidden border-8 border-white soft-shadow">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Odontopediatría Alegra" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Floating Widget -->
+                    <div class="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm p-4 rounded-3xl soft-shadow border border-alegra-100 flex flex-col items-center gap-1 z-20 float-slow">
+                        <div class="flex text-alegra-500">
+                            ★★★★★
+                        </div>
+                        <span class="font-bold text-sm text-alegra-navy">Pacientes Felices</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES (Basado en la bio: Odontología, Fono, Psico) -->
+    <section id="especialidades" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h3 class="text-4xl md:text-5xl font-extrabold text-alegra-navy mb-4">Cuidado integral</h3>
+                <p class="text-alegra-900/70 font-medium text-lg">Más que un consultorio, un espacio pensado para acompañar el desarrollo de toda la familia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Servicio 1: Odonto / Ortodoncia -->
+                <div class="circle-card p-10 text-center hover:shadow-xl transition-shadow duration-300 md:col-span-2 group overflow-hidden relative">
+                    <div class="absolute right-0 top-0 w-32 h-32 bg-alegra-50 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500 origin-top-right"></div>
+                    <div class="w-20 h-20 bg-alegra-50 rounded-full flex items-center justify-center text-alegra-500 mb-6 mx-auto shadow-sm border border-alegra-100 group-hover:bg-alegra-500 group-hover:text-white transition-colors">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h4 class="text-3xl font-bold text-alegra-navy mb-3">Odontología & Ortodoncia</h4>
+                    <p class="text-alegra-900/70 font-medium mb-6">Desde prevención infantil (odontopediatría) hasta ortodoncia invisible y tradicional para adultos. Recupera tu salud bucal.</p>
+                    <a href="#contacto" class="inline-block text-alegra-500 font-bold hover:text-alegra-600 underline underline-offset-4">Reservar turno dental</a>
+                </div>
+
+                <!-- Servicio 2: Fonoaudiologia -->
+                <div class="circle-card p-10 text-center hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-blue-500 mb-6 mx-auto shadow-sm border border-blue-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-alegra-navy mb-3">Fonoaudiología</h4>
+                    <p class="text-alegra-900/70 font-medium text-sm">Evaluación y tratamiento del lenguaje, voz y audición, trabajando en equipo multidisciplinario.</p>
+                </div>
+
+                <!-- Servicio 3: Psicopedagogia -->
+                <div class="circle-card p-10 text-center hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="w-16 h-16 bg-purple-50 rounded-full flex items-center justify-center text-purple-500 mb-6 mx-auto shadow-sm border border-purple-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-bold text-alegra-navy mb-3">Psicopedagogía</h4>
+                    <p class="text-alegra-900/70 font-medium text-sm">Acompañamiento en procesos de aprendizaje, estimulación temprana y desarrollo cognitivo.</p>
+                </div>
+                
+                <!-- Extra Banner (Espacio exclusivo) -->
+                <div class="circle-card md:col-span-2 overflow-hidden relative bg-alegra-navy p-0 group">
+                    <div class="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Consultorio Alegra" class="w-full h-full object-cover grayscale">
+                    </div>
+                    <div class="relative z-10 p-10 flex flex-col justify-center h-full text-center md:text-left gap-4">
+                        <div class="bg-alegra-500 text-white font-bold px-3 py-1 rounded-full text-xs self-center md:self-start uppercase">Un espacio para vos</div>
+                        <h4 class="text-3xl font-bold text-white leading-tight">Consultorios diseñados para que ir al dentista deje de ser un trámite.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS (Instagram Reviews - Carrusel Animado) -->
+    <section id="testimonios" class="py-24 bg-alegra-50 overflow-hidden border-t border-alegra-100/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10 text-center">
+            <div class="inline-flex justify-center items-center gap-2 px-4 py-2 rounded-full bg-white text-alegra-500 font-bold text-xs uppercase tracking-widest shadow-sm border border-alegra-100 mb-4">
+                <svg class="w-4 h-4 text-pink-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                Comunidad Alegra
+            </div>
+            <h3 class="text-3xl md:text-4xl font-extrabold text-alegra-navy">Lo que dicen las familias</h3>
+        </div>
+
+        <!-- Slider contenedor (Oculta el overflow) -->
+        <div class="relative m-auto w-full overflow-hidden before:absolute before:left-0 before:top-0 before:z-[1] before:h-full before:w-[20%] before:bg-gradient-to-r before:from-alegra-50 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-[1] after:h-full after:w-[20%] after:bg-gradient-to-l after:from-alegra-50 after:to-transparent after:content-[''] py-4">
+            <!-- Pista deslizable -->
+            <div class="slider-track gap-8 px-4">
+                <!-- Tarjeta 1 (Recomendación REAL provista por el usuario) -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Dra.Mari&background=random" alt="Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">@dramaricampos</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Hace 6 sem.</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"La mejor, dulce, muy responsable y sabe un monton"</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 (Recomendación Ficticia realista - Alineada a Odontopediatría) -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold flex-shrink-0">M</div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">Micaela F.</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Familia Paciente</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"Llevé a mi nene con terror al torno y salió feliz. La paciencia de las chicas es admirable. ¡Súper recomendable para los más peques!"</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 (Recomendación Ficticia realista - Alineada a Ortodoncia) -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">S</div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">Sofía G.</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Tratamiento Ortodoncia</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"Empecé el tratamiento con alineadores invisibles en Alegra y el ambiente es divino. Te explican todo súper claro. 10/10."</p>
+                    </div>
+                </div>
+
+                <!-- DUPLICACIÓN PARA EL SCROLL INFINITO (Exactamente las mismas 3 cards) -->
+                <!-- Tarjeta 1 Duplicada -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                                <img src="https://ui-avatars.com/api/?name=Dra.Mari&background=random" alt="Avatar" class="w-full h-full object-cover">
+                            </div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">@dramaricampos</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Hace 6 sem.</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"La mejor, dulce, muy responsable y sabe un monton"</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 Duplicada -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold flex-shrink-0">M</div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">Micaela F.</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Familia Paciente</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"Llevé a mi nene con terror al torno y salió feliz. La paciencia de las chicas es admirable. ¡Súper recomendable para los más peques!"</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 Duplicada -->
+                <div class="w-[300px] shrink-0 bg-white rounded-3xl p-6 shadow-sm border border-alegra-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">S</div>
+                            <div class="leading-tight">
+                                <p class="text-sm font-bold text-alegra-navy">Sofía G.</p>
+                                <p class="text-[10px] text-gray-400 font-medium">Tratamiento Ortodoncia</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-alegra-900/80 font-medium leading-relaxed italic mb-4">"Empecé el tratamiento con alineadores invisibles en Alegra y el ambiente es divino. Te explican todo súper claro. 10/10."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE RESERVA / FICHA MÉDICA -->
+    <section id="contacto" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decoracion fondo circular -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-[40px] border-white/40 z-0"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white rounded-[3rem] p-8 md:p-14 shadow-xl border border-white relative overflow-hidden">
+                
+                <!-- Forma esquina -->
+                <div class="absolute -top-16 -right-16 w-40 h-40 bg-alegra-100 rounded-full"></div>
+
+                <div class="text-center mb-10 relative z-10">
+                    <h3 class="text-4xl font-extrabold text-alegra-navy mb-3">Tu Ficha Médica</h3>
+                    <p class="text-alegra-900/70 font-medium">Dejanos tus datos y nos pondremos en contacto desde Bolívar 85 para confirmar el horario de tu turno.</p>
+                </div>
+
+                <!-- Formulario Form -->
+                <div class="relative z-10">
+                    <form id="leadForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-alegra-navy ml-2 mb-2">Nombre y Apellido</label>
+                                <input type="text" id="name" required class="w-full px-5 py-4 bg-alegra-50/50 border border-alegra-100 rounded-full focus:ring-0 focus:border-alegra-500 focus:bg-white outline-none transition-colors font-medium text-alegra-navy" placeholder="Ej. Florencia">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-bold text-alegra-navy ml-2 mb-2">WhatsApp / Teléfono</label>
+                                <input type="tel" id="phone" required class="w-full px-5 py-4 bg-alegra-50/50 border border-alegra-100 rounded-full focus:ring-0 focus:border-alegra-500 focus:bg-white outline-none transition-colors font-medium text-alegra-navy" placeholder="Ej. 3571 ...">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="service" class="block text-sm font-bold text-alegra-navy ml-2 mb-2">Especialidad requerida</label>
+                            <select id="service" required class="w-full px-5 py-4 bg-alegra-50/50 border border-alegra-100 rounded-full focus:ring-0 focus:border-alegra-500 focus:bg-white outline-none transition-colors font-medium text-alegra-navy appearance-none">
+                                <option value="" disabled selected>Elegí una opción...</option>
+                                <option value="odontopediatria">Odontopediatría (Para niños)</option>
+                                <option value="ortodoncia">Ortodoncia (Tradicional / Invisible)</option>
+                                <option value="odontologia">Odontología General</option>
+                                <option value="fonoaudiologia">Fonoaudiología</option>
+                                <option value="psicopedagogia">Psicopedagogía</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-alegra-navy ml-2 mb-2">Comentarios (Opcional)</label>
+                            <textarea id="message" rows="3" class="w-full px-5 py-4 bg-alegra-50/50 border border-alegra-100 rounded-3xl focus:ring-0 focus:border-alegra-500 focus:bg-white outline-none transition-colors font-medium text-alegra-navy resize-none" placeholder="Es para mi hijo de 6 años, su primer diente..."></textarea>
+                        </div>
+                        
+                        <div class="pt-2">
+                            <button type="submit" id="submitBtn" class="w-full bg-alegra-navy hover:bg-alegra-900 text-white font-bold text-xl py-5 px-6 rounded-full transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl">
+                                <span>Solicitar Turno</span>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Mensaje de Éxito (Oculto por defecto) -->
+                    <div id="successMessage" class="hidden h-full flex flex-col items-center justify-center text-center py-10">
+                        <div class="w-24 h-24 bg-alegra-100 text-alegra-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h4 class="text-3xl font-extrabold text-alegra-navy mb-3">¡Ficha Recibida!</h4>
+                        <p class="text-alegra-900/70 mb-8 font-medium text-lg">Pronto nos comunicaremos por WhatsApp para coordinar la fecha de tu visita a Alegra Salud.</p>
+                        <button onclick="resetForm()" class="bg-gray-100 text-gray-600 py-3 px-8 rounded-full font-bold hover:bg-gray-200 transition-colors">Cargar otro turno</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ubicación -->
+            <div class="mt-8 flex justify-center items-center gap-3 text-alegra-navy/60 font-medium">
+                <svg class="w-5 h-5 text-alegra-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                Bolívar 83, Río Tercero - Córdoba
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER DEMO -->
+    <footer class="bg-white pt-16 pb-8 border-t border-alegra-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <div class="w-8 h-8 rounded-full bg-alegra-100 text-alegra-500 flex items-center justify-center font-bold text-lg lowercase">a</div>
+                <span class="font-bold text-2xl text-alegra-navy lowercase tracking-tight">alegra</span>
+            </div>
+            
+            <div class="flex justify-center flex-wrap gap-4 md:gap-8 mb-10 font-bold text-alegra-navy/70">
+                <a href="#especialidades" class="hover:text-alegra-500">Odontología</a>
+                <a href="#especialidades" class="hover:text-alegra-500">Fonoaudiología</a>
+                <a href="#especialidades" class="hover:text-alegra-500">Psicopedagogía</a>
+            </div>
+
+            <p class="mb-4 text-alegra-900/60 font-bold text-sm">Demo estructural inspirada en Identidad Visual desarrollada por <span class="text-alegra-500">Juanchi Dev</span>.</p>
+            <p class="text-xs font-medium text-alegra-900/40 max-w-2xl mx-auto leading-relaxed bg-alegra-50/50 p-4 rounded-xl border border-alegra-50">Aviso legal mock: Esta es una página comercial de prototipado. Las descripciones y logos/marcas son interpretaciones con fines demostrativos de diseño UI/UX. No captura datos reales hacia servidores productivos.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <script>
+        // CONFIGURACIÓN: Datos extraídos del bio oficial de @alegrasalud_
+        const CONFIG = {
+            whatsappNumber: "543571685233", // Número real de Bolívar 85
+            defaultMessage: "¡Hola Equipo de Alegra Salud! Vi la página web (Demo) y quería hacerles una consulta."
+        };
+    </script>
+    <a id="waButton" href="#" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-[3.5rem] h-[3.5rem] bg-white text-[#25D366] rounded-full flex items-center justify-center soft-shadow hover:-translate-y-2 transition-transform duration-300 z-50 border-4 border-alegra-50 shadow-xl group">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.786 5.768.019 3.181 2.605 5.767 5.786 5.768 3.181 0 5.767-2.586 5.786-5.768-.019-3.181-2.605-5.767-5.786-5.768zm3.328 8.35c-.14.394-.813.766-1.141.815-.316.049-.757.147-2.144-.457-1.664-.72-2.733-2.427-2.815-2.535-.083-.108-.671-.892-.676-1.701-.005-.81.423-1.218.572-1.378.149-.16.326-.2.443-.2.116 0 .233.004.335.008.106.005.25-.044.39.297.145.35.495 1.212.54 1.306.044.094.073.204.015.321-.059.117-.087.19-.175.292-.087.102-.185.228-.261.312-.083.092-.172.193-.075.362.097.17.433.717.929 1.163.642.576 1.177.755 1.346.845.169.09.268.078.367-.034.1-.113.433-.505.549-.68.117-.175.233-.146.39-.087.158.059 1.002.472 1.173.558.17.086.284.128.326.198.043.07.043.398-.097.792z" fill-rule="evenodd" clip-rule="evenodd" /><path d="M12.033 24c2.815 0 5.488-1.077 7.505-3.042C21.507 18.94 22.545 16.321 22.545 13.56c0-6.425-5.323-11.644-11.875-11.644C4.116 1.916-1.206 7.135-1.206 13.56c0 2.228.663 4.417 1.912 6.29L0 24l4.314-1.121c1.801 1.118 3.868 1.706 5.992 1.706h.001c.58 0 1.157-.032 1.726-.095zm0-20.081c5.311 0 9.63 4.246 9.63 9.46 0 2.525-.998 4.897-2.814 6.685-1.815 1.787-4.226 2.774-6.816 2.774h-.001c-1.807 0-3.578-.45-5.132-1.3l-.368-.201-3.812.989.99-3.644-.221-.345A9.227 9.227 0 012.4 13.379c0-5.214 4.319-9.46 9.633-9.46z"/></svg>
+    </a>
+
+    <!-- LÓGICA DE INTERACCIÓN (JS Mínimo) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const waButton = document.getElementById('waButton');
+            const encodedMessage = encodeURIComponent(CONFIG.defaultMessage);
+            waButton.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+
+            const form = document.getElementById('leadForm');
+            const successMsg = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                `;
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                    
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 1300);
+            });
+        });
+
+        function resetForm() {
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('leadForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+.claude/
+.claude-plugin/
+.shared/
+automation/
+cli/
+_components/
+src/ui-ux-pro-max/
+screenshots/
+dist/
+node_modules/
+*.tsbuildinfo
+docs/
+CLAUDE.md

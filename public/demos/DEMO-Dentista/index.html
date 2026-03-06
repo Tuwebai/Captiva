@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEMO: Clínica Dental Sonrisa | Captación de Pacientes</title>
+    <!-- Tailwind CSS (Stack base del repositorio UI UX Pro Max) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              medical: {
+                50: "#f0fdf4",
+                100: "#dcfce7",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                900: "#14532d",
+              },
+              uiux: {
+                blue: "#00457C",
+                dark: "#1e293b",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Outfit", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Soft UI Animations & Utility classes */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Outfit", sans-serif;
+      }
+
+      .soft-shadow {
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+      }
+
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Banner de Demo */
+      .demo-bar {
+        background: repeating-linear-gradient(
+          45deg,
+          #1e293b,
+          #1e293b 10px,
+          #334155 10px,
+          #334155 20px
+        );
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+    <!-- BARRA DE AVISO MODO DEMO -->
+    <div
+      class="demo-bar text-white text-center py-2 text-sm font-medium z-50 relative shadow-md"
+    >
+      ⚠️ ATENCIÓN: Esta es una página de DEMOSTRACIÓN. Los datos son ficticios y
+      los envíos de formulario no son procesados realmente.
+    </div>
+
+    <!-- NAVEGACIÓN (Simulada) -->
+    <nav
+      class="sticky top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-40 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <div class="flex items-center gap-2">
+            <div
+              class="w-10 h-10 rounded-xl bg-medical-500 flex items-center justify-center text-white soft-shadow"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <span
+              class="font-display font-bold text-xl text-slate-800 tracking-tight"
+              >Clínica Sonrisa</span
+            >
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#servicios"
+              class="text-slate-600 hover:text-medical-600 font-medium transition-colors"
+              >Servicios</a
+            >
+            <a
+              href="#testimonios"
+              class="text-slate-600 hover:text-medical-600 font-medium transition-colors"
+              >Testimonios</a
+            >
+          </div>
+          <div>
+            <a
+              href="#contacto"
+              class="bg-medical-600 hover:bg-medical-700 text-white font-medium py-2.5 px-6 rounded-full transition-all duration-300 soft-shadow transform hover:-translate-y-0.5 inline-block"
+            >
+              Reservar Turno
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-20 pb-32 overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-medical-50 to-slate-100 z-0"
+      ></div>
+
+      <!-- Elementos decorativos (Soft UI Elements) -->
+      <div
+        class="absolute top-20 right-10 w-64 h-64 bg-medical-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 floating-element z-0"
+      ></div>
+      <div
+        class="absolute bottom-10 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 floating-element z-0"
+        style="animation-delay: 2s"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="max-w-2xl">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-medical-100 text-medical-700 text-sm font-semibold mb-6"
+            >
+              <span class="flex h-2 w-2 relative">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-medical-500 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-medical-500"
+                ></span>
+              </span>
+              Ejemplo de Captación
+            </div>
+            <h1
+              class="text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight mb-6"
+            >
+              Vuelve a sonreír con confianza hoy mismo.
+            </h1>
+            <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+              (Texto Demo) Note cómo este mensaje está diseñado para conectar
+              emocionalmente con el visitante. El objetivo es que la persona se
+              identifique y tome acción inmediatamente.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contacto"
+                class="bg-medical-600 hover:bg-medical-700 text-white text-center font-medium py-4 px-8 rounded-2xl transition-all duration-300 soft-shadow transform hover:-translate-y-1 text-lg"
+              >
+                Solicitar Evaluación Gratuita
+              </a>
+              <a
+                href="#servicios"
+                class="bg-white text-slate-700 border border-slate-200 hover:border-medical-300 hover:text-medical-600 hover:bg-medical-50 text-center font-medium py-4 px-8 rounded-2xl transition-all duration-300"
+              >
+                Ver Tratamientos
+              </a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-4 text-sm text-slate-500">
+              <div class="flex -space-x-2">
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-300 border-2 border-white"
+                ></div>
+                <div
+                  class="w-8 h-8 rounded-full bg-slate-400 border-2 border-white"
+                ></div>
+              </div>
+              <p>
+                Más de
+                <span class="font-bold text-slate-700">2,500 pacientes</span>
+                felices en la demo.
+              </p>
+            </div>
+          </div>
+
+          <div class="relative hidden lg:block">
+            <!-- Placeholder premium para imagen de la clínica usando UI UX Pro Max placeholder style -->
+            <div
+              class="aspect-[4/3] rounded-3xl bg-slate-200 overflow-hidden relative soft-shadow"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Consultorio Odontológico Demo"
+                class="object-cover w-full h-full opacity-90"
+              />
+
+              <!-- Floating Badge -->
+              <div
+                class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl soft-shadow flex items-center gap-4 floating-element border border-slate-100"
+              >
+                <div class="bg-medical-100 text-medical-600 p-3 rounded-xl">
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-500 font-medium">
+                    Turnos Disponibles
+                  </p>
+                  <p class="text-sm font-bold text-slate-800">Esta Semana</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS MOCK CREADO PARA DEMOSTRA ESTRUCTURA BENTO GRID -->
+    <section id="servicios" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2
+            class="text-md text-medical-600 font-semibold tracking-wide uppercase mb-2"
+          >
+            Tratamientos (Demo)
+          </h2>
+          <h3
+            class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4"
+          >
+            ¿En qué podemos ayudarte?
+          </h3>
+          <p class="text-slate-600">
+            Este es un ejemplo de cómo presentaríamos los servicios utilizando
+            un layout tipo BENTO GRID moderno, destacando los pilares de ventas
+            del cliente.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Servicio 1: Highlighted (Soft UI Card) -->
+          <div
+            class="md:col-span-2 bg-gradient-to-br from-medical-50 to-white border border-medical-100 p-8 rounded-3xl soft-shadow hover:shadow-xl transition-all duration-300 group"
+          >
+            <div
+              class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-medical-600 mb-6 shadow-sm border border-slate-100 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-2xl font-display font-bold text-slate-800 mb-3">
+              Diseño de Sonrisa Mockup
+            </h4>
+            <p class="text-slate-600 mb-6">
+              Un texto persuasivo que describa el impacto de la estética dental
+              en la seguridad del paciente. Esto atrae clicks hacia conversiones
+              premium.
+            </p>
+            <a
+              href="#contacto"
+              class="inline-flex items-center text-medical-600 font-semibold hover:text-medical-700"
+              >Conocer más
+              <svg
+                class="w-4 h-4 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path></svg
+            ></a>
+          </div>
+
+          <!-- Servicio 2 -->
+          <div
+            class="bg-white border border-slate-200 p-8 rounded-3xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-700 mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-display font-bold text-slate-800 mb-2">
+              Implantología
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Ejemplo de servicio secundario de alta rentabilidad.
+            </p>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div
+            class="bg-white border border-slate-200 p-8 rounded-3xl hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-700 mb-6"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-xl font-display font-bold text-slate-800 mb-2">
+              Urgencias 24/7
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Punto de dolor clave resuelto. Aumenta la urgencia de contacto.
+            </p>
+          </div>
+
+          <!-- Servicio 4 -->
+          <div
+            class="md:col-span-2 bg-slate-900 border border-slate-800 p-8 rounded-3xl soft-shadow text-white relative overflow-hidden group"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-medical-600 to-transparent opacity-20"
+            ></div>
+            <div
+              class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            >
+              <div>
+                <h4 class="text-2xl font-display font-bold mb-2">
+                  Primera Consulta Incluye Radiografía
+                </h4>
+                <p class="text-slate-400">
+                  Oferta gancho ficticia para incentivar el lead de forma
+                  directa.
+                </p>
+              </div>
+              <a
+                href="#contacto"
+                class="whitespace-nowrap bg-white text-slate-900 hover:bg-slate-100 font-medium py-3 px-6 rounded-xl transition-colors"
+              >
+                Reclamar Beneficio
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS FICTICIOS (Social Proof) -->
+    <section id="testimonios" class="py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h3
+            class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4"
+          >
+            Lo que dicen los "Pacientes"
+          </h3>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Esta sección utiliza validación social (Testimonios). **Nota del
+            prototipo**: Todas las reseñas a continuación son demostrativas
+            generadas para ejemplificar el layout.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonio Demo 1 -->
+          <div
+            class="bg-white p-8 rounded-3xl soft-shadow border border-slate-100 relative"
+          >
+            <div class="text-yellow-400 flex gap-1 mb-4">★ ★ ★ ★ ★</div>
+            <p class="text-slate-600 mb-6 italic">
+              "Ejemplo de testimonio que apela a la velocidad de atención. Me
+              atendieron el mismo día y me sacaron el dolor inmediatamente."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-bold text-slate-800 text-sm">
+                  Paciente Ficticio A
+                </p>
+                <p class="text-xs text-slate-500">Tratamiento de Conducto</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio Demo 2 -->
+          <div
+            class="bg-white p-8 rounded-3xl soft-shadow border border-slate-100 relative"
+          >
+            <div class="text-yellow-400 flex gap-1 mb-4">★ ★ ★ ★ ★</div>
+            <p class="text-slate-600 mb-6 italic">
+              "Ejemplo enfocado en el miedo al dentista. Fueron súper amables y
+              el espacio me transmitió mucha paz en todo momento."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-bold text-slate-800 text-sm">
+                  Paciente Ficticio B
+                </p>
+                <p class="text-xs text-slate-500">Extracción</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonio Demo 3 -->
+          <div
+            class="bg-white p-8 rounded-3xl soft-shadow border border-slate-100 relative"
+          >
+            <div class="text-yellow-400 flex gap-1 mb-4">★ ★ ★ ★ ★</div>
+            <p class="text-slate-600 mb-6 italic">
+              "Ejemplo destacando resultados estéticos. Mi diseño de sonrisa
+              quedó increíble, ahora muestro los dientes en las fotos."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+              <div>
+                <p class="font-bold text-slate-800 text-sm">
+                  Paciente Ficticio C
+                </p>
+                <p class="text-xs text-slate-500">Carillas Estéticas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CAPTACIÓN -->
+    <section id="contacto" class="py-24 bg-white relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="bg-white rounded-[2rem] soft-shadow border border-slate-100 overflow-hidden lg:flex"
+        >
+          <!-- Info Panel -->
+          <div
+            class="lg:w-2/5 bg-medical-700 text-white p-10 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-display font-bold mb-2">
+                Reserva tu cita hoy
+              </h3>
+              <p class="text-medical-100 mb-8 opacity-90 text-sm">
+                Aumenta las llamadas convirtiendo tráfico en prospectos. Este
+                formulario está conectado en la DEMO para interactuar mediante
+                JavaScript localmente.
+              </p>
+
+              <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                  <div class="bg-white/10 p-2 rounded-lg">
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-medium">Ubicación</p>
+                    <p class="text-sm opacity-80">
+                      Av. Ficticia 123, Ciudad DEMO
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="bg-white/10 p-2 rounded-lg">
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-medium">Simulación de Atención</p>
+                    <p class="text-sm opacity-80">
+                      Lunes a Viernes 09:00 - 18:00
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario Form -->
+          <div class="lg:w-3/5 p-10">
+            <form id="leadForm" class="space-y-5">
+              <div
+                class="bg-amber-50 border border-amber-200 text-amber-800 text-xs px-4 py-3 rounded-xl mb-6"
+              >
+                <strong>Note para el cliente:</strong> Al enviar el formulario,
+                vera una confirmación simulada por JavaScript para mantener el
+                flujo en esta demo.
+              </div>
+
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >Nombre Completo</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-medical-500 focus:border-medical-500 outline-none transition-all bg-slate-50 focus:bg-white"
+                  placeholder="Ej. Juan Pérez"
+                />
+              </div>
+              <div>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >Teléfono</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-medical-500 focus:border-medical-500 outline-none transition-all bg-slate-50 focus:bg-white"
+                  placeholder="Ej. +54 9 11..."
+                />
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-slate-700 mb-1"
+                  >¿En qué podemos ayudarte?</label
+                >
+                <textarea
+                  id="message"
+                  rows="3"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-medical-500 focus:border-medical-500 outline-none transition-all bg-slate-50 focus:bg-white resize-none"
+                  placeholder="Me gustaría hacer una consulta sobre..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submitBtn"
+                class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3.5 px-6 rounded-xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2"
+              >
+                <span>Enviar Solicitud</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  ></path>
+                </svg>
+              </button>
+            </form>
+
+            <!-- Mensaje de Éxito (Oculto por defecto) -->
+            <div
+              id="successMessage"
+              class="hidden h-full flex flex-col items-center justify-center text-center py-8"
+            >
+              <div
+                class="w-16 h-16 bg-medical-100 text-medical-600 rounded-full flex items-center justify-center mb-4 mx-auto"
+              >
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 mb-2">
+                ¡Solicitud Simulada Exitosa!
+              </h4>
+              <p class="text-slate-600 mb-6 text-sm">
+                En un entorno real, estos datos se enviarían a su CRM, correo o
+                Base de datos.
+              </p>
+              <button
+                onclick="resetForm()"
+                class="text-medical-600 font-medium hover:underline text-sm"
+              >
+                Enviar otra solicitud de prueba
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER DEMO -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="mb-2">
+          Desarrollado por
+          <strong>Juanchi Dev</strong>.
+        </p>
+        <p class="text-xs opacity-60">
+          Ésta página NO representa a una clínica real. Creada con propósitos
+          exclusivos de demostración de arquitectura, frontend y UI.
+        </p>
+      </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP (Configurable por variable) -->
+    <!-- Variables de configuración -->
+    <script>
+      // CONFIGURACIÓN: Modifique este número para la DEMO
+      const CONFIG = {
+        whatsappNumber: "5491122334455", // Reemplace por el número deseado (sin + y con código de país)
+        defaultMessage:
+          "Hola, vi su landing page de demo y me gustaría consultar por información adicional.",
+      };
+    </script>
+    <a
+      id="waButton"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center soft-shadow hover:scale-110 transition-transform duration-300 z-50 group"
+    >
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M12.031 6.172c-3.181 0-5.767 2.586-5.786 5.768.019 3.181 2.605 5.767 5.786 5.768 3.181 0 5.767-2.586 5.786-5.768-.019-3.181-2.605-5.767-5.786-5.768zm3.328 8.35c-.14.394-.813.766-1.141.815-.316.049-.757.147-2.144-.457-1.664-.72-2.733-2.427-2.815-2.535-.083-.108-.671-.892-.676-1.701-.005-.81.423-1.218.572-1.378.149-.16.326-.2.443-.2.116 0 .233.004.335.008.106.005.25-.044.39.297.145.35.495 1.212.54 1.306.044.094.073.204.015.321-.059.117-.087.19-.175.292-.087.102-.185.228-.261.312-.083.092-.172.193-.075.362.097.17.433.717.929 1.163.642.576 1.177.755 1.346.845.169.09.268.078.367-.034.1-.113.433-.505.549-.68.117-.175.233-.146.39-.087.158.059 1.002.472 1.173.558.17.086.284.128.326.198.043.07.043.398-.097.792z"
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+        />
+        <path
+          d="M12.033 24c2.815 0 5.488-1.077 7.505-3.042C21.507 18.94 22.545 16.321 22.545 13.56c0-6.425-5.323-11.644-11.875-11.644C4.116 1.916-1.206 7.135-1.206 13.56c0 2.228.663 4.417 1.912 6.29L0 24l4.314-1.121c1.801 1.118 3.868 1.706 5.992 1.706h.001c.58 0 1.157-.032 1.726-.095zm0-20.081c5.311 0 9.63 4.246 9.63 9.46 0 2.525-.998 4.897-2.814 6.685-1.815 1.787-4.226 2.774-6.816 2.774h-.001c-1.807 0-3.578-.45-5.132-1.3l-.368-.201-3.812.989.99-3.644-.221-.345A9.227 9.227 0 012.4 13.379c0-5.214 4.319-9.46 9.633-9.46z"
+        />
+      </svg>
+      <span
+        class="absolute right-16 bg-white text-slate-800 text-xs font-bold py-1 px-3 rounded-lg shadow-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+        >Escríbenos</span
+      >
+    </a>
+
+    <!-- LÓGICA DE INTERACCIÓN (JS Mínimo Integrado) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. WhatsApp Button Link Builder
+        const waButton = document.getElementById("waButton");
+        const encodedMessage = encodeURIComponent(CONFIG.defaultMessage);
+        waButton.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+
+        // 2. Form Submission Simulation
+        const form = document.getElementById("leadForm");
+        const successMsg = document.getElementById("successMessage");
+        const submitBtn = document.getElementById("submitBtn");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // Animación de carga mock
+          const originalText = submitBtn.innerHTML;
+          submitBtn.innerHTML = `
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Procesando...
+                `;
+          submitBtn.disabled = true;
+
+          // Simular request al servidor de 1.5s
+          setTimeout(() => {
+            form.style.display = "none";
+            successMsg.classList.remove("hidden");
+
+            // Reset boton para el proximo uso
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            form.reset();
+          }, 1500);
+        });
+      });
+
+      // 3. Reset Form Function
+      function resetForm() {
+        document.getElementById("successMessage").classList.add("hidden");
+        document.getElementById("leadForm").style.display = "block";
+      }
+    </script>
+  </body>
+</html>

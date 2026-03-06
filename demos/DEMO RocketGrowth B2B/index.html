@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RocketGrowth B2B | Agencia Crecimiento</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    // Configuración Única B2B
+    const B2B_CONFIG = {
+      name: "RocketGrowth B2B",
+      email: "hola@rocketgrowth.demo",
+      whatsapp: "+5491155551111",
+      whatsappMessage: "Hola, me interesa agendar una auditoría de crecimiento B2B.",
+      calendly: "https://example.com/agendar",
+      claim: "Escalamos las ventas de tu e-commerce un 30% en 90 días",
+      ctaMain: "Agendar Auditoría de Crecimiento",
+      ctaSecondary: "Ver el sistema",
+    };
+
+    // Tokens y paleta de la nueva DEMO (B2B Premium)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            b2b: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            },
+            accent: {
+              500: '#2563eb', // Azul Corporativo (Fuerte)
+              600: '#1d4ed8', // Darker Blue
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            display: ["Outfit", "system-ui", "sans-serif"],
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            }
+          }
+        }
+      }
+    };
+
+    // Inyector
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-b2b]").forEach(el => {
+        const key = el.getAttribute("data-b2b");
+        if (B2B_CONFIG[key]) el.textContent = B2B_CONFIG[key];
+      });
+      document.querySelectorAll("a[href='#whatsapp']").forEach(link => {
+        link.href = `https://wa.me/${B2B_CONFIG.whatsapp}?text=${encodeURIComponent(B2B_CONFIG.whatsappMessage)}`;
+        link.target = "_blank";
+      });
+      document.querySelectorAll("a[href='#agenda']").forEach(link => {
+        link.href = B2B_CONFIG.calendly;
+        link.target = "_blank";
+      });
+    });
+  </script>
+
+  <style>
+    /* Clases de UI compartidas */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .dark-glass {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .input-corporativo {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      transition: all 0.3s ease;
+    }
+    .input-corporativo:focus {
+      border-color: #2563eb;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-b2b-50 text-b2b-900 antialiased font-sans selection:bg-accent-500 selection:text-white">
+
+  <!-- HEADER CORPORATIVO -->
+  <header class="fixed w-full top-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-accent-600/30">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        </div>
+        <span class="font-display font-black text-b2b-900 text-xl tracking-tight" data-b2b="name">RocketGrowth</span>
+      </div>
+      
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#metodologia" class="text-sm font-semibold text-b2b-800 hover:text-accent-600 transition-colors">Metodología</a>
+        <a href="#casos" class="text-sm font-semibold text-b2b-800 hover:text-accent-600 transition-colors">Resultados</a>
+        <a href="#agenda" class="inline-flex items-center gap-2 text-sm font-bold text-white bg-accent-600 hover:bg-accent-500 px-6 py-2.5 rounded-lg transition-all shadow-lg shadow-accent-600/20">
+          Agendar Sesión
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO ROI-DRIVEN (Dark Theme) -->
+  <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-b2b-900">
+    <!-- Grid Pattern Background -->
+    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#334155 1px, transparent 1px), linear-gradient(90deg, #334155 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <!-- Glow -->
+    <div class="absolute right-0 top-0 w-1/2 h-full bg-accent-600/10 mix-blend-screen filter blur-[120px] rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Copywriting (Left) -->
+      <div class="lg:col-span-7">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-b2b-700 bg-b2b-800/50 mb-6 text-xs font-semibold text-blue-400">
+          <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+          Growth Partner B2B
+        </div>
+        
+        <h1 class="text-5xl lg:text-7xl font-display font-black text-white leading-[1.1] tracking-tight mb-6">
+          Escalamos las ventas de tu e-commerce un <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300 transform inline-block">30% en 90 días.</span>
+        </h1>
+        
+        <p class="text-lg text-b2b-100 mb-10 leading-relaxed max-w-2xl font-medium">
+          Dejamos de lado las métricas vanidosas. Construimos sistemas de adquisición rentables, optimizamos tu conversión y maximizamos el LTV de tus clientes con ingeniería de datos.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a href="#agenda" data-b2b="ctaMain" class="inline-flex justify-center items-center text-white bg-accent-600 hover:bg-accent-500 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-accent-600/20 text-lg">
+            Agendar Auditoría de Crecimiento
+          </a>
+          <a href="#sistema" data-b2b="ctaSecondary" class="inline-flex justify-center items-center text-white dark-glass hover:bg-b2b-800 font-semibold px-8 py-4 rounded-xl transition-colors">
+            Ver el sistema
+          </a>
+        </div>
+
+        <!-- Trust Block -->
+        <div class="grid grid-cols-3 gap-6 border-t border-b2b-800 pt-8">
+          <div>
+            <p class="text-3xl font-black text-white">100%</p>
+            <p class="text-xs text-b2b-400 uppercase tracking-widest font-semibold mt-1">ROI Focus</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-white">+£2M</p>
+            <p class="text-xs text-b2b-400 uppercase tracking-widest font-semibold mt-1">Ad Spend</p>
+          </div>
+          <div>
+            <p class="text-3xl font-black text-white">Full</p>
+            <p class="text-xs text-b2b-400 uppercase tracking-widest font-semibold mt-1">Funnel Mkt</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual (Abstract Chart / Dashboard Mock) -->
+      <div class="lg:col-span-5 hidden lg:block relative">
+        <div class="dark-glass p-8 rounded-2xl shadow-2xl border border-b2b-700/50 transform rotate-2 hover:rotate-0 transition-transform duration-500 relative">
+          <!-- Mock Chart -->
+          <div class="flex items-end justify-between h-48 mb-8 gap-3">
+            <div class="w-full bg-accent-600/10 rounded-t h-[20%] relative group"><div class="absolute bottom-0 w-full bg-accent-600 h-1 group-hover:h-full transition-all duration-300 opacity-50"></div></div>
+            <div class="w-full bg-accent-600/20 rounded-t h-[40%] relative group"><div class="absolute bottom-0 w-full bg-accent-600 h-1 group-hover:h-full transition-all duration-300 opacity-60"></div></div>
+            <div class="w-full bg-accent-600/40 rounded-t h-[65%] relative group"><div class="absolute bottom-0 w-full bg-accent-600 h-1 group-hover:h-full transition-all duration-300 opacity-80"></div></div>
+            <div class="w-full bg-accent-600/50 rounded-t h-[80%] relative group"><div class="absolute bottom-0 w-full bg-accent-600 h-1 group-hover:h-full transition-all duration-300 opacity-90"></div></div>
+            <div class="w-full bg-accent-600 rounded-t h-[100%] shadow-[0_0_15px_rgba(37,99,235,0.4)] relative"></div>
+          </div>
+          
+          <div class="flex justify-between items-center bg-b2b-900/60 p-5 rounded-xl border border-b2b-800 backdrop-blur-md">
+            <div>
+              <p class="text-sm text-b2b-400 font-medium mb-1">Incremento de Ingresos (Demo)</p>
+              <p class="text-3xl font-black text-white">+34.2% YoY</p>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 border border-emerald-500/20">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+            </div>
+          </div>
+
+          <!-- DEMO NOTE -->
+          <div class="absolute -bottom-4 -left-4 bg-b2b-800 text-b2b-300 text-[11px] px-4 py-1.5 rounded-full border border-b2b-700 font-mono shadow-xl uppercase tracking-wider font-bold">
+             *Resultados Demo Simulados
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLIENT STRIP (Infinite Marquee) -->
+  <section class="py-10 bg-white border-b border-b2b-100 overflow-hidden relative">
+    <!-- Gradient Masks para suavizar bordes del carrusel -->
+    <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 mb-6">
+      <p class="text-center text-xs font-bold text-b2b-400 uppercase tracking-widest">Confían en nosotros para escalar sus ventas</p>
+    </div>
+    
+    <div class="flex whitespace-nowrap overflow-hidden">
+      <!-- Primer set -->
+      <div class="animate-marquee flex gap-12 items-center px-6">
+        <span class="text-2xl font-black text-b2b-200">TechStore™</span>
+        <span class="text-2xl font-black text-b2b-200">SaaSFlow</span>
+        <span class="text-2xl font-black text-b2b-200">GlobalMarket</span>
+        <span class="text-2xl font-black text-b2b-200">RetailPulse</span>
+        <span class="text-2xl font-black text-b2b-200">DataLogic</span>
+        <span class="text-2xl font-black text-b2b-200">GrowthGen</span>
+      </div>
+      <!-- Segundo set (Clon para loop continuo) -->
+      <div class="animate-marquee flex gap-12 items-center px-6" aria-hidden="true">
+        <span class="text-2xl font-black text-b2b-200">TechStore™</span>
+        <span class="text-2xl font-black text-b2b-200">SaaSFlow</span>
+        <span class="text-2xl font-black text-b2b-200">GlobalMarket</span>
+        <span class="text-2xl font-black text-b2b-200">RetailPulse</span>
+        <span class="text-2xl font-black text-b2b-200">DataLogic</span>
+        <span class="text-2xl font-black text-b2b-200">GrowthGen</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGÍA (4 Pasos) -->
+  <section id="metodologia" class="py-24 bg-white border-b border-b2b-100">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <h2 class="text-accent-600 font-bold tracking-widest uppercase mb-3 text-sm">Nuestro Framework</h2>
+        <h3 class="text-4xl lg:text-5xl font-display font-black text-b2b-900 tracking-tight">Sistema de Crecimiento B2B</h3>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <!-- Paso 1 -->
+        <div class="flex flex-col md:flex-row gap-8 items-start mb-12 relative">
+          <div class="hidden md:block absolute left-[27px] top-14 bottom-[-48px] w-0.5 bg-b2b-200"></div>
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-accent-600 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-accent-600/30 relative z-10">1</div>
+          <div class="bg-b2b-50 p-8 rounded-2xl border border-b2b-200 flex-1 hover:border-accent-400 transition-colors">
+            <h4 class="text-2xl font-display font-black text-b2b-900 mb-3">Diagnóstico y Unit Economics</h4>
+            <p class="text-b2b-600 font-medium">Auditamos tu funnel actual, calculamos tu CAC máximo permisible y establecemos objetivos de ROAS/MER viables matemáticamente antes de invertir 1 centavo.</p>
+          </div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="flex flex-col md:flex-row gap-8 items-start mb-12 relative">
+          <div class="hidden md:block absolute left-[27px] top-14 bottom-[-48px] w-0.5 bg-b2b-200"></div>
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-white border-2 border-b2b-300 text-b2b-400 flex items-center justify-center font-black text-xl relative z-10">2</div>
+          <div class="bg-b2b-50 p-8 rounded-2xl border border-b2b-200 flex-1 hover:border-accent-400 transition-colors">
+            <h4 class="text-2xl font-display font-black text-b2b-900 mb-3">Ingeniería de Oferta y Funnel</h4>
+            <p class="text-b2b-600 font-medium">Diseñamos ofertas irresistibles y optimizamos la tasa de conversión (CRO) de tus landing pages para asegurar que el tráfico comprado no se desperdicie.</p>
+          </div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="flex flex-col md:flex-row gap-8 items-start mb-12 relative">
+          <div class="hidden md:block absolute left-[27px] top-14 bottom-[-48px] w-0.5 bg-b2b-200"></div>
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-white border-2 border-b2b-300 text-b2b-400 flex items-center justify-center font-black text-xl relative z-10">3</div>
+          <div class="bg-b2b-50 p-8 rounded-2xl border border-b2b-200 flex-1 hover:border-accent-400 transition-colors">
+            <h4 class="text-2xl font-display font-black text-b2b-900 mb-3">Ejecución y Tráfico Paid</h4>
+            <p class="text-b2b-600 font-medium">Lanzamos campañas estructuradas en Meta y Google Ads. Compramos datos rápidamente mediante testeo continuo de creativos (A/B testing agresivo).</p>
+          </div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="w-14 h-14 shrink-0 rounded-2xl bg-b2b-900 text-white flex items-center justify-center font-black text-xl shadow-lg shadow-b2b-900/30 relative z-10">4</div>
+          <div class="bg-b2b-50 p-8 rounded-2xl border border-b2b-200 flex-1 hover:border-accent-400 transition-colors">
+            <h4 class="text-2xl font-display font-black text-b2b-900 mb-3">Escalado y Retención</h4>
+            <p class="text-b2b-600 font-medium">Una vez validados los Unit Economics rentables, inyectamos presupuesto agresivo y activamos automatizaciones de email para maximizar la recompra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTRO B2B (Para Quién) -->
+  <section class="py-24 bg-b2b-50 border-b border-b2b-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-accent-600 font-bold tracking-widest uppercase mb-3 text-sm">Filtro de Clientes</h2>
+        <h3 class="text-4xl font-display font-black text-b2b-900 tracking-tight">No somos para todas las empresas</h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- FIT -->
+        <div class="bg-white p-10 rounded-2xl border-t-4 border-t-emerald-500 shadow-md">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h4 class="text-2xl font-display font-black text-b2b-900">Sí somos el fit ideal si:</h4>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Facturas más de $15,000 USD mensuales vía online.
+            </li>
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Tienes capacidad logística para escalar tu volumen de entregas sin romper inventario.
+            </li>
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Buscas un partner a largo plazo, no una "campañita" para salvar el mes.
+            </li>
+          </ul>
+        </div>
+        
+        <!-- NON-FIT -->
+        <div class="bg-white p-10 rounded-2xl border-t-4 border-t-rose-500 shadow-md">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-600">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </div>
+            <h4 class="text-2xl font-display font-black text-b2b-900">NO somos para ti si:</h4>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              No tienes un product-market fit comprobado (recién estás abriendo tu tienda).
+            </li>
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Buscas garantías de "Hacerte millonario en 7 días" sin invertir en infraestructura.
+            </li>
+            <li class="flex items-start gap-3 text-b2b-600 font-medium">
+              <svg class="w-5 h-5 text-rose-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Delegas todo y no estás dispuesto a iterar ofertas con base en nuestros datos.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO & CTA FINAL -->
+  <section id="agenda" class="py-24 bg-b2b-900 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, #fff 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="bg-white rounded-3xl p-8 lg:p-16 shadow-2xl flex flex-col lg:flex-row gap-16 border border-b2b-200">
+        
+        <div class="lg:w-5/12">
+          <h2 class="text-4xl font-display font-black text-b2b-900 tracking-tight leading-tight mb-6">
+            Llegó el momento de <span class="text-accent-600">escalar responsablemente.</span>
+          </h2>
+          <p class="text-b2b-600 font-medium mb-8">
+            Agenda una auditoría gratuita con nuestros Partners. Analizaremos tu modelo de adquisición actual y buscaremos puntos ciegos de rentabilidad.
+          </p>
+          <div class="space-y-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-b2b-50 rounded-full flex items-center justify-center text-accent-600">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs text-b2b-400 font-bold uppercase tracking-widest">Email Directo</p>
+                <p class="text-b2b-900 font-bold" data-b2b="email">hola@rocketgrowth.demo</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-zinc-50 rounded-full flex items-center justify-center text-accent-600">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.082 21.43c-1.636 0-3.155-.411-4.48-1.124l-4.991 1.31 1.332-4.866c-.791-1.373-1.242-2.961-1.242-4.646 0-5.12 4.159-9.278 9.278-9.278s9.278 4.159 9.278 9.278-4.159 9.278-9.278 9.278z"/></svg>
+              </div>
+              <div>
+                <p class="text-xs text-b2b-400 font-bold uppercase tracking-widest">WhatsApp Business</p>
+                <p class="text-b2b-900 font-bold" data-b2b="whatsapp">+5491155551111</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-7/12">
+          <form class="space-y-5" onsubmit="event.preventDefault(); alert('Modo DEMO: Solicitud de Auditoría para '+document.getElementById('b2b-name').value+' enviada exitosamente.'); this.reset();">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold text-b2b-500 uppercase tracking-widest mb-2">Nombre Completo</label>
+                <input type="text" id="b2b-name" required class="w-full px-5 py-4 rounded-xl input-corporativo font-medium" placeholder="Ej: Martin Gomez">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-b2b-500 uppercase tracking-widest mb-2">Email Corporativo</label>
+                <input type="email" required class="w-full px-5 py-4 rounded-xl input-corporativo font-medium" placeholder="ej: ceo@tuempresa.com">
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-bold text-b2b-500 uppercase tracking-widest mb-2">Sitio Web</label>
+                <input type="url" class="w-full px-5 py-4 rounded-xl input-corporativo font-medium" placeholder="https://...">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-b2b-500 uppercase tracking-widest mb-2">Facturación Actual</label>
+                <select class="w-full px-5 py-4 rounded-xl input-corporativo font-medium appearance-none">
+                  <option value="" disabled selected>Selecciona un rango...</option>
+                  <option value="1">Menos de $15k / mes</option>
+                  <option value="2">$15k - $50k / mes</option>
+                  <option value="3">Más de $50k / mes</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-b2b-500 uppercase tracking-widest mb-2">¿Cuál es tu principal cuello de botella?</label>
+              <textarea rows="3" class="w-full px-5 py-4 rounded-xl input-corporativo font-medium resize-none" placeholder="CPA muy alto, poca recompra, no podemos escalar en Meta..."></textarea>
+            </div>
+
+            <button type="submit" class="w-full mt-4 bg-accent-600 hover:bg-accent-500 text-white font-black uppercase tracking-widest py-5 rounded-xl transition-all shadow-lg shadow-accent-600/30 text-lg">
+              Solicitar Auditoría sin Cargo
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER DEMO -->
+  <footer class="bg-b2b-950 py-12 border-t border-b2b-800">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 opacity-50 bg-b2b-800 rounded-md flex items-center justify-center text-white">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        </div>
+        <span class="font-display font-black text-white tracking-tight" data-b2b="name">RocketGrowth</span>
+      </div>
+      
+      <p class="text-slate-400 text-sm font-medium text-center md:text-right">
+        © 2026 UI UX PRO MAX DEMO. Diseño para propósito de exhibición.<br>
+        <span class="text-xs text-slate-500">All results shown are for demonstration purposes.</span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

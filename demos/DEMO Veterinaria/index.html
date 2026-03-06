@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO: Veterinaria Patitas 24Hs | Cuidado Integral</title>
+    <!-- Tailwind CSS (Stack base del repositorio UI UX Pro Max) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Adaptación del theme UI UX Pro Max: Estilo Friendly/Trust para Mascotas
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pet: {
+                            50: '#fff7ed',  // Warm Orange 50
+                            100: '#ffedd5',
+                            300: '#fdba74',
+                            500: '#f97316', // Primary Orange / Mascotas
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            900: '#7c2d12',
+                        },
+                        vet: {
+                            50: '#f0fdfa',
+                            500: '#14b8a6', // Teal medic
+                            600: '#0d9488',
+                            900: '#134e4a', // Dark Teal Text
+                        },
+                        urgent: {
+                            500: '#ef4444', // Red 24hs
+                            600: '#dc2626'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Nunito"', 'system-ui', 'sans-serif'], // Redondeada y amigable
+                        display: ['"Baloo 2"', 'system-ui', 'sans-serif'], // Juguetona para títulos
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Nunito y Baloo 2 para un look amigable ("Claymorphism/Friendly") -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos amigables y redondeados */
+        body { font-family: 'Nunito', sans-serif; }
+        h1, h2, h3, h4, .font-display { font-family: 'Baloo 2', cursive; }
+        
+        .soft-shadow {
+            box-shadow: 0 10px 40px -10px rgba(249, 115, 22, 0.15); /* Sombra naranja suave */
+        }
+        
+        .floating-paw {
+            animation: bounce-paw 3s ease-in-out infinite;
+        }
+        
+        @keyframes bounce-paw {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* Banner de Demo */
+        .demo-bar {
+            background: repeating-linear-gradient(45deg, #0d9488, #0d9488 10px, #14b8a6 10px, #14b8a6 20px);
+            color: #ffffff;
+        }
+
+        .clay-card {
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 8px 8px 16px #e6dfd6, -8px -8px 16px #ffffff;
+            border: 2px solid #fff7ed;
+        }
+        
+        /* 24h pulse animation */
+        .urgent-pulse {
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+    </style>
+</head>
+<body class="bg-pet-50 text-vet-900 antialiased overflow-x-hidden selection:bg-pet-300 selection:text-white">
+
+    <!-- BARRA DE AVISO MODO DEMO -->
+    <div class="demo-bar text-center py-2 text-xs md:text-sm font-bold z-50 relative shadow-md tracking-wide">
+        ⚠️ ATENCIÓN: Página de DEMOSTRACIÓN. Veterinaria y Cuidado Animal. Datos y veterinarios son ficticios.
+    </div>
+
+    <!-- BLOQUE URGENCIA 24HS (Siempre visible top) -->
+    <div class="bg-urgent-600 text-white py-2 px-4 shadow-sm z-50 relative urgent-pulse">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 text-sm font-bold">
+            <span class="flex items-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span class="uppercase tracking-widest">Atención de Urgencia 24/7</span>
+            </span>
+            <span class="hidden sm:inline">|</span>
+            <a href="tel:+5491122334455" class="underline decoration-2 underline-offset-2 hover:text-pet-100 transition-colors">Llamar Ahora al (011) 2233-4455</a>
+        </div>
+    </div>
+
+    <!-- NAVEGACIÓN (Simulada) -->
+    <nav class="sticky top-0 w-full bg-white/90 backdrop-blur-md border-b-2 border-pet-100 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <div class="w-12 h-12 rounded-[1rem] bg-pet-500 flex items-center justify-center text-white soft-shadow group-hover:-translate-y-1 transition-transform">
+                        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.002c-5.268 0-7.85-2.008-8.917-4.102-.338-.667-.323-2.022.032-2.73 1.96-3.921 7.221-5.666 8.885-5.666 1.666 0 6.926 1.745 8.886 5.666.354.708.369 2.063.031 2.73-1.066 2.094-3.648 4.102-8.917 4.102zm-5.772-13.435c-.71-2.222.046-4.502 1.687-5.093 1.641-.59 3.541.733 4.251 2.956.71 2.223-.046 4.502-1.687 5.093-1.64.59-3.54-.733-4.251-2.956zm9.3 2.163c-.708-2.223 1.191-4.546 2.832-5.137 1.64-.59 2.396 1.688 3.106 3.91.71 2.223-1.191 4.545-2.832 5.136-1.64.591-2.396-1.688-3.106-3.909z"></path></svg>
+                    </div>
+                    <span class="font-display font-bold text-2xl text-vet-900 tracking-tight">Patitas<span class="text-pet-500">24Hs</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#servicios" class="text-vet-600 hover:text-pet-600 font-bold transition-colors">Especialidades</a>
+                    <a href="#contacto" class="text-vet-600 hover:text-pet-600 font-bold transition-colors">Turnos</a>
+                </div>
+                <div>
+                    <a href="#contacto" class="bg-vet-500 hover:bg-vet-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 soft-shadow transform hover:scale-105 inline-block">
+                        Agenda tu visita
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Claymorphism/Friendly Pattern) -->
+    <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-pet-50">
+        <!-- Decoraciones de huellas en el fondo -->
+        <div class="absolute top-20 left-10 text-pet-100 opacity-50 transform rotate-12 floating-paw">
+            <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.002c-5.268 0-7.85-2.008-8.917-4.102-.338-.667-.323-2.022.032-2.73 1.96-3.921 7.221-5.666 8.885-5.666 1.666 0 6.926 1.745 8.886 5.666.354.708.369 2.063.031 2.73-1.066 2.094-3.648 4.102-8.917 4.102zm-5.772-13.435c-.71-2.222.046-4.502 1.687-5.093 1.641-.59 3.541.733 4.251 2.956.71 2.223-.046 4.502-1.687 5.093-1.64.59-3.54-.733-4.251-2.956z"></path></svg>
+        </div>
+        <div class="absolute bottom-10 right-20 text-pet-300 opacity-20 transform -rotate-12 floating-paw" style="animation-delay: 1s; transform: scale(1.5);">
+            <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.002c-5.268 0-7.85-2.008-8.917-4.102-.338-.667-.323-2.022.032-2.73 1.96-3.921 7.221-5.666 8.885-5.666 1.666 0 6.926 1.745 8.886 5.666.354.708.369 2.063.031 2.73-1.066 2.094-3.648 4.102-8.917 4.102z"></path></svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="max-w-2xl bg-white/60 p-6 md:p-8 rounded-[2rem] backdrop-blur-sm border-2 border-white">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pet-100 text-pet-600 font-bold mb-6 mx-auto sm:mx-0 shadow-sm border border-pet-300/50">
+                        <span class="w-3 h-3 rounded-full bg-urgent-500 animate-pulse"></span>
+                        Clínica Veterinaria (Demo)
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-display font-extrabold text-vet-900 leading-tight mb-6">
+                        El cuidado que tu <span class="text-pet-500 underline decoration-wavy decoration-pet-300">mejor amigo</span> merece.
+                    </h1>
+                    <p class="text-xl text-vet-600 mb-8 font-semibold leading-relaxed">
+                        (Copia de Venta) Desde chequeos de rutina hasta emergencias 24/7. Transmitimos seguridad y amor por los animales desde el primer vistazo.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="bg-pet-500 hover:bg-pet-600 text-white text-center font-bold text-xl py-4 px-8 rounded-full transition-all duration-300 soft-shadow transform hover:-translate-y-1">
+                            Reservar Turno
+                        </a>
+                        <a href="#servicios" class="bg-white border-2 border-vet-200 hover:border-vet-500 hover:text-vet-600 text-vet-900 text-center font-bold text-xl py-4 px-8 rounded-full transition-all duration-300 shadow-sm">
+                            Conocer Servicios
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative hidden lg:block">
+                    <!-- Placeholder amigable para Veterinaria (Mascota/Perro) -->
+                    <div class="relative w-full aspect-square max-w-md mx-auto z-10">
+                        <!-- Forma "blob" de fondo -->
+                        <div class="absolute inset-0 bg-pet-300 rounded-[35%_65%_60%_40%/40%_50%_50%_60%] shadow-lg transform rotate-3"></div>
+                        <div class="absolute inset-0 bg-vet-500 rounded-[50%_50%_40%_60%/60%_40%_60%_40%] shadow-lg transform -rotate-6 opacity-30"></div>
+                        
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Perrito feliz Demo" class="absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] object-cover rounded-[30%_70%_50%_50%/50%_50%_50%_50%] border-4 border-white soft-shadow z-10 transition-transform duration-700 hover:scale-105">
+                        
+                        <!-- Floating Badge Emergencias -->
+                        <div class="absolute -bottom-4 -left-8 bg-white p-4 rounded-2xl clay-card flex items-center gap-4 z-20 tooltip-bounce">
+                            <div class="bg-urgent-100 text-urgent-600 p-3 rounded-xl">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-vet-600 font-bold uppercase">Emergencias</p>
+                                <p class="text-xl font-display font-extrabold text-urgent-600">Disponibles 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES MOCK (Bento Grid adaptado amigable) -->
+    <section id="servicios" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="inline-flex justify-center items-center w-16 h-16 bg-vet-50 rounded-full text-vet-500 mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-vet-900 mb-4">Todo lo que necesitan para estar sanos y felices</h3>
+                <p class="text-vet-600 font-semibold text-lg">Módulos informativos diseñados con un look "Clay" (blando/redondeado) amigable para dar confianza a dueños de mascotas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Servicio 1: Consultas Generales -->
+                <div class="bg-vet-50 border-4 border-white p-8 rounded-[2rem] clay-card hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-vet-600 mb-6 shadow-sm border border-vet-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-vet-900 mb-2">Clínica General</h4>
+                    <p class="text-vet-700 font-medium mb-4">Chequeos de rutina, vacunación, desparasitación y certificados de salud. La atención preventiva es clave.</p>
+                </div>
+
+                <!-- Servicio 2: Cirugias -->
+                <div class="bg-pet-50 border-4 border-white p-8 rounded-[2rem] clay-card hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-pet-600 mb-6 shadow-sm border border-pet-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-pet-900 mb-2">Cirugía y Quirófano</h4>
+                    <p class="text-pet-700 font-medium mb-4">Quirófanos equipados con tecnología segura, monitoreo constante y anestesia inhalatoria.</p>
+                </div>
+
+                <!-- Servicio 3: Diagnostico -->
+                <div class="bg-blue-50 border-4 border-white p-8 rounded-[2rem] clay-card hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-blue-600 mb-6 shadow-sm border border-blue-100">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zm-7-2v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                    </div>
+                    <h4 class="text-2xl font-display font-bold text-blue-900 mb-2">Diagnóstico por Imagen</h4>
+                    <p class="text-blue-700 font-medium mb-4">Radiografías digitales y ecografías de alta resolución en el acto para evitar tiempos de espera.</p>
+                </div>
+                
+                <!-- Servicio Largo: Peluqueria / Pet Shop -->
+                <div class="md:col-span-2 lg:col-span-3 bg-vet-900 rounded-[2rem] overflow-hidden text-white relative group mt-4">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Peluqueria Canina" class="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                        <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-vet-900 to-transparent"></div>
+                    </div>
+                    <div class="relative z-10 p-10 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                        <div>
+                            <div class="inline-block bg-pet-500 text-white font-bold px-4 py-1 rounded-full text-sm mb-4 uppercase">Nuevo Sector</div>
+                            <h4 class="text-3xl md:text-4xl font-display font-bold mb-3">Peluquería y Baños Spa</h4>
+                            <p class="text-vet-100 font-medium text-lg max-w-xl">Ejemplo de servicio cruzado (Cross-sell). Aseo completo, corte de raza, y deslanado para que vuelvan a casa hermosos.</p>
+                        </div>
+                        <a href="#contacto" class="whitespace-nowrap bg-white text-vet-900 hover:bg-pet-50 font-bold text-lg py-4 px-8 rounded-full transition-transform hover:scale-105 shadow-xl border-4 border-vet-200">
+                            Agendar Baño
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS (Reviews de google / Mascoteros) -->
+    <section id="testimonios" class="py-24 bg-pet-50 border-y-2 border-pet-100 relative overflow-hidden">
+        <div class="absolute inset-y-0 w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiNmZGJhNzQiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+')] z-0"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl md:text-5xl font-display font-bold text-vet-900 mb-4">Familias (De Prueba) Felices</h3>
+                <p class="text-vet-700 font-semibold max-w-2xl mx-auto">Usar testimonios de salvatajes o buenos diagnósticos transmite emociones muy fuertes en el nicho mascotas.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonio Demo 1 -->
+                <div class="bg-white p-8 rounded-[2rem] clay-card relative">
+                    <div class="absolute -top-6 -right-6 text-6xl text-pet-200 font-display">"</div>
+                    <div class="text-pet-500 flex gap-1 mb-4 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-vet-800 font-bold mb-6 relative z-10">"Llegamos de madrugada asustadísimos porque Firulais había comido algo en la calle. Lo atendieron rapidísimo, lo estabilizaron y nos explicaron todo con mucho amor."</p>
+                    <div class="flex items-center gap-3 border-t-2 border-slate-100 pt-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden font-display flex items-center justify-center font-bold text-slate-400 text-xl">F</div>
+                        <div>
+                            <p class="font-bold text-vet-900">Familia Ficticia</p>
+                            <p class="text-sm text-pet-600 font-bold">Urgencia Nocturna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio Demo 2 -->
+                <div class="bg-white p-8 rounded-[2rem] clay-card relative">
+                    <div class="absolute -top-6 -right-6 text-6xl text-pet-200 font-display">"</div>
+                    <div class="text-pet-500 flex gap-1 mb-4 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-vet-800 font-bold mb-6 relative z-10">"Mis tres gatos odian ir al vete, pero la paciencia que tienen los doctores acá es increíble. Ahora entran a los consultorios sin estresarse."</p>
+                    <div class="flex items-center gap-3 border-t-2 border-slate-100 pt-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden font-display flex items-center justify-center font-bold text-slate-400 text-xl">M</div>
+                        <div>
+                            <p class="font-bold text-vet-900">Martín (Demo)</p>
+                            <p class="text-sm text-blue-500 font-bold">Control Anual Felinos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio Demo 3 -->
+                <div class="bg-white p-8 rounded-[2rem] clay-card relative">
+                    <div class="absolute -top-6 -right-6 text-6xl text-pet-200 font-display">"</div>
+                    <div class="text-pet-500 flex gap-1 mb-4 text-xl">
+                        ★★★★★
+                    </div>
+                    <p class="text-vet-800 font-bold mb-6 relative z-10">"Excelente la cirugía, nos mandaron mensajes por WhatsApp para avisar que había salido todo bien. Súper recomendados."</p>
+                    <div class="flex items-center gap-3 border-t-2 border-slate-100 pt-4">
+                        <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden font-display flex items-center justify-center font-bold text-slate-400 text-xl">C</div>
+                        <div>
+                            <p class="font-bold text-vet-900">Camila (Demo)</p>
+                            <p class="text-sm text-vet-500 font-bold">Castración Cast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE RESERVA / CAPTACIÓN -->
+    <section id="contacto" class="pt-24 pb-12 bg-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] border-4 border-pet-100 soft-shadow overflow-hidden flex flex-col md:flex-row shadow-2xl">
+                
+                <!-- Panel Decorativo / Info -->
+                <div class="md:w-5/12 bg-vet-600 text-white p-10 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-20 -top-20 opacity-10">
+                        <svg class="w-96 h-96" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.002c-5.268 0-7.85-2.008-8.917-4.102-.338-.667-.323-2.022.032-2.73 1.96-3.921 7.221-5.666 8.885-5.666 1.666 0 6.926 1.745 8.886 5.666.354.708.369 2.063.031 2.73-1.066 2.094-3.648 4.102-8.917 4.102z"></path></svg>
+                    </div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-4xl font-display font-bold mb-4">Agendá una consulta</h3>
+                        <p class="text-vet-100 font-medium mb-8 text-lg">Dejanos los datos de tu peludo y coordinamos el horario que más te convenga (Flujo Simulado).</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4 bg-vet-700/50 p-4 rounded-2xl border border-vet-500/30">
+                                <div class="bg-pet-500 text-white p-2 rounded-xl">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                                </div>
+                                <p class="font-bold text-lg">Calle Ficticia 888, Zona Mascotera</p>
+                            </div>
+                            
+                            <!-- Banner de Emergencia recordatorio en el form -->
+                            <div class="mt-8 border-2 border-urgent-500 bg-urgent-600/20 p-4 rounded-2xl text-center">
+                                <p class="text-xs uppercase tracking-widest font-bold text-urgent-100 mb-1">¿Es una Emergencia?</p>
+                                <p class="font-bold">No llenes este formulario. <br><a href="tel:000" class="text-white underline">Llamanos al instante.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario Form -->
+                <div class="md:w-7/12 p-8 md:p-12 bg-white">
+                    <form id="leadForm" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="owner" class="block text-sm font-bold text-vet-800 mb-2">Tu Nombre</label>
+                                <input type="text" id="owner" required class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:ring-0 focus:border-pet-500 outline-none transition-colors font-bold text-vet-900" placeholder="Ej. Ana">
+                            </div>
+                            <div>
+                                <label for="pet" class="block text-sm font-bold text-vet-800 mb-2">Nombre de la Mascota</label>
+                                <input type="text" id="pet" required class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:ring-0 focus:border-pet-500 outline-none transition-colors font-bold text-vet-900" placeholder="Ej. Toto / Gato">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-bold text-vet-800 mb-2">Teléfono de Contacto</label>
+                            <input type="tel" id="phone" required class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:ring-0 focus:border-pet-500 outline-none transition-colors font-bold text-vet-900" placeholder="+54 9 11...">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-bold text-vet-800 mb-2">¿Qué le sucede? (Consulta)</label>
+                            <textarea id="message" rows="3" required class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:ring-0 focus:border-pet-500 outline-none transition-colors font-bold text-vet-900 resize-none" placeholder="Tengo que colocarle la vacuna quíntuple..."></textarea>
+                        </div>
+                        
+                        <button type="submit" id="submitBtn" class="w-full bg-pet-500 hover:bg-pet-600 text-white font-display font-bold text-2xl py-4 px-6 rounded-2xl transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-3 shadow-lg mt-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.002c-5.268 0-7.85-2.008-8.917-4.102-.338-.667-.323-2.022.032-2.73 1.96-3.921 7.221-5.666 8.885-5.666 1.666 0 6.926 1.745 8.886 5.666.354.708.369 2.063.031 2.73-1.066 2.094-3.648 4.102-8.917 4.102z"></path></svg>
+                            <span>Solicitar Turno</span>
+                        </button>
+                    </form>
+
+                    <!-- Mensaje de Éxito (Oculto por defecto) -->
+                    <div id="successMessage" class="hidden h-full flex flex-col items-center justify-center text-center py-8">
+                        <div class="w-24 h-24 bg-pet-100 text-pet-600 rounded-full flex items-center justify-center mb-6 mx-auto animate-bounce">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h4 class="text-3xl font-display font-bold text-vet-900 mb-3">¡Guau! Mensaje Enviado</h4>
+                        <p class="text-vet-600 mb-8 font-bold text-lg">Procesamos el pedido correctamente (simulación). Un veterinario se pondrá en contacto pronto.</p>
+                        <button onclick="resetForm()" class="bg-slate-100 text-slate-600 py-3 px-6 rounded-xl font-bold hover:bg-slate-200 transition-colors">Volver a intentar probar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER DEMO -->
+    <footer class="bg-vet-900 pt-16 pb-8 border-t-8 border-pet-500">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-display font-bold text-4xl text-white tracking-wide mb-6 inline-block">Patitas<span class="text-pet-500">24Hs</span></span>
+            <p class="mb-4 text-white/80 font-bold">Template Veterinario armado por <span class="text-white">Juanchi Dev</span>.</p>
+            <p class="text-sm font-medium text-white/50 max-w-2xl mx-auto leading-relaxed mt-8 bg-black/10 p-4 rounded-xl border border-white/10">Aviso legal mock: Esta es una página comercial de prototipado para el rubro veterinario y pet-shops. No atiende emergencias reales ni existen clínicas físicas asociadas a esta demo.</p>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP (Configurable por variable) -->
+    <!-- Variables de configuración -->
+    <script>
+        // CONFIGURACIÓN: Modifique este número para la DEMO
+        const CONFIG = {
+            whatsappNumber: "5491122334455", // Reemplace por el número deseado (sin + y con código de país)
+            defaultMessage: "Hola Patitas 24Hs! Estaba en el sitio web DEMO y quería averiguar por la atención de mi mascota."
+        };
+    </script>
+    <a id="waButton" href="#" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-[1.5rem] flex items-center justify-center soft-shadow hover:-translate-y-2 transition-transform duration-300 z-50 border-4 border-white shadow-xl hover:rotate-6">
+        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.786 5.768.019 3.181 2.605 5.767 5.786 5.768 3.181 0 5.767-2.586 5.786-5.768-.019-3.181-2.605-5.767-5.786-5.768zm3.328 8.35c-.14.394-.813.766-1.141.815-.316.049-.757.147-2.144-.457-1.664-.72-2.733-2.427-2.815-2.535-.083-.108-.671-.892-.676-1.701-.005-.81.423-1.218.572-1.378.149-.16.326-.2.443-.2.116 0 .233.004.335.008.106.005.25-.044.39.297.145.35.495 1.212.54 1.306.044.094.073.204.015.321-.059.117-.087.19-.175.292-.087.102-.185.228-.261.312-.083.092-.172.193-.075.362.097.17.433.717.929 1.163.642.576 1.177.755 1.346.845.169.09.268.078.367-.034.1-.113.433-.505.549-.68.117-.175.233-.146.39-.087.158.059 1.002.472 1.173.558.17.086.284.128.326.198.043.07.043.398-.097.792z" fill-rule="evenodd" clip-rule="evenodd" /><path d="M12.033 24c2.815 0 5.488-1.077 7.505-3.042C21.507 18.94 22.545 16.321 22.545 13.56c0-6.425-5.323-11.644-11.875-11.644C4.116 1.916-1.206 7.135-1.206 13.56c0 2.228.663 4.417 1.912 6.29L0 24l4.314-1.121c1.801 1.118 3.868 1.706 5.992 1.706h.001c.58 0 1.157-.032 1.726-.095zm0-20.081c5.311 0 9.63 4.246 9.63 9.46 0 2.525-.998 4.897-2.814 6.685-1.815 1.787-4.226 2.774-6.816 2.774h-.001c-1.807 0-3.578-.45-5.132-1.3l-.368-.201-3.812.989.99-3.644-.221-.345A9.227 9.227 0 012.4 13.379c0-5.214 4.319-9.46 9.633-9.46z"/></svg>
+    </a>
+
+    <!-- LÓGICA DE INTERACCIÓN (JS Mínimo Integrado para simular experiencia de turnos) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. WhatsApp Button Link Builder
+            const waButton = document.getElementById('waButton');
+            const encodedMessage = encodeURIComponent(CONFIG.defaultMessage);
+            waButton.href = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedMessage}`;
+
+            // 2. Form Submission Simulation
+            const form = document.getElementById('leadForm');
+            const successMsg = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Animación de carga mock juguetona
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Anotando...
+                `;
+                submitBtn.disabled = true;
+
+                // Simular request
+                setTimeout(() => {
+                    form.style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                    
+                    // Reset boton para la próxima
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    form.reset();
+                }, 1400);
+            });
+        });
+
+        // 3. Reset Form Function
+        function resetForm() {
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('leadForm').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

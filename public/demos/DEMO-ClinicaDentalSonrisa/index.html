@@ -1,0 +1,340 @@
+﻿<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEMO: Clinica Dental Sonrisa | Turnos por WhatsApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              dental: {
+                50: "#f4fbff",
+                100: "#e8f6ff",
+                200: "#cfeeff",
+                500: "#0ea5e9",
+                600: "#0284c7",
+                700: "#0369a1",
+                900: "#0f2942",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Outfit", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Outfit", sans-serif;
+      }
+
+      .soft-shadow {
+        box-shadow: 0 18px 45px -20px rgba(15, 41, 66, 0.45);
+      }
+
+      .demo-bar {
+        background: repeating-linear-gradient(
+          45deg,
+          #0f2942,
+          #0f2942 10px,
+          #0369a1 10px,
+          #0369a1 20px
+        );
+      }
+
+      .grid-pattern {
+        background-image: radial-gradient(circle at 1px 1px, rgba(14, 165, 233, 0.13) 1px, transparent 0);
+        background-size: 20px 20px;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+    <div class="demo-bar text-white text-center py-2 text-sm font-semibold">
+      ATENCION: DEMO comercial. Testimonios y datos son ficticios para demostracion.
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="#inicio" class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-xl bg-dental-600 text-white grid place-content-center soft-shadow">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 3c2.5 0 4.5 2 4.5 4.5v3.2c0 3.6-1.9 7-4.5 10.3-2.6-3.3-4.5-6.7-4.5-10.3V7.5C7.5 5 9.5 3 12 3z" />
+            </svg>
+          </span>
+          <span class="font-display text-xl font-bold tracking-tight" data-config="clinicName">Clinica Dental Sonrisa</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#tratamientos" class="hover:text-dental-700 transition-colors">Tratamientos</a>
+          <a href="#beneficios" class="hover:text-dental-700 transition-colors">Beneficios</a>
+          <a href="#contacto" class="hover:text-dental-700 transition-colors">Contacto</a>
+        </div>
+        <a data-wa-link href="#" class="bg-[#25D366] hover:brightness-95 text-white text-sm font-bold py-2.5 px-5 rounded-xl transition-all soft-shadow">
+          WhatsApp
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-white via-dental-50 to-slate-100"></div>
+        <div class="absolute inset-0 grid-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <p class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-dental-700 bg-dental-100 px-3 py-1 rounded-full mb-5">
+                Turnos rapidos en <span data-config="city">Tu Ciudad</span>
+              </p>
+              <h1 class="text-4xl md:text-5xl xl:text-6xl font-display font-extrabold text-slate-900 leading-tight mb-5">
+                Odontologia estetica para volver a sonreir con seguridad.
+              </h1>
+              <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+                Atencion profesional para adolescentes y adultos, con enfoque en resultados visibles y comodidad desde la primera consulta.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a data-wa-link href="#" class="bg-dental-600 hover:bg-dental-700 text-white text-center font-bold py-3.5 px-7 rounded-2xl transition-all soft-shadow">
+                  Solicitar turno por WhatsApp
+                </a>
+                <a href="#tratamientos" class="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 text-center font-semibold py-3.5 px-7 rounded-2xl transition-colors">
+                  Ver tratamientos
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="rounded-3xl overflow-hidden border border-slate-200 bg-white soft-shadow">
+                <img
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80"
+                  alt="Consultorio dental profesional"
+                  class="w-full h-[300px] sm:h-[380px] object-cover"
+                />
+              </div>
+              <div class="hidden sm:flex absolute -bottom-6 -left-4 bg-white border border-slate-200 rounded-2xl px-4 py-3 items-center gap-3 soft-shadow">
+                <span class="w-9 h-9 rounded-xl bg-dental-100 text-dental-700 grid place-content-center">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14" /></svg>
+                </span>
+                <div>
+                  <p class="text-xs text-slate-500 font-semibold">Evaluacion inicial</p>
+                  <p class="text-sm font-bold text-slate-800">Sin costo en DEMO</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tratamientos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl mb-12">
+            <p class="text-sm font-bold uppercase tracking-widest text-dental-700 mb-2">Tratamientos</p>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">Servicios mas consultados en clinica dental</h2>
+            <p class="text-slate-600">Seccion lista para adaptar segun el perfil del cliente y ticket objetivo.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <article class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <h3 class="text-xl font-display font-bold mb-2">Ortodoncia</h3>
+              <p class="text-slate-600 text-sm">Alineacion dental con plan personalizado y controles periodicos.</p>
+            </article>
+            <article class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <h3 class="text-xl font-display font-bold mb-2">Blanqueamiento dental</h3>
+              <p class="text-slate-600 text-sm">Protocolos seguros para mejorar el tono de la sonrisa en pocas sesiones.</p>
+            </article>
+            <article class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <h3 class="text-xl font-display font-bold mb-2">Implantes</h3>
+              <p class="text-slate-600 text-sm">Rehabilitacion funcional y estetica para piezas perdidas.</p>
+            </article>
+            <article class="p-6 rounded-2xl border border-slate-200 bg-slate-50">
+              <h3 class="text-xl font-display font-bold mb-2">Limpieza y prevencion</h3>
+              <p class="text-slate-600 text-sm">Controles preventivos para mantener salud bucal y evitar urgencias.</p>
+            </article>
+            <article class="p-6 rounded-2xl border border-slate-200 bg-slate-50 sm:col-span-2 lg:col-span-2">
+              <h3 class="text-xl font-display font-bold mb-2">Urgencias y dolor</h3>
+              <p class="text-slate-600 text-sm">Atencion prioritaria para cuadros de dolor, infecciones o traumatismos dentales.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="beneficios" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <p class="text-sm font-bold uppercase tracking-widest text-dental-200 mb-2">Confianza</p>
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Por que elegir esta propuesta dental</h2>
+            <p class="text-slate-300">Bloque simple para resolver objeciones antes de pedir turno.</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><span class="mt-1 text-dental-300">•</span><span>Atencion profesional con explicaciones claras en cada paso.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-dental-300">•</span><span>Turnos rapidos por WhatsApp y confirmacion inmediata.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-dental-300">•</span><span>Ubicacion accesible y horarios extendidos.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-dental-300">•</span><span>Opciones de financiacion y medios de pago digitales.</span></li>
+            <li class="flex items-start gap-3"><span class="mt-1 text-dental-300">•</span><span>Tecnologia actual para diagnostico y tratamiento.</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="testimonios" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">Pacientes que recomiendan la atencion</h2>
+            <p class="inline-block text-sm font-bold text-amber-900 bg-amber-100 border border-amber-200 px-3 py-1 rounded-full">Testimonios de demostracion</p>
+          </div>
+          <div class="grid md:grid-cols-3 gap-5">
+            <article class="bg-white border border-slate-200 p-6 rounded-2xl soft-shadow">
+              <p class="text-slate-700 mb-4">"Me atendieron rapido por dolor y en la misma consulta me explicaron el tratamiento completo."</p>
+              <p class="text-sm font-semibold text-slate-500">Paciente DEMO 1</p>
+            </article>
+            <article class="bg-white border border-slate-200 p-6 rounded-2xl soft-shadow">
+              <p class="text-slate-700 mb-4">"Inicie blanqueamiento y ortodoncia con facilidades de pago. Muy buena experiencia general."</p>
+              <p class="text-sm font-semibold text-slate-500">Paciente DEMO 2</p>
+            </article>
+            <article class="bg-white border border-slate-200 p-6 rounded-2xl soft-shadow">
+              <p class="text-slate-700 mb-4">"El equipo transmite confianza y la clinica esta muy bien equipada. Volveria a atenderme."</p>
+              <p class="text-sm font-semibold text-slate-500">Paciente DEMO 3</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="formulario" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-2 rounded-3xl border border-slate-200 overflow-hidden soft-shadow">
+            <div class="p-8 sm:p-10 bg-dental-700 text-white">
+              <h2 class="text-3xl font-display font-bold mb-3">Solicita tu consulta</h2>
+              <p class="text-dental-100 mb-6">Formulario DEMO de captacion. Ideal para conectar con CRM o WhatsApp en personalizacion final.</p>
+              <div class="space-y-4 text-sm">
+                <p><strong>Direccion:</strong> <span data-config="address">Av. Central 123</span></p>
+                <p><strong>Horario:</strong> <span data-config="schedule">Lun a Vie 09:00 a 19:00</span></p>
+              </div>
+            </div>
+            <div class="p-8 sm:p-10 bg-white">
+              <form id="leadForm" class="space-y-4">
+                <div>
+                  <label for="nombre" class="block text-sm font-semibold text-slate-700 mb-1">Nombre</label>
+                  <input id="nombre" name="nombre" type="text" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="Tu nombre" />
+                </div>
+                <div>
+                  <label for="telefono" class="block text-sm font-semibold text-slate-700 mb-1">Telefono / WhatsApp</label>
+                  <input id="telefono" name="telefono" type="tel" required class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dental-500" placeholder="Tu telefono" />
+                </div>
+                <div>
+                  <label for="mensaje" class="block text-sm font-semibold text-slate-700 mb-1">Mensaje</label>
+                  <textarea id="mensaje" name="mensaje" rows="4" class="w-full border border-slate-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-dental-500 resize-none" placeholder="Contanos que tratamiento te interesa"></textarea>
+                </div>
+                <button id="submitBtn" type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-colors">
+                  Enviar consulta
+                </button>
+                <p id="formFeedback" class="hidden text-sm font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
+                  Envio simulado: consulta recibida correctamente en modo DEMO.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-gradient-to-r from-dental-700 to-dental-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Tu nueva sonrisa puede empezar hoy</h2>
+          <a data-wa-link href="#" class="inline-block bg-white text-dental-700 hover:bg-slate-100 font-bold py-3.5 px-8 rounded-2xl transition-colors">
+            Solicitar turno por WhatsApp
+          </a>
+        </div>
+      </section>
+
+      <section id="contacto" class="py-16 bg-slate-900 text-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-start">
+          <div>
+            <h2 class="text-2xl font-display font-bold text-white mb-3">Contacto y ubicacion</h2>
+            <p class="text-slate-300 mb-4"><strong>Clinica:</strong> <span data-config="clinicName">Clinica Dental Sonrisa</span></p>
+            <p class="text-slate-300 mb-2"><strong>Direccion:</strong> <span data-config="address">Av. Central 123</span></p>
+            <p class="text-slate-300 mb-2"><strong>Horario:</strong> <span data-config="schedule">Lun a Vie 09:00 a 19:00</span></p>
+            <p class="text-slate-300"><strong>Telefono:</strong> <span data-config="phoneDisplay">+54 9 11 2233 4455</span></p>
+          </div>
+          <div class="md:text-right">
+            <a data-wa-link href="#" class="inline-block bg-[#25D366] hover:brightness-95 text-white font-bold py-3.5 px-8 rounded-2xl transition-all soft-shadow">
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a
+      data-wa-link
+      href="#"
+      class="fixed bottom-5 right-5 w-14 h-14 rounded-full bg-[#25D366] text-white grid place-content-center shadow-xl z-50"
+      aria-label="Abrir WhatsApp"
+    >
+      <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.52 3.48A11.74 11.74 0 0012.17 0C5.55 0 .17 5.38.17 12c0 2.1.55 4.16 1.58 5.97L0 24l6.2-1.63A11.95 11.95 0 0012.17 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.65-8.52zM12.17 21.86a9.8 9.8 0 01-4.99-1.37l-.36-.21-3.67.96.98-3.58-.23-.37A9.8 9.8 0 1121.96 12a9.79 9.79 0 01-9.79 9.86zm5.38-7.33c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.9 1.13-.17.19-.33.22-.62.07-.29-.15-1.2-.44-2.28-1.39-.84-.75-1.41-1.68-1.58-1.97-.17-.29-.02-.45.13-.6.13-.13.29-.33.44-.49.15-.17.19-.29.29-.49.1-.19.05-.37-.02-.52-.07-.15-.64-1.53-.87-2.1-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.37-.26.29-.98.96-.98 2.34 0 1.38 1 2.72 1.14 2.9.13.19 1.97 3.01 4.77 4.23.67.29 1.2.46 1.61.59.68.22 1.29.19 1.78.11.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z" />
+      </svg>
+    </a>
+
+    <script>
+      const CONFIG = {
+        clinicName: "Clinica Dental Sonrisa",
+        city: "CABA",
+        address: "Av. Corrientes 1452, CABA",
+        schedule: "Lunes a Viernes 09:00 a 19:00",
+        phoneDisplay: "+54 9 11 2233 4455",
+        whatsappNumber: "5491122334455",
+        whatsappMessage: "Hola, quiero solicitar un turno en Clinica Dental Sonrisa.",
+      };
+
+      function applyConfig() {
+        document.querySelectorAll("[data-config]").forEach((node) => {
+          const key = node.getAttribute("data-config");
+          if (Object.prototype.hasOwnProperty.call(CONFIG, key)) {
+            node.textContent = CONFIG[key];
+          }
+        });
+
+        const waUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+        document.querySelectorAll("[data-wa-link]").forEach((node) => {
+          node.setAttribute("href", waUrl);
+          node.setAttribute("target", "_blank");
+          node.setAttribute("rel", "noopener noreferrer");
+        });
+      }
+
+      function setupFormDemo() {
+        const form = document.getElementById("leadForm");
+        const btn = document.getElementById("submitBtn");
+        const feedback = document.getElementById("formFeedback");
+
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          btn.disabled = true;
+          btn.textContent = "Enviando...";
+
+          setTimeout(() => {
+            feedback.classList.remove("hidden");
+            form.reset();
+            btn.disabled = false;
+            btn.textContent = "Enviar consulta";
+          }, 900);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        applyConfig();
+        setupFormDemo();
+      });
+    </script>
+  </body>
+</html>

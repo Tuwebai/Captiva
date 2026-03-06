@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DEMO: Altos del Parque | Desarrollo Inmobiliario</title>
+    <!-- Tailwind CSS (Stack base del repositorio UI UX Pro Max) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Configuración centralizada Real Estate (White-label ready)
+      const REAL_ESTATE_CONFIG = {
+        name: "Altos del Parque",
+        developer: "Grupo Desarrollador XYZ",
+        slogan: "Arquitectura que eleva tu calidad de vida.",
+        address: "Av. Libertador 1234, CABA",
+        whatsapp: "5491100000000",
+        ctaMain: "Descargar Brochure",
+        ctaSecondary: "Agendar Visita al Showroom",
+        externalLink: "https://altosdelparque.demo",
+        externalLinkText: "altosdelparque.demo",
+      };
+
+      // Adaptación del theme del repo UI UX Pro Max al nicho "Real Estate High-Ticket"
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              re: {
+                // Backgrounds oscuros y limpios
+                50: "#f8fafc",
+                100: "#f1f5f9",
+                800: "#1e293b",
+                900: "#0f172a", // Slate muy oscuro
+                950: "#020617",
+              },
+              accent: {
+                // Oro / Champagne (Típico de real estate premium)
+                400: "#fcd34d",
+                500: "#d4af37", // Gold
+                600: "#b45309",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Outfit", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+      body { font-family: "Inter", sans-serif; }
+      h1, h2, h3, h4, .font-display { font-family: "Outfit", sans-serif; }
+      
+      .shadow-glow { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+      .glass-dark { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+      
+      /* Animaciones */
+      .floating-element { animation: float 6s ease-in-out infinite; }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+    </style>
+  </head>
+  <body class="bg-re-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- BARRA DE AVISO MODO DEMO -->
+    <div class="bg-accent-500 text-re-950 text-center py-2 text-sm font-bold tracking-widest uppercase z-50 relative shadow-md">
+      ⚠️ DEMO COMERCIAL: Desarrollo Inmobiliario "Altos del Parque"
+    </div>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="absolute top-8 w-full z-40">
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="w-10 h-10 border-2 border-accent-500 flex items-center justify-center text-accent-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <span class="font-display font-black text-xl text-white uppercase tracking-widest" data-config="name">Altos del Parque</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#proyecto" class="text-slate-300 hover:text-accent-500 font-bold tracking-widest uppercase text-xs transition-colors">El Proyecto</a>
+          <a href="#amenities" class="text-slate-300 hover:text-accent-500 font-bold tracking-widest uppercase text-xs transition-colors">Amenities</a>
+          <a href="#galeria" class="text-slate-300 hover:text-accent-500 font-bold tracking-widest uppercase text-xs transition-colors">Galería</a>
+          <a href="#contacto" class="bg-accent-500 hover:bg-accent-400 text-re-950 font-black uppercase tracking-widest py-2 px-6 rounded transition-all text-xs border border-accent-400">Descargar Precios</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1. HERO ASIMÉTRICO PREMIUM (Adaptado para Real Estate) -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-re-950 border-b border-re-800">
+      <!-- Decoración de fondo -->
+      <div class="absolute inset-0 z-0 opacity-10" style="background-image: repeating-linear-gradient(-45deg, #cbd5e1 0, #cbd5e1 1px, transparent 1px, transparent 10px);"></div>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-500 rounded-full mix-blend-screen filter blur-[200px] opacity-10 z-0"></div>
+
+      <div class="max-w-7xl mx-auto px-6 w-full relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+        <!-- FLANCO IZQUIERDO: Copywriting -->
+        <div class="pt-24 lg:pt-0">
+          <div class="inline-flex items-center gap-3 px-4 py-2 rounded border border-re-800 bg-re-900/80 mb-8 backdrop-blur-sm">
+            <span class="w-2 h-2 rounded-full bg-accent-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-slate-300 uppercase tracking-widest">Preventa Exclusiva en Pozo</span>
+          </div>
+          
+          <h1 class="text-5xl lg:text-7xl font-display font-light text-white leading-[1.1] tracking-tight mb-6">
+            Invertí Inteligente.<br><span class="font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-400 to-accent-600">Viví Distinto.</span>
+          </h1>
+          
+          <p class="text-xl text-slate-400 mb-10 font-normal max-w-lg leading-relaxed">
+            Departamentos premium de 2 a 4 ambientes en el corazón de la ciudad. Conectá con la naturaleza sin perder el ritmo urbano. <strong>Financiación a medida en cuotas sin interés.</strong>
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#contacto" class="inline-flex justify-center items-center text-re-950 bg-accent-500 hover:bg-accent-400 font-black uppercase tracking-widest px-8 py-4 rounded transition-all duration-300 shadow-glow text-sm">
+              Descargar Brochure y Planos
+            </a>
+            <a href="#galeria" class="inline-flex justify-center items-center text-white bg-transparent hover:bg-re-800 border border-slate-600 font-bold uppercase tracking-widest px-8 py-4 rounded transition-colors text-sm">
+              Ver Renders
+            </a>
+          </div>
+        </div>
+
+        <!-- FLANCO DERECHO: Visual Placeholder con Badge Flotante -->
+        <div class="relative hidden lg:block h-[700px] rounded-xl border border-re-800 bg-re-900 overflow-hidden group">
+          <!-- Imaginary image placeholder: Exterior de edificio moderno -->
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Altos del Parque Fachada" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-1000" />
+          <div class="absolute inset-0 bg-gradient-to-t from-re-950 via-transparent to-transparent opacity-80"></div>
+          
+          <!-- Badge Flotante de Autoridad -->
+          <div class="absolute bottom-12 right-12 glass-dark p-6 rounded-xl flex items-center gap-5 floating-element">
+            <div class="w-14 h-14 rounded bg-accent-500 flex items-center justify-center text-re-950 font-black text-xl">
+              36
+            </div>
+            <div>
+              <p class="text-white font-bold text-lg leading-tight uppercase">Cuotas<br>Fijas</p>
+              <p class="text-accent-500 text-xs font-bold tracking-widest uppercase mt-1">En Pesos o USD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BLOQUE DE BENEFICIOS (Metodología 3/4 Cols) -->
+    <section id="proyecto" class="py-24 bg-white border-b border-re-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-accent-600 font-bold tracking-widest uppercase mb-3 text-sm">El Desarrollo</h2>
+          <h3 class="text-4xl md:text-5xl font-display font-black text-re-950 mb-4 tracking-tight uppercase">Por qué elegir Altos del Parque</h3>
+          <p class="text-slate-600 font-medium text-lg">Un proyecto pensado para maximizar tu rentabilidad y confort, respaldado por la trayectoria del <strong class="text-re-950" data-config="developer">Grupo XYZ</strong>.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Beneficio 1 -->
+          <div class="bg-re-50 p-8 rounded-2xl border border-re-100 hover:border-accent-300 transition-colors">
+            <div class="w-12 h-12 bg-white shadow text-accent-500 rounded flex items-center justify-center mb-6 border border-slate-100">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-black text-re-950 mb-3 uppercase">Ubicación Estratégica</h4>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">A metros del Shopping, con acceso inmediato a avenidas principales y rodeado del polo gastronómico de moda.</p>
+          </div>
+          <!-- Beneficio 2 -->
+          <div class="bg-re-50 p-8 rounded-2xl border border-re-100 hover:border-accent-300 transition-colors">
+            <div class="w-12 h-12 bg-white shadow text-accent-500 rounded flex items-center justify-center mb-6 border border-slate-100">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-black text-re-950 mb-3 uppercase">Calidad Constructiva</h4>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">Materiales nobles, doble vidriado hermético (DVH), losa radiante individual y terminaciones de primera línea.</p>
+          </div>
+          <!-- Beneficio 3 -->
+          <div class="bg-re-950 p-8 rounded-2xl border border-accent-500 text-white shadow-xl transform lg:-translate-y-4">
+            <div class="w-12 h-12 bg-accent-500 text-re-950 rounded flex items-center justify-center mb-6">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-black text-white mb-3 uppercase">Financiación Propia</h4>
+            <p class="text-slate-400 text-sm font-normal leading-relaxed">Anticipo del 30% en dólares y saldo en hasta 36 cuotas ajustadas por CAC. Sin intervención bancaria.</p>
+          </div>
+          <!-- Beneficio 4 -->
+          <div class="bg-re-50 p-8 rounded-2xl border border-re-100 hover:border-accent-300 transition-colors">
+            <div class="w-12 h-12 bg-white shadow text-accent-500 rounded flex items-center justify-center mb-6 border border-slate-100">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <h4 class="text-xl font-display font-black text-re-950 mb-3 uppercase">Entrega Garantizada</h4>
+            <p class="text-slate-500 text-sm font-medium leading-relaxed">Posesión estimada para Diciembre 2026. Avance de obra documentado mensualmente para los inversores.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GALERÍA DE RENDERS (Grid limpio) & AMENITIES-->
+    <section id="galeria" class="py-24 bg-re-50 border-b border-re-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <!-- Lado Izquierdo: Amenities Texto e Iconos -->
+          <div class="lg:col-span-4" id="amenities">
+            <h2 class="text-accent-600 font-bold tracking-widest uppercase mb-3 text-sm">Resort Living</h2>
+            <h3 class="text-4xl font-display font-black text-re-950 mb-6 tracking-tight uppercase">Amenities de 1er Nivel</h3>
+            <p class="text-slate-600 font-medium mb-10">Más de 500m2 destinados al ocio, el deporte y el relax sin salir de tu hogar.</p>
+
+            <ul class="space-y-6">
+              <li class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded flex items-center justify-center text-accent-500 shrink-0 shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span class="text-re-900 font-bold">Piscina Climatizada in/out</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded flex items-center justify-center text-accent-500 shrink-0 shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <span class="text-re-900 font-bold">SUM totalmente equipado</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded flex items-center justify-center text-accent-500 shrink-0 shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></div>
+                <span class="text-re-900 font-bold">Gimnasio High-tech</span>
+              </li>
+              <li class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded flex items-center justify-center text-accent-500 shrink-0 shadow-sm"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                <span class="text-re-900 font-bold">Seguridad 24hs y CCTV</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lado Derecho: Grid Galería Renders -->
+          <div class="lg:col-span-8 grid grid-cols-2 gap-4">
+            <!-- Render 1 - Living -->
+            <div class="col-span-2 md:col-span-2 aspect-[16/9] rounded-xl overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Living Luminoso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <!-- Render 2 - Dormitorio -->
+            <div class="col-span-1 rounded-xl overflow-hidden aspect-square group">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Master Suite" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <!-- Render 3 - Cocina / Amenity -->
+            <div class="col-span-1 rounded-xl overflow-hidden aspect-square group">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cocinas Equipadas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BLOQUE DE CONFIANZA / TRAYECTORIA (Marquee opcional pero text-based) -->
+    <section class="py-16 bg-re-950 border-b border-re-900">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-re-800">
+        <div class="py-4">
+          <p class="text-4xl font-display font-black text-accent-500 mb-2">+15</p>
+          <p class="text-white font-bold uppercase tracking-widest text-xs">Años de Trayectoria</p>
+        </div>
+        <div class="py-4">
+          <p class="text-4xl font-display font-black text-accent-500 mb-2">+80.000</p>
+          <p class="text-white font-bold uppercase tracking-widest text-xs">m2 construidos</p>
+        </div>
+        <div class="py-4">
+          <p class="text-4xl font-display font-black text-accent-500 mb-2">100%</p>
+          <p class="text-white font-bold uppercase tracking-widest text-xs">Cumplimiento de plazos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FORMULARIO DE CONVERSIÓN (Usando el form-whatsapp adaptado a Real Estate) -->
+    <section id="contacto" class="py-24 bg-slate-100 relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <div class="bg-white rounded-3xl p-8 lg:p-16 shadow-xl flex flex-col lg:flex-row gap-16 border border-slate-200">
+          
+          <!-- Lado Izquierdo: Motivador -->
+          <div class="lg:w-5/12">
+            <h2 class="text-4xl font-display font-black text-re-950 tracking-tight leading-tight mb-6 uppercase">
+              Recibí el <span class="text-accent-600">Brochure Oficial.</span>
+            </h2>
+            <p class="text-slate-600 font-medium mb-8 leading-relaxed">
+              Dejanos tus datos para enviarte el dossier completo en PDF, que incluye planos detallados, lista de precios actualizados y disponibilidad de unidades.
+            </p>
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-re-50 rounded border border-slate-200 flex items-center justify-center text-accent-600">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Email Comercial</p>
+                  <p class="text-re-950 font-bold">ventas@altosdelparque.demo</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-re-50 rounded border border-slate-200 flex items-center justify-center text-accent-600">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.082 21.43c-1.636 0-3.155-.411-4.48-1.124l-4.991 1.31 1.332-4.866c-.791-1.373-1.242-2.961-1.242-4.646 0-5.12 4.159-9.278 9.278-9.278s9.278 4.159 9.278 9.278-4.159 9.278-9.278 9.278z"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs text-slate-400 font-bold uppercase tracking-widest">Asesor Comercial</p>
+                  <p class="text-re-950 font-bold">+5491100000000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Formulario -->
+          <div class="lg:w-7/12">
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Modo DEMO: Solicitud de Brochure recibida. Una redirección ocurriría al PDF.'); this.reset();">
+              <div class="grid grid-cols-1 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Nombre y Apellido</label>
+                  <input type="text" required class="w-full px-5 py-4 rounded border border-slate-300 bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300 font-medium" placeholder="Juan Perez">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">WhatsApp / Teléfono</label>
+                  <input type="tel" required class="w-full px-5 py-4 rounded border border-slate-300 bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300 font-medium" placeholder="+54 9...">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Email</label>
+                  <input type="email" required class="w-full px-5 py-4 rounded border border-slate-300 bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300 font-medium" placeholder="juan@mail.com">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Unidad de interés</label>
+                  <select class="w-full px-5 py-4 rounded border border-slate-300 bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 outline-none transition-all duration-300 font-medium text-slate-600 appearance-none cursor-pointer">
+                    <option value="" disabled selected>Selecciona una opción...</option>
+                    <option value="2">2 Ambientes</option>
+                    <option value="3">3 Ambientes</option>
+                    <option value="4">4 Ambientes con terraza</option>
+                    <option value="inversion">Consultar por Inversión Múltiple</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="w-full mt-2 bg-accent-500 hover:bg-accent-400 text-re-950 font-black uppercase tracking-widest py-5 rounded transition-all shadow-glow text-lg">
+                Descargar Brochure (PDF)
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FOOTER ULTRA MINIMALISTA (Estilo Carbon modificado) -->
+    <footer class="bg-re-950 pt-16 pb-8 border-t border-re-900">
+      <div class="max-w-7xl mx-auto px-6 text-center md:text-left">
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          
+          <!-- Info Col -->
+          <div>
+            <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+              <div class="w-8 h-8 border border-accent-500 flex items-center justify-center text-accent-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+              </div>
+              <span class="font-display font-black text-white text-lg tracking-widest uppercase">Altos del Parque</span>
+            </div>
+            <p class="text-slate-400 font-medium max-w-sm mx-auto md:mx-0 text-sm">Desarrollado y comercializado en exclusiva por <strong class="text-white" data-config="developer">Grupo XYZ</strong>. Las imágenes son ilustrativas y no constituyen compromiso contractual.</p>
+          </div>
+
+          <!-- Contacto Directo Cierre -->
+          <div class="flex flex-col md:items-end justify-center">
+            <h5 class="text-white font-bold tracking-widest uppercase mb-4 text-sm">¿Dudas Rápidas?</h5>
+            <a href="#whatsapp" class="inline-flex items-center gap-2 text-re-950 bg-white hover:bg-slate-200 px-6 py-3 rounded font-bold uppercase tracking-widest transition-colors text-xs">
+              Escribir Comercial
+            </a>
+          </div>
+          
+        </div>
+        <div class="border-t border-re-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-slate-600 tracking-widest font-mono uppercase">© 2026 UI UX PRO MAX - REAL ESTATE DEMO</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-xs text-slate-500 hover:text-white uppercase tracking-widest">Aviso Legal</a>
+            <a href="#" class="text-xs text-slate-500 hover:text-white uppercase tracking-widest">Privacidad</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- EXIT MODAL (Sistema Anti-Fuga reutilizado) -->
+    <div id="exitModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+      <div class="absolute inset-0 bg-re-950/80 backdrop-blur-sm" onclick="closeExitModal()"></div>
+      <div class="bg-white rounded-xl p-8 md:p-12 shadow-2xl relative z-10 max-w-lg w-full transform -translate-y-10 opacity-0 transition-all duration-300 border-t-4 border-accent-500" id="exitModalContent">
+        <button onclick="closeExitModal()" class="absolute top-4 right-4 text-slate-400 hover:text-re-950 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-accent-100 text-accent-600 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          </div>
+          <h3 class="text-3xl font-display font-black text-re-950 uppercase tracking-tight mb-4">¿Buscás otra tipología?</h3>
+          <p class="text-slate-600 font-medium text-lg mb-8">Antes de irte, hablá 2 minutos con un asesor. Quizás tenemos la unidad o el piso exacto que estás buscando, <strong>en lista cero</strong> (pre-sale).</p>
+          
+          <div class="flex flex-col gap-3">
+            <a href="#contacto" onclick="closeExitModal()" class="w-full bg-accent-500 hover:bg-accent-400 text-re-950 font-black uppercase tracking-widest py-4 rounded transition-all shadow-glow text-lg">
+              Preguntar por stock
+            </a>
+            <button onclick="closeExitModal()" class="w-full text-slate-500 font-medium hover:text-re-950 transition-colors underline py-2 text-sm">
+              Solo estaba mirando los renders, gracias.
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let exitIntentTriggered = false;
+      const showExitModal = () => {
+        if (exitIntentTriggered) return;
+        exitIntentTriggered = true;
+        
+        const modal = document.getElementById('exitModal');
+        const modalContent = document.getElementById('exitModalContent');
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        // Animacion suave
+        setTimeout(() => {
+          modalContent.classList.remove('-translate-y-10', 'opacity-0');
+          modalContent.classList.add('translate-y-0', 'opacity-100');
+        }, 10);
+      };
+
+      const closeExitModal = () => {
+        const modal = document.getElementById('exitModal');
+        const modalContent = document.getElementById('exitModalContent');
+        
+        modalContent.classList.remove('translate-y-0', 'opacity-100');
+        modalContent.classList.add('-translate-y-10', 'opacity-0');
+        
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }, 300);
+      };
+
+      // Desktop anti-bounce on scroll up strictly fast
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+         const currentScroll = window.scrollY;
+         if (lastScroll > 300 && currentScroll < lastScroll - 50 && !exitIntentTriggered) {
+             // He scrolleado rápido hacia arriba (intentando salir/cambiar URL)
+             // showExitModal(); // Se puede habilitar según testeo
+         }
+         lastScroll = currentScroll;
+      });
+
+      // Desktop Mouse Leave (Hacia URL bar)
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 5) {
+          showExitModal();
+        }
+      });
+    </script>
+  </body>
+</html>
