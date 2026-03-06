@@ -3,14 +3,28 @@ import { Link } from 'react-router-dom';
 
 import { siteConfig } from '../config/site';
 import { ButtonLink } from '../components/ui/ButtonLink';
+import { useAnalytics } from '../hooks/useAnalytics';
+import { useScrollRestoration } from '../hooks/useScrollRestoration';
+import { trackEvent } from '../utils/analytics';
 
 export function PageShell({ children }: PropsWithChildren) {
+  useAnalytics();
+  useScrollRestoration();
+
   return (
     <div className="site-shell">
       <header className="site-header">
         <div className="container site-header__inner">
           <a className="brand-mark" href={siteConfig.routes.captiva}>
-            <img className="brand-mark__logo" src="/LOGO-captiva.png" alt={siteConfig.productName} />
+            <img
+              className="brand-mark__logo"
+              src="/LOGO-captiva.png"
+              alt={siteConfig.productName}
+              width={400}
+              height={120}
+              decoding="async"
+              fetchPriority="high"
+            />
           </a>
 
           <nav className="site-nav" aria-label="Navegación principal">
@@ -27,7 +41,11 @@ export function PageShell({ children }: PropsWithChildren) {
             ))}
           </nav>
 
-          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary">
+          <ButtonLink
+            href={siteConfig.contact.ctaHref}
+            variant="primary"
+            onClick={() => trackEvent({ event: 'cta_click', category: 'header', label: 'solicitar-informacion' })}
+          >
             {siteConfig.primaryCtaLabel}
           </ButtonLink>
         </div>
@@ -38,7 +56,15 @@ export function PageShell({ children }: PropsWithChildren) {
       <footer className="site-footer">
         <div className="container site-footer__inner">
           <div className="footer-brand">
-            <img className="footer-brand__logo" src="/LOGO-captiva.png" alt={siteConfig.productName} />
+            <img
+              className="footer-brand__logo"
+              src="/LOGO-captiva.png"
+              alt={siteConfig.productName}
+              width={400}
+              height={120}
+              loading="lazy"
+              decoding="async"
+            />
             <p className="footer-title">
               {siteConfig.productName} by{' '}
               <a href="https://tuweb-ai.com" target="_blank" rel="noreferrer">
@@ -49,15 +75,29 @@ export function PageShell({ children }: PropsWithChildren) {
           </div>
 
           <div className="footer-contact">
-            <a className="footer-contact__card" href={`mailto:${siteConfig.contact.productEmail}`}>
+            <a
+              className="footer-contact__card"
+              href={`mailto:${siteConfig.contact.productEmail}`}
+              onClick={() => trackEvent({ event: 'contact_click', category: 'footer', label: 'captiva-email' })}
+            >
               <span className="footer-contact__label">Captiva</span>
               <span className="footer-contact__value">{siteConfig.contact.productEmail}</span>
             </a>
-            <a className="footer-contact__card" href={`mailto:${siteConfig.contact.primaryEmail}`}>
+            <a
+              className="footer-contact__card"
+              href={`mailto:${siteConfig.contact.primaryEmail}`}
+              onClick={() => trackEvent({ event: 'contact_click', category: 'footer', label: 'tuwebai-email' })}
+            >
               <span className="footer-contact__label">Tuwebai</span>
               <span className="footer-contact__value">{siteConfig.contact.primaryEmail}</span>
             </a>
-            <a className="footer-contact__card" href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer">
+            <a
+              className="footer-contact__card"
+              href={siteConfig.contact.ctaHref}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackEvent({ event: 'contact_click', category: 'footer', label: 'whatsapp' })}
+            >
               <span className="footer-contact__label">WhatsApp</span>
               <span className="footer-contact__value">+{siteConfig.contact.whatsapp}</span>
             </a>

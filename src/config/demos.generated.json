@@ -7,7 +7,7 @@
     "description": "Demo para servicios de salud con estructura clara, beneficios visibles y llamada a consulta.",
     "category": "salud",
     "preview": "/demos/DEMO-AlegraSalud/preview.png",
-    "href": "/demos/DEMO-AlegraSalud/index.html"
+    "href": "/demo/DEMO-AlegraSalud"
   },
   {
     "slug": "demo-clinica-dental-sonrisa",
@@ -17,7 +17,7 @@
     "description": "Demo para clínica dental con servicios destacados, confianza visual y CTA clara.",
     "category": "odontologia",
     "preview": "/demos/DEMO-ClinicaDentalSonrisa/preview.png",
-    "href": "/demos/DEMO-ClinicaDentalSonrisa/index.html"
+    "href": "/demo/DEMO-ClinicaDentalSonrisa"
   },
   {
     "slug": "demo-dentista",
@@ -27,7 +27,7 @@
     "description": "Landing optimizada para captar pacientes, presentar tratamientos y facilitar consultas.",
     "category": "odontologia",
     "preview": "/demos/DEMO-Dentista/preview.png",
-    "href": "/demos/DEMO-Dentista/index.html"
+    "href": "/demo/DEMO-Dentista"
   },
   {
     "slug": "demo-carbon-detail",
@@ -37,7 +37,7 @@
     "description": "Demo para negocios de detailing y servicios locales con foco en propuesta, confianza y contacto.",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-CarbonDetail/preview.png",
-    "href": "/demos/DEMO-CarbonDetail/index.html"
+    "href": "/demo/DEMO-CarbonDetail"
   },
   {
     "slug": "demo-estetica",
@@ -47,7 +47,7 @@
     "description": "Landing profesional para centros estéticos que necesitan transmitir confianza y facilitar el contacto.",
     "category": "estetica",
     "preview": "/demos/DEMO-Estetica/preview.png",
-    "href": "/demos/DEMO-Estetica/index.html"
+    "href": "/demo/DEMO-Estetica"
   },
   {
     "slug": "demo-estudio-juridico",
@@ -57,7 +57,7 @@
     "description": "Landing orientada a transmitir respaldo, áreas de práctica y contacto para estudios jurídicos.",
     "category": "legal",
     "preview": "/demos/DEMO-EstudioJuridico/preview.png",
-    "href": "/demos/DEMO-EstudioJuridico/index.html"
+    "href": "/demo/DEMO-EstudioJuridico"
   },
   {
     "slug": "demo-gimnasio",
@@ -67,7 +67,7 @@
     "description": "Landing optimizada para captar nuevos alumnos y mostrar planes de entrenamiento de forma clara.",
     "category": "fitness",
     "preview": "/demos/DEMO-Gimnasio/preview.png",
-    "href": "/demos/DEMO-Gimnasio/index.html"
+    "href": "/demo/DEMO-Gimnasio"
   },
   {
     "slug": "demo-inmobiliaria",
@@ -77,7 +77,7 @@
     "description": "Landing inmobiliaria para presentar propiedades, proceso y canal de consulta profesional.",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-Inmobiliaria/preview.png",
-    "href": "/demos/DEMO-Inmobiliaria/index.html"
+    "href": "/demo/DEMO-Inmobiliaria"
   },
   {
     "slug": "demo-maximus-cycle-gym",
@@ -87,7 +87,7 @@
     "description": "Landing para estudio fitness con identidad fuerte, clases destacadas y captación de consultas.",
     "category": "fitness",
     "preview": "/demos/DEMO-MaximusCycle-Gym/logomaxymus.jpg",
-    "href": "/demos/DEMO-MaximusCycle-Gym/index.html"
+    "href": "/demo/DEMO-MaximusCycle-Gym"
   },
   {
     "slug": "demo-mb-gym",
@@ -97,7 +97,7 @@
     "description": "Demo para gimnasio urbano con foco en membresías, propuesta de valor y contacto directo.",
     "category": "fitness",
     "preview": "/demos/DEMO-MBGYM/preview.png",
-    "href": "/demos/DEMO-MBGYM/index.html"
+    "href": "/demo/DEMO-MBGYM"
   },
   {
     "slug": "demo-san-bernardo-odontologia-y-estetica-facial",
@@ -107,7 +107,7 @@
     "description": "Landing médica premium para tratamientos odontológicos y estética facial con enfoque comercial.",
     "category": "odontologia",
     "preview": "/demos/DEMO-SanBernardoOdontologiayEsteticaFacial/preview.png",
-    "href": "/demos/DEMO-SanBernardoOdontologiayEsteticaFacial/index.html"
+    "href": "/demo/DEMO-SanBernardoOdontologiayEsteticaFacial"
   },
   {
     "slug": "demo-real-estate",
@@ -117,7 +117,7 @@
     "description": "Demo de real estate con enfoque institucional y estructura de alta conversión.",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-RealEstate/preview.png",
-    "href": "/demos/DEMO-RealEstate/index.html"
+    "href": "/demo/DEMO-RealEstate"
   },
   {
     "slug": "demo-rocketgrowth-b2b",
@@ -127,7 +127,7 @@
     "description": "Demo B2B orientada a propuesta comercial clara, autoridad y generación de leads.",
     "category": "b2b",
     "preview": "/demos/DEMO-RocketGrowthB2B/preview.png",
-    "href": "/demos/DEMO-RocketGrowthB2B/index.html"
+    "href": "/demo/DEMO-RocketGrowthB2B"
   },
   {
     "slug": "demo-veterinaria",
@@ -137,6 +137,6 @@
     "description": "Página orientada a confianza, servicios y contacto rápido para clínicas veterinarias.",
     "category": "salud",
     "preview": "/demos/DEMO-Veterinaria/preview.png",
-    "href": "/demos/DEMO-Veterinaria/index.html"
+    "href": "/demo/DEMO-Veterinaria"
   }
 ]

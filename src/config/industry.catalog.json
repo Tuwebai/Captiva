@@ -1,0 +1,86 @@
+{
+  "fitness": {
+    "slug": "landing-page-para-gimnasios",
+    "industryName": "gimnasios",
+    "title": "Landing Page para Gimnasios",
+    "problem": "Muchos gimnasios dependen solo de redes sociales y pierden consultas por no tener una pagina clara con planes, horarios y propuesta de valor.",
+    "solution": "Captiva crea landing pages para gimnasios con estructura de conversion, oferta visible y contacto directo por WhatsApp.",
+    "benefits": [
+      "Mas consultas de potenciales alumnos",
+      "Presentacion profesional de planes y clases",
+      "Proceso de contacto rapido y sin friccion"
+    ]
+  },
+  "odontologia": {
+    "slug": "landing-page-para-dentistas",
+    "industryName": "dentistas",
+    "title": "Landing Page para Dentistas",
+    "problem": "Clinicas y consultorios odontologicos suelen perder pacientes cuando su presencia digital no transmite confianza ni explica tratamientos con claridad.",
+    "solution": "Captiva diseña paginas para dentistas enfocadas en autoridad, servicios, testimonios y un CTA claro para reservar consulta.",
+    "benefits": [
+      "Mejor confianza desde el primer vistazo",
+      "Mayor volumen de consultas calificadas",
+      "Informacion de tratamientos ordenada y clara"
+    ]
+  },
+  "estetica": {
+    "slug": "landing-page-para-esteticas",
+    "industryName": "esteticas",
+    "title": "Landing Page para Esteticas",
+    "problem": "Centros esteticos compiten por confianza visual. Sin una landing optimizada, se pierde posicionamiento y conversion de visitas.",
+    "solution": "Captiva construye landings para esteticas con enfoque en servicios destacados, imagen profesional y llamada a accion inmediata.",
+    "benefits": [
+      "Mas reservas y consultas desde la web",
+      "Comunicacion clara de servicios y beneficios",
+      "Marca visualmente consistente y profesional"
+    ]
+  },
+  "legal": {
+    "slug": "landing-page-para-abogados",
+    "industryName": "abogados",
+    "title": "Landing Page para Abogados",
+    "problem": "Muchos estudios juridicos no convierten visitas porque su propuesta legal no esta estructurada para explicar especialidades y generar contacto.",
+    "solution": "Captiva crea paginas para abogados con enfoque en claridad, respaldo profesional y canales de consulta directos.",
+    "benefits": [
+      "Mas consultas sobre areas de practica",
+      "Imagen institucional solida",
+      "Flujo de contacto mas rapido y ordenado"
+    ]
+  },
+  "salud": {
+    "slug": "landing-page-para-salud",
+    "industryName": "servicios de salud",
+    "title": "Landing Page para Servicios de Salud",
+    "problem": "Centros de salud requieren confianza, claridad y accesibilidad. Sin una landing profesional, la conversion cae de forma directa.",
+    "solution": "Captiva implementa landings para salud con contenido estructurado, autoridad visual y contacto simple para pacientes.",
+    "benefits": [
+      "Mayor confianza en la primera visita",
+      "Informacion medica clara y accesible",
+      "Mas consultas y turnos desde la web"
+    ]
+  },
+  "negocios-locales": {
+    "slug": "landing-page-para-negocios-locales",
+    "industryName": "negocios locales",
+    "title": "Landing Page para Negocios Locales",
+    "problem": "Negocios locales pierden oportunidades cuando no tienen una pagina enfocada en propuesta de valor, ubicacion y contacto rapido.",
+    "solution": "Captiva desarrolla paginas para negocios locales preparadas para captar demanda directa y mejorar conversion.",
+    "benefits": [
+      "Mas contactos de clientes cercanos",
+      "Propuesta comercial mejor comunicada",
+      "Canal de contacto inmediato y profesional"
+    ]
+  },
+  "b2b": {
+    "slug": "landing-page-para-empresas-b2b",
+    "industryName": "empresas b2b",
+    "title": "Landing Page para Empresas B2B",
+    "problem": "En mercados B2B la decision es racional y comparativa. Sin una landing clara, se pierde autoridad y oportunidades comerciales.",
+    "solution": "Captiva estructura paginas B2B con foco en propuesta, credenciales, casos y conversion a reuniones comerciales.",
+    "benefits": [
+      "Leads comerciales de mayor calidad",
+      "Propuesta de valor mas clara para decision makers",
+      "Mejor tasa de conversion de trafico organico"
+    ]
+  }
+}

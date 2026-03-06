@@ -1,5 +1,6 @@
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { siteConfig } from '../config/site';
+import { trackEvent } from '../utils/analytics';
 
 export function FinalCtaSection() {
   return (
@@ -12,7 +13,11 @@ export function FinalCtaSection() {
             <p>{siteConfig.finalCta.description}</p>
           </div>
 
-          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary">
+          <ButtonLink
+            href={siteConfig.contact.ctaHref}
+            variant="primary"
+            onClick={() => trackEvent({ event: 'cta_click', category: 'final', label: 'solicitar-informacion' })}
+          >
             {siteConfig.primaryCtaLabel}
           </ButtonLink>
         </div>

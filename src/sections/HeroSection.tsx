@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import { siteConfig } from '../config/site';
 import { ButtonLink } from '../components/ui/ButtonLink';
+import { trackEvent } from '../utils/analytics';
 
 export function HeroSection() {
   return (
@@ -12,12 +15,23 @@ export function HeroSection() {
           <p className="hero-copy__body">{siteConfig.hero.supportingCopy}</p>
 
           <div className="hero-actions">
-            <ButtonLink href={siteConfig.contact.ctaHref} variant="primary">
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              variant="primary"
+              onClick={() => trackEvent({ event: 'cta_click', category: 'hero', label: 'solicitar-informacion' })}
+            >
               {siteConfig.primaryCtaLabel}
             </ButtonLink>
             <a className="hero-contact-link" href={`mailto:${siteConfig.contact.productEmail}`}>
               {siteConfig.contact.productEmail}
             </a>
+            <Link
+              className="hero-contact-link"
+              to={siteConfig.routes.captivaDemos}
+              onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'captiva-demos' })}
+            >
+              Ver ejemplos de landing pages
+            </Link>
           </div>
         </div>
 

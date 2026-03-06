@@ -3,6 +3,8 @@ import type { SiteConfig } from '../types/site';
 const baseRoute = '/captiva';
 const captivaDemosRoute = `${baseRoute}/demos`;
 const demosPublicBaseRoute = '/demos';
+const siteUrl = 'https://tuweb-ai.com';
+const defaultOgImage = '/LOGO-captiva.png';
 const whatsappMessage = encodeURIComponent(
   'Hola, quiero solicitar información sobre Captiva. Me gustaría conocer opciones, tiempos de entrega y próximos pasos para mi landing page.',
 );
@@ -31,6 +33,14 @@ export const siteConfig: SiteConfig = {
     captiva: baseRoute,
     captivaDemos: captivaDemosRoute,
     demosPublicBase: demosPublicBaseRoute,
+  },
+  seo: {
+    siteUrl,
+    defaultTitle: 'Captiva | Landing pages que convierten visitas en clientes',
+    defaultDescription:
+      'Captiva crea landing pages profesionales diseñadas para ayudar a negocios a recibir más consultas y convertir visitas en clientes.',
+    defaultImage: defaultOgImage,
+    twitterCard: 'summary_large_image',
   },
   hero: {
     eyebrow: 'Landing pages estratégicas para negocios',

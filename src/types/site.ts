@@ -50,6 +50,14 @@ export type SiteRoutes = {
   demosPublicBase: string;
 };
 
+export type SiteSeo = {
+  siteUrl: string;
+  defaultTitle: string;
+  defaultDescription: string;
+  defaultImage: string;
+  twitterCard: 'summary' | 'summary_large_image';
+};
+
 export type SiteConfig = {
   productName: string;
   companyName: string;
@@ -58,6 +66,7 @@ export type SiteConfig = {
   navItems: NavItem[];
   contact: ContactInfo;
   routes: SiteRoutes;
+  seo: SiteSeo;
   hero: {
     eyebrow: string;
     title: string;
