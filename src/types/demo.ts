@@ -4,6 +4,7 @@ export type DemoManifestItem = {
   publicSlug: string;
   title: string;
   description: string;
+  industry: string;
   category: string;
   preview: string | null;
   href: string;

@@ -6,7 +6,7 @@ export function DemosPage() {
   const demosSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Demos de Landing Pages',
+    name: 'Template Library de Landing Pages',
     description:
       'Galeria de ejemplos de landing pages para negocios, optimizadas para conversion y captacion de consultas.',
     url: `${siteConfig.seo.siteUrl}${siteConfig.routes.captivaDemos}`,
@@ -33,9 +33,9 @@ export function DemosPage() {
   };
 
   useDocumentMetadata({
-    title: `Demos de Landing Pages para Negocios | ${siteConfig.companyName}`,
+    title: `Template Library de Landing Pages | ${siteConfig.companyName}`,
     description:
-      'Explora ejemplos de landing pages profesionales para negocios: gimnasios, estetica, dentistas, abogados y mas rubros listos para convertir visitas en consultas.',
+      'Explora la biblioteca de templates de Captiva por industria: fitness, salud, legal, belleza y negocios para convertir visitas en consultas.',
     path: siteConfig.routes.captivaDemos,
     keywords: [
       'ejemplos de landing pages',

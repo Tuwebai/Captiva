@@ -4,7 +4,7 @@ import { trackEvent } from '../utils/analytics';
 
 export function FinalCtaSection() {
   return (
-    <section className="content-section content-section--cta">
+    <section className="content-section content-section--cta" id="contacto">
       <div className="container">
         <div className="final-cta">
           <div>

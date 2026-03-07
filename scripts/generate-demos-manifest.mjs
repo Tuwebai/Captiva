@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
 
-const siteUrl = 'https://tuweb-ai.com';
+const siteUrl = 'https://captiva.tuweb-ai.com';
 const controlledDemoBase = '/demo';
 const demosRoot = resolve(process.cwd(), 'demos');
 const outputPath = resolve(process.cwd(), 'src/config/demos.generated.json');
@@ -119,7 +119,7 @@ function buildClientProtectionScript(item, categoryKeyword) {
 <script data-captiva-protection="true">
 (() => {
   if (location.protocol === 'file:') {
-    document.body.innerHTML = '<div style="min-height:100vh;display:grid;place-items:center;font-family:Inter,Arial,sans-serif;padding:24px;text-align:center"><div><h1 style="margin:0 0 12px;font-size:28px">Esta demo solo funciona desde Captiva.</h1><p style="margin:0;color:#475569">Ingresa desde https://tuweb-ai.com/captiva/demos para verla correctamente.</p></div></div>';
+    document.body.innerHTML = '<div style="min-height:100vh;display:grid;place-items:center;font-family:Inter,Arial,sans-serif;padding:24px;text-align:center"><div><h1 style="margin:0 0 12px;font-size:28px">Esta demo solo funciona desde Captiva.</h1><p style="margin:0;color:#475569">Ingresa desde https://captiva.tuweb-ai.com/captiva/demos para verla correctamente.</p></div></div>';
     return;
   }
 
@@ -163,10 +163,6 @@ function buildClientProtectionScript(item, categoryKeyword) {
     badge.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:2147483647;padding:8px 12px;border-radius:999px;background:rgba(10,16,34,0.88);border:1px solid rgba(88,133,255,0.45);color:#f8fbff;font:600 12px/1.2 Inter,Arial,sans-serif;letter-spacing:.02em;box-shadow:0 10px 28px rgba(0,0,0,.28);backdrop-filter:blur(6px);text-decoration:none;';
     document.body.appendChild(badge);
 
-    const dynamic = document.getElementById('captiva-dynamic-slot');
-    if (dynamic) {
-      dynamic.innerHTML = '<p style="margin:0;font:500 13px/1.5 Inter,Arial,sans-serif;color:#334155">Esta demo de ${categoryKeyword} forma parte del catalogo de Captiva. Ver mas variantes en <a href="/captiva/demos">/captiva/demos</a> o en <a href="/${industrySlug}">/${industrySlug}</a>.</p>';
-    }
   };
 
   if (document.readyState === 'loading') {
@@ -190,8 +186,6 @@ async function optimizeDemoHtml(item) {
   const seoTitle = `${item.title} | Ejemplo de pagina web para ${categoryKeyword}`;
   const seoDescription = `${item.description} Ejemplo de landing page profesional para ${categoryKeyword}, optimizada para captar consultas.`;
   const ogImage = toAbsoluteUrl(item.preview ?? '/LOGO-captiva.png');
-  const industrySlug = getIndustrySlug(item.category);
-
   let html = readFileSync(indexPath, 'utf8');
 
   html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${seoTitle}</title>`);
@@ -223,18 +217,18 @@ async function optimizeDemoHtml(item) {
     html = html.replace(/<body([^>]*)>/i, `<body$1>\n  ${fallbackH1}`);
   }
 
-  const introBlock = [
-    '<section id="captiva-seo-intro" data-captiva-seo="intro" style="max-width:920px;margin:24px auto 8px;padding:20px;border:1px solid rgba(15,23,42,0.12);border-radius:14px;background:#fff;color:#0f172a;font-family:Inter,Arial,sans-serif;line-height:1.6;">',
-    `  <h2 style="margin:0 0 8px;font-size:1.35rem;">${item.title}: ejemplo de landing page para ${categoryKeyword}</h2>`,
-    `  <p style="margin:0 0 10px;">${seoDescription}</p>`,
-    `  <p style="margin:0;">Esta demo forma parte del sistema de Captiva para negocios de ${categoryKeyword}. Ver mas ejemplos en <a href="/captiva/demos">/captiva/demos</a> o la pagina por industria <a href="/${industrySlug}">/${industrySlug}</a>.</p>`,
-    '</section>',
-    '<div id="captiva-dynamic-slot" style="max-width:920px;margin:10px auto 16px;padding:0 2px;"></div>',
-  ].join('\n');
-
-  html = html.replace(/<section id="captiva-seo-intro" data-captiva-seo="intro"[\s\S]*?<\/section>/i, '');
-  html = html.replace(/<div id="captiva-dynamic-slot"[\s\S]*?<\/div>/i, '');
-  html = html.replace(/<body([^>]*)>/i, `<body$1>\n${introBlock}`);
+  // Cleanup legacy Captiva overlays previously injected in old builds.
+  html = html.replace(/<section[^>]*id=["']captiva-seo-intro["'][\s\S]*?<\/section>/gi, '');
+  html = html.replace(/<div[^>]*id=["']captiva-seo-intro["'][\s\S]*?<\/div>/gi, '');
+  html = html.replace(/<div[^>]*id=["']captiva-dynamic-slot["'][\s\S]*?<\/div>/gi, '');
+  html = html.replace(
+    /<section[\s\S]*?Esta demo forma parte del sistema de Captiva[\s\S]*?<\/section>/gi,
+    '',
+  );
+  html = html.replace(
+    /<div[\s\S]*?Esta demo forma parte del sistema de Captiva[\s\S]*?<\/div>/gi,
+    '',
+  );
 
   const demoSchema = {
     '@context': 'https://schema.org',
@@ -344,16 +338,23 @@ async function main() {
     }
 
     const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+    const required = ['title', 'description', 'industry'];
+    required.forEach((field) => {
+      if (typeof meta[field] !== 'string' || meta[field].trim().length === 0) {
+        throw new Error(`Invalid meta.json in demos/${folderName}: missing required "${field}"`);
+      }
+    });
     const publicSlug = buildPublicSlug(folderName);
 
     cpSync(join(demosRoot, folderName), join(publicDemosRoot, publicSlug), { recursive: true });
 
     const item = {
-      slug: slugify(folderName),
+      slug: meta.slug,
       folderName,
       publicSlug,
       title: meta.title,
       description: meta.description,
+      industry: meta.industry,
       category: meta.category,
       preview: normalizePreview(publicSlug, meta.preview),
       href: buildControlledHref(publicSlug),

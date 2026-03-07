@@ -26,7 +26,11 @@ export function DemoShowcaseSection() {
   return (
     <section className="content-section content-section--alt" id="demos">
       <div className="container">
-        <SectionHeading eyebrow="Demos" title={siteConfig.demos.title} description={siteConfig.demos.description} />
+        <SectionHeading
+          eyebrow={siteConfig.demos.eyebrow}
+          title={siteConfig.demos.title}
+          description={siteConfig.demos.description}
+        />
 
         <div className="card-grid card-grid--two">
           {siteConfig.demos.items.map((item) => {
@@ -47,7 +51,7 @@ export function DemoShowcaseSection() {
                   rel="noreferrer"
                   onClick={() => trackEvent({ event: 'demo_click', category: 'home-demos', label: item.slug })}
                 >
-                  Ver demo correspondiente
+                  Ver demo
                 </a>
               </SurfaceCard>
             );

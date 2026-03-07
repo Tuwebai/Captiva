@@ -2,5 +2,7 @@
   "title": "Landing para Maximus Cycle & Gym",
   "description": "Landing para estudio fitness con identidad fuerte, clases destacadas y captación de consultas.",
   "category": "fitness",
-  "preview": "logomaxymus.jpg"
+  "industry": "gimnasio",
+  "preview": "logomaxymus.jpg",
+  "slug": "demo-maximus-cycle-gym"
 }

@@ -2,5 +2,7 @@
   "title": "Landing para Alegra Salud",
   "description": "Demo para servicios de salud con estructura clara, beneficios visibles y llamada a consulta.",
   "category": "salud",
-  "preview": "preview.png"
+  "industry": "salud",
+  "preview": "preview.png",
+  "slug": "demo-alegra-salud"
 }

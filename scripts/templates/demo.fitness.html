@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}" />
+    <meta name="robots" content="index,follow" />
+    <style>
+      :root {
+        --color-bg: #05070f;
+        --color-surface: rgba(18, 27, 55, 0.8);
+        --color-surface-soft: rgba(15, 22, 45, 0.68);
+        --color-line: rgba(120, 144, 212, 0.2);
+        --color-text: #f3f7ff;
+        --color-muted: rgba(211, 221, 245, 0.82);
+        --color-primary: {{PRIMARY_COLOR}};
+        --color-secondary: #e28b5b;
+        --color-purple: #8f6cff;
+        --spacing-xl: clamp(2rem, 4vw, 3.5rem);
+        --spacing-lg: clamp(1.25rem, 2.5vw, 2rem);
+        --radius-lg: 26px;
+        --radius-md: 16px;
+        --font-heading: Inter, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: var(--font-heading);
+        background:
+          radial-gradient(circle at 20% 28%, rgba(75, 124, 255, 0.25), transparent 42%),
+          radial-gradient(circle at 78% 70%, rgba(226, 139, 91, 0.2), transparent 44%),
+          radial-gradient(circle at center, #0b1020 0%, var(--color-bg) 72%);
+        color: var(--color-text);
+      }
+      .page {
+        width: min(1120px, calc(100% - 2rem));
+        margin: 0 auto;
+        padding: 2rem 0 3rem;
+        display: grid;
+        gap: var(--spacing-xl);
+      }
+      .block {
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-lg);
+        background:
+          radial-gradient(circle at top right, rgba(226, 139, 91, 0.12), transparent 35%),
+          radial-gradient(circle at bottom left, rgba(75, 124, 255, 0.14), transparent 40%),
+          var(--color-surface);
+        padding: var(--spacing-lg);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+      }
+      .hero-grid {
+        display: grid;
+        gap: 1.1rem;
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+      .layout-v2 .hero-grid { grid-template-columns: 0.95fr 1.05fr; }
+      .eyebrow {
+        margin: 0;
+        color: var(--color-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      h1 {
+        margin: 0.4rem 0 0.8rem;
+        font-size: clamp(2rem, 5vw, 3.3rem);
+        line-height: 1.06;
+        letter-spacing: -0.035em;
+      }
+      .muted { margin: 0; color: var(--color-muted); line-height: 1.6; }
+      .hero-actions {
+        margin-top: 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border-radius: 999px;
+        border: 1px solid var(--color-line);
+        padding: 0.75rem 1rem;
+        color: var(--color-text);
+        background: rgba(255, 255, 255, 0.04);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .pill.primary {
+        border-color: transparent;
+        background: linear-gradient(135deg, var(--color-primary), #325dd3);
+      }
+      .hero-aside {
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-md);
+        background: var(--color-surface-soft);
+        padding: 1rem;
+        display: grid;
+        gap: 0.8rem;
+      }
+      .metric {
+        border: 1px solid var(--color-line);
+        border-radius: 12px;
+        padding: 0.75rem;
+        background: rgba(7, 12, 26, 0.55);
+      }
+      .metric strong { display: block; font-size: 1.05rem; margin-bottom: 0.2rem; }
+      .metric span { color: var(--color-muted); font-size: 0.93rem; }
+      .grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .layout-v3 .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .item {
+        border: 1px solid var(--color-line);
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        background: rgba(10, 16, 33, 0.62);
+      }
+      .icon {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0.75rem;
+        border: 1px solid var(--color-line);
+        background: linear-gradient(180deg, rgba(20, 34, 78, 0.92), rgba(13, 23, 52, 0.92));
+      }
+      .icon svg { width: 1.15rem; height: 1.15rem; fill: #bcd0ff; }
+      .item h3 { margin: 0 0 0.35rem; font-size: 1.05rem; letter-spacing: -0.02em; }
+      .item p { margin: 0; color: var(--color-muted); }
+      .split {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+      }
+      .layout-v2 .split { grid-template-columns: 0.9fr 1.1fr; }
+      .quote {
+        margin-top: 0.8rem;
+        border-left: 2px solid rgba(143, 108, 255, 0.6);
+        padding-left: 0.8rem;
+        color: #d3ddfb;
+      }
+      .cta-box {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+      .cta-box h3 { margin: 0; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -0.02em; }
+      footer {
+        color: var(--color-muted);
+        font-size: 0.95rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .stamp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid var(--color-line);
+        border-radius: 999px;
+        padding: 0.45rem 0.7rem;
+        background: rgba(255, 255, 255, 0.04);
+        color: #d8e4ff;
+      }
+      .dot {
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 999px;
+        background: linear-gradient(120deg, var(--color-primary), var(--color-purple), var(--color-secondary));
+      }
+      @media (max-width: 900px) {
+        .hero-grid, .grid, .split, .layout-v2 .hero-grid, .layout-v2 .split, .layout-v3 .grid, .cta-box {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="{{LAYOUT_CLASS}}">
+    <main class="page">
+      <section class="block hero-grid">
+        <article>
+          <p class="eyebrow">{{CATEGORY_LABEL}} | {{BUSINESS_NAME}}</p>
+          <h1>{{TITLE}}</h1>
+          <p class="muted">{{DESCRIPTION}}</p>
+          <div class="hero-actions">
+            <a class="pill primary" href="#cta">{{CTA_TEXT}}</a>
+            <span class="pill">Enfoque en conversion real</span>
+          </div>
+        </article>
+        <aside class="hero-aside">
+          <p class="eyebrow">Resultados esperados</p>
+          <article class="metric">
+            <strong>Mas consultas</strong>
+            <span>Canal directo para captar interesados listos para escribir.</span>
+          </article>
+          <article class="metric">
+            <strong>Mensaje claro</strong>
+            <span>Estructura para explicar servicios y propuesta sin friccion.</span>
+          </article>
+          <article class="metric">
+            <strong>Presencia profesional</strong>
+            <span>Diseno alineado a marca para generar confianza desde el inicio.</span>
+          </article>
+        </aside>
+      </section>
+
+      <section class="block">
+        <p class="eyebrow">Beneficios clave</p>
+        <div class="grid">
+          <article class="item">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 1 9 9 9 9 0 0 1-9-9zm9-5a1 1 0 0 0-1 1v4.38l-2.22 2.23a1 1 0 1 0 1.42 1.41l2.51-2.5a1 1 0 0 0 .29-.71V8a1 1 0 0 0-1-1z"/></svg>
+            </div>
+            <h3>{{BENEFIT_1_TITLE}}</h3>
+            <p>{{BENEFIT_1_DESC}}</p>
+          </article>
+          <article class="item">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14l-4-2-4 2-4-2-4 2V5zm3 2v2h10V7H7zm0 4v2h7v-2H7z"/></svg>
+            </div>
+            <h3>{{BENEFIT_2_TITLE}}</h3>
+            <p>{{BENEFIT_2_DESC}}</p>
+          </article>
+          <article class="item">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 18V6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12h2v2H3v-2h2zm2 0h10V7H7v11zm2-6h6v2H9v-2z"/></svg>
+            </div>
+            <h3>{{BENEFIT_3_TITLE}}</h3>
+            <p>{{BENEFIT_3_DESC}}</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="block split">
+        <article class="item">
+          <p class="eyebrow">Servicios</p>
+          <h3>{{SERVICE_TITLE}}</h3>
+          <p>{{SERVICE_DESC}}</p>
+        </article>
+        <article class="item">
+          <p class="eyebrow">Prueba social</p>
+          <h3>{{SOCIAL_TITLE}}</h3>
+          <p>{{SOCIAL_DESC}}</p>
+          <p class="quote">"Se nota una estructura premium y enfocada en resultados reales."</p>
+        </article>
+      </section>
+
+      <section class="block" id="cta">
+        <div class="cta-box">
+          <div>
+            <p class="eyebrow">Siguiente paso</p>
+            <h3>{{CTA_HEADLINE}}</h3>
+            <p class="muted">{{CTA_DESC}}</p>
+          </div>
+          <a class="pill primary" href="#">{{CTA_TEXT}}</a>
+        </div>
+      </section>
+
+      <footer class="block">
+        <strong>Demo de {{BUSINESS_NAME}}</strong>
+        <span class="stamp"><span class="dot"></span> Generada con Captiva | {{CATEGORY}}</span>
+      </footer>
+    </main>
+  </body>
+</html>

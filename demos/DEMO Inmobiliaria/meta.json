@@ -2,5 +2,7 @@
   "title": "Landing para Inmobiliaria",
   "description": "Landing inmobiliaria para presentar propiedades, proceso y canal de consulta profesional.",
   "category": "negocios-locales",
-  "preview": "preview.png"
+  "industry": "inmobiliaria",
+  "preview": "preview.png",
+  "slug": "demo-inmobiliaria"
 }

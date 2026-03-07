@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}" />
+    <meta name="robots" content="index,follow" />
+    <style>
+      :root {
+        --bg: #0b1226;
+        --surface: #111a33;
+        --line: #2a3a6a;
+        --text: #f1f5ff;
+        --muted: #b4c0df;
+        --accent: #4b7cff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: radial-gradient(circle at 20% 30%, rgba(75, 124, 255, 0.18), transparent 40%), var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+      .wrap {
+        width: min(100% - 2rem, 1080px);
+        margin: 0 auto;
+        padding: 3rem 0 4rem;
+      }
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--surface);
+        padding: 1.75rem;
+      }
+      .eyebrow {
+        margin: 0 0 0.75rem;
+        color: var(--muted);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.75rem;
+      }
+      h1 {
+        margin: 0 0 1rem;
+        line-height: 1.1;
+        font-size: clamp(2rem, 6vw, 3.2rem);
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 64ch;
+      }
+      .cta {
+        margin-top: 1.25rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card">
+        <p class="eyebrow">Demo {{CATEGORY}}</p>
+        <h1>{{TITLE}}</h1>
+        <p>{{DESCRIPTION}}</p>
+        <a class="cta" href="#" aria-label="Contacto">Solicitar información</a>
+      </section>
+    </main>
+  </body>
+</html>

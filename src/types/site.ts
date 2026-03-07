@@ -4,6 +4,12 @@ export type NavItem = {
   type?: 'anchor' | 'route';
 };
 
+export type ProductTopBarItem = {
+  label: string;
+  href: string;
+  type?: 'anchor' | 'route';
+};
+
 export type HighlightMetric = {
   value: string;
   label: string;
@@ -36,6 +42,13 @@ export type ProcessStep = {
   description: string;
 };
 
+export type HowItWorksStep = {
+  step: string;
+  title: string;
+  description: string;
+  icon: 'analysis' | 'page' | 'launch';
+};
+
 export type ContactInfo = {
   primaryEmail: string;
   productEmail: string;
@@ -63,16 +76,30 @@ export type SiteConfig = {
   companyName: string;
   description: string;
   primaryCtaLabel: string;
+  productBar: {
+    title: string;
+    subtitle: string;
+    badge: string;
+    items: ProductTopBarItem[];
+  };
   navItems: NavItem[];
   contact: ContactInfo;
   routes: SiteRoutes;
   seo: SiteSeo;
   hero: {
+    badge: string;
     eyebrow: string;
     title: string;
     subtitle: string;
     supportingCopy: string;
+    demosCtaLabel: string;
+    primaryProductCtaLabel: string;
     metrics: HighlightMetric[];
+  };
+  howItWorks: {
+    title: string;
+    description: string;
+    steps: HowItWorksStep[];
   };
   problem: {
     title: string;
@@ -90,6 +117,7 @@ export type SiteConfig = {
     items: BenefitItem[];
   };
   demos: {
+    eyebrow: string;
     title: string;
     description: string;
     items: DemoItem[];

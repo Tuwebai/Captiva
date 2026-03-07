@@ -1,0 +1,27 @@
+<section class="section contact-split" id="contacto">
+  <div class="contact-grid">
+    <aside class="contact-panel">
+      <p class="eyebrow">Contacto</p>
+      <h3>{{CONTACT_TITLE}}</h3>
+      <p>{{CONTACT_DESC}}</p>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> {{CONTACT_EMAIL}}</li>
+        <li><strong>WhatsApp:</strong> +54 9 3571 417960</li>
+        <li><strong>Rubro:</strong> {{CATEGORY_LABEL}}</li>
+      </ul>
+    </aside>
+    <form class="form" id="leadForm">
+      <input class="field" placeholder="Nombre" required />
+      <input class="field" placeholder="WhatsApp" required type="tel" />
+      <select class="field" required>
+        <option value="" selected disabled>Selecciona tu objetivo</option>
+        <option>{{CONTACT_GOAL_1}}</option>
+        <option>{{CONTACT_GOAL_2}}</option>
+        <option>{{CONTACT_GOAL_3}}</option>
+      </select>
+      <textarea class="field" placeholder="Contanos que necesitas" rows="4"></textarea>
+      <button class="btn btn-primary" id="submitBtn" type="submit">{{CTA_TEXT}}</button>
+      <p class="ok" id="okMsg">Solicitud simulada enviada. En produccion iria a CRM / WhatsApp.</p>
+    </form>
+  </div>
+</section>

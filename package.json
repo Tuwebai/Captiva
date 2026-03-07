@@ -4,9 +4,11 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "generate:demo": "node scripts/generate-demo.mjs",
+    "validate:demos": "node scripts/validate-demos.mjs",
     "generate:demos": "node scripts/generate-demos-manifest.mjs",
-    "dev": "npm run generate:demos && vite",
-    "build": "npm run generate:demos && tsc -b && vite build",
+    "dev": "npm run validate:demos && npm run generate:demos && vite",
+    "build": "npm run validate:demos && npm run generate:demos && tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

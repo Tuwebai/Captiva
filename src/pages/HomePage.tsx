@@ -5,6 +5,7 @@ import { DemoShowcaseSection } from '../sections/DemoShowcaseSection';
 import { FaqSection, faqSchema } from '../sections/FaqSection';
 import { FinalCtaSection } from '../sections/FinalCtaSection';
 import { HeroSection } from '../sections/HeroSection';
+import { HowItWorksSection } from '../sections/HowItWorksSection';
 import { IndustryLinksSection } from '../sections/IndustryLinksSection';
 import { ProblemSection } from '../sections/ProblemSection';
 import { ProcessSection } from '../sections/ProcessSection';
@@ -28,17 +29,33 @@ export function HomePage() {
     sameAs: [],
   };
 
-  const productSchema = {
+  const serviceSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
+    '@type': 'Service',
     name: siteConfig.productName,
     description: siteConfig.seo.defaultDescription,
-    brand: {
-      '@type': 'Brand',
+    provider: {
+      '@type': 'Organization',
       name: siteConfig.companyName,
     },
     url: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}`,
+    areaServed: 'AR',
+    serviceType: 'Landing pages de conversion para negocios',
+  };
+
+  const softwareApplicationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: siteConfig.productName,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web',
+    description: siteConfig.seo.defaultDescription,
+    url: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}`,
     image: `${siteConfig.seo.siteUrl}${siteConfig.seo.defaultImage}`,
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.companyName,
+    },
   };
 
   const websiteSchema = {
@@ -66,16 +83,17 @@ export function HomePage() {
       'captiva',
       'tuwebai',
     ],
-    structuredData: [organizationSchema, productSchema, websiteSchema, faqSchema],
+    structuredData: [organizationSchema, serviceSchema, softwareApplicationSchema, websiteSchema, faqSchema],
   });
 
   return (
     <>
       <HeroSection />
+      <HowItWorksSection />
+      <DemoShowcaseSection />
+      <BenefitsSection />
       <ProblemSection />
       <SolutionSection />
-      <BenefitsSection />
-      <DemoShowcaseSection />
       <IndustryLinksSection />
       <ProcessSection />
       <FaqSection />

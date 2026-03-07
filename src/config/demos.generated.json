@@ -5,6 +5,7 @@
     "publicSlug": "DEMO-AlegraSalud",
     "title": "Landing para Alegra Salud",
     "description": "Demo para servicios de salud con estructura clara, beneficios visibles y llamada a consulta.",
+    "industry": "salud",
     "category": "salud",
     "preview": "/demos/DEMO-AlegraSalud/preview.png",
     "href": "/demo/DEMO-AlegraSalud"
@@ -15,6 +16,7 @@
     "publicSlug": "DEMO-ClinicaDentalSonrisa",
     "title": "Landing para Clínica Dental",
     "description": "Demo para clínica dental con servicios destacados, confianza visual y CTA clara.",
+    "industry": "clinica-dental",
     "category": "odontologia",
     "preview": "/demos/DEMO-ClinicaDentalSonrisa/preview.png",
     "href": "/demo/DEMO-ClinicaDentalSonrisa"
@@ -25,6 +27,7 @@
     "publicSlug": "DEMO-Dentista",
     "title": "Landing para Dentistas",
     "description": "Landing optimizada para captar pacientes, presentar tratamientos y facilitar consultas.",
+    "industry": "dentista",
     "category": "odontologia",
     "preview": "/demos/DEMO-Dentista/preview.png",
     "href": "/demo/DEMO-Dentista"
@@ -35,6 +38,7 @@
     "publicSlug": "DEMO-CarbonDetail",
     "title": "Landing para Detailing",
     "description": "Demo para negocios de detailing y servicios locales con foco en propuesta, confianza y contacto.",
+    "industry": "detailing",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-CarbonDetail/preview.png",
     "href": "/demo/DEMO-CarbonDetail"
@@ -45,6 +49,7 @@
     "publicSlug": "DEMO-Estetica",
     "title": "Landing para Estética",
     "description": "Landing profesional para centros estéticos que necesitan transmitir confianza y facilitar el contacto.",
+    "industry": "estetica",
     "category": "estetica",
     "preview": "/demos/DEMO-Estetica/preview.png",
     "href": "/demo/DEMO-Estetica"
@@ -55,6 +60,7 @@
     "publicSlug": "DEMO-EstudioJuridico",
     "title": "Landing para Estudio Jurídico",
     "description": "Landing orientada a transmitir respaldo, áreas de práctica y contacto para estudios jurídicos.",
+    "industry": "abogado",
     "category": "legal",
     "preview": "/demos/DEMO-EstudioJuridico/preview.png",
     "href": "/demo/DEMO-EstudioJuridico"
@@ -65,6 +71,7 @@
     "publicSlug": "DEMO-Gimnasio",
     "title": "Landing para Gimnasios",
     "description": "Landing optimizada para captar nuevos alumnos y mostrar planes de entrenamiento de forma clara.",
+    "industry": "gimnasio",
     "category": "fitness",
     "preview": "/demos/DEMO-Gimnasio/preview.png",
     "href": "/demo/DEMO-Gimnasio"
@@ -75,6 +82,7 @@
     "publicSlug": "DEMO-Inmobiliaria",
     "title": "Landing para Inmobiliaria",
     "description": "Landing inmobiliaria para presentar propiedades, proceso y canal de consulta profesional.",
+    "industry": "inmobiliaria",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-Inmobiliaria/preview.png",
     "href": "/demo/DEMO-Inmobiliaria"
@@ -85,6 +93,7 @@
     "publicSlug": "DEMO-MaximusCycle-Gym",
     "title": "Landing para Maximus Cycle & Gym",
     "description": "Landing para estudio fitness con identidad fuerte, clases destacadas y captación de consultas.",
+    "industry": "gimnasio",
     "category": "fitness",
     "preview": "/demos/DEMO-MaximusCycle-Gym/logomaxymus.jpg",
     "href": "/demo/DEMO-MaximusCycle-Gym"
@@ -95,6 +104,7 @@
     "publicSlug": "DEMO-MBGYM",
     "title": "Landing para MB GYM",
     "description": "Demo para gimnasio urbano con foco en membresías, propuesta de valor y contacto directo.",
+    "industry": "gimnasio",
     "category": "fitness",
     "preview": "/demos/DEMO-MBGYM/preview.png",
     "href": "/demo/DEMO-MBGYM"
@@ -105,6 +115,7 @@
     "publicSlug": "DEMO-SanBernardoOdontologiayEsteticaFacial",
     "title": "Landing para Odontología y Estética Facial",
     "description": "Landing médica premium para tratamientos odontológicos y estética facial con enfoque comercial.",
+    "industry": "odontologia",
     "category": "odontologia",
     "preview": "/demos/DEMO-SanBernardoOdontologiayEsteticaFacial/preview.png",
     "href": "/demo/DEMO-SanBernardoOdontologiayEsteticaFacial"
@@ -115,6 +126,7 @@
     "publicSlug": "DEMO-RealEstate",
     "title": "Landing para Real Estate",
     "description": "Demo de real estate con enfoque institucional y estructura de alta conversión.",
+    "industry": "inmobiliaria",
     "category": "negocios-locales",
     "preview": "/demos/DEMO-RealEstate/preview.png",
     "href": "/demo/DEMO-RealEstate"
@@ -125,6 +137,7 @@
     "publicSlug": "DEMO-RocketGrowthB2B",
     "title": "Landing para RocketGrowth B2B",
     "description": "Demo B2B orientada a propuesta comercial clara, autoridad y generación de leads.",
+    "industry": "b2b",
     "category": "b2b",
     "preview": "/demos/DEMO-RocketGrowthB2B/preview.png",
     "href": "/demo/DEMO-RocketGrowthB2B"
@@ -135,6 +148,7 @@
     "publicSlug": "DEMO-Veterinaria",
     "title": "Landing para Veterinaria",
     "description": "Página orientada a confianza, servicios y contacto rápido para clínicas veterinarias.",
+    "industry": "veterinaria",
     "category": "salud",
     "preview": "/demos/DEMO-Veterinaria/preview.png",
     "href": "/demo/DEMO-Veterinaria"

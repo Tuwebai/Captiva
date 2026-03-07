@@ -2,5 +2,7 @@
   "title": "Landing para Odontología y Estética Facial",
   "description": "Landing médica premium para tratamientos odontológicos y estética facial con enfoque comercial.",
   "category": "odontologia",
-  "preview": "preview.png"
+  "industry": "odontologia",
+  "preview": "preview.png",
+  "slug": "demo-san-bernardo-odontologia-y-estetica-facial"
 }
