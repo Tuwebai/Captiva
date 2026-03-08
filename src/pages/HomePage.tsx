@@ -6,10 +6,9 @@ import { FaqSection, faqSchema } from '../sections/FaqSection';
 import { FinalCtaSection } from '../sections/FinalCtaSection';
 import { HeroSection } from '../sections/HeroSection';
 import { HowItWorksSection } from '../sections/HowItWorksSection';
-import { IndustryLinksSection } from '../sections/IndustryLinksSection';
-import { ProblemSection } from '../sections/ProblemSection';
-import { ProcessSection } from '../sections/ProcessSection';
-import { SolutionSection } from '../sections/SolutionSection';
+import { OfferSection } from '../sections/OfferSection';
+import { SocialProofSection } from '../sections/SocialProofSection';
+import { WhyCaptivaSection } from '../sections/WhyCaptivaSection';
 
 export function HomePage() {
   const organizationSchema = {
@@ -78,7 +77,7 @@ export function HomePage() {
     keywords: [
       'landing pages',
       'landing pages para negocios',
-      'página web para captar clientes',
+      'sistema de captación de clientes',
       'landing pages de conversión',
       'captiva',
       'tuwebai',
@@ -92,10 +91,9 @@ export function HomePage() {
       <HowItWorksSection />
       <DemoShowcaseSection />
       <BenefitsSection />
-      <ProblemSection />
-      <SolutionSection />
-      <IndustryLinksSection />
-      <ProcessSection />
+      <WhyCaptivaSection />
+      <OfferSection />
+      <SocialProofSection />
       <FaqSection />
       <FinalCtaSection />
     </>

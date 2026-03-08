@@ -1,0 +1,11 @@
+{
+  "title": "Landing Page para Concesionaria Automotriz Premium",
+  "description": "Landing optimizada para captar test drives, ordenar propuesta comercial y acelerar consultas calificadas para concesionarias.",
+  "category": "automotriz",
+  "industry": "automotriz",
+  "slug": "automotriz-premium-enterprise",
+  "preview": "/demos/automotriz-premium-enterprise/preview.png",
+  "template": "builder",
+  "layout": "landing-a",
+  "variant": "landing-a"
+}

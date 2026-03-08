@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
+import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
@@ -48,7 +49,7 @@ export function IndustryPage() {
         '@type': 'ListItem',
         position: 2,
         name: 'Landing pages por industria',
-        item: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}#industrias`,
+        item: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}#demos`,
       },
       {
         '@type': 'ListItem',
@@ -63,7 +64,7 @@ export function IndustryPage() {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: industry.title,
-    serviceType: 'WebDesignService',
+    serviceType: 'LeadGenerationService',
     description: pageDescription,
     provider: {
       '@type': 'Organization',
@@ -95,7 +96,7 @@ export function IndustryPage() {
     path: pagePath,
     keywords: [
       `landing page para ${industry.industryName}`,
-      `pagina web para ${industry.industryName}`,
+      `captación de clientes para ${industry.industryName}`,
       `ejemplos landing ${industry.industryName}`,
       'captiva',
     ],
@@ -181,7 +182,7 @@ export function IndustryPage() {
           </section>
         ) : null}
 
-        <RelatedLinksSection title={`Explorar mas recursos para ${industry.industryName}`} industry={industry.slug} maxLinks={8} />
+        <RelatedLinksSection title={`Ver mas recursos para ${industry.industryName}`} industry={industry.slug} maxLinks={8} />
 
         <section className="industry-links">
           <h2>{siteConfig.pages.industry.exploreOtherTitle}</h2>
@@ -203,15 +204,23 @@ export function IndustryPage() {
             {siteConfig.pages.industry.ctaTitlePrefix} {industry.industryName}
           </h2>
           <p>{siteConfig.pages.industry.ctaDescription}</p>
-          <PrimaryCTA
-            label={siteConfig.pages.industry.ctaButtonLabel}
-            mode="lead-form"
-            leadFormId={`lead-form-${industry.slug}`}
-            source="industry"
-            industry={industry.industryName}
-            context={industry.slug}
-            variant="primary"
-          />
+          <div className="cta-row">
+            <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
+              Ver demos
+            </Link>
+            <PrimaryCTA
+              label="Quiero mi landing"
+              mode="lead-form"
+              leadFormId={`lead-form-${industry.slug}`}
+              source="industry"
+              industry={industry.industryName}
+              context={industry.slug}
+              variant="primary"
+            />
+            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+              Hablar por WhatsApp
+            </ButtonLink>
+          </div>
         </div>
 
         <LeadFormSection

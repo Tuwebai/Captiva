@@ -20,7 +20,7 @@ function safeValue(value: string | undefined) {
 
 export function buildLeadMessage(formData: LeadFormData, context: LeadContext = {}) {
   const lines = [
-    'Hola, quiero informacion sobre una landing page.',
+    'Hola, quiero informacion sobre Captiva como sistema de captacion de clientes.',
     '',
     `Nombre: ${safeValue(formData.name)}`,
     `Empresa: ${safeValue(formData.company)}`,

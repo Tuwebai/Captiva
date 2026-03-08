@@ -10,6 +10,7 @@ import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import type { BlogPostContent } from '../types/blog';
 import { trackEvent } from '../utils/analytics';
 import { formatPostDate, getBlogPostBySlug, getRelatedBlogPosts } from '../utils/blog';
+import { getIndustryLinks } from '../utils/seo-autolinks';
 
 const blogContentModules = import.meta.glob('../content/blog-content/*.json');
 
@@ -58,6 +59,7 @@ export function BlogPostPage() {
 
   const pagePath = `/blog/${post.slug}`;
   const relatedPosts = getRelatedBlogPosts(post, 3);
+  const featuredIndustry = getIndustryLinks(1)[0];
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -178,6 +180,29 @@ export function BlogPostPage() {
                 context={post.slug}
                 variant="primary"
               />
+            </SurfaceCard>
+
+            <SurfaceCard>
+              <h2>Ruta recomendada</h2>
+              <p>Seguí este flujo para pasar de contenido a implementación comercial.</p>
+              <div className="cta-row">
+                <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
+                  Ver demos
+                </Link>
+                {featuredIndustry ? (
+                  <Link className="button-link button-link--secondary" to={featuredIndustry.href}>
+                    Ver landing por industria
+                  </Link>
+                ) : null}
+                <PrimaryCTA
+                  label="Quiero mi landing"
+                  mode="lead-form"
+                  leadFormId={`lead-form-blog-${post.slug}`}
+                  source="blog-post"
+                  context={`${post.slug}-sidebar-route`}
+                  variant="primary"
+                />
+              </div>
             </SurfaceCard>
 
             {relatedPosts.length ? (

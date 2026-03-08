@@ -1,0 +1,39 @@
+{
+  "category": "restaurant",
+  "tone": "cercano-comercial",
+  "icp": "restaurantes y gastronomia que buscan reservas y consultas",
+  "valueProposition": "landing orientada a reservas con propuesta clara",
+  "benefits": [
+    "mas reservas",
+    "menu y propuesta bien comunicados",
+    "contacto rapido por WhatsApp"
+  ],
+  "objections": [
+    "la web no convierte visitas en reservas",
+    "menu y oferta poco visibles",
+    "contacto disperso"
+  ],
+  "cta": {
+    "primary": "Reservar ahora",
+    "secondary": "Ver menu"
+  },
+  "trustMessages": ["imagen profesional", "mensaje claro", "accion inmediata"],
+  "faq": [
+    { "question": "Se puede destacar menu y promos?", "answer": "Si, con bloques visuales y CTA por seccion." },
+    { "question": "Incluye boton de reserva?", "answer": "Si, con acceso rapido a WhatsApp." },
+    {
+      "question": "Sirve para campanas locales?",
+      "answer": "Si, la estructura esta orientada a conversion local."
+    },
+    { "question": "Puedo mostrar ubicacion y horarios?", "answer": "Si, en secciones visibles de contacto." },
+    { "question": "Se adapta a mobile?", "answer": "Si, prioriza lectura y accion en dispositivos moviles." },
+    {
+      "question": "Se puede escalar a mas sucursales?",
+      "answer": "Si, con variantes por ciudad y rubro."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar reservas", "ordenar propuesta", "facilitar contacto"],
+    "forbidden": ["promesas absolutas de ocupacion"]
+  }
+}

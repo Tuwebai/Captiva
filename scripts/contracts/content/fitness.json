@@ -1,0 +1,55 @@
+{
+  "category": "fitness",
+  "tone": "energetico-profesional",
+  "icp": "gimnasios y centros de entrenamiento que buscan captar alumnos",
+  "valueProposition": "landing enfocada en convertir visitas en consultas y pruebas",
+  "benefits": [
+    "mas pruebas de clase",
+    "mensaje claro de planes y horarios",
+    "contacto directo por WhatsApp"
+  ],
+  "objections": [
+    "la gente no entiende los planes",
+    "muchas visitas no escriben",
+    "falta una propuesta clara"
+  ],
+  "cta": {
+    "primary": "Solicitar informacion",
+    "secondary": "Ver servicios"
+  },
+  "trustMessages": [
+    "conversion first",
+    "diseno profesional",
+    "estructura SEO ready"
+  ],
+  "faq": [
+    {
+      "question": "Cuanto tarda en estar lista la landing?",
+      "answer": "Normalmente entre 3 y 7 dias segun contenido y ajustes."
+    },
+    {
+      "question": "Puedo mostrar distintos planes?",
+      "answer": "Si, se pueden estructurar planes y diferenciales por objetivo."
+    },
+    {
+      "question": "Incluye boton de WhatsApp?",
+      "answer": "Si, la demo incluye CTA directos en puntos clave."
+    },
+    {
+      "question": "Es compatible con campanas?",
+      "answer": "Si, se diseña para conversion en trafico pago y organico."
+    },
+    {
+      "question": "Puedo actualizar la propuesta despues?",
+      "answer": "Si, se puede iterar copy, secciones y ofertas sin rehacer todo."
+    },
+    {
+      "question": "Incluye analitica?",
+      "answer": "Si, permite instrumentar eventos de conversion y embudo."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar claridad", "aumentar consultas", "reducir friccion"],
+    "forbidden": ["garantias absolutas", "resultados medicos legales o financieros asegurados"]
+  }
+}

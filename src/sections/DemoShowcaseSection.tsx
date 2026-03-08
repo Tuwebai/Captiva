@@ -51,7 +51,7 @@ export function DemoShowcaseSection() {
                   rel="noreferrer"
                   onClick={() => trackEvent({ event: 'demo_click', category: 'home-demos', label: item.slug })}
                 >
-                  Ver demo
+                  {siteConfig.demos.cardCtaLabel}
                 </a>
               </SurfaceCard>
             );

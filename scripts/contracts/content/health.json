@@ -1,0 +1,42 @@
+{
+  "category": "health",
+  "tone": "profesional-confiable",
+  "icp": "clinicas y profesionales de salud que buscan mas turnos",
+  "valueProposition": "landing clara para convertir visitas en consultas medicas",
+  "benefits": [
+    "mas solicitudes de turno",
+    "autoridad profesional visible",
+    "contacto rapido y ordenado"
+  ],
+  "objections": [
+    "la web no transmite confianza",
+    "los pacientes no entienden servicios",
+    "pocos contactos por canales directos"
+  ],
+  "cta": {
+    "primary": "Solicitar informacion",
+    "secondary": "Ver servicios"
+  },
+  "trustMessages": ["enfoque en claridad", "estructura profesional", "contacto sin friccion"],
+  "faq": [
+    { "question": "En cuanto tiempo se publica?", "answer": "En pocos dias, segun disponibilidad de contenido." },
+    {
+      "question": "Se puede destacar especialidades?",
+      "answer": "Si, se jerarquizan tratamientos y areas de atencion."
+    },
+    { "question": "Incluye llamados a accion visibles?", "answer": "Si, se ubican CTA en hero, mitad y cierre." },
+    { "question": "Es responsive?", "answer": "Si, esta optimizada para mobile, tablet y desktop." },
+    {
+      "question": "Se puede integrar con WhatsApp?",
+      "answer": "Si, se incluye contacto directo prellenado."
+    },
+    {
+      "question": "Puede crecer a nivel SEO?",
+      "answer": "Si, mantiene estructura semantica y metadata completa."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar experiencia", "aumentar consultas", "reducir friccion"],
+    "forbidden": ["promesas clinicas absolutas", "afirmaciones medicas no verificables"]
+  }
+}

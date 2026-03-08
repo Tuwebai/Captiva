@@ -1,0 +1,45 @@
+{
+  "category": "legal",
+  "tone": "sobrio-confiable",
+  "icp": "estudios juridicos orientados a captar consultas calificadas",
+  "valueProposition": "landing legal con estructura comercial y respaldo profesional",
+  "benefits": [
+    "mas consultas con contexto",
+    "mensaje juridico claro",
+    "canales de contacto directos"
+  ],
+  "objections": [
+    "la propuesta no explica especialidades",
+    "falta autoridad visual",
+    "pocas consultas comerciales"
+  ],
+  "cta": {
+    "primary": "Solicitar informacion",
+    "secondary": "Ver servicios"
+  },
+  "trustMessages": ["respaldo profesional", "estructura clara", "contacto directo"],
+  "faq": [
+    {
+      "question": "Sirve para cualquier estudio juridico?",
+      "answer": "Si, se adapta por especialidad y tipo de cliente."
+    },
+    { "question": "Puedo mostrar credenciales?", "answer": "Si, incluye bloques de autoridad y experiencia." },
+    { "question": "Incluye seccion de proceso?", "answer": "Si, para alinear expectativas desde el inicio." },
+    {
+      "question": "Se puede orientar por ciudad?",
+      "answer": "Si, el sistema escala a landings por industria y ciudad."
+    },
+    {
+      "question": "Como llegan las consultas?",
+      "answer": "Por WhatsApp y formularios con datos estructurados."
+    },
+    {
+      "question": "Se integra con analytics?",
+      "answer": "Si, con eventos de conversion y seguimiento de embudo."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar claridad", "captar consultas", "transmitir respaldo"],
+    "forbidden": ["prometer resultados legales garantizados"]
+  }
+}

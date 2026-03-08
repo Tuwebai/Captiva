@@ -1,0 +1,36 @@
+{
+  "category": "business",
+  "tone": "comercial-profesional",
+  "icp": "negocios de servicios y b2b que buscan mas leads",
+  "valueProposition": "landing de conversion para acelerar consultas comerciales",
+  "benefits": [
+    "mas oportunidades comerciales",
+    "oferta estructurada",
+    "mejor conversion de trafico"
+  ],
+  "objections": [
+    "visitas sin conversion",
+    "mensaje poco claro",
+    "oferta dispersa"
+  ],
+  "cta": {
+    "primary": "Solicitar informacion",
+    "secondary": "Ver servicios"
+  },
+  "trustMessages": ["conversion first", "estructura comercial", "base para escalar"],
+  "faq": [
+    { "question": "Para que tipo de negocio funciona?", "answer": "Para servicios locales, b2b y propuestas comerciales." },
+    { "question": "Incluye planes?", "answer": "Si, con estructura clara por nivel de servicio." },
+    { "question": "Puedo usarla en anuncios?", "answer": "Si, esta preparada para trafico pago y SEO." },
+    {
+      "question": "Como miden conversion?",
+      "answer": "Con eventos de CTA, demo click y lead submit."
+    },
+    { "question": "Se puede iterar rapido?", "answer": "Si, se optimiza por fases sin rehacer la landing." },
+    { "question": "Incluye contacto directo?", "answer": "Si, con CTA a WhatsApp y formulario." }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar conversion", "aumentar consultas", "acelerar decision"],
+    "forbidden": ["promesas de ingresos garantizados"]
+  }
+}

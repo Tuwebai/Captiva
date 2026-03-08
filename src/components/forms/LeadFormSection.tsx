@@ -24,8 +24,8 @@ const initialState: LeadFormData = {
 
 export function LeadFormSection({
   id,
-  title = 'Contanos tu objetivo y armamos una propuesta',
-  description = 'Completa el formulario y abrimos WhatsApp con un mensaje estructurado para responderte mas rapido.',
+  title = 'Contanos tu objetivo y armamos un sistema de captación para tu negocio',
+  description = 'Completa el formulario y abrimos WhatsApp con un brief comercial estructurado para responderte más rápido.',
   submitLabel = 'Enviar por WhatsApp',
   source,
   industry,

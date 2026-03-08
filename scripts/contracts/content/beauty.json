@@ -1,0 +1,36 @@
+{
+  "category": "beauty",
+  "tone": "premium-cercano",
+  "icp": "centros esteticos y belleza que buscan turnos y consultas",
+  "valueProposition": "landing visual y comercial para captar turnos",
+  "benefits": [
+    "mas consultas por tratamientos",
+    "imagen premium del negocio",
+    "contacto sin friccion"
+  ],
+  "objections": [
+    "la propuesta no se entiende",
+    "la imagen no transmite profesionalismo",
+    "faltan CTA claros"
+  ],
+  "cta": {
+    "primary": "Solicitar informacion",
+    "secondary": "Ver tratamientos"
+  },
+  "trustMessages": ["presencia profesional", "claridad comercial", "conversion orientada a turnos"],
+  "faq": [
+    { "question": "Se pueden destacar tratamientos?", "answer": "Si, con bloques de servicios jerarquizados." },
+    { "question": "Incluye prueba social?", "answer": "Si, carrusel de testimonios y logos de confianza." },
+    { "question": "Puedo integrar WhatsApp?", "answer": "Si, en hero, secciones y cierre." },
+    { "question": "Se ve bien en mobile?", "answer": "Si, el diseño es responsive y pensado para conversion." },
+    { "question": "Se puede adaptar al estilo del centro?", "answer": "Si, colores y mensajes se ajustan por rubro." },
+    {
+      "question": "Sirve para campañas?",
+      "answer": "Si, esta preparada para trafico pago y organico."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar presencia", "aumentar consultas", "reducir friccion"],
+    "forbidden": ["promesas clinicas esteticas absolutas"]
+  }
+}

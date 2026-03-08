@@ -27,7 +27,7 @@ export function FinalCtaSection() {
           source="final"
           context="captiva-home-final"
           title="Hablar por WhatsApp con un brief listo"
-          description="Completas este formulario y abrimos WhatsApp con toda la informacion ordenada para avanzar rapido."
+          description="Completás este formulario y abrimos WhatsApp con toda la información ordenada para avanzar rápido."
         />
       </div>
     </section>

@@ -1,5 +1,27 @@
 [
   {
+    "slug": "automotriz-premium-enterprise",
+    "folderName": "automotriz-premium-enterprise",
+    "publicSlug": "DEMO-automotriz-premium-enterprise",
+    "title": "Landing Page para Concesionaria Automotriz Premium",
+    "description": "Landing optimizada para captar test drives, ordenar propuesta comercial y acelerar consultas calificadas para concesionarias.",
+    "industry": "automotriz",
+    "category": "automotriz",
+    "preview": "/demos/automotriz-premium-enterprise/preview.png",
+    "href": "/demo/automotriz-premium-enterprise"
+  },
+  {
+    "slug": "concesionaria-autos-premium",
+    "folderName": "concesionaria-autos-premium",
+    "publicSlug": "DEMO-concesionaria-autos-premium",
+    "title": "Landing Page para Concesionaria de Autos Premium",
+    "description": "Landing optimizada para concesionarias que buscan mas consultas calificadas, test drives y oportunidades de venta con contacto directo.",
+    "industry": "concesionaria",
+    "category": "negocios-locales",
+    "preview": "/demos/concesionaria-autos-premium/preview.png",
+    "href": "/demo/concesionaria-autos-premium"
+  },
+  {
     "slug": "demo-alegra-salud",
     "folderName": "DEMO Alegra Salud",
     "publicSlug": "DEMO-AlegraSalud",

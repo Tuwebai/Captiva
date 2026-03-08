@@ -30,8 +30,8 @@ export function BenefitsSection() {
           id="lead-form-benefits"
           source="benefits"
           context="captiva-home-mid"
-          title="Contanos que resultado buscas"
-          description="Con esta informacion te proponemos una estructura de landing orientada a conversion para tu rubro."
+          title="Contanos qué resultado querés lograr"
+          description="Con esta información te proponemos una landing orientada a conversión, con hosting + dominio por 1 año incluidos."
         />
       </div>
     </section>

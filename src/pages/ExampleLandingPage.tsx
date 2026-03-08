@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
+import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
@@ -128,15 +129,23 @@ export function ExampleLandingPage() {
         <div className="industry-cta">
           <h2>Queres una landing con esta estructura?</h2>
           <p>Solicita una propuesta y armamos una version adaptada a tu negocio y objetivo comercial.</p>
-          <PrimaryCTA
-            label="Crear mi landing"
-            mode="lead-form"
-            leadFormId={`lead-form-${entry.slug}`}
-            source="example-page"
-            industry={entry.industry ?? entry.category}
-            context={entry.slug}
-            variant="primary"
-          />
+          <div className="cta-row">
+            <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
+              Ver demos
+            </Link>
+            <PrimaryCTA
+              label="Quiero mi landing"
+              mode="lead-form"
+              leadFormId={`lead-form-${entry.slug}`}
+              source="example-page"
+              industry={entry.industry ?? entry.category}
+              context={entry.slug}
+              variant="primary"
+            />
+            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+              Hablar por WhatsApp
+            </ButtonLink>
+          </div>
         </div>
 
         <LeadFormSection

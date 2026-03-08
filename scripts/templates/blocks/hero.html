@@ -1,18 +1,32 @@
-<section class="hero section">
+<section class="hero section" id="hero">
   <div class="hero-grid">
     <article>
       <p class="eyebrow">{{CATEGORY_LABEL}} demo</p>
       <h1>{{TITLE}}</h1>
       <p class="hero-lead">{{HEADLINE}}</p>
       <p class="hero-lead">{{DESCRIPTION}}</p>
+      <ul class="hero-trust" aria-label="Puntos clave de conversion">
+        <li><span>{{TRUST_1}}</span></li>
+        <li><span>{{TRUST_2}}</span></li>
+        <li><span>{{TRUST_3}}</span></li>
+      </ul>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#contacto">{{CTA_TEXT}}</a>
-        <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+        <a class="btn btn-secondary" href="#servicios">{{CTA_SECONDARY}}</a>
       </div>
-      <div class="hero-trust">
-        <span>Conversion first</span>
-        <span>Diseño profesional</span>
-        <span>SEO ready</span>
+      <div class="kpi-grid" aria-label="Metricas clave">
+        <article class="kpi-card">
+          <strong>{{PROOF_VALUE_1}}</strong>
+          <span>{{PROOF_LABEL_1}}</span>
+        </article>
+        <article class="kpi-card">
+          <strong>{{PROOF_VALUE_2}}</strong>
+          <span>{{PROOF_LABEL_2}}</span>
+        </article>
+        <article class="kpi-card">
+          <strong>{{PROOF_VALUE_3}}</strong>
+          <span>{{PROOF_LABEL_3}}</span>
+        </article>
       </div>
     </article>
     <aside class="hero-media">

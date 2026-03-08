@@ -8,6 +8,7 @@ src/ui-ux-pro-max/
 screenshots/
 dist/
 node_modules/
+.cache/
 *.tsbuildinfo
 public/demos/
 docs/

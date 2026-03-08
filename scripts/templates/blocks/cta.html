@@ -1,17 +1,20 @@
-<section class="cta-wrap" id="contacto">
+<section class="cta-wrap" id="cta-final">
   <article class="cta-box">
-    <p class="eyebrow">CTA final</p>
     <h2>{{CTA_HEADLINE}}</h2>
     <p>{{CTA_DESC}}</p>
     <div class="cta-actions">
-      <a class="btn btn-primary" href="#">{{CTA_TEXT}}</a>
+      <a class="btn btn-primary" href="#contacto">{{CTA_TEXT}}</a>
+      <a class="btn btn-secondary" href="#servicios">{{CTA_SECONDARY}}</a>
     </div>
   </article>
-  <form class="form" id="leadForm">
-    <input class="field" placeholder="Nombre" required />
-    <input class="field" placeholder="WhatsApp" required type="tel" />
-    <textarea class="field" placeholder="Contanos tu objetivo" rows="3"></textarea>
-    <button class="btn btn-primary" id="submitBtn" type="submit">{{CTA_TEXT}}</button>
-    <p class="ok" id="okMsg">Solicitud simulada enviada. En una implementación real entra al CRM.</p>
-  </form>
+  <article class="cta-box">
+    <p class="eyebrow">Siguiente paso</p>
+    <h3>Recibe una propuesta clara en 24 horas</h3>
+    <p>Comparte objetivo, canal de contacto y prioridad comercial. Te devolvemos una propuesta lista para validar.</p>
+    <div class="contact-chips">
+      <span>Brief comercial</span>
+      <span>Enfoque en conversion</span>
+      <span>Salida en WhatsApp</span>
+    </div>
+  </article>
 </section>

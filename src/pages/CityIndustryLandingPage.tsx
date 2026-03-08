@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
+import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
@@ -32,7 +33,7 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
   const industry = getIndustryBySlug(landing.niche.industrySlug);
   const pageTitle = `${landing.title} | Captiva`;
   const pagePath = landing.path;
-  const pageDescription = `Descubri como Captiva puede ayudar a ${landing.niche.name} en ${landing.city.name} (${landing.city.country}) a captar mas consultas con una landing optimizada para conversion.`;
+  const pageDescription = `Descubrí cómo Captiva puede ayudar a ${landing.niche.name} en ${landing.city.name} (${landing.city.country}) a captar más consultas con una landing optimizada para conversión.`;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -98,7 +99,7 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
     path: pagePath,
     keywords: [
       `landing page para ${landing.niche.name} en ${landing.city.name}`,
-      `pagina web para ${landing.niche.name} ${landing.city.name}`,
+      `captación de clientes para ${landing.niche.name} en ${landing.city.name}`,
       `captiva ${landing.niche.slug} ${landing.city.slug}`,
     ],
     structuredData: faqSchema ? [breadcrumbSchema, serviceSchema, faqSchema] : [breadcrumbSchema, serviceSchema],
@@ -121,12 +122,12 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
             ) : (
               <p>
                 Muchos {landing.niche.name} en {landing.city.name} dependen de canales dispersos y pierden consultas por no
-                tener una pagina enfocada en conversion.
+                tener una pagina enfocada en captacion.
               </p>
             )}
           </SurfaceCard>
           <SurfaceCard>
-            <h2>Como lo resuelve Captiva</h2>
+            <h2>Como lo implementa Captiva</h2>
             <p>{industry?.solution ?? `Captiva estructura una landing para ${landing.niche.name} en ${landing.city.name} con mensaje claro, oferta visible y contacto directo.`}</p>
           </SurfaceCard>
         </div>
@@ -157,20 +158,20 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
         ) : null}
 
         <section className="industry-links">
-          <h2>Explorar mas opciones</h2>
+          <h2>Ver mas recursos</h2>
           <div className="card-grid card-grid--two">
             <SurfaceCard>
               <h3>Ver ejemplos reales</h3>
-              <p>Explora demos por rubro para validar estructura y propuesta antes de implementar.</p>
+              <p>Verifica demos por rubro para validar estructura y propuesta antes de implementar.</p>
               <Link className="text-link" to={siteConfig.routes.captivaDemos}>
                 Ir a /captiva/demos
               </Link>
             </SurfaceCard>
             <SurfaceCard>
               <h3>Version general por industria</h3>
-              <p>Si queres una pagina sin enfoque geografico, revisa la version base por rubro.</p>
+              <p>Si queres una landing sin enfoque geografico, revisa la version base por rubro.</p>
               <Link className="text-link" to={`/${landing.niche.industrySlug}`}>
-                Ver pagina por industria
+                Ver landing por industria
               </Link>
             </SurfaceCard>
           </div>
@@ -187,17 +188,25 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
           <h2>
             Crear mi landing para {landing.niche.name} en {landing.city.name}
           </h2>
-          <p>Solicita informacion y te mostramos una estructura recomendada para captar consultas reales.</p>
-          <PrimaryCTA
-            label="Solicitar informacion"
-            mode="lead-form"
-            leadFormId={`lead-form-${landing.slug}`}
-            source="industry-city"
-            industry={landing.niche.name}
-            city={landing.city.name}
-            context={landing.slug}
-            variant="primary"
-          />
+          <p>Solicita una propuesta y te mostramos una estructura recomendada para captar consultas reales.</p>
+          <div className="cta-row">
+            <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
+              Ver demos
+            </Link>
+            <PrimaryCTA
+              label="Quiero mi landing"
+              mode="lead-form"
+              leadFormId={`lead-form-${landing.slug}`}
+              source="industry-city"
+              industry={landing.niche.name}
+              city={landing.city.name}
+              context={landing.slug}
+              variant="primary"
+            />
+            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+              Hablar por WhatsApp
+            </ButtonLink>
+          </div>
         </div>
 
         <LeadFormSection

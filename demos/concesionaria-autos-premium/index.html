@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concesionaria Premium Motors | Demo Captiva</title>
+    <meta
+      name="description"
+      content="Demo de landing para concesionaria premium orientada a test drives, cotizacion y cierre comercial."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+              display: ["Outfit", "Inter", "system-ui", "sans-serif"],
+            },
+            colors: {
+              motors: {
+                950: "#06080f",
+                900: "#0a1020",
+                800: "#121b33",
+                700: "#1d2a49",
+                500: "#3f78ff",
+                400: "#6e9dff",
+                300: "#93b8ff",
+                200: "#c8daff",
+                gold: "#f4b860",
+              },
+            },
+            boxShadow: {
+              "motors-lg": "0 24px 70px rgba(8,16,36,.45)",
+              "motors-md": "0 14px 35px rgba(8,16,36,.35)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background:
+          radial-gradient(circle at 15% 18%, rgba(63, 120, 255, 0.18), transparent 38%),
+          radial-gradient(circle at 85% 80%, rgba(244, 184, 96, 0.15), transparent 35%),
+          #06080f;
+      }
+      .glass {
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .text-gradient {
+        background: linear-gradient(120deg, #f9fbff 0%, #c8daff 42%, #f4b860 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .marquee-track {
+        width: max-content;
+        animation: marquee 30s linear infinite;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body class="text-motors-200 font-sans antialiased">
+    <div
+      class="bg-[#0f1830]/95 border-b border-motors-700/70 text-center text-[11px] md:text-xs font-bold tracking-[0.18em] uppercase py-2 px-4"
+    >
+      Demo comercial captiva | rubro concesionaria | datos ficticios
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-motors-700/60 bg-[#080d1d]/90 glass">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="h-20 flex items-center justify-between">
+          <a href="#" class="flex items-center gap-3">
+            <div
+              class="w-11 h-11 rounded-xl bg-gradient-to-br from-motors-500 to-motors-gold grid place-items-center text-white shadow-motors-md"
+            >
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 16l2.5-6h13L21 16M6 16a2 2 0 104 0m4 0a2 2 0 104 0M7 10l2-3h6l2 3"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <p class="font-display font-black text-white leading-none text-lg tracking-tight">
+                Premium Motors
+              </p>
+              <p class="text-[11px] uppercase tracking-[0.16em] text-motors-300">
+                concesionaria oficial demo
+              </p>
+            </div>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-motors-300">
+            <a href="#inventario" class="hover:text-white transition-colors">Inventario</a>
+            <a href="#financiacion" class="hover:text-white transition-colors">Financiacion</a>
+            <a href="#opiniones" class="hover:text-white transition-colors">Opiniones</a>
+          </nav>
+
+          <a
+            href="#contacto"
+            class="inline-flex items-center rounded-xl bg-gradient-to-r from-motors-500 to-motors-400 hover:from-motors-400 hover:to-motors-500 transition-colors text-white font-bold text-sm px-5 py-3 shadow-motors-md"
+          >
+            Agendar test drive
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="uppercase tracking-[0.22em] text-[11px] md:text-xs text-motors-300 font-bold mb-4">
+              concesionaria premium en cordoba
+            </p>
+            <h1 class="font-display font-black text-4xl md:text-6xl leading-[1.05] mb-5 text-gradient">
+              Tu proximo auto, con asesoria clara y entrega segura.
+            </h1>
+            <p class="text-motors-200/90 text-lg leading-relaxed max-w-xl">
+              Landing pensada para convertir visitas en test drives y oportunidades reales de venta.
+              Inventario destacado, financiacion explicada y contacto directo con asesor.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#inventario"
+                class="inline-flex items-center rounded-xl border border-motors-500/60 bg-motors-500/15 hover:bg-motors-500/25 transition-colors text-white font-bold px-5 py-3"
+              >
+                Ver catalogo
+              </a>
+              <a
+                href="#contacto"
+                class="inline-flex items-center rounded-xl border border-motors-700 hover:border-motors-500 transition-colors text-motors-200 font-semibold px-5 py-3"
+              >
+                Solicitar cotizacion
+              </a>
+            </div>
+
+            <div class="mt-7 flex flex-wrap gap-2">
+              <span class="px-3 py-2 rounded-full border border-motors-700 text-xs uppercase tracking-wide">
+                entrega inmediata
+              </span>
+              <span class="px-3 py-2 rounded-full border border-motors-700 text-xs uppercase tracking-wide">
+                usados certificados
+              </span>
+              <span class="px-3 py-2 rounded-full border border-motors-700 text-xs uppercase tracking-wide">
+                financiacion flexible
+              </span>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -inset-5 rounded-3xl bg-motors-500/20 blur-3xl"></div>
+            <div class="relative rounded-3xl overflow-hidden border border-motors-700 bg-motors-900 shadow-motors-lg">
+              <img
+                src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1400&q=80"
+                alt="Concesionaria premium"
+                class="w-full h-[440px] object-cover"
+              />
+              <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="grid grid-cols-3 gap-3 text-center">
+                  <div class="rounded-xl border border-white/20 bg-white/10 p-3">
+                    <p class="text-2xl font-extrabold text-white">+120</p>
+                    <p class="text-[11px] uppercase tracking-[0.12em] text-motors-200">autos en stock</p>
+                  </div>
+                  <div class="rounded-xl border border-white/20 bg-white/10 p-3">
+                    <p class="text-2xl font-extrabold text-white">24h</p>
+                    <p class="text-[11px] uppercase tracking-[0.12em] text-motors-200">respuesta comercial</p>
+                  </div>
+                  <div class="rounded-xl border border-white/20 bg-white/10 p-3">
+                    <p class="text-2xl font-extrabold text-white">4.9</p>
+                    <p class="text-[11px] uppercase tracking-[0.12em] text-motors-200">rating promedio</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="inventario" class="py-16 border-y border-motors-800/80 bg-[#090f20]/70">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+          <div class="mb-10">
+            <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">inventario destacado</p>
+            <h2 class="font-display font-black text-3xl md:text-5xl text-white mt-2">Modelos listos para test drive</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-5">
+            <article class="rounded-2xl border border-motors-700 bg-motors-900/80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1616788494672-ec7ca25fdda9?auto=format&fit=crop&w=1000&q=80"
+                alt="Sedan ejecutivo"
+                class="h-52 w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-display font-bold text-2xl text-white">Sedan Executive 2.0T</h3>
+                <p class="text-motors-300 mt-2">Automatico, 2024, 12.300 km, garantia oficial.</p>
+                <p class="text-motors-gold font-bold text-xl mt-4">$38.500.000</p>
+              </div>
+            </article>
+            <article class="rounded-2xl border border-motors-700 bg-motors-900/80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=80"
+                alt="SUV familiar"
+                class="h-52 w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-display font-bold text-2xl text-white">SUV Adventure 4x4</h3>
+                <p class="text-motors-300 mt-2">Automatico, 2023, paquete seguridad premium.</p>
+                <p class="text-motors-gold font-bold text-xl mt-4">$46.200.000</p>
+              </div>
+            </article>
+            <article class="rounded-2xl border border-motors-700 bg-motors-900/80 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=1000&q=80"
+                alt="Hatchback deportivo"
+                class="h-52 w-full object-cover"
+              />
+              <div class="p-5">
+                <h3 class="font-display font-bold text-2xl text-white">Hatchback Sport Line</h3>
+                <p class="text-motors-300 mt-2">Motor turbo, 2024, conectividad full y ADAS.</p>
+                <p class="text-motors-gold font-bold text-xl mt-4">$31.900.000</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="financiacion" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-6">
+          <article class="rounded-2xl border border-motors-700 bg-motors-900/75 p-6">
+            <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">financiacion</p>
+            <h3 class="font-display font-black text-3xl text-white mt-2">Planes claros, sin sorpresas</h3>
+            <ul class="mt-5 space-y-3 text-motors-200">
+              <li>Credito prendario hasta 60 meses con tasa preferencial.</li>
+              <li>Entrega inicial flexible segun perfil del cliente.</li>
+              <li>Aprobacion preliminar en menos de 24 horas habiles.</li>
+            </ul>
+          </article>
+          <article class="rounded-2xl border border-motors-700 bg-motors-900/75 p-6">
+            <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">toma de usados</p>
+            <h3 class="font-display font-black text-3xl text-white mt-2">Recibimos tu usado en parte de pago</h3>
+            <ul class="mt-5 space-y-3 text-motors-200">
+              <li>Tasacion profesional con reporte transparente por estado.</li>
+              <li>Documentacion y transferencia asistida por el equipo legal.</li>
+              <li>Operacion integrada para reducir tiempos de cierre.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="opiniones" class="py-16 border-y border-motors-800/70 bg-[#090f20]/60">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+          <div class="mb-8">
+            <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">opiniones reales</p>
+            <h2 class="font-display font-black text-3xl md:text-5xl text-white mt-2">
+              Testimonios de clientes
+            </h2>
+          </div>
+          <div class="overflow-hidden">
+            <div class="marquee-track flex gap-4">
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "Reservamos test drive en el dia y cerramos la compra en una semana."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Marina G. - Cordoba</p>
+              </article>
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "Excelente trato comercial. La financiacion fue clara desde el inicio."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Lucas R. - Villa Maria</p>
+              </article>
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "La toma de usado fue rapida y con tasacion transparente."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Paula D. - Rio Cuarto</p>
+              </article>
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5" aria-hidden="true">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "Reservamos test drive en el dia y cerramos la compra en una semana."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Marina G. - Cordoba</p>
+              </article>
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5" aria-hidden="true">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "Excelente trato comercial. La financiacion fue clara desde el inicio."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Lucas R. - Villa Maria</p>
+              </article>
+              <article class="w-[320px] shrink-0 rounded-2xl border border-motors-700 bg-motors-900/85 p-5" aria-hidden="true">
+                <p class="text-motors-gold font-bold">★★★★★</p>
+                <p class="text-motors-200 mt-3">
+                  "La toma de usado fue rapida y con tasacion transparente."
+                </p>
+                <p class="mt-4 text-sm text-motors-300 font-semibold">Paula D. - Rio Cuarto</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="py-16">
+        <div class="max-w-4xl mx-auto px-4 md:px-6">
+          <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">faq comercial</p>
+          <h2 class="font-display font-black text-3xl md:text-5xl text-white mt-2 mb-6">
+            Preguntas frecuentes antes de comprar
+          </h2>
+          <div class="space-y-3">
+            <details class="rounded-xl border border-motors-700 bg-motors-900/70 p-5">
+              <summary class="cursor-pointer font-bold text-white">
+                Cuanto tarda la aprobacion de financiacion?
+              </summary>
+              <p class="mt-3 text-motors-200">
+                La preaprobacion se entrega en 24 horas habiles con documentacion basica del titular.
+              </p>
+            </details>
+            <details class="rounded-xl border border-motors-700 bg-motors-900/70 p-5">
+              <summary class="cursor-pointer font-bold text-white">
+                Puedo reservar una unidad con senia?
+              </summary>
+              <p class="mt-3 text-motors-200">
+                Si. Se reserva por 72 horas para avanzar con documentacion, tasacion y cierre de operacion.
+              </p>
+            </details>
+            <details class="rounded-xl border border-motors-700 bg-motors-900/70 p-5">
+              <summary class="cursor-pointer font-bold text-white">
+                Entregan autos en todo el pais?
+              </summary>
+              <p class="mt-3 text-motors-200">
+                Si. Coordinamos entrega en sucursal o transporte asegurado segun la ubicacion del cliente.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="py-16 border-t border-motors-800/70 bg-[#090f20]/70">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-6 items-stretch">
+          <div class="rounded-2xl border border-motors-700 bg-motors-900/80 p-6">
+            <p class="uppercase tracking-[0.16em] text-xs text-motors-300 font-bold">contacto directo</p>
+            <h3 class="font-display font-black text-3xl text-white mt-2">Solicita propuesta y test drive</h3>
+            <p class="mt-4 text-motors-200">
+              Completa tus datos y un asesor comercial te contacta por WhatsApp para enviarte
+              disponibilidad, simulacion de cuota y opciones de entrega.
+            </p>
+            <ul class="mt-6 space-y-2 text-motors-200">
+              <li><strong>Email:</strong> ventas@premiummotors.demo</li>
+              <li><strong>WhatsApp:</strong> +54 9 3571 417960</li>
+              <li><strong>Sucursal:</strong> Cordoba Capital (Demo)</li>
+            </ul>
+          </div>
+
+          <form id="leadForm" class="rounded-2xl border border-motors-700 bg-[#0b152a]/90 p-6 grid gap-3">
+            <input
+              type="text"
+              placeholder="Nombre y apellido"
+              required
+              class="w-full rounded-xl border border-motors-700 bg-motors-900/80 text-motors-100 px-4 py-3 outline-none focus:border-motors-500"
+            />
+            <input
+              type="tel"
+              placeholder="WhatsApp"
+              required
+              class="w-full rounded-xl border border-motors-700 bg-motors-900/80 text-motors-100 px-4 py-3 outline-none focus:border-motors-500"
+            />
+            <select
+              required
+              class="w-full rounded-xl border border-motors-700 bg-motors-900/80 text-motors-100 px-4 py-3 outline-none focus:border-motors-500"
+            >
+              <option value="" selected disabled>Interes principal</option>
+              <option>Test drive</option>
+              <option>Financiacion</option>
+              <option>Toma de usado</option>
+              <option>Cotizacion inmediata</option>
+            </select>
+            <textarea
+              rows="4"
+              placeholder="Modelo de interes o presupuesto aproximado"
+              class="w-full rounded-xl border border-motors-700 bg-motors-900/80 text-motors-100 px-4 py-3 outline-none focus:border-motors-500"
+            ></textarea>
+            <button
+              id="submitBtn"
+              type="submit"
+              class="mt-1 inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-motors-500 to-motors-400 hover:from-motors-400 hover:to-motors-500 transition-colors text-white font-bold px-5 py-3 shadow-motors-md"
+            >
+              Enviar solicitud
+            </button>
+            <p
+              id="okMsg"
+              class="hidden rounded-xl border border-emerald-500/50 bg-emerald-500/10 text-emerald-300 px-4 py-3 text-sm"
+            >
+              Solicitud recibida en modo demo. En produccion iria a CRM y WhatsApp.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-motors-800 py-8 text-center text-motors-300 text-sm">
+      Premium Motors | Demo generada para Captiva - Tuwebai
+    </footer>
+
+    <a
+      id="waButton"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="WhatsApp"
+      class="fixed right-5 bottom-5 w-14 h-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-motors-lg"
+    >
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M12 2a9.94 9.94 0 0 0-8.57 15.02L2 22l5.11-1.34A9.96 9.96 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.03.8.8-2.95-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.15c-.25-.12-1.5-.74-1.73-.82-.23-.09-.39-.12-.56.12-.16.23-.63.82-.77.99-.14.16-.28.18-.53.06-.25-.12-1.05-.39-2-1.25-.74-.66-1.24-1.46-1.39-1.7-.15-.25-.02-.38.11-.51.12-.12.25-.29.37-.43.12-.14.16-.23.24-.39.08-.16.04-.29-.02-.41-.06-.12-.56-1.34-.77-1.84-.2-.48-.41-.41-.56-.42h-.48c-.16 0-.42.06-.64.29-.22.23-.84.82-.84 2 0 1.17.86 2.31.98 2.47.12.16 1.69 2.57 4.1 3.6.57.25 1.02.4 1.38.51.58.18 1.1.15 1.52.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.13-.06-.1-.22-.16-.47-.29Z"
+        />
+      </svg>
+    </a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const waMessage = encodeURIComponent(
+          "Hola Premium Motors, quiero coordinar test drive y recibir financiacion."
+        );
+        const waHref = "https://wa.me/5493571417960?text=" + waMessage;
+        const waButton = document.getElementById("waButton");
+        const leadForm = document.getElementById("leadForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const okMsg = document.getElementById("okMsg");
+
+        if (waButton) waButton.href = waHref;
+
+        if (!leadForm || !submitBtn || !okMsg) return;
+
+        leadForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+
+          setTimeout(() => {
+            okMsg.classList.remove("hidden");
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Enviar solicitud";
+            leadForm.reset();
+          }, 800);
+        });
+      });
+    </script>
+  </body>
+</html>

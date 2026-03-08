@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "description": "Demos premium de referencia para validar estructura, nivel visual y densidad comercial.",
+  "goldenDemos": [
+    {
+      "slug": "concesionaria-autos-premium",
+      "path": "demos/concesionaria-autos-premium/index.html",
+      "reason": "Referencia premium de layout comercial completo para servicios locales."
+    },
+    {
+      "slug": "DEMO MB GYM",
+      "path": "demos/DEMO MB GYM/index.html",
+      "reason": "Referencia de secciones comerciales completas (metodologia, planes, experiencia y contacto)."
+    },
+    {
+      "slug": "DEMO Carbon Detail",
+      "path": "demos/DEMO Carbon Detail/index.html",
+      "reason": "Referencia de narrativa visual y jerarquia de conversion en servicios premium."
+    }
+  ]
+}

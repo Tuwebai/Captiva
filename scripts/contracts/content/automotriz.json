@@ -1,0 +1,55 @@
+{
+  "category": "automotriz",
+  "tone": "premium-comercial",
+  "icp": "concesionarias y agencias que buscan test drives y cierres comerciales",
+  "valueProposition": "landing premium para convertir visitas en test drives y cotizaciones",
+  "benefits": [
+    "mas consultas calificadas de compra",
+    "propuesta de financiacion clara",
+    "contacto directo con asesor comercial"
+  ],
+  "objections": [
+    "la oferta no se entiende rapido",
+    "falta claridad en financiacion y usados",
+    "visitas sin paso a accion comercial"
+  ],
+  "cta": {
+    "primary": "Agendar test drive",
+    "secondary": "Ver catalogo"
+  },
+  "trustMessages": [
+    "stock validado",
+    "respuesta comercial en 24h",
+    "asesoria personalizada"
+  ],
+  "faq": [
+    {
+      "question": "Cuanto tarda la respuesta comercial?",
+      "answer": "Normalmente dentro de las primeras 24 horas habiles."
+    },
+    {
+      "question": "Puedo cotizar financiacion desde la landing?",
+      "answer": "Si, se puede iniciar la consulta y enviar propuesta personalizada."
+    },
+    {
+      "question": "Reciben usados en parte de pago?",
+      "answer": "Si, la estructura contempla tasacion y canal de toma de usados."
+    },
+    {
+      "question": "Se puede priorizar test drive?",
+      "answer": "Si, con CTA principal y formulario orientado a turnos de prueba."
+    },
+    {
+      "question": "La landing sirve para campañas pagas?",
+      "answer": "Si, esta diseñada para convertir trafico de anuncios y SEO."
+    },
+    {
+      "question": "Incluye analytics de conversion?",
+      "answer": "Si, se puede medir CTA, consultas y avance del embudo comercial."
+    }
+  ],
+  "claimsPolicy": {
+    "allowed": ["mejorar consultas", "acelerar test drive", "ordenar propuesta comercial"],
+    "forbidden": ["promesas de venta garantizada", "claims financieros absolutos"]
+  }
+}

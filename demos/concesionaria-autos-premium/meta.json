@@ -1,0 +1,11 @@
+{
+  "title": "Landing Page para Concesionaria de Autos Premium",
+  "description": "Landing optimizada para concesionarias que buscan mas consultas calificadas, test drives y oportunidades de venta con contacto directo.",
+  "category": "negocios-locales",
+  "industry": "concesionaria",
+  "slug": "concesionaria-autos-premium",
+  "preview": "/demos/concesionaria-autos-premium/preview.png",
+  "template": "manual",
+  "layout": "custom",
+  "variant": "concesionaria-premium-v1"
+}

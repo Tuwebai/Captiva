@@ -98,15 +98,27 @@ export function ComparisonPage() {
         ) : null}
 
         <div className="industry-cta">
-          <h2>Queres validar que estructura te conviene?</h2>
-          <p>Podemos recomendarte el formato ideal segun tu objetivo de captacion y ciclo comercial.</p>
-          <ButtonLink
-            href={siteConfig.contact.ctaHref}
-            variant="primary"
-            onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: entry.slug })}
-          >
-            Solicitar informacion
-          </ButtonLink>
+          <h2>¿Querés validar qué estructura te conviene?</h2>
+          <p>Podemos recomendarte el formato ideal según tu objetivo de captación y ciclo comercial.</p>
+          <div className="cta-row">
+            <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
+              Ver demos
+            </Link>
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              variant="primary"
+              onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: `${entry.slug}-landing` })}
+            >
+              Quiero mi landing
+            </ButtonLink>
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              variant="secondary"
+              onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: `${entry.slug}-whatsapp` })}
+            >
+              Hablar por WhatsApp
+            </ButtonLink>
+          </div>
         </div>
       </div>
     </section>

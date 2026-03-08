@@ -49,10 +49,12 @@ export function PageShell({ children }: PropsWithChildren) {
       { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
       { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
       { label: 'Beneficios', href: `${siteConfig.routes.captiva}#beneficios`, icon: 'benefits' },
-      { label: 'Problema', href: `${siteConfig.routes.captiva}#problema`, icon: 'problem' },
-      { label: 'Solución', href: `${siteConfig.routes.captiva}#solucion`, icon: 'solution' },
-      { label: 'Industrias', href: `${siteConfig.routes.captiva}#industrias`, icon: 'industries' },
-      { label: 'Proceso', href: `${siteConfig.routes.captiva}#proceso`, icon: 'process' },
+      { label: 'Por qué Captiva', href: `${siteConfig.routes.captiva}#por-que-captiva`, icon: 'solution' },
+      { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
+      { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
+      { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'process' },
+      { label: 'Garantía', href: `${siteConfig.routes.captiva}#garantia`, icon: 'process' },
+      { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'process' },
       { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
     ],
     [],
@@ -277,7 +279,7 @@ export function PageShell({ children }: PropsWithChildren) {
               data-tooltip="Hablar por WhatsApp y solicitar landing"
               onClick={() => trackEvent({ event: 'cta_click', category: 'rail', label: 'solicitar-landing' })}
             >
-              Solicitar landing
+              Hablar por WhatsApp
             </ButtonLink>
             <ThemeSwitch source="sidebar" compact={isRailCollapsed} className="section-rail__theme-switch" />
           </aside>
@@ -322,28 +324,28 @@ export function PageShell({ children }: PropsWithChildren) {
               <span>WhatsApp</span>
             </a>
             <a
-              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#industrias`) ? ' is-active' : ''}`}
-              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#industrias`) ? 'location' : undefined}
-              href={`${siteConfig.routes.captiva}#industrias`}
+              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#oferta`) ? ' is-active' : ''}`}
+              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#oferta`) ? 'location' : undefined}
+              href={`${siteConfig.routes.captiva}#oferta`}
               onClick={() => {
-                setActiveSectionId('industrias');
-                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'industrias' });
+                setActiveSectionId('oferta');
+                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'oferta' });
               }}
             >
               <FeatureIcon name="industries" />
-              <span>Industrias</span>
+              <span>Oferta</span>
             </a>
             <a
-              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#proceso`) ? ' is-active' : ''}`}
-              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#proceso`) ? 'location' : undefined}
-              href={`${siteConfig.routes.captiva}#proceso`}
+              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#contacto`) ? ' is-active' : ''}`}
+              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#contacto`) ? 'location' : undefined}
+              href={`${siteConfig.routes.captiva}#contacto`}
               onClick={() => {
-                setActiveSectionId('proceso');
-                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'proceso' });
+                setActiveSectionId('contacto');
+                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'contacto' });
               }}
             >
-              <FeatureIcon name="process" />
-              <span>Proceso</span>
+              <FeatureIcon name="contact-nav" />
+              <span>Contacto</span>
             </a>
           </nav>
         </>

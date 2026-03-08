@@ -3,7 +3,7 @@ import { siteConfig } from '../config/site';
 
 const faqItems = [
   {
-    question: '¿Cuánto tarda Captiva en publicar una landing page?',
+    question: '¿Cuánto tarda Captiva en publicar una landing lista para captar clientes?',
     answer:
       'Depende del rubro y volumen de contenido, pero el proceso está pensado para salir rápido: análisis, diseño y publicación.',
   },
@@ -18,9 +18,14 @@ const faqItems = [
       'Sí. Las demos muestran estructuras reales de conversión que luego se personalizan con la propuesta de valor de cada negocio.',
   },
   {
+    question: '¿Incluye hosting y dominio?',
+    answer:
+      'Sí. La oferta productizada de Captiva incluye hosting profesional y dominio por 1 año para simplificar la puesta en marcha.',
+  },
+  {
     question: '¿Cómo solicito una propuesta para mi landing?',
     answer:
-      'Podés solicitar información por WhatsApp y te enviamos alcance, tiempos y pasos recomendados para lanzar tu página.',
+      'Podés solicitar una propuesta por WhatsApp y te enviamos alcance, tiempos y pasos recomendados para lanzar tu sistema de captación.',
   },
 ];
 
@@ -45,7 +50,7 @@ export function FaqSection() {
 
         <div className="faq-cta">
           <ButtonLink href={siteConfig.contact.ctaHref} variant="primary">
-            Solicitar demo
+            Quiero mi landing
           </ButtonLink>
         </div>
       </div>

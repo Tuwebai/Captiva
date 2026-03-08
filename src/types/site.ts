@@ -30,6 +30,35 @@ export type BenefitItem = {
   description: string;
 };
 
+export type SocialProofMetric = {
+  value: string;
+  label: string;
+};
+
+export type SocialProofItem = {
+  title: string;
+  description: string;
+};
+
+export type WhyCaptivaItem = {
+  title: string;
+  description: string;
+};
+
+export type OfferIncludeItem = {
+  title: string;
+  description: string;
+};
+
+export type OfferPlan = {
+  name: string;
+  audience: string;
+  includes: string[];
+  highlight?: string;
+  ctaLabel: string;
+  whatsappMessage: string;
+};
+
 export type DemoItem = {
   slug: string;
   title: string;
@@ -122,6 +151,37 @@ export type SiteConfig = {
     title: string;
     description: string;
     items: BenefitItem[];
+  };
+  socialProof: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    metrics: SocialProofMetric[];
+    items: SocialProofItem[];
+  };
+  whyCaptiva: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: WhyCaptivaItem[];
+  };
+  offer: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    includesTitle: string;
+    includes: OfferIncludeItem[];
+    notIncludesTitle: string;
+    notIncludes: string[];
+    deliveryTimeLabel: string;
+    deliveryTimeValue: string;
+    workflowTitle: string;
+    workflowSteps: string[];
+    plansTitle: string;
+    plans: OfferPlan[];
+    guarantee: string;
+    guaranteeTitle: string;
+    guaranteeDescription: string;
   };
   demos: {
     eyebrow: string;

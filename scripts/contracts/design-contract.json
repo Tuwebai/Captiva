@@ -1,0 +1,47 @@
+{
+  "contractVersion": "1.0.0",
+  "name": "captiva-demo-enterprise-v1",
+  "requiredSections": [
+    "hero",
+    "beneficios",
+    "metodologia",
+    "servicios",
+    "planes",
+    "galeria",
+    "testimonios-carrusel",
+    "faq",
+    "cta-final",
+    "contacto"
+  ],
+  "recommendedSectionsOrder": [
+    "hero",
+    "beneficios",
+    "metodologia",
+    "servicios",
+    "planes",
+    "galeria",
+    "testimonios-carrusel",
+    "faq",
+    "cta-final",
+    "contacto"
+  ],
+  "designTokens": {
+    "spacingScale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem"],
+    "fontHeading": "Outfit",
+    "fontBody": "Inter",
+    "minContrastRatioTextOnBackground": 4.5
+  },
+  "qualityGates": {
+    "minSections": 10,
+    "minWordCount": 450,
+    "maxWordCount": 1400,
+    "faqMinItems": 5,
+    "socialProofMinBlocks": 1,
+    "requiresSingleH1": true,
+    "requiresCtaAboveFold": true,
+    "requiresValidLinksAndImages": true,
+    "requiresTestimonialsInfiniteCarousel": true,
+    "requiresCompleteMetadata": true
+  },
+  "metadataRequiredFields": ["title", "description", "category", "industry", "slug", "preview"]
+}
