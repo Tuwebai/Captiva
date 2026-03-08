@@ -1,5 +1,4 @@
 import { trackEvent } from '../../../utils/analytics';
-import { Tooltip } from '../tooltip/Tooltip';
 import { useTheme } from './useTheme';
 
 type ThemeSwitchProps = {
@@ -62,9 +61,7 @@ export function ThemeSwitch({ compact = false, className, source = 'sidebar' }: 
     </button>
   );
 
-  if (compact) {
-    return <Tooltip text="Cambiar tema">{switchNode}</Tooltip>;
-  }
+  if (compact) return switchNode;
 
   return (
     <div className="theme-switch-wrap">

@@ -5,7 +5,6 @@ import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
-import { Tooltip } from '../components/ui/tooltip/Tooltip';
 import demosManifest from '../config/demos.generated.json';
 import { siteConfig } from '../config/site';
 import type { DemoManifestItem } from '../types/demo';
@@ -118,7 +117,13 @@ export function DemosGallerySection() {
               <div className="card-grid card-grid--three">
                 {category.items.map((item) => (
                   <SurfaceCard key={item.slug} className="demo-gallery-card">
-                    <a className="demo-gallery-card__preview" href={item.href} target="_blank" rel="noreferrer">
+                    <a
+                      className="demo-gallery-card__preview"
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-tooltip="Ver esta landing page en modo interactivo."
+                    >
                       <img
                         src={item.preview ?? placeholderPreview}
                         alt={item.title}
@@ -132,24 +137,23 @@ export function DemosGallerySection() {
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
 
-                    <Tooltip text="Ver esta landing page en modo interactivo.">
-                      <a
-                        className="text-link"
-                        href={item.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={() =>
-                          trackEvent('demo_click', {
-                            demo: item.publicSlug,
-                            category: category.slug,
-                            source: 'demos_page',
-                            path: siteConfig.routes.captivaDemos,
-                          })
-                        }
-                      >
-                        {siteConfig.demos.cardCtaLabel}
-                      </a>
-                    </Tooltip>
+                    <a
+                      className="text-link"
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-tooltip="Ver esta landing page en modo interactivo."
+                      onClick={() =>
+                        trackEvent('demo_click', {
+                          demo: item.publicSlug,
+                          category: category.slug,
+                          source: 'demos_page',
+                          path: siteConfig.routes.captivaDemos,
+                        })
+                      }
+                    >
+                      {siteConfig.demos.cardCtaLabel}
+                    </a>
                   </SurfaceCard>
                 ))}
               </div>
@@ -160,7 +164,7 @@ export function DemosGallerySection() {
         <div className="industry-cta">
           <h2>{siteConfig.demos.ctaTitle}</h2>
           <p>{siteConfig.demos.ctaDescription}</p>
-          <Tooltip text="Solicita una landing optimizada para captar clientes.">
+          <span data-tooltip="Solicita una landing optimizada para captar clientes.">
             <PrimaryCTA
               label={siteConfig.demos.ctaButtonLabel}
               variant="primary"
@@ -169,7 +173,7 @@ export function DemosGallerySection() {
               source="demos"
               context="captiva-demos"
             />
-          </Tooltip>
+          </span>
         </div>
 
         <LeadFormSection

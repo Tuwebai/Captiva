@@ -7,6 +7,7 @@ import { useScrollDepth } from '../hooks/useScrollDepth';
 import { PageShell } from '../layout/PageShell';
 import { initAnalytics } from '../utils/analytics';
 import { setupOutboundLinkTracking } from '../utils/outbound-links';
+import { initTooltipSystem } from '../components/ui/tooltip-system';
 import { DemosPage } from './DemosPage';
 import { HomePage } from './HomePage';
 import { IndustryPage } from './IndustryPage';
@@ -49,6 +50,11 @@ export function App() {
     initAnalytics();
     const cleanupOutboundTracking = setupOutboundLinkTracking();
     return () => cleanupOutboundTracking();
+  }, []);
+
+  useEffect(() => {
+    const cleanupTooltipSystem = initTooltipSystem();
+    return () => cleanupTooltipSystem();
   }, []);
 
   return (
@@ -116,6 +122,7 @@ export function App() {
         <Route path="/landing-page-para-:industry" element={<IndustryPage />} />
         <Route path="/:slug" element={<IndustryPage />} />
       </Routes>
+      <div id="global-tooltip" role="tooltip" aria-hidden="true" />
     </PageShell>
   );
 }

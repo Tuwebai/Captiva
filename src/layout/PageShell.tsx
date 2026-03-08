@@ -212,6 +212,7 @@ export function PageShell({ children }: PropsWithChildren) {
               className="section-rail__toggle"
               type="button"
               aria-label={isRailCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
+              data-tooltip={isRailCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
               onClick={() => {
                 setIsRailCollapsed((previous) => !previous);
                 trackEvent({ event: 'internal_nav', category: 'rail', label: isRailCollapsed ? 'expand' : 'collapse' });
@@ -230,6 +231,7 @@ export function PageShell({ children }: PropsWithChildren) {
                       className={`section-rail__link${isHomeNavActive ? ' is-active' : ''}`}
                       aria-current={isHomeNavActive ? 'page' : undefined}
                       aria-label={isRailCollapsed ? item.label : undefined}
+                      data-tooltip={item.label}
                     >
                       <FeatureIcon name={item.icon} />
                       <span>{item.label}</span>
@@ -240,6 +242,7 @@ export function PageShell({ children }: PropsWithChildren) {
                     to={item.href}
                     className={({ isActive }) => `section-rail__link${isActive ? ' is-active' : ''}`}
                     aria-label={isRailCollapsed ? item.label : undefined}
+                    data-tooltip={item.label}
                   >
                     <FeatureIcon name={item.icon} />
                     <span>{item.label}</span>
@@ -252,6 +255,7 @@ export function PageShell({ children }: PropsWithChildren) {
                     className={`section-rail__link${isAnchorActive(item.href) ? ' is-active' : ''}`}
                     aria-current={isAnchorActive(item.href) ? 'location' : undefined}
                     aria-label={isRailCollapsed ? item.label : undefined}
+                    data-tooltip={item.label}
                     onClick={() => {
                       const anchorId = item.href.split('#')[1];
                       if (anchorId) {
@@ -270,6 +274,7 @@ export function PageShell({ children }: PropsWithChildren) {
               className="section-rail__cta"
               href={siteConfig.contact.ctaHref}
               variant="primary"
+              data-tooltip="Hablar por WhatsApp y solicitar landing"
               onClick={() => trackEvent({ event: 'cta_click', category: 'rail', label: 'solicitar-landing' })}
             >
               Solicitar landing
