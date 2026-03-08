@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
 import { PanelToggleIcon } from '../components/ui/PanelToggleIcon';
+import { ThemeToggle } from '../components/ui/theme/ThemeToggle';
 import { siteConfig } from '../config/site';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
@@ -261,6 +262,11 @@ export function PageShell({ children }: PropsWithChildren) {
                 )
               ))}
             </nav>
+            <ThemeToggle
+              source="sidebar"
+              compact={isRailCollapsed}
+              className={`section-rail__theme${isRailCollapsed ? ' section-rail__theme--collapsed' : ''}`}
+            />
 
             <ButtonLink
               className="section-rail__cta"
@@ -289,6 +295,7 @@ export function PageShell({ children }: PropsWithChildren) {
               <FeatureIcon name="demos" />
               <span>Demos</span>
             </NavLink>
+            <ThemeToggle source="mobile" compact className="mobile-bottom-nav__theme" />
             <a
               className="mobile-bottom-nav__cta"
               href={siteConfig.contact.ctaHref}
