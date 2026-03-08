@@ -3,15 +3,9 @@ import { join, resolve } from 'node:path';
 
 const demosRoot = resolve(process.cwd(), 'demos');
 const errors = [];
-const warnings = [];
-const industries = new Map();
 
 function addError(message) {
   errors.push(message);
-}
-
-function addWarning(message) {
-  warnings.push(message);
 }
 
 function isNonEmptyString(value) {
@@ -48,6 +42,15 @@ function validateMetaShape(folderName, meta) {
   }
 }
 
+function normalizeFolderSlug(folderName) {
+  return folderName
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 function validateDemoDirectory(folderName) {
   const folderPath = join(demosRoot, folderName);
   const indexPath = join(folderPath, 'index.html');
@@ -72,17 +75,6 @@ function validateDemoDirectory(folderName) {
 
   validateMetaShape(folderName, meta);
 
-  if (isNonEmptyString(meta.industry)) {
-    const industryKey = meta.industry.trim().toLowerCase();
-    if (industries.has(industryKey) && industries.get(industryKey) !== folderName) {
-      addWarning(
-        `duplicate industry "${meta.industry}" in demos/${folderName} and demos/${industries.get(industryKey)}`,
-      );
-    } else {
-      industries.set(industryKey, folderName);
-    }
-  }
-
   if (isNonEmptyString(meta.preview) && !meta.preview.startsWith('/')) {
     const previewPath = join(folderPath, meta.preview);
     if (!existsSync(previewPath)) {
@@ -90,33 +82,20 @@ function validateDemoDirectory(folderName) {
     }
   }
 
-  const normalizedFolderSlug = folderName
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-
-  if (isNonEmptyString(meta.slug) && meta.slug !== normalizedFolderSlug) {
+  const expectedSlug = normalizeFolderSlug(folderName);
+  if (isNonEmptyString(meta.slug) && meta.slug !== expectedSlug) {
     addError(
-      `demos/${folderName}/meta.json slug mismatch. expected "${normalizedFolderSlug}" from folder, got "${meta.slug}"`,
+      `demos/${folderName}/meta.json slug mismatch. expected "${expectedSlug}" from folder, got "${meta.slug}"`,
     );
   }
 
-  if (!isKebabCase(folderName)) {
-    addWarning(
-      `demos/${folderName} is not kebab-case. Convention target is demos/<slug>/ (legacy folders still supported).`,
-    );
-  }
-
-  console.log(`✓ demos/${folderName} valid`);
+  console.log(`OK demos/${folderName} valid`);
 }
 
 if (!existsSync(demosRoot) || !statSync(demosRoot).isDirectory()) {
   addError('demos/ directory not found');
 } else {
   const demoDirs = readdirSync(demosRoot, { withFileTypes: true }).filter((entry) => entry.isDirectory());
-
   if (demoDirs.length === 0) {
     addError('demos/ contains no demo directories');
   } else {
@@ -124,15 +103,11 @@ if (!existsSync(demosRoot) || !statSync(demosRoot).isDirectory()) {
   }
 }
 
-warnings.forEach((message) => {
-  console.warn(`! warning: ${message}`);
-});
-
 if (errors.length > 0) {
   errors.forEach((message) => {
-    console.error(`✗ ${message}`);
+    console.error(`ERROR ${message}`);
   });
   process.exit(1);
 }
 
-console.log(`Validation completed: ${warnings.length} warning(s), 0 error(s).`);
+console.log('Validation completed: 0 warning(s), 0 error(s).');

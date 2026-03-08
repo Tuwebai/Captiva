@@ -1,8 +1,9 @@
-import { type PropsWithChildren, type ReactEventHandler, useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { type PropsWithChildren, type ReactEventHandler, useEffect, useMemo, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
+import { PanelToggleIcon } from '../components/ui/PanelToggleIcon';
 import { siteConfig } from '../config/site';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
@@ -12,30 +13,123 @@ type RailItem = {
   label: string;
   href: string;
   type?: 'anchor' | 'route';
-  icon: 'ready' | 'analysis' | 'missing' | 'conversion' | 'signal' | 'page' | 'launch' | 'contact' | 'structure';
+  icon:
+    | 'home'
+    | 'how'
+    | 'problem'
+    | 'solution'
+    | 'benefits'
+    | 'demos'
+    | 'blog'
+    | 'industries'
+    | 'process'
+    | 'contact-nav';
 };
 
 export function PageShell({ children }: PropsWithChildren) {
   useAnalytics();
   useScrollRestoration();
   const location = useLocation();
-  const isCaptivaContext = location.pathname.startsWith(siteConfig.routes.captiva);
+  const isCaptivaContext =
+    location.pathname.startsWith(siteConfig.routes.captiva) ||
+    location.pathname.startsWith('/landing-page-para-') ||
+    location.pathname.startsWith('/blog');
+  const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
   const [isRailCollapsed, setIsRailCollapsed] = useState(false);
+  const [activeSectionId, setActiveSectionId] = useState('');
+  const [isNearTop, setIsNearTop] = useState(true);
 
   const railItems = useMemo<RailItem[]>(
     () => [
-      { label: 'Inicio', href: siteConfig.routes.captiva, type: 'route', icon: 'ready' },
-      { label: 'Como funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'analysis' },
-      { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'page' },
-      { label: 'Beneficios', href: `${siteConfig.routes.captiva}#beneficios`, icon: 'signal' },
-      { label: 'Problema', href: `${siteConfig.routes.captiva}#problema`, icon: 'missing' },
-      { label: 'Solucion', href: `${siteConfig.routes.captiva}#solucion`, icon: 'conversion' },
-      { label: 'Industrias', href: `${siteConfig.routes.captiva}#industrias`, icon: 'structure' },
-      { label: 'Proceso', href: `${siteConfig.routes.captiva}#proceso`, icon: 'launch' },
-      { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact' },
+      { label: 'Inicio', href: siteConfig.routes.captiva, type: 'route', icon: 'home' },
+      { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
+      { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
+      { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
+      { label: 'Beneficios', href: `${siteConfig.routes.captiva}#beneficios`, icon: 'benefits' },
+      { label: 'Problema', href: `${siteConfig.routes.captiva}#problema`, icon: 'problem' },
+      { label: 'Solución', href: `${siteConfig.routes.captiva}#solucion`, icon: 'solution' },
+      { label: 'Industrias', href: `${siteConfig.routes.captiva}#industrias`, icon: 'industries' },
+      { label: 'Proceso', href: `${siteConfig.routes.captiva}#proceso`, icon: 'process' },
+      { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
     ],
     [],
   );
+
+  useEffect(() => {
+    if (!isCaptivaHome) {
+      setActiveSectionId('');
+      return;
+    }
+
+    const anchorIds = railItems
+      .filter((item) => item.type !== 'route')
+      .map((item) => item.href.split('#')[1])
+      .filter((value): value is string => Boolean(value));
+
+    if (!anchorIds.length) return;
+
+    const sections = anchorIds
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    if (!sections.length) return;
+
+    const computeActiveSection = () => {
+      const activationOffset = Math.max(120, window.innerHeight * 0.22);
+      let currentId = sections[0].id;
+
+      sections.forEach((section) => {
+        const top = section.getBoundingClientRect().top;
+        if (top - activationOffset <= 0) {
+          currentId = section.id;
+        }
+      });
+
+      const scrollBottom = window.scrollY + window.innerHeight;
+      const documentBottom = document.documentElement.scrollHeight;
+      if (documentBottom - scrollBottom <= 4) {
+        currentId = sections.at(-1)?.id ?? currentId;
+      }
+
+      setActiveSectionId((previous) => (previous === currentId ? previous : currentId));
+    };
+
+    computeActiveSection();
+    window.addEventListener('scroll', computeActiveSection, { passive: true });
+    window.addEventListener('resize', computeActiveSection);
+    return () => {
+      window.removeEventListener('scroll', computeActiveSection);
+      window.removeEventListener('resize', computeActiveSection);
+    };
+  }, [isCaptivaHome, railItems]);
+
+  useEffect(() => {
+    if (!isCaptivaHome) return;
+    const hashId = location.hash.replace('#', '').trim();
+    if (hashId) setActiveSectionId(hashId);
+  }, [isCaptivaHome, location.hash]);
+
+  useEffect(() => {
+    if (!isCaptivaHome) {
+      setIsNearTop(true);
+      return;
+    }
+
+    const updateTopState = () => setIsNearTop(window.scrollY < 64);
+    updateTopState();
+    window.addEventListener('scroll', updateTopState, { passive: true });
+    return () => window.removeEventListener('scroll', updateTopState);
+  }, [isCaptivaHome]);
+
+  const isAnchorActive = (href: string) => {
+    if (!isCaptivaHome) return false;
+    if (!location.hash && isNearTop) return false;
+    const anchorId = href.split('#')[1];
+    if (!anchorId) return false;
+    return activeSectionId === anchorId;
+  };
+
+  const isHomeNavActive = isCaptivaHome && !location.hash && isNearTop;
 
   const handleLogoError: ReactEventHandler<HTMLImageElement> = (event) => {
     const img = event.currentTarget;
@@ -85,15 +179,15 @@ export function PageShell({ children }: PropsWithChildren) {
           <aside
             id="captiva-rail"
             className={`section-rail${isRailCollapsed ? ' section-rail--collapsed' : ''}`}
-            aria-label="Navegacion de secciones"
+            aria-label="Navegación de secciones"
           >
             <div className="section-rail__brand">
               <img
                 className="section-rail__logo"
-                src="/LOGO-captiva.png"
+                src={isRailCollapsed ? '/LOGO-captiva-icon.png' : '/LOGO-captiva.png'}
                 alt={siteConfig.productName}
-                width={280}
-                height={84}
+                width={isRailCollapsed ? 64 : 280}
+                height={isRailCollapsed ? 64 : 84}
                 loading="eager"
                 decoding="async"
                 onError={handleLogoError}
@@ -101,30 +195,66 @@ export function PageShell({ children }: PropsWithChildren) {
               <div className="section-rail__brand-copy">
                 <strong>{siteConfig.productBar.title}</strong>
                 <span>{siteConfig.productBar.subtitle}</span>
-                <em>{siteConfig.productBar.badge}</em>
+                <em>
+                  Producto de{' '}
+                  <a href="https://tuweb-ai.com/" target="_blank" rel="noreferrer">
+                    {siteConfig.companyName}
+                  </a>
+                </em>
               </div>
             </div>
 
             <button
               className="section-rail__toggle"
               type="button"
+              aria-label={isRailCollapsed ? 'Expandir sidebar' : 'Colapsar sidebar'}
               onClick={() => {
                 setIsRailCollapsed((previous) => !previous);
                 trackEvent({ event: 'internal_nav', category: 'rail', label: isRailCollapsed ? 'expand' : 'collapse' });
               }}
             >
-              {isRailCollapsed ? '>' : '<'}
+              <PanelToggleIcon collapsed={isRailCollapsed} />
             </button>
 
             <nav className="section-rail__nav">
               {railItems.map((item) => (
                 item.type === 'route' ? (
-                  <Link key={item.href} to={item.href} className="section-rail__link">
+                  item.href === siteConfig.routes.captiva ? (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className={`section-rail__link${isHomeNavActive ? ' is-active' : ''}`}
+                      aria-current={isHomeNavActive ? 'page' : undefined}
+                      aria-label={isRailCollapsed ? item.label : undefined}
+                    >
+                      <FeatureIcon name={item.icon} />
+                      <span>{item.label}</span>
+                    </Link>
+                  ) : (
+                  <NavLink
+                    key={item.href}
+                    to={item.href}
+                    className={({ isActive }) => `section-rail__link${isActive ? ' is-active' : ''}`}
+                    aria-label={isRailCollapsed ? item.label : undefined}
+                  >
                     <FeatureIcon name={item.icon} />
                     <span>{item.label}</span>
-                  </Link>
+                  </NavLink>
+                  )
                 ) : (
-                  <a key={item.href} href={item.href} className="section-rail__link">
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={`section-rail__link${isAnchorActive(item.href) ? ' is-active' : ''}`}
+                    aria-current={isAnchorActive(item.href) ? 'location' : undefined}
+                    aria-label={isRailCollapsed ? item.label : undefined}
+                    onClick={() => {
+                      const anchorId = item.href.split('#')[1];
+                      if (anchorId) {
+                        setActiveSectionId(anchorId);
+                      }
+                    }}
+                  >
                     <FeatureIcon name={item.icon} />
                     <span>{item.label}</span>
                   </a>
@@ -141,23 +271,24 @@ export function PageShell({ children }: PropsWithChildren) {
               Solicitar landing
             </ButtonLink>
           </aside>
-          <nav className="mobile-bottom-nav" aria-label="Navegacion movil">
+          <nav className="mobile-bottom-nav" aria-label="Navegación móvil">
             <Link
-              className="mobile-bottom-nav__item"
+              className={`mobile-bottom-nav__item${isHomeNavActive ? ' is-active' : ''}`}
+              aria-current={isHomeNavActive ? 'page' : undefined}
               to={siteConfig.routes.captiva}
               onClick={() => trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'inicio' })}
             >
-              <FeatureIcon name="ready" />
+              <FeatureIcon name="home" />
               <span>Inicio</span>
             </Link>
-            <Link
-              className="mobile-bottom-nav__item"
+            <NavLink
+              className={({ isActive }) => `mobile-bottom-nav__item${isActive ? ' is-active' : ''}`}
               to={siteConfig.routes.captivaDemos}
               onClick={() => trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'demos' })}
             >
-              <FeatureIcon name="page" />
+              <FeatureIcon name="demos" />
               <span>Demos</span>
-            </Link>
+            </NavLink>
             <a
               className="mobile-bottom-nav__cta"
               href={siteConfig.contact.ctaHref}
@@ -180,19 +311,27 @@ export function PageShell({ children }: PropsWithChildren) {
               <span>WhatsApp</span>
             </a>
             <a
-              className="mobile-bottom-nav__item"
+              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#industrias`) ? ' is-active' : ''}`}
+              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#industrias`) ? 'location' : undefined}
               href={`${siteConfig.routes.captiva}#industrias`}
-              onClick={() => trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'industrias' })}
+              onClick={() => {
+                setActiveSectionId('industrias');
+                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'industrias' });
+              }}
             >
-              <FeatureIcon name="structure" />
+              <FeatureIcon name="industries" />
               <span>Industrias</span>
             </a>
             <a
-              className="mobile-bottom-nav__item"
+              className={`mobile-bottom-nav__item${isAnchorActive(`${siteConfig.routes.captiva}#proceso`) ? ' is-active' : ''}`}
+              aria-current={isAnchorActive(`${siteConfig.routes.captiva}#proceso`) ? 'location' : undefined}
               href={`${siteConfig.routes.captiva}#proceso`}
-              onClick={() => trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'proceso' })}
+              onClick={() => {
+                setActiveSectionId('proceso');
+                trackEvent({ event: 'internal_nav', category: 'mobile-nav', label: 'proceso' });
+              }}
             >
-              <FeatureIcon name="launch" />
+              <FeatureIcon name="process" />
               <span>Proceso</span>
             </a>
           </nav>
@@ -203,7 +342,7 @@ export function PageShell({ children }: PropsWithChildren) {
         {children}
       </main>
 
-      <footer className="site-footer">
+      <footer className={`site-footer${isCaptivaContext ? ' site-footer--with-rail' : ''}${isRailCollapsed ? ' site-footer--rail-collapsed' : ''}`}>
         <div className="container site-footer__inner">
           <div className="footer-brand">
             <img
@@ -234,14 +373,26 @@ export function PageShell({ children }: PropsWithChildren) {
               <span className="footer-contact__label">Captiva</span>
               <span className="footer-contact__value">{siteConfig.contact.productEmail}</span>
             </a>
-            <a
-              className="footer-contact__card"
-              href={`mailto:${siteConfig.contact.primaryEmail}`}
-              onClick={() => trackEvent({ event: 'contact_click', category: 'footer', label: 'tuwebai-email' })}
-            >
-              <span className="footer-contact__label">Tuwebai</span>
-              <span className="footer-contact__value">{siteConfig.contact.primaryEmail}</span>
-            </a>
+            <div className="footer-contact__card">
+              <span className="footer-contact__label">
+                <a
+                  href="https://tuweb-ai.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => trackEvent({ event: 'outbound_click', category: 'footer', label: 'tuwebai-site' })}
+                >
+                  Tuwebai
+                </a>
+              </span>
+              <span className="footer-contact__value">
+                <a
+                  href={`mailto:${siteConfig.contact.primaryEmail}`}
+                  onClick={() => trackEvent({ event: 'contact_click', category: 'footer', label: 'tuwebai-email' })}
+                >
+                  {siteConfig.contact.primaryEmail}
+                </a>
+              </span>
+            </div>
             <a
               className="footer-contact__card"
               href={siteConfig.contact.ctaHref}

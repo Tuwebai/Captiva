@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "madrid",
+    "name": "Madrid",
+    "country": "Espana"
+  },
+  {
+    "slug": "barcelona",
+    "name": "Barcelona",
+    "country": "Espana"
+  },
+  {
+    "slug": "valencia",
+    "name": "Valencia",
+    "country": "Espana"
+  },
+  {
+    "slug": "buenos-aires",
+    "name": "Buenos Aires",
+    "country": "Argentina"
+  },
+  {
+    "slug": "cordoba",
+    "name": "Cordoba",
+    "country": "Argentina"
+  },
+  {
+    "slug": "rosario",
+    "name": "Rosario",
+    "country": "Argentina"
+  },
+  {
+    "slug": "ciudad-de-mexico",
+    "name": "Ciudad de Mexico",
+    "country": "Mexico"
+  },
+  {
+    "slug": "guadalajara",
+    "name": "Guadalajara",
+    "country": "Mexico"
+  },
+  {
+    "slug": "monterrey",
+    "name": "Monterrey",
+    "country": "Mexico"
+  },
+  {
+    "slug": "bogota",
+    "name": "Bogota",
+    "country": "Colombia"
+  }
+]

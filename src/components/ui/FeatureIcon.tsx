@@ -1,6 +1,16 @@
 import type { ReactElement } from 'react';
 
 type FeatureIconName =
+  | 'home'
+  | 'how'
+  | 'problem'
+  | 'solution'
+  | 'benefits'
+  | 'demos'
+  | 'blog'
+  | 'industries'
+  | 'process'
+  | 'contact-nav'
   | 'inbox'
   | 'page'
   | 'clarity'
@@ -22,6 +32,76 @@ type FeatureIconProps = {
 };
 
 const iconMap: Record<FeatureIconName, ReactElement> = {
+  home: (
+    <>
+      <path d="m4.5 10.5 7.5-6 7.5 6" />
+      <path d="M6.75 9.75v8.5a1.5 1.5 0 0 0 1.5 1.5h7.5a1.5 1.5 0 0 0 1.5-1.5v-8.5" />
+    </>
+  ),
+  how: (
+    <>
+      <circle cx="12" cy="12" r="7.5" />
+      <path d="M12 8.5v3.5l2.5 2.5" />
+    </>
+  ),
+  problem: (
+    <>
+      <path d="M12 4.5 3.75 18h16.5L12 4.5Z" />
+      <path d="M12 9.25v4.25" />
+      <circle cx="12" cy="16.25" r="0.75" fill="currentColor" stroke="none" />
+    </>
+  ),
+  solution: (
+    <>
+      <path d="m6.75 12.25 3.25 3.25 7.25-7.25" />
+      <circle cx="12" cy="12" r="8" />
+    </>
+  ),
+  benefits: (
+    <>
+      <path d="M12 4.5v15" />
+      <path d="M5.25 12h13.5" />
+      <path d="M8.25 8.25h7.5v7.5h-7.5Z" />
+    </>
+  ),
+  demos: (
+    <>
+      <rect x="4.5" y="5.25" width="15" height="13.5" rx="1.5" />
+      <path d="M8 9.5h8" />
+      <path d="M8 12.25h8" />
+      <path d="M8 15h5" />
+    </>
+  ),
+  blog: (
+    <>
+      <path d="M5.25 4.5h13.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V6a1.5 1.5 0 0 1 1.5-1.5Z" />
+      <path d="M8.25 8.25h7.5" />
+      <path d="M8.25 11.5h7.5" />
+      <path d="M8.25 14.75h4.5" />
+    </>
+  ),
+  industries: (
+    <>
+      <rect x="4.5" y="4.5" width="6" height="6" rx="1" />
+      <rect x="13.5" y="4.5" width="6" height="6" rx="1" />
+      <rect x="4.5" y="13.5" width="6" height="6" rx="1" />
+      <rect x="13.5" y="13.5" width="6" height="6" rx="1" />
+    </>
+  ),
+  process: (
+    <>
+      <path d="M5.5 8.25h5" />
+      <path d="M13.5 8.25h5" />
+      <path d="m8.5 11 3.5 3 3.5-3" />
+      <path d="M12 14v5" />
+    </>
+  ),
+  'contact-nav': (
+    <>
+      <rect x="3.75" y="6" width="16.5" height="12" rx="1.5" />
+      <path d="m4.5 7.5 7.5 6 7.5-6" />
+    </>
+  ),
   inbox: (
     <>
       <path d="M3.75 9.75h4.5l1.5 2.25h4.5l1.5-2.25h4.5" />

@@ -6,9 +6,8 @@ export function DemosPage() {
   const demosSchema = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: 'Template Library de Landing Pages',
-    description:
-      'Galeria de ejemplos de landing pages para negocios, optimizadas para conversion y captacion de consultas.',
+    name: siteConfig.pages.demos.collectionName,
+    description: siteConfig.pages.demos.collectionDescription,
     url: `${siteConfig.seo.siteUrl}${siteConfig.routes.captivaDemos}`,
     inLanguage: 'es',
   };
@@ -26,24 +25,17 @@ export function DemosPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Demos',
+        name: siteConfig.pages.demos.breadcrumbDemosLabel,
         item: `${siteConfig.seo.siteUrl}${siteConfig.routes.captivaDemos}`,
       },
     ],
   };
 
   useDocumentMetadata({
-    title: `Template Library de Landing Pages | ${siteConfig.companyName}`,
-    description:
-      'Explora la biblioteca de templates de Captiva por industria: fitness, salud, legal, belleza y negocios para convertir visitas en consultas.',
+    title: `${siteConfig.pages.demos.seoTitle} | ${siteConfig.companyName}`,
+    description: siteConfig.pages.demos.seoDescription,
     path: siteConfig.routes.captivaDemos,
-    keywords: [
-      'ejemplos de landing pages',
-      'landing page para negocios',
-      'ejemplos de paginas web profesionales',
-      'demos de landing pages',
-      'captiva demos',
-    ],
+    keywords: siteConfig.pages.demos.seoKeywords,
     structuredData: [demosSchema, breadcrumbSchema],
   });
 

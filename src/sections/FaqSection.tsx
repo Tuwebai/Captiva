@@ -1,26 +1,26 @@
-import { siteConfig } from '../config/site';
 import { ButtonLink } from '../components/ui/ButtonLink';
+import { siteConfig } from '../config/site';
 
 const faqItems = [
   {
-    question: 'Cuanto tarda Captiva en publicar una landing page?',
+    question: '¿Cuánto tarda Captiva en publicar una landing page?',
     answer:
-      'Depende del rubro y volumen de contenido, pero el proceso esta pensado para salir rapido: analisis, diseno y publicacion.',
+      'Depende del rubro y volumen de contenido, pero el proceso está pensado para salir rápido: análisis, diseño y publicación.',
   },
   {
-    question: 'Captiva sirve para cualquier tipo de negocio?',
+    question: '¿Captiva sirve para cualquier tipo de negocio?',
     answer:
-      'Si. La arquitectura permite adaptar estructura y mensaje para gimnasios, salud, estetica, legal, negocios locales y mas categorias.',
+      'Sí. La arquitectura permite adaptar estructura y mensaje para gimnasios, salud, estética, legal, negocios locales y más categorías.',
   },
   {
-    question: 'Puedo usar demos como base para mi pagina final?',
+    question: '¿Puedo usar demos como base para mi página final?',
     answer:
-      'Si. Las demos muestran estructuras reales de conversion que luego se personalizan con la propuesta de valor de cada negocio.',
+      'Sí. Las demos muestran estructuras reales de conversión que luego se personalizan con la propuesta de valor de cada negocio.',
   },
   {
-    question: 'Como solicito una propuesta para mi landing?',
+    question: '¿Cómo solicito una propuesta para mi landing?',
     answer:
-      'Podes solicitar informacion por WhatsApp y te enviamos alcance, tiempos y pasos recomendados para lanzar tu pagina.',
+      'Podés solicitar información por WhatsApp y te enviamos alcance, tiempos y pasos recomendados para lanzar tu página.',
   },
 ];
 
@@ -31,7 +31,7 @@ export function FaqSection() {
         <div className="section-heading">
           <p className="section-heading__eyebrow">FAQ</p>
           <h2>Preguntas frecuentes sobre Captiva</h2>
-          <p>Respuestas claras para acelerar decision y reduccion de friccion comercial.</p>
+          <p>Respuestas claras para acelerar decisión y reducir fricción comercial.</p>
         </div>
 
         <div className="faq-list">

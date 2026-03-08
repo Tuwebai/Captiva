@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "dentistas",
+    "name": "dentistas",
+    "title": "Landing page para dentistas",
+    "description": "Landing pages disenadas para que clinicas dentales capten mas consultas y reservas."
+  },
+  {
+    "slug": "gimnasios",
+    "name": "gimnasios",
+    "title": "Landing page para gimnasios",
+    "description": "Landing pages optimizadas para captar nuevos alumnos y mostrar planes de entrenamiento."
+  },
+  {
+    "slug": "abogados",
+    "name": "abogados",
+    "title": "Landing page para abogados",
+    "description": "Landing pages orientadas a generar consultas legales con claridad y respaldo profesional."
+  },
+  {
+    "slug": "esteticas",
+    "name": "esteticas",
+    "title": "Landing page para esteticas",
+    "description": "Landing pages para esteticas con foco en servicios destacados y contacto inmediato."
+  },
+  {
+    "slug": "negocios-locales",
+    "name": "negocios locales",
+    "title": "Landing page para negocios locales",
+    "description": "Landing pages para negocios locales orientadas a captar demanda de cercania."
+  },
+  {
+    "slug": "veterinarias",
+    "name": "veterinarias",
+    "title": "Landing page para veterinarias",
+    "description": "Landing pages para clinicas veterinarias enfocadas en confianza y contacto rapido."
+  },
+  {
+    "slug": "inmobiliarias",
+    "name": "inmobiliarias",
+    "title": "Landing page para inmobiliarias",
+    "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitudes de visita."
+  },
+  {
+    "slug": "restaurantes",
+    "name": "restaurantes",
+    "title": "Landing page para restaurantes",
+    "description": "Landing pages para restaurantes con menus claros, reservas y pedidos por contacto directo."
+  },
+  {
+    "slug": "peluquerias",
+    "name": "peluquerias",
+    "title": "Landing page para peluquerias",
+    "description": "Landing pages para peluquerias con turnos visibles y propuesta de valor diferenciada."
+  },
+  {
+    "slug": "empresas-b2b",
+    "name": "empresas b2b",
+    "title": "Landing page para empresas B2B",
+    "description": "Landing pages B2B para convertir trafico en reuniones comerciales calificadas."
+  }
+]

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g1" cx="22%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#2f73ff" stop-opacity=".45" />
+      <stop offset="100%" stop-color="#2f73ff" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g2" cx="88%" cy="74%" r="58%">
+      <stop offset="0%" stop-color="#e58d58" stop-opacity=".42" />
+      <stop offset="100%" stop-color="#e58d58" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="g3" cx="75%" cy="10%" r="45%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity=".28" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#05070f" />
+  <rect width="1200" height="630" fill="url(#g1)" />
+  <rect width="1200" height="630" fill="url(#g2)" />
+  <rect width="1200" height="630" fill="url(#g3)" />
+  <rect x="56" y="54" width="1088" height="522" rx="28" fill="rgba(15,23,48,.62)" stroke="rgba(121,145,213,.28)" />
+  <text x="78" y="130" fill="#8fa7ff" font-size="24" letter-spacing="4" font-weight="700" font-family="Inter, Segoe UI, Arial">BLOG CAPTIVA</text>
+  <text x="78" y="220" fill="#f4f7ff" font-size="58" font-weight="700" font-family="Inter, Segoe UI, Arial">Landing page para dentistas: guía</text><text x="78" y="292" fill="#f4f7ff" font-size="58" font-weight="700" font-family="Inter, Segoe UI, Arial">práctica para captar consultas</text>
+  <text x="78" y="540" fill="#93a4d8" font-size="24" font-weight="600" font-family="Inter, Segoe UI, Arial">salud</text><text x="308" y="540" fill="#93a4d8" font-size="24" font-weight="600" font-family="Inter, Segoe UI, Arial">dentistas</text><text x="538" y="540" fill="#93a4d8" font-size="24" font-weight="600" font-family="Inter, Segoe UI, Arial">conversion</text>
+  <text x="78" y="588" fill="#f4f7ff" font-size="30" font-weight="700" font-family="Inter, Segoe UI, Arial">captiva.tuweb-ai.com</text>
+</svg>

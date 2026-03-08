@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import { ButtonLink } from '../components/ui/ButtonLink';
+import { PrimaryCTA } from '../components/cta/PrimaryCTA';
+import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../utils/analytics';
 
 export function HeroSection() {
-  const metricIcons = ['conversion', 'clarity', 'design'] as const;
+  const metricIcons = ['conversion', 'clarity', 'design', 'contact'] as const;
+  const [flowStart, flowMiddle, flowEnd] = siteConfig.hero.panelFlowNodes;
 
   return (
     <section className="hero-section">
@@ -14,7 +16,7 @@ export function HeroSection() {
         <div className="hero-copy">
           <a
             className="hero-product-badge"
-            href="https://tuweb-ai.com"
+            href={siteConfig.hero.badgeHref}
             target="_blank"
             rel="noreferrer"
             onClick={() => trackEvent({ event: 'outbound_click', category: 'hero', label: 'tuwebai-product-badge' })}
@@ -34,37 +36,49 @@ export function HeroSection() {
             >
               {siteConfig.hero.demosCtaLabel}
             </Link>
-            <ButtonLink
-              href={siteConfig.contact.ctaHref}
+            <PrimaryCTA
+              label={siteConfig.hero.primaryProductCtaLabel}
+              mode="lead-form"
+              leadFormId="lead-form-hero"
+              source="hero"
               variant="primary"
-              onClick={() => trackEvent({ event: 'cta_click', category: 'hero', label: 'crear-mi-landing' })}
-            >
-              {siteConfig.hero.primaryProductCtaLabel}
-            </ButtonLink>
+            />
             <Link
               className="hero-contact-link"
               to={siteConfig.routes.captivaDemos}
               onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'captiva-demos' })}
             >
-              Explorar ejemplos reales por industria
+              {siteConfig.hero.exploreLinkLabel}
             </Link>
           </div>
         </div>
 
-        <div className="hero-panel" aria-label="Resumen del producto">
-          <p className="hero-panel__label">Que resuelve</p>
+        <div className="hero-panel" aria-label={siteConfig.hero.panelAriaLabel}>
+          <p className="hero-panel__label">{siteConfig.hero.panelLabel}</p>
           <div className="hero-panel__visual" aria-hidden="true">
             <div className="hero-flow">
-              <span className="hero-flow__node">Visitas</span>
-              <span className="hero-flow__arrow">→</span>
-              <span className="hero-flow__node">Landing</span>
-              <span className="hero-flow__arrow">→</span>
-              <span className="hero-flow__node">Consultas</span>
+              <span className="hero-flow__node">{flowStart}</span>
+              <span className="hero-flow__arrow">&rarr;</span>
+              <span className="hero-flow__node">{flowMiddle}</span>
+              <span className="hero-flow__arrow">&rarr;</span>
+              <span className="hero-flow__node">{flowEnd}</span>
             </div>
-            <div className="hero-growth">
-              <span className="hero-growth__bar hero-growth__bar--low" />
-              <span className="hero-growth__bar hero-growth__bar--mid" />
-              <span className="hero-growth__bar hero-growth__bar--high" />
+            <div className="hero-conversion-kpi">
+              <strong>{siteConfig.hero.conversionKpiValue}</strong>
+              <span>{siteConfig.hero.conversionKpiLabel}</span>
+            </div>
+            <div className="hero-conversion-chart">
+              <svg viewBox="0 0 180 56" role="img" aria-label="Conversión en crecimiento">
+                <path
+                  className="hero-conversion-chart__line"
+                  d="M12 44 L54 34 L96 26 L138 16 L168 10"
+                />
+                <circle className="hero-conversion-chart__dot" cx="12" cy="44" r="3" />
+                <circle className="hero-conversion-chart__dot" cx="54" cy="34" r="3" />
+                <circle className="hero-conversion-chart__dot" cx="96" cy="26" r="3" />
+                <circle className="hero-conversion-chart__dot" cx="138" cy="16" r="3" />
+                <circle className="hero-conversion-chart__dot" cx="168" cy="10" r="3" />
+              </svg>
             </div>
           </div>
           <ul className="hero-metrics">
@@ -79,6 +93,15 @@ export function HeroSection() {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="container">
+        <LeadFormSection
+          id="lead-form-hero"
+          source="hero"
+          context="captiva-home-hero"
+          title="Quiero una landing como esta"
+          description="Dejanos tus datos y abrimos WhatsApp con un brief inicial ya estructurado."
+        />
       </div>
     </section>
   );

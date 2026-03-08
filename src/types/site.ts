@@ -88,12 +88,19 @@ export type SiteConfig = {
   seo: SiteSeo;
   hero: {
     badge: string;
+    badgeHref: string;
     eyebrow: string;
     title: string;
     subtitle: string;
     supportingCopy: string;
     demosCtaLabel: string;
     primaryProductCtaLabel: string;
+    exploreLinkLabel: string;
+    panelAriaLabel: string;
+    panelLabel: string;
+    panelFlowNodes: [string, string, string];
+    conversionKpiValue: string;
+    conversionKpiLabel: string;
     metrics: HighlightMetric[];
   };
   howItWorks: {
@@ -120,6 +127,20 @@ export type SiteConfig = {
     eyebrow: string;
     title: string;
     description: string;
+    filtersAriaLabel: string;
+    filterLabels: {
+      all: string;
+      fitness: string;
+      salud: string;
+      legal: string;
+      belleza: string;
+      negocios: string;
+    };
+    industryLinkPrefix: string;
+    cardCtaLabel: string;
+    ctaTitle: string;
+    ctaDescription: string;
+    ctaButtonLabel: string;
     items: DemoItem[];
   };
   process: {
@@ -130,5 +151,55 @@ export type SiteConfig = {
   finalCta: {
     title: string;
     description: string;
+  };
+  pages: {
+    industry: {
+      eyebrow: string;
+      sectorProblemTitle: string;
+      solutionTitle: string;
+      benefitsTitle: string;
+      demosTitlePrefix: string;
+      exploreOtherTitle: string;
+      industryLinkLabel: string;
+      ctaTitlePrefix: string;
+      ctaDescription: string;
+      ctaButtonLabel: string;
+      demoCardCtaLabel: string;
+    };
+    demos: {
+      collectionName: string;
+      collectionDescription: string;
+      breadcrumbDemosLabel: string;
+      seoTitle: string;
+      seoDescription: string;
+      seoKeywords: string[];
+    };
+    blog: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      cardDescription: string;
+      readPostLabel: string;
+      postEyebrow: string;
+      sidebarAriaLabel: string;
+      sidebarDemosTitle: string;
+      sidebarDemosDescription: string;
+      sidebarDemosLinkLabel: string;
+      sidebarCtaTitle: string;
+      sidebarCtaDescription: string;
+      sidebarCtaButtonLabel: string;
+      relatedTitle: string;
+      seoTitle: string;
+      seoDescription: string;
+      seoKeywords: string[];
+      plannedPosts: string[];
+    };
+    industryLinks: {
+      eyebrow: string;
+      title: string;
+      description: string;
+      seoBadgeLabel: string;
+      ctaLabel: string;
+    };
   };
 };

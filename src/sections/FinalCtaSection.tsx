@@ -1,6 +1,6 @@
-import { ButtonLink } from '../components/ui/ButtonLink';
+import { PrimaryCTA } from '../components/cta/PrimaryCTA';
+import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { siteConfig } from '../config/site';
-import { trackEvent } from '../utils/analytics';
 
 export function FinalCtaSection() {
   return (
@@ -8,19 +8,27 @@ export function FinalCtaSection() {
       <div className="container">
         <div className="final-cta">
           <div>
-            <p className="section-heading__eyebrow">CTA final</p>
             <h2>{siteConfig.finalCta.title}</h2>
             <p>{siteConfig.finalCta.description}</p>
           </div>
 
-          <ButtonLink
-            href={siteConfig.contact.ctaHref}
+          <PrimaryCTA
+            label={siteConfig.primaryCtaLabel}
+            mode="lead-form"
+            leadFormId="lead-form-final"
+            source="final"
+            context="captiva-home-final"
             variant="primary"
-            onClick={() => trackEvent({ event: 'cta_click', category: 'final', label: 'solicitar-informacion' })}
-          >
-            {siteConfig.primaryCtaLabel}
-          </ButtonLink>
+          />
         </div>
+
+        <LeadFormSection
+          id="lead-form-final"
+          source="final"
+          context="captiva-home-final"
+          title="Hablar por WhatsApp con un brief listo"
+          description="Completas este formulario y abrimos WhatsApp con toda la informacion ordenada para avanzar rapido."
+        />
       </div>
     </section>
   );

@@ -6,29 +6,29 @@ const demosPublicBaseRoute = '/demos';
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const defaultOgImage = '/LOGO-captiva.png';
 const whatsappMessage = encodeURIComponent(
-  'Hola, quiero solicitar informacion sobre Captiva. Me gustaria conocer opciones, tiempos de entrega y proximos pasos para mi landing page.',
+  'Hola, quiero solicitar información sobre Captiva. Me gustaría conocer opciones, tiempos de entrega y próximos pasos para mi landing page.',
 );
 
 export const siteConfig: SiteConfig = {
   productName: 'Captiva',
   companyName: 'Tuwebai',
   description:
-    'Landing pages estrategicas enfocadas en conversion para ayudar a negocios a recibir mas consultas, convertir visitas en clientes y tener una presencia digital profesional.',
-  primaryCtaLabel: 'Solicitar informacion',
+    'Landing pages estratégicas enfocadas en conversión para ayudar a negocios a recibir más consultas, convertir visitas en clientes y tener una presencia digital profesional.',
+  primaryCtaLabel: 'Solicitar información',
   productBar: {
     title: 'Captiva',
-    subtitle: 'Landing Pages de Alta Conversion',
+    subtitle: 'Landing Pages de Alta Conversión',
     badge: 'Producto de Tuwebai',
     items: [
       { label: 'Demos', href: captivaDemosRoute, type: 'route' },
-      { label: 'Como funciona', href: `${baseRoute}#como-funciona` },
+      { label: 'Cómo funciona', href: `${baseRoute}#como-funciona` },
       { label: 'Industrias', href: `${baseRoute}#industrias` },
       { label: 'Contacto', href: `${baseRoute}#contacto` },
     ],
   },
   navItems: [
     { label: 'Problema', href: `${baseRoute}#problema` },
-    { label: 'Solucion', href: `${baseRoute}#solucion` },
+    { label: 'Solución', href: `${baseRoute}#solucion` },
     { label: 'Beneficios', href: `${baseRoute}#beneficios` },
     { label: 'Demos', href: captivaDemosRoute, type: 'route' },
     { label: 'Proceso', href: `${baseRoute}#proceso` },
@@ -47,7 +47,7 @@ export const siteConfig: SiteConfig = {
   },
   seo: {
     siteUrl,
-    defaultTitle: 'Captiva | Plataforma de landing pages para conversion',
+    defaultTitle: 'Captiva | Plataforma de landing pages para conversión',
     defaultDescription:
       'Captiva es la plataforma de landing pages de Tuwebai para convertir visitas en consultas reales con estructura profesional.',
     defaultImage: defaultOgImage,
@@ -55,47 +55,55 @@ export const siteConfig: SiteConfig = {
   },
   hero: {
     badge: 'Producto de Tuwebai',
-    eyebrow: 'Plataforma de landing pages para conversion',
+    badgeHref: 'https://tuweb-ai.com/',
+    eyebrow: 'Plataforma de landing pages para conversión',
     title: 'Captiva',
-    subtitle: 'La plataforma de landing pages disenada para convertir clientes.',
+    subtitle: 'La plataforma de landing pages diseñada para convertir clientes.',
     supportingCopy:
-      'Explora ejemplos reales por industria y descubri como podria verse tu proxima landing, con estructura de conversion y contacto directo.',
+      'Explorá ejemplos reales por industria y descubrí cómo podría verse tu próxima landing, con estructura de conversión y contacto directo.',
     demosCtaLabel: 'Ver demos',
     primaryProductCtaLabel: 'Crear mi landing',
+    exploreLinkLabel: 'Explorar ejemplos reales por industria',
+    panelAriaLabel: 'Resumen del producto',
+    panelLabel: 'Qué resuelve',
+    panelFlowNodes: ['Visitas', 'Landing', 'Consultas'],
+    conversionKpiValue: '+42%',
+    conversionKpiLabel: 'conversion rate',
     metrics: [
-      { value: 'Enfoque', label: 'Conversion por encima de la decoracion' },
-      { value: 'Claridad', label: 'Mensaje, oferta y contacto sin friccion' },
+      { value: 'Enfoque', label: 'Conversión por encima de la decoración' },
+      { value: 'Claridad', label: 'Mensaje, oferta y contacto sin fricción' },
       { value: 'Presencia', label: 'Imagen profesional desde el primer vistazo' },
+      { value: 'Acción', label: 'CTA visible para transformar interés en consulta' },
     ],
   },
   howItWorks: {
-    title: 'Como funciona Captiva',
+    title: 'Cómo funciona Captiva',
     description: 'Un flujo simple para pasar de idea a una landing lista para captar consultas.',
     steps: [
       {
         step: '01',
-        title: 'Elegis tu industria',
-        description: 'Selecciona el rubro que mejor representa tu negocio y su contexto comercial.',
+        title: 'Elegís tu industria',
+        description: 'Seleccioná el rubro que mejor representa tu negocio y su contexto comercial.',
         icon: 'analysis',
       },
       {
         step: '02',
-        title: 'Exploras una landing optimizada',
-        description: 'Revisa ejemplos reales con estructura orientada a conversion para tu tipo de cliente.',
+        title: 'Explorás una landing optimizada',
+        description: 'Revisá ejemplos reales con estructura orientada a conversión para tu tipo de cliente.',
         icon: 'page',
       },
       {
         step: '03',
-        title: 'Lanzamos tu landing en dias',
-        description: 'Publicamos una version profesional lista para recibir consultas y generar oportunidades.',
+        title: 'Lanzamos tu landing en días',
+        description: 'Publicamos una versión profesional lista para recibir consultas y generar oportunidades.',
         icon: 'launch',
       },
     ],
   },
   problem: {
-    title: 'Muchos negocios siguen perdiendo oportunidades por no tener una pagina pensada para convertir.',
+    title: 'Muchos negocios siguen perdiendo oportunidades por no tener una página pensada para convertir.',
     description:
-      'Cuando la presencia digital depende solo de redes sociales, la informacion se dispersa, el mensaje pierde claridad y el contacto se vuelve mas dificil de concretar.',
+      'Cuando la presencia digital depende solo de redes sociales, la información se dispersa, el mensaje pierde claridad y el contacto se vuelve más difícil de concretar.',
     items: [
       {
         title: 'Dependencia de redes sociales',
@@ -103,121 +111,202 @@ export const siteConfig: SiteConfig = {
           'El negocio queda atado a publicaciones, mensajes dispersos y plataformas que no explican el servicio con orden.',
       },
       {
-        title: 'Ausencia de una pagina profesional',
+        title: 'Ausencia de una página profesional',
         description:
           'Sin una landing dedicada, la marca transmite menos confianza y genera dudas en personas listas para consultar.',
       },
       {
-        title: 'Perdida de clientes potenciales',
+        title: 'Pérdida de clientes potenciales',
         description:
-          'Si la propuesta no se entiende rapido o contactar requiere esfuerzo, la visita se pierde antes de convertirse.',
+          'Si la propuesta no se entiende rápido o contactar requiere esfuerzo, la visita se pierde antes de convertirse.',
       },
     ],
   },
   solution: {
-    title: 'Captiva resuelve esa friccion con una landing clara, profesional y orientada a consulta.',
+    title: 'Captiva resuelve esa fricción con una landing clara, profesional y orientada a consulta.',
     description:
-      'Disenamos paginas pensadas para explicar el servicio, ordenar la informacion clave y guiar al usuario hacia un contacto directo.',
+      'Diseñamos páginas pensadas para explicar el servicio, ordenar la información clave y guiar al usuario hacia un contacto directo.',
     items: [
       {
-        title: 'Landing optimizada para conversion',
-        description: 'Estructuramos cada bloque para que la visita avance con logica hacia la accion.',
+        title: 'Landing optimizada para conversión',
+        description: 'Estructuramos cada bloque para que la visita avance con lógica hacia la acción.',
       },
       {
         title: 'Estructura clara',
-        description: 'El contenido se organiza para responder que haces, para quien y como pueden contactarte.',
+        description: 'El contenido se organiza para responder qué hacés, para quién y cómo pueden contactarte.',
       },
       {
         title: 'Contacto directo',
-        description: 'La llamada a la accion esta visible y conectada con un canal simple para consultar.',
+        description: 'La llamada a la acción está visible y conectada con un canal simple para consultar.',
       },
       {
-        title: 'Diseno profesional',
-        description: 'La presentacion transmite seriedad, orden y confianza desde el primer scroll.',
+        title: 'Diseño profesional',
+        description: 'La presentación transmite seriedad, orden y confianza desde el primer scroll.',
       },
     ],
   },
   benefits: {
     title: 'Una landing bien planteada mejora la forma en que el negocio se presenta y convierte.',
     description:
-      'Captiva prioriza lectura rapida, confianza visual y estructura de decision para que la visita entienda y actue.',
+      'Captiva prioriza lectura rápida, confianza visual y estructura de decisión para que la visita entienda y actúe.',
     items: [
       {
-        title: 'Mas consultas',
-        description: 'Una propuesta clara facilita que mas personas pasen de visitar a escribir.',
+        title: 'Más consultas',
+        description: 'Una propuesta clara facilita que más personas pasen de visitar a escribir.',
       },
       {
-        title: 'Pagina profesional',
+        title: 'Página profesional',
         description: 'El negocio gana una presencia propia, cuidada y alineada con su servicio.',
       },
       {
         title: 'Experiencia clara para el cliente',
-        description: 'La informacion importante aparece donde tiene que estar, sin ruido ni distracciones.',
+        description: 'La información importante aparece donde tiene que estar, sin ruido ni distracciones.',
       },
       {
-        title: 'Presencia digital solida',
+        title: 'Presencia digital sólida',
         description: 'La marca deja de depender solo de redes y suma un activo digital preparado para crecer.',
       },
     ],
   },
   demos: {
-    eyebrow: 'Galeria de producto',
-    title: 'Explora landing pages por industria',
+    eyebrow: 'Galería de producto',
+    title: 'Explorá landing pages por industria',
     description:
       'Biblioteca de templates de Captiva orientados a distintos rubros para validar estructura, propuesta y CTA antes de implementar.',
+    filtersAriaLabel: 'Filtrar demos por categoría',
+    filterLabels: {
+      all: 'Todos',
+      fitness: 'Fitness',
+      salud: 'Salud',
+      legal: 'Legal',
+      belleza: 'Belleza',
+      negocios: 'Negocios',
+    },
+    industryLinkPrefix: 'Ver landing page para',
+    cardCtaLabel: 'Ver demo',
+    ctaTitle: '¿Necesitás una landing para tu negocio?',
+    ctaDescription:
+      'Solicitá una propuesta y te mostramos la estructura recomendada según tu industria y objetivo comercial.',
+    ctaButtonLabel: 'Solicitar mi landing',
     items: [
       {
         slug: 'gimnasios',
         title: 'Landing para gimnasios',
-        description: 'Captacion de alumnos, planes y horarios con CTA de contacto directo.',
+        description: 'Captación de alumnos, planes y horarios con CTA de contacto directo.',
       },
       {
         slug: 'esteticas',
-        title: 'Landing para esteticas',
+        title: 'Landing para estéticas',
         description: 'Servicios destacados, confianza visual y reserva de consulta.',
       },
       {
         slug: 'abogados',
         title: 'Landing para abogados',
-        description: 'Autoridad profesional, areas de practica y consultas inmediatas.',
+        description: 'Autoridad profesional, áreas de práctica y consultas inmediatas.',
       },
       {
         slug: 'negocios-locales',
         title: 'Landing para negocios locales',
-        description: 'Ubicacion, propuesta y canal de contacto para demanda cercana.',
+        description: 'Ubicación, propuesta y canal de contacto para demanda cercana.',
       },
     ],
   },
   process: {
     title: 'Un proceso corto, ordenado y enfocado en salir a captar consultas.',
     description:
-      'Captiva simplifica la implementacion para que el negocio tenga una pagina lista para operar sin friccion.',
+      'Captiva simplifica la implementación para que el negocio tenga una página lista para operar sin fricción.',
     steps: [
       {
         step: '01',
-        title: 'Analisis del negocio',
-        description: 'Revisamos oferta, publico, objeciones y objetivo comercial.',
+        title: 'Análisis del negocio',
+        description: 'Revisamos oferta, público, objeciones y objetivo comercial.',
       },
       {
         step: '02',
-        title: 'Diseno de la pagina',
+        title: 'Diseño de la página',
         description: 'Construimos la estructura, el mensaje y la UI con foco en claridad.',
       },
       {
         step: '03',
-        title: 'Publicacion',
-        description: 'Dejamos la landing operativa, optimizada y lista para recibir trafico.',
+        title: 'Publicación',
+        description: 'Dejamos la landing operativa, optimizada y lista para recibir tráfico.',
       },
       {
         step: '04',
-        title: 'Pagina lista para recibir consultas',
+        title: 'Página lista para recibir consultas',
         description: 'El negocio queda con una presencia profesional activa y preparada para convertir.',
       },
     ],
   },
   finalCta: {
-    title: 'Tu negocio merece una pagina que trabaje para vos.',
+    title: 'Tu negocio merece una página que trabaje para vos.',
     description:
       'Captiva convierte una visita dispersa en una experiencia clara, profesional y orientada al contacto.',
+  },
+  pages: {
+    industry: {
+      eyebrow: 'Landing por industria',
+      sectorProblemTitle: 'Problema del sector',
+      solutionTitle: 'Cómo lo resuelve Captiva',
+      benefitsTitle: 'Beneficios de una landing optimizada',
+      demosTitlePrefix: 'Ejemplos de landing pages para',
+      exploreOtherTitle: 'Explorar otras industrias',
+      industryLinkLabel: 'Ver página por industria',
+      ctaTitlePrefix: 'Crear mi landing page para',
+      ctaDescription: 'Solicitá información y te mostramos la estructura recomendada para captar consultas en tu rubro.',
+      ctaButtonLabel: 'Crear mi landing page',
+      demoCardCtaLabel: 'Ver demo',
+    },
+    demos: {
+      collectionName: 'Biblioteca de Landing Pages',
+      collectionDescription:
+        'Galería de ejemplos de landing pages para negocios, optimizadas para conversión y captación de consultas.',
+      breadcrumbDemosLabel: 'Demos',
+      seoTitle: 'Biblioteca de Landing Pages',
+      seoDescription:
+        'Explorá la biblioteca de landing pages de Captiva por industria: fitness, salud, legal, belleza y negocios para convertir visitas en consultas.',
+      seoKeywords: [
+        'ejemplos de landing pages',
+        'landing page para negocios',
+        'ejemplos de páginas web profesionales',
+        'demos de landing pages',
+        'captiva demos',
+      ],
+    },
+    blog: {
+      readPostLabel: 'Leer artículo',
+      postEyebrow: 'Artículo',
+      sidebarAriaLabel: 'Recursos relacionados',
+      sidebarDemosTitle: 'Ver ejemplos de landing pages',
+      sidebarDemosDescription: 'Explorá demos reales por industria para validar estructura y propuesta antes de implementar.',
+      sidebarDemosLinkLabel: 'Ir a /captiva/demos',
+      sidebarCtaTitle: 'Crear mi landing',
+      sidebarCtaDescription: 'Solicitá una propuesta y armamos una landing alineada a tu objetivo comercial.',
+      sidebarCtaButtonLabel: 'Solicitar información',
+      relatedTitle: 'Artículos relacionados',
+      eyebrow: 'Blog',
+      title: 'Blog de Captiva',
+      description:
+        'Guías prácticas de landing pages, conversión y estrategia digital para negocios que quieren captar más consultas.',
+      cardDescription: 'Artículo técnico orientado a conversión y crecimiento orgánico.',
+      seoTitle: 'Blog de Captiva',
+      seoDescription:
+        'Blog técnico de Captiva para crecimiento orgánico: conversión, landing pages y adquisición de clientes.',
+      seoKeywords: ['blog landing pages', 'captiva blog', 'conversión web'],
+      plannedPosts: [
+        'Cómo conseguir clientes con una landing page',
+        'Landing page vs sitio web: qué conviene para vender',
+        'Ejemplos de landing pages que convierten',
+        'Guía de landing pages para negocios locales',
+      ],
+    },
+    industryLinks: {
+      eyebrow: 'Industrias',
+      title: 'Landing pages por industria para captar búsquedas long-tail.',
+      description:
+        'Cada rubro tiene una página SEO dedicada, con contenido orientado a conversión y enlaces directos a demos reales.',
+      seoBadgeLabel: 'Página SEO',
+      ctaLabel: 'Ver página por industria',
+    },
   },
 };

@@ -40,7 +40,7 @@ export function HomePage() {
     },
     url: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}`,
     areaServed: 'AR',
-    serviceType: 'Landing pages de conversion para negocios',
+    serviceType: 'Landing pages de conversión para negocios',
   };
 
   const softwareApplicationSchema = {
@@ -78,8 +78,8 @@ export function HomePage() {
     keywords: [
       'landing pages',
       'landing pages para negocios',
-      'pagina web para captar clientes',
-      'landing pages de conversion',
+      'página web para captar clientes',
+      'landing pages de conversión',
       'captiva',
       'tuwebai',
     ],

@@ -7,6 +7,8 @@ type DocumentMetadata = {
   description?: string;
   path?: string;
   canonicalUrl?: string;
+  prevPath?: string;
+  nextPath?: string;
   robots?: string;
   ogType?: 'website' | 'article' | 'product';
   image?: string;
@@ -19,6 +21,8 @@ export function useDocumentMetadata({
   description = siteConfig.description,
   path,
   canonicalUrl,
+  prevPath,
+  nextPath,
   robots = 'index,follow',
   ogType = 'website',
   image = siteConfig.seo.defaultImage,
@@ -56,6 +60,10 @@ export function useDocumentMetadata({
       }
     };
 
+    const removeLink = (selector: string) => {
+      document.head.querySelector<HTMLLinkElement>(selector)?.remove();
+    };
+
     document.title = title;
 
     setMeta('meta[name="description"]', { name: 'description', content: description });
@@ -67,6 +75,16 @@ export function useDocumentMetadata({
     }
 
     setLink('link[rel="canonical"]', { rel: 'canonical', href: resolvedCanonical });
+    if (prevPath) {
+      setLink('link[rel="prev"]', { rel: 'prev', href: `${siteUrl}${prevPath}` });
+    } else {
+      removeLink('link[rel="prev"]');
+    }
+    if (nextPath) {
+      setLink('link[rel="next"]', { rel: 'next', href: `${siteUrl}${nextPath}` });
+    } else {
+      removeLink('link[rel="next"]');
+    }
 
     setMeta('meta[property="og:title"]', { property: 'og:title', content: title });
     setMeta('meta[property="og:description"]', { property: 'og:description', content: description });
@@ -90,5 +108,5 @@ export function useDocumentMetadata({
       script.text = JSON.stringify(item);
       document.head.appendChild(script);
     });
-  }, [canonicalUrl, description, image, keywords, ogType, path, robots, structuredData, title]);
+  }, [canonicalUrl, description, image, keywords, nextPath, ogType, path, prevPath, robots, structuredData, title]);
 }

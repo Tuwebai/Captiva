@@ -1,12 +1,15 @@
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { ButtonLink } from '../components/ui/ButtonLink';
+import { PrimaryCTA } from '../components/cta/PrimaryCTA';
+import { LeadFormSection } from '../components/forms/LeadFormSection';
+import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import demosManifest from '../config/demos.generated.json';
 import { siteConfig } from '../config/site';
 import type { DemoManifestItem } from '../types/demo';
 import { trackEvent } from '../utils/analytics';
+import { getTopCityLandings } from '../utils/city-landings';
 import { groupDemosByCategory } from '../utils/demos';
 import { getIndustryPages } from '../utils/industry';
 
@@ -21,15 +24,16 @@ type CategoryFilter = {
 };
 
 const categoryFilters: CategoryFilter[] = [
-  { key: 'all', label: 'Todos', categories: [] },
-  { key: 'fitness', label: 'Fitness', categories: ['fitness'] },
-  { key: 'salud', label: 'Salud', categories: ['salud', 'odontologia'] },
-  { key: 'legal', label: 'Legal', categories: ['legal'] },
-  { key: 'belleza', label: 'Belleza', categories: ['estetica'] },
-  { key: 'negocios', label: 'Negocios', categories: ['negocios-locales', 'b2b'] },
+  { key: 'all', label: siteConfig.demos.filterLabels.all, categories: [] },
+  { key: 'fitness', label: siteConfig.demos.filterLabels.fitness, categories: ['fitness'] },
+  { key: 'salud', label: siteConfig.demos.filterLabels.salud, categories: ['salud', 'odontologia'] },
+  { key: 'legal', label: siteConfig.demos.filterLabels.legal, categories: ['legal'] },
+  { key: 'belleza', label: siteConfig.demos.filterLabels.belleza, categories: ['estetica'] },
+  { key: 'negocios', label: siteConfig.demos.filterLabels.negocios, categories: ['negocios-locales', 'b2b'] },
 ];
 
 const validFilterKeys = new Set(categoryFilters.map((item) => item.key));
+const topCityLandings = getTopCityLandings(6);
 
 function getVisibleCategories(filterKey: string) {
   if (filterKey === 'all') return demoCategories;
@@ -64,12 +68,12 @@ export function DemosGallerySection() {
       <div className="container">
         <SectionHeading
           as="h1"
-          eyebrow="Template Library"
-          title="Explora Landing Pages por Industria"
-          description="Biblioteca de templates listos para conversion. Filtra por categoria y revisa demos reales por rubro."
+          eyebrow={siteConfig.demos.eyebrow}
+          title={siteConfig.demos.title}
+          description={siteConfig.demos.description}
         />
 
-        <div className="template-filters" role="tablist" aria-label="Filtrar demos por categoria">
+        <div className="template-filters" role="tablist" aria-label={siteConfig.demos.filtersAriaLabel}>
           {categoryFilters.map((filter) => {
             const isActive = filter.key === normalizedFilterKey;
 
@@ -104,7 +108,7 @@ export function DemosGallerySection() {
                       to={`/${industryByCategory.get(category.slug)?.slug ?? ''}`}
                       onClick={() => trackEvent({ event: 'internal_nav', category: category.slug, label: 'industry-page' })}
                     >
-                      Ver landing page para {category.title.toLowerCase()}
+                      {siteConfig.demos.industryLinkPrefix} {category.title.toLowerCase()}
                     </Link>
                   ) : null}
                 </div>
@@ -113,12 +117,7 @@ export function DemosGallerySection() {
               <div className="card-grid card-grid--three">
                 {category.items.map((item) => (
                   <SurfaceCard key={item.slug} className="demo-gallery-card">
-                    <a
-                      className="demo-gallery-card__preview"
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a className="demo-gallery-card__preview" href={item.href} target="_blank" rel="noreferrer">
                       <img
                         src={item.preview ?? placeholderPreview}
                         alt={item.title}
@@ -137,9 +136,16 @@ export function DemosGallerySection() {
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
-                      onClick={() => trackEvent({ event: 'demo_click', category: category.slug, label: item.publicSlug })}
+                      onClick={() =>
+                        trackEvent('demo_click', {
+                          demo: item.publicSlug,
+                          category: category.slug,
+                          source: 'demos_page',
+                          path: siteConfig.routes.captivaDemos,
+                        })
+                      }
                     >
-                      Ver demo
+                      {siteConfig.demos.cardCtaLabel}
                     </a>
                   </SurfaceCard>
                 ))}
@@ -149,18 +155,48 @@ export function DemosGallerySection() {
         </div>
 
         <div className="industry-cta">
-          <h2>Necesitas una landing para tu negocio?</h2>
-          <p>
-            Solicita una propuesta y te mostramos la estructura recomendada segun tu industria y objetivo comercial.
-          </p>
-          <ButtonLink
-            href={siteConfig.contact.ctaHref}
+          <h2>{siteConfig.demos.ctaTitle}</h2>
+          <p>{siteConfig.demos.ctaDescription}</p>
+          <PrimaryCTA
+            label={siteConfig.demos.ctaButtonLabel}
             variant="primary"
-            onClick={() => trackEvent({ event: 'cta_click', category: 'demos', label: 'contactar' })}
-          >
-            Solicitar mi landing
-          </ButtonLink>
+            mode="lead-form"
+            leadFormId="lead-form-demos"
+            source="demos"
+            context="captiva-demos"
+          />
         </div>
+
+        <LeadFormSection
+          id="lead-form-demos"
+          source="demos"
+          context="captiva-demos"
+          title="Solicitar una landing basada en estas demos"
+          description="Te contactamos por WhatsApp con una propuesta segun el rubro y la estructura que mas te guste."
+        />
+
+        {topCityLandings.length > 0 ? (
+          <section className="industry-links">
+            <h2>Landing pages por ciudad</h2>
+            <div className="card-grid card-grid--three">
+              {topCityLandings.map((item) => (
+                <SurfaceCard key={item.slug}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <Link
+                    className="text-link"
+                    to={item.path}
+                    onClick={() => trackEvent({ event: 'internal_nav', category: 'city-landing', label: item.slug })}
+                  >
+                    Ver pagina por ciudad
+                  </Link>
+                </SurfaceCard>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <RelatedLinksSection title="Guias y recursos relacionados" maxLinks={7} />
       </div>
     </section>
   );

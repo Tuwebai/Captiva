@@ -1,0 +1,73 @@
+[
+  {
+    "slug": "landing-page-vs-sitio-web",
+    "title": "Landing page vs sitio web: que conviene para conseguir clientes",
+    "description": "Comparativa entre landing pages y sitios web tradicionales para captacion comercial.",
+    "rows": [
+      {
+        "criteria": "Objetivo",
+        "landingPage": "Conversion a consulta o lead",
+        "alternative": "Informacion general de marca"
+      },
+      {
+        "criteria": "Estructura",
+        "landingPage": "Mensaje unico y CTA dominante",
+        "alternative": "Multiples secciones y navegacion amplia"
+      },
+      {
+        "criteria": "Tiempo de salida",
+        "landingPage": "Implementacion rapida y enfocada",
+        "alternative": "Mayor tiempo de definicion y contenido"
+      },
+      {
+        "criteria": "Rendimiento comercial",
+        "landingPage": "Alta orientacion a conversion",
+        "alternative": "Menor foco en accion inmediata"
+      }
+    ]
+  },
+  {
+    "slug": "landing-page-vs-webflow",
+    "title": "Landing page vs Webflow: que elegir para convertir mas rapido",
+    "description": "Comparativa entre estrategia de landing orientada a conversion y construccion generica en Webflow.",
+    "rows": [
+      {
+        "criteria": "Enfoque",
+        "landingPage": "Estrategia comercial definida",
+        "alternative": "Herramienta flexible sin estrategia por defecto"
+      },
+      {
+        "criteria": "Complejidad",
+        "landingPage": "Implementacion guiada y acotada",
+        "alternative": "Requiere definir estructura y UX desde cero"
+      },
+      {
+        "criteria": "Go to market",
+        "landingPage": "Salida a produccion en dias",
+        "alternative": "Depende de curva tecnica y decisiones de diseno"
+      }
+    ]
+  },
+  {
+    "slug": "landing-page-vs-wordpress",
+    "title": "Landing page vs WordPress: cual conviene para captar consultas",
+    "description": "Comparativa entre una landing enfocada en conversion y un sitio montado en WordPress.",
+    "rows": [
+      {
+        "criteria": "Arquitectura",
+        "landingPage": "Una sola conversion principal",
+        "alternative": "Plantillas multiproposito"
+      },
+      {
+        "criteria": "Mantenimiento",
+        "landingPage": "Baja complejidad operativa",
+        "alternative": "Plugins, updates y riesgo de deuda tecnica"
+      },
+      {
+        "criteria": "Resultado esperado",
+        "landingPage": "Captar leads con menor friccion",
+        "alternative": "Mayor dispersion de atencion"
+      }
+    ]
+  }
+]

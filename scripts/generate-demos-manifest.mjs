@@ -1,6 +1,7 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
+import { loadBlogEntries } from './lib/blog-content.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const controlledDemoBase = '/demo';
@@ -11,7 +12,12 @@ const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.
 const publicDemosRoot = resolve(publicRoot, 'demos');
 const robotsPath = resolve(publicRoot, 'robots.txt');
 const sitemapPath = resolve(publicRoot, 'sitemap.xml');
+const slugMapPath = resolve(publicRoot, 'demo-slugs.json');
+const cityLandingsPath = resolve(process.cwd(), 'src/config/landing-city.generated.json');
+const examplesPath = resolve(process.cwd(), 'src/config/landing-examples.generated.json');
+const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
 const staticRoutes = ['/captiva', '/captiva/demos'];
+const blogContentDir = resolve(process.cwd(), 'src/content/blog');
 const industryCatalog = existsSync(industryCatalogPath)
   ? JSON.parse(readFileSync(industryCatalogPath, 'utf8'))
   : {};
@@ -31,27 +37,18 @@ function buildPublicSlug(folderName) {
   return `DEMO-${compact.replace(/[^A-Za-z0-9-]/g, '')}`;
 }
 
-function buildControlledHref(publicSlug) {
-  return `${controlledDemoBase}/${publicSlug}`;
+function buildControlledHref(canonicalSlug) {
+  return `${controlledDemoBase}/${canonicalSlug}`;
 }
 
 function normalizePreview(publicSlug, preview) {
-  if (!preview) {
-    return null;
-  }
-
-  if (preview.startsWith('/')) {
-    return preview;
-  }
-
+  if (!preview) return null;
+  if (preview.startsWith('/')) return preview;
   return `/demos/${publicSlug}/${preview}`;
 }
 
 function toAbsoluteUrl(pathname) {
-  if (pathname.startsWith('http')) {
-    return pathname;
-  }
-
+  if (pathname.startsWith('http')) return pathname;
   return `${siteUrl}${pathname}`;
 }
 
@@ -59,7 +56,6 @@ function upsertTag(html, matcher, tag) {
   if (matcher.test(html)) {
     return html.replace(matcher, tag);
   }
-
   return html.replace('</head>', `  ${tag}\n</head>`);
 }
 
@@ -89,21 +85,18 @@ function upsertCanonical(html, href) {
 
 function inferBusinessKeyword(category) {
   const normalized = String(category ?? '').toLowerCase();
-
   if (normalized === 'fitness') return 'gimnasios';
   if (normalized === 'salud') return 'servicios de salud';
   if (normalized === 'odontologia') return 'dentistas';
-  if (normalized === 'estetica') return 'estetica';
+  if (normalized === 'estetica') return 'estética';
   if (normalized === 'legal') return 'abogados';
   if (normalized === 'b2b') return 'negocios b2b';
-
   return 'negocios';
 }
 
 function getIndustrySlug(category) {
   const catalogItem = industryCatalog[category];
   if (catalogItem?.slug) return catalogItem.slug;
-
   return `landing-page-para-${String(category).toLowerCase()}`;
 }
 
@@ -111,15 +104,14 @@ function injectBeforeBodyClose(html, content) {
   return html.replace('</body>', `${content}\n</body>`);
 }
 
-function buildClientProtectionScript(item, categoryKeyword) {
+function buildClientProtectionScript(item) {
   const watermarkText = `Demo generada por Captiva • ${item.title}`;
-  const industrySlug = getIndustrySlug(item.category);
 
   return `
 <script data-captiva-protection="true">
 (() => {
   if (location.protocol === 'file:') {
-    document.body.innerHTML = '<div style="min-height:100vh;display:grid;place-items:center;font-family:Inter,Arial,sans-serif;padding:24px;text-align:center"><div><h1 style="margin:0 0 12px;font-size:28px">Esta demo solo funciona desde Captiva.</h1><p style="margin:0;color:#475569">Ingresa desde https://captiva.tuweb-ai.com/captiva/demos para verla correctamente.</p></div></div>';
+    document.body.innerHTML = '<div style="min-height:100vh;display:grid;place-items:center;font-family:Inter,Arial,sans-serif;padding:24px;text-align:center"><div><h1 style="margin:0 0 12px;font-size:28px">Esta demo solo funciona desde Captiva.</h1><p style="margin:0;color:#475569">Ingresá desde https://captiva.tuweb-ai.com/captiva/demos para verla correctamente.</p></div></div>';
     return;
   }
 
@@ -162,7 +154,6 @@ function buildClientProtectionScript(item, categoryKeyword) {
     badge.textContent = ${JSON.stringify(watermarkText)};
     badge.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:2147483647;padding:8px 12px;border-radius:999px;background:rgba(10,16,34,0.88);border:1px solid rgba(88,133,255,0.45);color:#f8fbff;font:600 12px/1.2 Inter,Arial,sans-serif;letter-spacing:.02em;box-shadow:0 10px 28px rgba(0,0,0,.28);backdrop-filter:blur(6px);text-decoration:none;';
     document.body.appendChild(badge);
-
   };
 
   if (document.readyState === 'loading') {
@@ -176,14 +167,11 @@ function buildClientProtectionScript(item, categoryKeyword) {
 
 async function optimizeDemoHtml(item) {
   const indexPath = resolve(publicDemosRoot, item.publicSlug, 'index.html');
-
-  if (!existsSync(indexPath)) {
-    return;
-  }
+  if (!existsSync(indexPath)) return;
 
   const categoryKeyword = inferBusinessKeyword(item.category);
-  const canonical = `${siteUrl}${buildControlledHref(item.publicSlug)}`;
-  const seoTitle = `${item.title} | Ejemplo de pagina web para ${categoryKeyword}`;
+  const canonical = `${siteUrl}${buildControlledHref(item.slug)}`;
+  const seoTitle = `${item.title} | Ejemplo de página web para ${categoryKeyword}`;
   const seoDescription = `${item.description} Ejemplo de landing page profesional para ${categoryKeyword}, optimizada para captar consultas.`;
   const ogImage = toAbsoluteUrl(item.preview ?? '/LOGO-captiva.png');
   let html = readFileSync(indexPath, 'utf8');
@@ -194,7 +182,7 @@ async function optimizeDemoHtml(item) {
   html = upsertMetaName(
     html,
     'keywords',
-    `landing page ${categoryKeyword}, ejemplo pagina web ${categoryKeyword}, captiva demos`,
+    `landing page ${categoryKeyword}, ejemplo página web ${categoryKeyword}, captiva demos`,
   );
   html = upsertCanonical(html, canonical);
   html = upsertMetaProperty(html, 'og:title', seoTitle);
@@ -217,7 +205,6 @@ async function optimizeDemoHtml(item) {
     html = html.replace(/<body([^>]*)>/i, `<body$1>\n  ${fallbackH1}`);
   }
 
-  // Cleanup legacy Captiva overlays previously injected in old builds.
   html = html.replace(/<section[^>]*id=["']captiva-seo-intro["'][\s\S]*?<\/section>/gi, '');
   html = html.replace(/<div[^>]*id=["']captiva-seo-intro["'][\s\S]*?<\/div>/gi, '');
   html = html.replace(/<div[^>]*id=["']captiva-dynamic-slot["'][\s\S]*?<\/div>/gi, '');
@@ -251,7 +238,7 @@ async function optimizeDemoHtml(item) {
   );
   html = html.replace('</head>', `  ${schemaTag}\n</head>`);
 
-  const protectionScript = buildClientProtectionScript(item, categoryKeyword);
+  const protectionScript = buildClientProtectionScript(item);
   html = html.replace(/<script data-captiva-protection="true">[\s\S]*?<\/script>/i, '');
   html = injectBeforeBodyClose(html, protectionScript);
 
@@ -270,28 +257,68 @@ async function optimizeDemoHtml(item) {
   writeFileSync(indexPath, minified);
 }
 
-function writeSitemap(manifest) {
-  const industryRoutes = [
-    ...new Set(manifest.map((item) => `/${getIndustrySlug(item.category)}`)),
+async function writeSitemap(manifest) {
+  const cityRoutes = existsSync(cityLandingsPath)
+    ? JSON.parse(readFileSync(cityLandingsPath, 'utf8')).map((entry) => entry.path)
+    : [];
+  const exampleRoutes = existsSync(examplesPath)
+    ? JSON.parse(readFileSync(examplesPath, 'utf8')).map((entry) => `/${entry.slug}`)
+    : [];
+  const comparisonRoutes = existsSync(comparisonsPath)
+    ? JSON.parse(readFileSync(comparisonsPath, 'utf8')).map((entry) => `/${entry.slug}`)
+    : [];
+  const industryRoutes = [...new Set(manifest.map((item) => `/${getIndustrySlug(item.category)}`))];
+  const blogEntries = await loadBlogEntries(blogContentDir);
+  const blogPostsPerPage = 10;
+  const totalBlogPages = Math.ceil(blogEntries.length / blogPostsPerPage);
+  const blogPageRoutes =
+    totalBlogPages > 1 ? Array.from({ length: totalBlogPages - 1 }, (_entry, index) => `/blog/page/${index + 2}`) : [];
+  const tagMap = new Map();
+  blogEntries.forEach((post) => {
+    post.tags.forEach((tag) => {
+      const tagSlug = slugify(tag);
+      if (!tagSlug) return;
+      tagMap.set(tagSlug, (tagMap.get(tagSlug) ?? 0) + 1);
+    });
+  });
+  const blogTagRoutes = [...tagMap.entries()].flatMap(([tagSlug, count]) => {
+    const tagPages = Math.ceil(count / blogPostsPerPage);
+    const paged = tagPages > 1 ? Array.from({ length: tagPages - 1 }, (_entry, index) => `/blog/tag/${tagSlug}/page/${index + 2}`) : [];
+    return [`/blog/tag/${tagSlug}`, ...paged];
+  });
+  const blogRoutes = [
+    '/blog',
+    ...blogPageRoutes,
+    ...blogTagRoutes,
+    ...blogEntries.map((post) => `/blog/${post.slug}`),
   ];
 
   const urls = [
     ...staticRoutes,
+    ...blogRoutes,
     ...industryRoutes,
-    ...manifest.map((item) => buildControlledHref(item.publicSlug)),
+    ...cityRoutes,
+    ...exampleRoutes,
+    ...comparisonRoutes,
+    ...manifest.map((item) => buildControlledHref(item.slug)),
   ];
+  const uniqueUrls = [...new Set(urls)];
   const lastmod = new Date().toISOString().split('T')[0];
 
-  const entries = urls
+  const entries = uniqueUrls
     .map((path) => {
       const priority =
         path === '/captiva'
           ? '1.0'
           : path === '/captiva/demos'
             ? '0.9'
-            : path.startsWith('/landing-page-para-')
-              ? '0.85'
-              : '0.8';
+            : path === '/blog'
+              ? '0.88'
+              : path.startsWith('/blog/')
+                ? '0.82'
+              : path.startsWith('/landing-page-para-')
+                ? '0.85'
+                : '0.8';
       return [
         '  <url>',
         `    <loc>${toAbsoluteUrl(path)}</loc>`,
@@ -319,6 +346,44 @@ function writeRobots() {
   writeFileSync(robotsPath, robots);
 }
 
+function normalizeAliasKey(value) {
+  const sanitized = String(value).trim().replace(/^\/+|\/+$/g, '');
+  try {
+    return decodeURIComponent(sanitized).toLowerCase();
+  } catch {
+    return sanitized.toLowerCase();
+  }
+}
+
+function writeDemoSlugMap(manifest) {
+  const canonicalToPublic = {};
+  const aliasToCanonical = {};
+
+  manifest.forEach((item) => {
+    canonicalToPublic[item.slug] = item.publicSlug;
+
+    const aliases = new Set([
+      item.publicSlug,
+      item.folderName,
+      item.folderName.replace(/\s+/g, '-'),
+      item.folderName.replace(/\s+/g, ''),
+    ]);
+
+    aliases.forEach((alias) => {
+      if (!alias || alias.toLowerCase() === item.slug.toLowerCase()) return;
+      aliasToCanonical[normalizeAliasKey(alias)] = item.slug;
+    });
+  });
+
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    canonicalToPublic,
+    aliasToCanonical,
+  };
+
+  writeFileSync(slugMapPath, `${JSON.stringify(payload, null, 2)}\n`);
+}
+
 async function main() {
   rmSync(publicDemosRoot, { recursive: true, force: true });
   mkdirSync(publicDemosRoot, { recursive: true });
@@ -328,14 +393,12 @@ async function main() {
     : [];
 
   const manifest = [];
+  const usedCanonicalSlugs = new Set();
 
   for (const entry of folders) {
     const folderName = entry.name;
     const metaPath = join(demosRoot, folderName, 'meta.json');
-
-    if (!existsSync(metaPath)) {
-      continue;
-    }
+    if (!existsSync(metaPath)) continue;
 
     const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
     const required = ['title', 'description', 'industry'];
@@ -344,12 +407,21 @@ async function main() {
         throw new Error(`Invalid meta.json in demos/${folderName}: missing required "${field}"`);
       }
     });
-    const publicSlug = buildPublicSlug(folderName);
 
+    const canonicalSlug = slugify(meta.slug || folderName);
+    if (!canonicalSlug) {
+      throw new Error(`Invalid canonical slug for demos/${folderName}`);
+    }
+    if (usedCanonicalSlugs.has(canonicalSlug)) {
+      throw new Error(`Duplicate canonical slug "${canonicalSlug}" detected in demos/${folderName}`);
+    }
+    usedCanonicalSlugs.add(canonicalSlug);
+
+    const publicSlug = buildPublicSlug(folderName);
     cpSync(join(demosRoot, folderName), join(publicDemosRoot, publicSlug), { recursive: true });
 
     const item = {
-      slug: meta.slug,
+      slug: canonicalSlug,
       folderName,
       publicSlug,
       title: meta.title,
@@ -357,7 +429,7 @@ async function main() {
       industry: meta.industry,
       category: meta.category,
       preview: normalizePreview(publicSlug, meta.preview),
-      href: buildControlledHref(publicSlug),
+      href: buildControlledHref(canonicalSlug),
     };
 
     await optimizeDemoHtml(item);
@@ -367,7 +439,8 @@ async function main() {
   manifest.sort((left, right) => left.title.localeCompare(right.title, 'es'));
 
   writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`);
-  writeSitemap(manifest);
+  writeDemoSlugMap(manifest);
+  await writeSitemap(manifest);
   writeRobots();
 
   console.log(`Generated demos manifest with ${manifest.length} entries.`);

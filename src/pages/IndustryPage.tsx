@@ -1,20 +1,29 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 
-import { ButtonLink } from '../components/ui/ButtonLink';
+import { PrimaryCTA } from '../components/cta/PrimaryCTA';
+import { LeadFormSection } from '../components/forms/LeadFormSection';
+import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { trackEvent } from '../utils/analytics';
+import { getCityLandingBySlug } from '../utils/city-landings';
 import { getDemosByIndustry, getIndustryBySlug, getIndustryPages } from '../utils/industry';
+import { CityIndustryLandingPage } from './CityIndustryLandingPage';
 
 const placeholderPreview = '/demo-placeholder.svg';
 
 export function IndustryPage() {
   const params = useParams<{ industry: string; slug: string }>();
   const slug = params.slug ?? `landing-page-para-${params.industry ?? ''}`;
-  const industry = getIndustryBySlug(slug);
+  const cityLanding = getCityLandingBySlug(slug);
 
+  if (cityLanding) {
+    return <CityIndustryLandingPage entry={cityLanding} />;
+  }
+
+  const industry = getIndustryBySlug(slug);
   if (!industry) {
     return <Navigate replace to={siteConfig.routes.captivaDemos} />;
   }
@@ -23,7 +32,7 @@ export function IndustryPage() {
   const related = getIndustryPages().filter((item) => item.slug !== industry.slug).slice(0, 3);
   const pagePath = `/${industry.slug}`;
   const pageTitle = `${industry.title} | Captiva`;
-  const pageDescription = `${industry.problem} ${industry.solution}`;
+  const pageDescription = `${industry.heroDescription} ${industry.solution}`;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -38,8 +47,8 @@ export function IndustryPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Demos',
-        item: `${siteConfig.seo.siteUrl}${siteConfig.routes.captivaDemos}`,
+        name: 'Landing pages por industria',
+        item: `${siteConfig.seo.siteUrl}${siteConfig.routes.captiva}#industrias`,
       },
       {
         '@type': 'ListItem',
@@ -49,6 +58,36 @@ export function IndustryPage() {
       },
     ],
   };
+
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: industry.title,
+    serviceType: 'WebDesignService',
+    description: pageDescription,
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.companyName,
+      url: 'https://tuweb-ai.com/',
+    },
+    areaServed: 'Latam',
+    url: `${siteConfig.seo.siteUrl}${pagePath}`,
+  };
+
+  const faqSchema = industry.faq.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: industry.faq.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
 
   useDocumentMetadata({
     title: pageTitle,
@@ -60,32 +99,32 @@ export function IndustryPage() {
       `ejemplos landing ${industry.industryName}`,
       'captiva',
     ],
-    structuredData: [breadcrumbSchema],
+    structuredData: faqSchema ? [breadcrumbSchema, serviceSchema, faqSchema] : [breadcrumbSchema, serviceSchema],
   });
 
   return (
     <section className="content-section">
       <div className="container">
-        <SectionHeading
-          as="h1"
-          eyebrow="Landing por industria"
-          title={industry.title}
-          description={`${industry.problem} ${industry.solution}`}
-        />
+        <SectionHeading as="h1" eyebrow={siteConfig.pages.industry.eyebrow} title={industry.heroTitle} description={industry.heroDescription} />
 
         <div className="card-grid card-grid--two industry-seo-grid">
           <SurfaceCard>
-            <h2>Problema del sector</h2>
+            <h2>{siteConfig.pages.industry.sectorProblemTitle}</h2>
             <p>{industry.problem}</p>
+            <ul className="blog-related-list">
+              {industry.painPoints.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
           </SurfaceCard>
           <SurfaceCard>
-            <h2>Como lo resuelve Captiva</h2>
+            <h2>{siteConfig.pages.industry.solutionTitle}</h2>
             <p>{industry.solution}</p>
           </SurfaceCard>
         </div>
 
         <section className="industry-benefits">
-          <h2>Beneficios de una landing optimizada</h2>
+          <h2>{siteConfig.pages.industry.benefitsTitle}</h2>
           <div className="card-grid card-grid--three">
             {industry.benefits.map((benefit) => (
               <SurfaceCard key={benefit}>
@@ -96,7 +135,9 @@ export function IndustryPage() {
         </section>
 
         <section className="industry-demos">
-          <h2>Ejemplos de landing pages para {industry.industryName}</h2>
+          <h2>
+            {siteConfig.pages.industry.demosTitlePrefix} {industry.industryName}
+          </h2>
           <div className="card-grid card-grid--three">
             {demos.map((demo) => (
               <SurfaceCard key={demo.slug} className="demo-gallery-card">
@@ -119,26 +160,38 @@ export function IndustryPage() {
                   rel="noreferrer"
                   onClick={() => trackEvent({ event: 'demo_click', category: industry.category, label: demo.publicSlug })}
                 >
-                  Ver demo
+                  {siteConfig.pages.industry.demoCardCtaLabel}
                 </a>
               </SurfaceCard>
             ))}
           </div>
         </section>
 
+        {industry.faq.length > 0 ? (
+          <section className="industry-links">
+            <h2>Preguntas frecuentes</h2>
+            <div className="card-grid card-grid--two">
+              {industry.faq.map((item) => (
+                <SurfaceCard key={item.question}>
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </SurfaceCard>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <RelatedLinksSection title={`Explorar mas recursos para ${industry.industryName}`} industry={industry.slug} maxLinks={8} />
+
         <section className="industry-links">
-          <h2>Explorar otras industrias</h2>
+          <h2>{siteConfig.pages.industry.exploreOtherTitle}</h2>
           <div className="card-grid card-grid--three">
             {related.map((item) => (
               <SurfaceCard key={item.slug}>
                 <h3>{item.title}</h3>
                 <p>{item.solution}</p>
-                <Link
-                  className="text-link"
-                  to={`/${item.slug}`}
-                  onClick={() => trackEvent({ event: 'internal_nav', category: 'industry', label: item.slug })}
-                >
-                  Ver pagina por industria
+                <Link className="text-link" to={`/${item.slug}`} onClick={() => trackEvent({ event: 'internal_nav', category: 'industry', label: item.slug })}>
+                  {siteConfig.pages.industry.industryLinkLabel}
                 </Link>
               </SurfaceCard>
             ))}
@@ -146,18 +199,28 @@ export function IndustryPage() {
         </section>
 
         <div className="industry-cta">
-          <h2>Crear mi landing page para {industry.industryName}</h2>
-          <p>
-            Solicita informacion y te mostramos la estructura recomendada para captar consultas en tu rubro.
-          </p>
-          <ButtonLink
-            href={siteConfig.contact.ctaHref}
+          <h2>
+            {siteConfig.pages.industry.ctaTitlePrefix} {industry.industryName}
+          </h2>
+          <p>{siteConfig.pages.industry.ctaDescription}</p>
+          <PrimaryCTA
+            label={siteConfig.pages.industry.ctaButtonLabel}
+            mode="lead-form"
+            leadFormId={`lead-form-${industry.slug}`}
+            source="industry"
+            industry={industry.industryName}
+            context={industry.slug}
             variant="primary"
-            onClick={() => trackEvent({ event: 'cta_click', category: 'industry', label: industry.slug })}
-          >
-            Crear mi landing page
-          </ButtonLink>
+          />
         </div>
+
+        <LeadFormSection
+          id={`lead-form-${industry.slug}`}
+          source="industry"
+          industry={industry.industryName}
+          context={industry.slug}
+          title={`Solicitar landing para ${industry.industryName}`}
+        />
       </div>
     </section>
   );

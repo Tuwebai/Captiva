@@ -1,9 +1,9 @@
 import industryCatalog from '../config/industry.catalog.json';
 import demosManifest from '../config/demos.generated.json';
 import type { DemoManifestItem } from '../types/demo';
-import type { IndustryCatalogItem, IndustryPageData } from '../types/industry';
+import type { IndustryPageData } from '../types/industry';
 
-const catalog = industryCatalog as Record<string, IndustryCatalogItem>;
+const catalog = industryCatalog as Record<string, Omit<IndustryPageData, 'category'>>;
 const demos = demosManifest as DemoManifestItem[];
 
 function fallbackFromCategory(category: string): IndustryPageData {
@@ -13,32 +13,52 @@ function fallbackFromCategory(category: string): IndustryPageData {
   return {
     category,
     slug: `landing-page-para-${normalized}`,
+    name: industryName,
     industryName,
     title: `Landing Page para ${industryName}`,
+    heroTitle: `Landing page para ${industryName} enfocada en conversion`,
+    heroDescription: `Captiva crea landing pages para ${industryName} con estructura comercial y contacto directo.`,
     problem: `Sin una landing page profesional para ${industryName}, muchas visitas no avanzan a consulta.`,
     solution: `Captiva crea landings para ${industryName} con enfoque en conversion, mensaje claro y contacto directo.`,
+    painPoints: [
+      `Dependencia de canales dispersos para ${industryName}`,
+      'Mensaje sin estructura de decision',
+      'CTA poco visible para consultas',
+    ],
     benefits: [
       `Mas consultas para ${industryName}`,
       'Presencia digital profesional',
       'Mejor conversion de visitas en clientes',
     ],
+    faq: [
+      {
+        question: `Cuanto tarda una landing para ${industryName}?`,
+        answer: 'El tiempo depende del alcance, pero suele resolverse en pocos dias con contenido disponible.',
+      },
+      {
+        question: 'Que incluye la pagina?',
+        answer: 'Incluye estructura de conversion, bloques de propuesta y CTA de contacto directo.',
+      },
+    ],
+    demo: '',
   };
 }
 
-export function getIndustryPages(): IndustryPageData[] {
-  const categories = [...new Set(demos.map((item) => item.category))];
-
-  return categories
-    .map((category) => {
-      const item = catalog[category];
-      if (!item) return fallbackFromCategory(category);
-
-      return {
-        category,
-        ...item,
-      };
-    })
+export function getAllIndustries(): IndustryPageData[] {
+  return Object.entries(catalog)
+    .map(([category, item]) => ({ category, ...item }))
     .sort((left, right) => left.title.localeCompare(right.title, 'es'));
+}
+
+export function getIndustryPages(): IndustryPageData[] {
+  const catalogItems = getAllIndustries();
+  const catalogCategories = new Set(catalogItems.map((item) => item.category));
+
+  const fallbackItems = [...new Set(demos.map((item) => item.category))]
+    .filter((category) => !catalogCategories.has(category))
+    .map((category) => fallbackFromCategory(category));
+
+  return [...catalogItems, ...fallbackItems].sort((left, right) => left.title.localeCompare(right.title, 'es'));
 }
 
 export function getIndustryBySlug(slug: string): IndustryPageData | undefined {
@@ -46,7 +66,5 @@ export function getIndustryBySlug(slug: string): IndustryPageData | undefined {
 }
 
 export function getDemosByIndustry(category: string): DemoManifestItem[] {
-  return demos
-    .filter((item) => item.category === category)
-    .sort((left, right) => left.title.localeCompare(right.title, 'es'));
+  return demos.filter((item) => item.category === category).sort((left, right) => left.title.localeCompare(right.title, 'es'));
 }
