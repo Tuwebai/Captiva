@@ -199,7 +199,7 @@ export function BlogPostPage() {
               </SurfaceCard>
             ) : null}
 
-            <RelatedLinksSection title="Recursos relacionados" maxLinks={6} />
+            <RelatedLinksSection title="Recursos relacionados" maxLinks={6} compact />
           </aside>
         </div>
 

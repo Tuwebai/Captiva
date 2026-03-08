@@ -30,6 +30,29 @@
     />
     <meta name="twitter:image" content="https://captiva.tuweb-ai.com/LOGO-captiva.png" />
     <title>Captiva | Landing pages que convierten visitas en clientes</title>
+    <script>
+      (function () {
+        var storageKey = 'captiva:theme-mode';
+        var mode = null;
+        try {
+          mode = window.localStorage.getItem(storageKey);
+        } catch (error) {
+          mode = null;
+        }
+
+        var isValidMode = mode === 'light' || mode === 'dark' || mode === 'system';
+        var themeMode = isValidMode ? mode : 'system';
+        var resolvedTheme =
+          themeMode === 'system'
+            ? window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : themeMode;
+
+        document.documentElement.dataset.theme = resolvedTheme;
+        document.documentElement.style.colorScheme = resolvedTheme;
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

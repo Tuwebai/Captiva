@@ -4,6 +4,8 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
 import { PanelToggleIcon } from '../components/ui/PanelToggleIcon';
+import { ThemeSwitch } from '../components/ui/theme/ThemeSwitch';
+import { useTheme } from '../components/ui/theme/useTheme';
 import { siteConfig } from '../config/site';
 import { useAnalytics } from '../hooks/useAnalytics';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
@@ -29,6 +31,7 @@ type RailItem = {
 export function PageShell({ children }: PropsWithChildren) {
   useAnalytics();
   useScrollRestoration();
+  const { resolvedTheme } = useTheme();
   const location = useLocation();
   const isCaptivaContext =
     location.pathname.startsWith(siteConfig.routes.captiva) ||
@@ -130,13 +133,14 @@ export function PageShell({ children }: PropsWithChildren) {
   };
 
   const isHomeNavActive = isCaptivaHome && !location.hash && isNearTop;
+  const fullLogoSrc = resolvedTheme === 'light' ? '/LOGO-captiva-light.png' : '/LOGO-captiva.png';
 
   const handleLogoError: ReactEventHandler<HTMLImageElement> = (event) => {
     const img = event.currentTarget;
 
     if (!img.dataset.retry) {
       img.dataset.retry = '1';
-      img.src = `/LOGO-captiva.png?retry=${Date.now()}`;
+      img.src = `${fullLogoSrc}?retry=${Date.now()}`;
       return;
     }
 
@@ -151,7 +155,7 @@ export function PageShell({ children }: PropsWithChildren) {
             <a className="brand-mark" href={siteConfig.routes.captiva}>
               <img
                 className="brand-mark__logo"
-                src="/LOGO-captiva.png"
+                src={fullLogoSrc}
                 alt={siteConfig.productName}
                 width={400}
                 height={120}
@@ -184,7 +188,7 @@ export function PageShell({ children }: PropsWithChildren) {
             <div className="section-rail__brand">
               <img
                 className="section-rail__logo"
-                src={isRailCollapsed ? '/LOGO-captiva-icon.png' : '/LOGO-captiva.png'}
+                src={isRailCollapsed ? '/LOGO-captiva-icon.png' : fullLogoSrc}
                 alt={siteConfig.productName}
                 width={isRailCollapsed ? 64 : 280}
                 height={isRailCollapsed ? 64 : 84}
@@ -270,7 +274,9 @@ export function PageShell({ children }: PropsWithChildren) {
             >
               Solicitar landing
             </ButtonLink>
+            <ThemeSwitch source="sidebar" compact={isRailCollapsed} className="section-rail__theme-switch" />
           </aside>
+          <ThemeSwitch source="mobile" compact className="mobile-floating-theme-switch" />
           <nav className="mobile-bottom-nav" aria-label="Navegación móvil">
             <Link
               className={`mobile-bottom-nav__item${isHomeNavActive ? ' is-active' : ''}`}
@@ -347,7 +353,7 @@ export function PageShell({ children }: PropsWithChildren) {
           <div className="footer-brand">
             <img
               className="footer-brand__logo"
-              src="/LOGO-captiva.png"
+              src={fullLogoSrc}
               alt={siteConfig.productName}
               width={400}
               height={120}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 
 import { LeadFormSection } from '../components/forms/LeadFormSection';
@@ -9,6 +10,7 @@ import { trackEvent } from '../utils/analytics';
 import { BLOG_POSTS_PER_PAGE, formatPostDate, getAllBlogTags, getBlogPosts, getPostsByTagSlug, slugifyTag } from '../utils/blog';
 
 export function BlogPage() {
+  const [isResourcesCollapsed, setIsResourcesCollapsed] = useState(false);
   const { page: pageParam, tag: tagParam } = useParams<{ page?: string; tag?: string }>();
   const allPosts = getBlogPosts();
   const allTags = getAllBlogTags();
@@ -42,6 +44,7 @@ export function BlogPage() {
     : currentPage === 1
       ? '/blog'
       : `/blog/page/${currentPage}`;
+
   const prevPath =
     currentPage > 1
       ? activeTagSlug
@@ -52,14 +55,16 @@ export function BlogPage() {
           ? '/blog'
           : `/blog/page/${currentPage - 1}`
       : undefined;
+
   const nextPath =
     currentPage < totalPages
       ? activeTagSlug
         ? `/blog/tag/${activeTagSlug}/page/${currentPage + 1}`
         : `/blog/page/${currentPage + 1}`
       : undefined;
+
   const seoTitleSuffix = activeTagSlug ? ` - ${activeTagSlug}` : '';
-  const seoPageSuffix = currentPage > 1 ? ` - Página ${currentPage}` : '';
+  const seoPageSuffix = currentPage > 1 ? ` - Pagina ${currentPage}` : '';
   const activeTagLabel = allTags.find((tag) => tag.slug === activeTagSlug)?.label;
 
   const collectionSchema = {
@@ -129,95 +134,112 @@ export function BlogPage() {
           <p>{siteConfig.pages.blog.description}</p>
         </div>
 
-        <RelatedLinksSection title="Recursos relacionados" maxLinks={6} />
-
-        <div className="blog-tag-filters" aria-label="Filtrar por tag">
-          <Link className={`template-filter-chip${!activeTagSlug ? ' template-filter-chip--active' : ''}`} to="/blog">
-            Todos
-          </Link>
-          {allTags.map((tag) => (
-            <Link
-              key={tag.slug}
-              className={`template-filter-chip${activeTagSlug === tag.slug ? ' template-filter-chip--active' : ''}`}
-              to={`/blog/tag/${tag.slug}`}
-            >
-              {tag.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="card-grid card-grid--two blog-post-grid">
-          {visiblePosts.map((post) => (
-            <SurfaceCard key={post.slug} className="blog-post-card">
-              <p className="blog-post-card__meta">
-                <span>{formatPostDate(post.date)}</span>
-                <span>{post.readingTime} min lectura</span>
-              </p>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-              <div className="blog-post-card__tags">
-                {post.tags.map((tag) => (
-                  <Link key={`${post.slug}-${tag}`} className="blog-tag-chip" to={`/blog/tag/${slugifyTag(tag)}`}>
-                    {tag}
-                  </Link>
-                ))}
-              </div>
-              <Link
-                className="text-link"
-                to={`/blog/${post.slug}`}
-                onClick={() => trackEvent({ event: 'internal_nav', category: 'blog', label: post.slug })}
-              >
-                {siteConfig.pages.blog.readPostLabel}
+        <div className="blog-index-layout">
+          <div className="blog-index-main">
+            <div className="blog-tag-filters" aria-label="Filtrar por tag">
+              <Link className={`template-filter-chip${!activeTagSlug ? ' template-filter-chip--active' : ''}`} to="/blog">
+                Todos
               </Link>
-            </SurfaceCard>
-          ))}
-        </div>
-
-        {totalPages > 1 ? (
-          <nav className="blog-pagination" aria-label="Paginación del blog">
-            <Link
-              className={`template-filter-chip${!prevPath ? ' is-disabled' : ''}`}
-              to={prevPath ?? canonicalPath}
-              aria-disabled={!prevPath}
-              onClick={(event) => {
-                if (!prevPath) event.preventDefault();
-              }}
-            >
-              Previous
-            </Link>
-            {Array.from({ length: totalPages }, (_, index) => {
-              const pageNumber = index + 1;
-              const path =
-                activeTagSlug
-                  ? pageNumber === 1
-                    ? `/blog/tag/${activeTagSlug}`
-                    : `/blog/tag/${activeTagSlug}/page/${pageNumber}`
-                  : pageNumber === 1
-                    ? '/blog'
-                    : `/blog/page/${pageNumber}`;
-
-              return (
+              {allTags.map((tag) => (
                 <Link
-                  key={pageNumber}
-                  className={`template-filter-chip${pageNumber === currentPage ? ' template-filter-chip--active' : ''}`}
-                  to={path}
+                  key={tag.slug}
+                  className={`template-filter-chip${activeTagSlug === tag.slug ? ' template-filter-chip--active' : ''}`}
+                  to={`/blog/tag/${tag.slug}`}
                 >
-                  {pageNumber}
+                  {tag.label}
                 </Link>
-              );
-            })}
-            <Link
-              className={`template-filter-chip${!nextPath ? ' is-disabled' : ''}`}
-              to={nextPath ?? canonicalPath}
-              aria-disabled={!nextPath}
-              onClick={(event) => {
-                if (!nextPath) event.preventDefault();
-              }}
-            >
-              Next
-            </Link>
-          </nav>
-        ) : null}
+              ))}
+            </div>
+
+            <div className="card-grid card-grid--two blog-post-grid">
+              {visiblePosts.map((post) => (
+                <SurfaceCard key={post.slug} className="blog-post-card">
+                  <p className="blog-post-card__meta">
+                    <span>{formatPostDate(post.date)}</span>
+                    <span>{post.readingTime} min lectura</span>
+                  </p>
+                  <h2>{post.title}</h2>
+                  <p>{post.excerpt}</p>
+                  <div className="blog-post-card__tags">
+                    {post.tags.map((tag) => (
+                      <Link key={`${post.slug}-${tag}`} className="blog-tag-chip" to={`/blog/tag/${slugifyTag(tag)}`}>
+                        {tag}
+                      </Link>
+                    ))}
+                  </div>
+                  <Link
+                    className="text-link"
+                    to={`/blog/${post.slug}`}
+                    onClick={() => trackEvent({ event: 'internal_nav', category: 'blog', label: post.slug })}
+                  >
+                    {siteConfig.pages.blog.readPostLabel}
+                  </Link>
+                </SurfaceCard>
+              ))}
+            </div>
+
+            {totalPages > 1 ? (
+              <nav className="blog-pagination" aria-label="Paginacion del blog">
+                <Link
+                  className={`template-filter-chip${!prevPath ? ' is-disabled' : ''}`}
+                  to={prevPath ?? canonicalPath}
+                  aria-disabled={!prevPath}
+                  onClick={(event) => {
+                    if (!prevPath) event.preventDefault();
+                  }}
+                >
+                  Previous
+                </Link>
+                {Array.from({ length: totalPages }, (_, index) => {
+                  const pageNumber = index + 1;
+                  const path =
+                    activeTagSlug
+                      ? pageNumber === 1
+                        ? `/blog/tag/${activeTagSlug}`
+                        : `/blog/tag/${activeTagSlug}/page/${pageNumber}`
+                      : pageNumber === 1
+                        ? '/blog'
+                        : `/blog/page/${pageNumber}`;
+
+                  return (
+                    <Link
+                      key={pageNumber}
+                      className={`template-filter-chip${pageNumber === currentPage ? ' template-filter-chip--active' : ''}`}
+                      to={path}
+                    >
+                      {pageNumber}
+                    </Link>
+                  );
+                })}
+                <Link
+                  className={`template-filter-chip${!nextPath ? ' is-disabled' : ''}`}
+                  to={nextPath ?? canonicalPath}
+                  aria-disabled={!nextPath}
+                  onClick={(event) => {
+                    if (!nextPath) event.preventDefault();
+                  }}
+                >
+                  Next
+                </Link>
+              </nav>
+            ) : null}
+          </div>
+
+          <aside className={`blog-index-sidebar${isResourcesCollapsed ? ' is-collapsed' : ''}`} aria-label="Recursos relacionados">
+            <div className="blog-index-sidebar__head">
+              <h2>Recursos relacionados</h2>
+              <button
+                type="button"
+                className="blog-index-sidebar__toggle"
+                aria-expanded={!isResourcesCollapsed}
+                onClick={() => setIsResourcesCollapsed((prev) => !prev)}
+              >
+                {isResourcesCollapsed ? 'Mostrar' : 'Ocultar'}
+              </button>
+            </div>
+            {!isResourcesCollapsed ? <RelatedLinksSection title="" maxLinks={6} compact /> : null}
+          </aside>
+        </div>
 
         <LeadFormSection
           id="lead-form-blog-index"
