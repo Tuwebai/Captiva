@@ -72,10 +72,7 @@ export function ThemeProvider({ children }: PropsWithChildren) {
   useEffect(() => {
     if (typeof document === 'undefined') return;
     document.documentElement.dataset.theme = resolvedTheme;
-
-    if (import.meta.env.DEV) {
-      console.info('[theme]', { themeMode, resolvedTheme });
-    }
+    document.documentElement.style.colorScheme = resolvedTheme;
   }, [resolvedTheme, themeMode]);
 
   const value = useMemo<ThemeContextValue>(
