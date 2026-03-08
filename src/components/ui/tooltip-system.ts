@@ -132,13 +132,33 @@ export function initTooltipSystem(): () => void {
     positionTooltip(tooltip, activeTarget, pointerX);
   };
 
+  const handleVisibilityChange = () => {
+    if (document.hidden) hideTooltip();
+  };
+
+  const handleWindowBlur = () => {
+    hideTooltip();
+  };
+
+  const handlePointerDown = () => {
+    hideTooltip();
+  };
+
+  const handleEscape = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') hideTooltip();
+  };
+
   document.addEventListener('mouseover', handleMouseOver, true);
   document.addEventListener('mousemove', handleMouseMove, true);
   document.addEventListener('mouseout', handleMouseOut, true);
   document.addEventListener('focusin', handleFocusIn, true);
   document.addEventListener('focusout', handleFocusOut, true);
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+  document.addEventListener('pointerdown', handlePointerDown, true);
+  document.addEventListener('keydown', handleEscape, true);
   window.addEventListener('scroll', handleViewportChange, true);
   window.addEventListener('resize', handleViewportChange);
+  window.addEventListener('blur', handleWindowBlur);
 
   return () => {
     hideTooltip();
@@ -147,7 +167,11 @@ export function initTooltipSystem(): () => void {
     document.removeEventListener('mouseout', handleMouseOut, true);
     document.removeEventListener('focusin', handleFocusIn, true);
     document.removeEventListener('focusout', handleFocusOut, true);
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+    document.removeEventListener('pointerdown', handlePointerDown, true);
+    document.removeEventListener('keydown', handleEscape, true);
     window.removeEventListener('scroll', handleViewportChange, true);
     window.removeEventListener('resize', handleViewportChange);
+    window.removeEventListener('blur', handleWindowBlur);
   };
 }
