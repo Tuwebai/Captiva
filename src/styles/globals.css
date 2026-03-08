@@ -1176,6 +1176,11 @@ code {
   text-transform: uppercase;
 }
 
+.lead-form-label-row {
+  display: inline-flex;
+  align-items: center;
+}
+
 .lead-form-grid input,
 .lead-form-grid textarea {
   width: 100%;

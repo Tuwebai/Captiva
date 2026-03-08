@@ -1,5 +1,6 @@
-import { FormEvent, useId, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useId, useMemo, useState } from 'react';
 
+import { InfoTooltip } from '../ui/tooltip/InfoTooltip';
 import { siteConfig } from '../../config/site';
 import { trackEvent } from '../../utils/analytics';
 import { buildLeadMessage, buildWhatsAppLeadUrl, type LeadContext, type LeadFormData } from '../../utils/lead-message';
@@ -34,6 +35,11 @@ export function LeadFormSection({
 }: LeadFormSectionProps) {
   const fallbackId = useId().replace(/:/g, '');
   const formId = id ?? `lead-form-${fallbackId}`;
+  const persistenceKey = useMemo(() => {
+    const contextKey = [source ?? '', industry ?? '', city ?? '', context ?? ''].join('|');
+    const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+    return `captiva:lead-form:${id ?? formId}:${contextKey}:${pathname}`;
+  }, [city, context, formId, id, industry, source]);
   const [formData, setFormData] = useState<LeadFormData>({
     ...initialState,
     industry: industry ?? '',
@@ -48,6 +54,31 @@ export function LeadFormSection({
     }),
     [source, industry, formData.industry, city, context],
   );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const persisted = window.localStorage.getItem(persistenceKey);
+    if (!persisted) return;
+
+    try {
+      const parsed = JSON.parse(persisted) as Partial<LeadFormData>;
+      setFormData((current) => ({
+        ...current,
+        name: parsed.name ?? current.name,
+        company: parsed.company ?? current.company,
+        industry: parsed.industry ?? current.industry,
+        objective: parsed.objective ?? current.objective,
+        contact: parsed.contact ?? current.contact,
+      }));
+    } catch {
+      // Ignore invalid storage payload.
+    }
+  }, [persistenceKey]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    window.localStorage.setItem(persistenceKey, JSON.stringify(formData));
+  }, [formData, persistenceKey]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -112,7 +143,10 @@ export function LeadFormSection({
           </label>
 
           <label className="lead-form-grid__wide">
-            Que quieres conseguir con tu landing?
+            <span className="lead-form-label-row">
+              Que quieres conseguir con tu landing?
+              <InfoTooltip text="Ejemplo: conseguir mas consultas o captar alumnos." />
+            </span>
             <textarea
               name="objective"
               required

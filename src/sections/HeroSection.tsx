@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
+import { Tooltip } from '../components/ui/tooltip/Tooltip';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../utils/analytics';
 
@@ -29,20 +30,24 @@ export function HeroSection() {
           <p className="hero-copy__body">{siteConfig.hero.supportingCopy}</p>
 
           <div className="hero-actions">
-            <Link
-              className="button-link button-link--secondary"
-              to={siteConfig.routes.captivaDemos}
-              onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'ver-demos' })}
-            >
-              {siteConfig.hero.demosCtaLabel}
-            </Link>
-            <PrimaryCTA
-              label={siteConfig.hero.primaryProductCtaLabel}
-              mode="lead-form"
-              leadFormId="lead-form-hero"
-              source="hero"
-              variant="primary"
-            />
+            <Tooltip text="Explora ejemplos reales de landing pages por industria.">
+              <Link
+                className="button-link button-link--secondary"
+                to={siteConfig.routes.captivaDemos}
+                onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'ver-demos' })}
+              >
+                {siteConfig.hero.demosCtaLabel}
+              </Link>
+            </Tooltip>
+            <Tooltip text="Solicita una landing optimizada para captar clientes.">
+              <PrimaryCTA
+                label={siteConfig.hero.primaryProductCtaLabel}
+                mode="lead-form"
+                leadFormId="lead-form-hero"
+                source="hero"
+                variant="primary"
+              />
+            </Tooltip>
             <Link
               className="hero-contact-link"
               to={siteConfig.routes.captivaDemos}
@@ -63,10 +68,12 @@ export function HeroSection() {
               <span className="hero-flow__arrow">&rarr;</span>
               <span className="hero-flow__node">{flowEnd}</span>
             </div>
-            <div className="hero-conversion-kpi">
-              <strong>{siteConfig.hero.conversionKpiValue}</strong>
-              <span>{siteConfig.hero.conversionKpiLabel}</span>
-            </div>
+            <Tooltip text="Tasa estimada de conversion basada en estructura optimizada.">
+              <div className="hero-conversion-kpi">
+                <strong>{siteConfig.hero.conversionKpiValue}</strong>
+                <span>{siteConfig.hero.conversionKpiLabel}</span>
+              </div>
+            </Tooltip>
             <div className="hero-conversion-chart">
               <svg viewBox="0 0 180 56" role="img" aria-label="Conversión en crecimiento">
                 <path

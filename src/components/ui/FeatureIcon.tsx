@@ -74,10 +74,10 @@ const iconMap: Record<FeatureIconName, ReactElement> = {
   ),
   blog: (
     <>
-      <path d="M5.25 4.5h13.5a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V6a1.5 1.5 0 0 1 1.5-1.5Z" />
-      <path d="M8.25 8.25h7.5" />
-      <path d="M8.25 11.5h7.5" />
-      <path d="M8.25 14.75h4.5" />
+      <path d="M6.25 4.5h7l4.5 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-10a1.5 1.5 0 0 1-1.5-1.5V6a1.5 1.5 0 0 1 1.5-1.5Z" />
+      <path d="M13.25 4.5V9h4.5" />
+      <path d="M8 12h8" />
+      <path d="M8 15h5.5" />
     </>
   ),
   industries: (
