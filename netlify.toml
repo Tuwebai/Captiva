@@ -40,6 +40,31 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/blog/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ejemplo-landing-page-*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/landing-page-vs-*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terminos-de-servicio"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/politica-de-privacidad"
+  to = "/index.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

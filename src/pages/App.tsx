@@ -11,6 +11,8 @@ import { initTooltipSystem } from '../components/ui/tooltip-system';
 import { DemosPage } from './DemosPage';
 import { HomePage } from './HomePage';
 import { IndustryPage } from './IndustryPage';
+import { PrivacyPolicyPage } from './PrivacyPolicyPage';
+import { TermsOfServicePage } from './TermsOfServicePage';
 
 const BlogPage = lazy(async () => {
   const module = await import('./BlogPage');
@@ -63,6 +65,8 @@ export function App() {
         <Route path={siteConfig.routes.home} element={<Navigate replace to={siteConfig.routes.captiva} />} />
         <Route path={siteConfig.routes.captiva} element={<HomePage />} />
         <Route path={siteConfig.routes.captivaDemos} element={<DemosPage />} />
+        <Route path={siteConfig.routes.termsOfService} element={<TermsOfServicePage />} />
+        <Route path={siteConfig.routes.privacyPolicy} element={<PrivacyPolicyPage />} />
         <Route
           path="/blog"
           element={

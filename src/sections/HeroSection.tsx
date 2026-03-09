@@ -25,7 +25,7 @@ export function HeroSection() {
           </a>
           <p className="hero-copy__eyebrow">{siteConfig.hero.eyebrow}</p>
           <h1>{siteConfig.hero.title}</h1>
-          <h2>{siteConfig.hero.subtitle}</h2>
+          {siteConfig.hero.subtitle ? <h2>{siteConfig.hero.subtitle}</h2> : null}
           <p className="hero-copy__body">{siteConfig.hero.supportingCopy}</p>
 
           <div className="hero-actions">

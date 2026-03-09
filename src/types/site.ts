@@ -90,6 +90,8 @@ export type SiteRoutes = {
   captiva: string;
   captivaDemos: string;
   demosPublicBase: string;
+  termsOfService: string;
+  privacyPolicy: string;
 };
 
 export type SiteSeo = {

@@ -9,6 +9,7 @@ export type PageType =
   | 'home'
   | 'demos'
   | 'demo'
+  | 'legal'
   | 'industry'
   | 'city'
   | 'example'
@@ -57,6 +58,9 @@ export function resolvePageContextFromPath(pathname: string): PageContext {
   }
   if (path.startsWith('/blog/')) {
     return { path, pageType: 'blog-post', slug: path.replace('/blog/', '') };
+  }
+  if (path === '/terminos-de-servicio' || path === '/politica-de-privacidad') {
+    return { path, pageType: 'legal' };
   }
 
   const cityEntry = cityByPath.get(path);

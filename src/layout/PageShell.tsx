@@ -33,6 +33,8 @@ export function PageShell({ children }: PropsWithChildren) {
   useScrollRestoration();
   const { resolvedTheme } = useTheme();
   const location = useLocation();
+  const isLegalContext =
+    location.pathname === siteConfig.routes.termsOfService || location.pathname === siteConfig.routes.privacyPolicy;
   const isCaptivaContext =
     location.pathname.startsWith(siteConfig.routes.captiva) ||
     location.pathname.startsWith('/landing-page-para-') ||
@@ -151,7 +153,7 @@ export function PageShell({ children }: PropsWithChildren) {
 
   return (
     <div className="site-shell">
-      {!isCaptivaContext ? (
+      {!isCaptivaContext && !isLegalContext ? (
         <header className="site-header">
           <div className="container site-header__inner">
             <a className="brand-mark" href={siteConfig.routes.captiva}>
@@ -416,6 +418,17 @@ export function PageShell({ children }: PropsWithChildren) {
               <span className="footer-contact__label">WhatsApp</span>
               <span className="footer-contact__value">+{siteConfig.contact.whatsapp}</span>
             </a>
+            <div className="footer-contact__card footer-contact__card--legal">
+              <span className="footer-contact__label">Legal</span>
+              <div className="footer-legal-links">
+                <Link className="text-link" to={siteConfig.routes.termsOfService}>
+                  Términos de servicio
+                </Link>
+                <Link className="text-link" to={siteConfig.routes.privacyPolicy}>
+                  Política de privacidad
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -48,6 +48,8 @@ export const siteConfig: SiteConfig = {
     captiva: baseRoute,
     captivaDemos: captivaDemosRoute,
     demosPublicBase: demosPublicBaseRoute,
+    termsOfService: '/terminos-de-servicio',
+    privacyPolicy: '/politica-de-privacidad',
   },
   seo: {
     siteUrl,
@@ -62,7 +64,7 @@ export const siteConfig: SiteConfig = {
     badgeHref: 'https://tuweb-ai.com/',
     eyebrow: 'Plataforma de landing pages para conversión',
     title: 'Landing pages diseñadas para convertir visitas en consultas reales.',
-    subtitle: 'Captiva: sistema de captación de clientes con foco en conversión.',
+    subtitle: '',
     supportingCopy:
       'Captiva crea landing pages optimizadas para convertir visitantes en consultas de clientes mediante estructura de conversión, copy orientado a ventas, contacto directo y una implementación completa con hosting profesional + dominio por 1 año.',
     demosCtaLabel: 'Ver demos',
