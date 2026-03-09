@@ -1,0 +1,35 @@
+{
+  "title": "Landing para Restaurant Delivery",
+  "description": "Landing gastronomica para delivery y pedidos directos con foco en conversion y recompra.",
+  "category": "restaurant",
+  "industry": "restaurant",
+  "preview": "/demos/restaurant-delivery/preview.png",
+  "slug": "restaurant-delivery",
+  "template": "service-business",
+  "layout": "landing-b",
+  "variant": "v2",
+  "goal": "bookings",
+  "style": "premium",
+  "status": "required",
+  "tags": [
+    "captiva",
+    "demo",
+    "restaurant",
+    "tier1",
+    "delivery"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate"
+  ],
+  "tier": "tier1"
+}

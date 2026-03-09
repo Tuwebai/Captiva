@@ -7,5 +7,29 @@
   "preview": "/demos/concesionaria-autos-premium/preview.png",
   "template": "manual",
   "layout": "custom",
-  "variant": "concesionaria-premium-v1"
+  "variant": "concesionaria-premium-v1",
+  "goal": "leads",
+  "style": "premium",
+  "status": "active",
+  "tags": [
+    "captiva",
+    "demo",
+    "negocios-locales",
+    "concesionaria",
+    "automotriz",
+    "manual"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split"
+  ],
+  "tier": "legacy"
 }

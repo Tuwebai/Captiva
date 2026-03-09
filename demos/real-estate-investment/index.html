@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing para Real Estate Investment</title>
+    <meta name="description" content="Landing para desarrollos e inversion inmobiliaria con foco en rentabilidad, brochure y contacto comercial." />
+    <meta name="robots" content="index,follow" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { --brand: #3f78ff; --accent: #f28f52; --bg: #eef2fb; --bg-panel: rgba(255,255,255,.88); --panel-soft: rgba(245,248,255,.92); --text: #10203f; --muted: #52627f; --line: rgba(89,106,148,.18); --line-strong: rgba(89,106,148,.28); --shadow: 0 22px 50px rgba(29,40,74,.12); --radius: 28px; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text); background: radial-gradient(circle at 12% 12%, rgba(85,126,255,.12), transparent 28%), radial-gradient(circle at 88% 84%, rgba(244,184,96,.14), transparent 26%), linear-gradient(180deg, #f5f8ff 0%, #edf2fb 100%); }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      .container { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+      .demo-bar { padding: .6rem 1rem; background: linear-gradient(90deg, #be123c, #e11d48); color: #fff; text-align: center; font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .nav { position: sticky; top: 0; z-index: 20; background: rgba(245,248,255,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(89,106,148,.14); }
+      .nav-row { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+      .brand { display: flex; align-items: center; gap: .8rem; font-weight: 700; }
+      .brand-mark { width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--accent) 45%, #ffffff)); color: #fff; box-shadow: 0 16px 34px rgba(67,98,185,.18); }
+      .nav-links, .nav-cta, .hero-actions, .hero-trust, .contact-chips, .footer-links, .footer-meta, .service-tags { display: flex; align-items: center; flex-wrap: wrap; gap: .65rem; }
+      .nav-links a { padding: .45rem .72rem; border-radius: 999px; color: var(--muted); font-size: .9rem; font-weight: 700; }
+      .nav-links a:hover { background: rgba(255,255,255,.6); color: var(--text); }
+      .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: .82rem 1.05rem; border-radius: 999px; font-weight: 800; border: 1px solid transparent; cursor: pointer; transition: transform .18s ease, border-color .18s ease; }
+      .btn:hover { transform: translateY(-1px); }
+      .btn-primary { background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 55%, #ffffff)); color: #fff; box-shadow: 0 16px 32px rgba(67,98,185,.2); }
+      .btn-secondary { background: rgba(255,255,255,.9); color: var(--text); border-color: var(--line); }
+      main { padding: 1.5rem 0 2rem; display: grid; gap: 1.35rem; }
+      .section { padding: 1.45rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-panel); box-shadow: var(--shadow); backdrop-filter: blur(16px); }
+      .section-head { display: grid; gap: .45rem; margin-bottom: 1rem; }
+      .eyebrow, .process-label, .field-label, .hero-media__label, .form-kicker { margin: 0; color: #7082a8; text-transform: uppercase; letter-spacing: .16em; font-size: .7rem; font-weight: 800; }
+      h1, h2, h3 { margin: 0; font-family: Fraunces, Georgia, serif; line-height: 1.02; letter-spacing: -.03em; }
+      h1 { font-size: clamp(2.45rem, 4.8vw, 4.35rem); max-width: 10.5ch; }
+      h2 { font-size: clamp(1.75rem, 3vw, 2.45rem); }
+      h3 { font-size: 1.2rem; }
+      p { margin: 0; line-height: 1.7; }
+      .hero { padding: 1.55rem; background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(245,248,255,.94)); }
+      .hero-grid { display: grid; grid-template-columns: 1fr 420px; gap: 1.15rem; align-items: stretch; }
+      .hero-copy { display: grid; gap: .95rem; align-content: start; }
+      .hero-lead { max-width: 18ch; font-size: clamp(1rem, 1.65vw, 1.24rem); color: #2f436b; }
+      .hero-body, .section-head p, .service-card__body p, .benefit-card p, .process-card p, .faq-item p, .contact-panel p, .footer-brand span, .form-note { color: var(--muted); }
+      .hero-trust { list-style: none; padding: 0; }
+      .hero-trust span, .service-tags span, .contact-chips span { display: inline-flex; align-items: center; min-height: 2rem; padding: .34rem .72rem; border-radius: 999px; background: rgba(255,255,255,.92); border: 1px solid var(--line); font-size: .76rem; font-weight: 700; color: #29416d; }
+      .hero-media { position: relative; }
+      .hero-media img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; border-radius: 24px; border: 1px solid var(--line); }
+      .hero-media__card { position: absolute; left: 1rem; right: auto; max-width: 250px; padding: .9rem 1rem; border-radius: 20px; border: 1px solid var(--line); background: rgba(255,255,255,.92); box-shadow: var(--shadow); }
+      .hero-media__card--top { top: 1rem; }
+      .hero-media__card--bottom { right: 1rem; left: auto; bottom: 1rem; }
+      .hero-media__card strong { display: block; margin: .25rem 0 .35rem; font-size: 1rem; }
+      .hero-media__card p { font-size: .86rem; color: var(--muted); }
+      .kpi-grid, .plans-grid, .services-showcase { display: grid; gap: .8rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .kpi-card, .benefit-card, .process-card, .service-card, .plan-card, .faq-item, .contact-panel, .form, .marquee-card { border: 1px solid var(--line); border-radius: 24px; background: var(--panel-soft); }
+      .kpi-card { padding: .9rem; text-align: left; }
+      .kpi-card strong { display: block; font-size: 1.45rem; color: var(--text); }
+      .kpi-card span { color: #5d729b; font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .benefits-layout, .process-grid { display: grid; gap: .82rem; grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .benefit-card, .process-card { padding: 1rem; }
+      .benefit-card-main { grid-column: span 6; background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(240,245,255,.94)); }
+      .benefit-card-accent { grid-column: span 3; background: linear-gradient(145deg, rgba(245,236,255,.96), rgba(238,244,255,.92)); }
+      .benefit-card-proof, .benefit-card:not(.benefit-card-main):not(.benefit-card-accent) { grid-column: span 3; }
+      .benefit-proof { display: grid; gap: .16rem; margin-top: .8rem; }
+      .benefit-proof strong { font-size: 1.55rem; color: var(--text); }
+      .benefit-proof span, .feature-meta { color: #61739a; font-size: .78rem; font-weight: 700; }
+      .card-icon, .process-index, .avatar { width: 40px; height: 40px; border-radius: 14px; display: grid; place-items: center; background: rgba(79,108,177,.08); color: var(--text); font-weight: 800; }
+      .process-card-main { grid-column: span 7; background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(239,244,255,.94)); }
+      .process-card-aside { grid-column: span 5; }
+      .process-card-small { grid-column: span 4; }
+      .process-community { grid-column: span 8; padding: 1rem 1.05rem; border-radius: 24px; border: 1px solid rgba(89,106,148,.18); background: linear-gradient(145deg, rgba(41,65,109,.95), rgba(72,90,142,.9)); display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; color: #fff; }
+      .process-community p, .process-community h3 { color: #fff; }
+      .process-link { display: inline-flex; margin-top: .8rem; color: color-mix(in srgb, var(--accent) 75%, #10203f); font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; }
+      .service-card { display: grid; overflow: hidden; min-height: 100%; }
+      .service-card__media img { width: 100%; height: 235px; object-fit: cover; }
+      .service-card__body, .plan-card__body, .contact-panel, .form, .marquee-card { padding: 1rem; display: grid; gap: .55rem; }
+      .service-card--featured { background: linear-gradient(145deg, rgba(245,236,255,.96), rgba(238,244,255,.92)); }
+      .service-badge, .plan-pill { display: inline-flex; align-items: center; min-height: 1.8rem; width: fit-content; padding: 0 .72rem; border-radius: 999px; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
+      .service-badge { border: 1px solid var(--line); color: #29416d; background: rgba(255,255,255,.92); }
+      .plan-pill { background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 55%, #ffffff)); color: #fff; }
+      .plan-card { display: grid; min-height: 100%; }
+      .plan-card-featured { transform: translateY(-6px); background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(240,245,255,.94)); border-color: var(--line-strong); }
+      .plan-price { font-size: 1.7rem; color: var(--text); }
+      .plan-features { margin: 0; padding-left: 1rem; color: var(--muted); display: grid; gap: .42rem; }
+      .plan-card__footer { margin-top: auto; padding: 0 1rem 1rem; }
+      .plan-card__footer .btn { width: 100%; }
+      .gallery-grid { display: grid; gap: .75rem; grid-template-columns: repeat(12, minmax(0,1fr)); }
+      .gallery-grid img { width: 100%; height: 220px; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); }
+      .gallery-grid img:nth-child(1), .gallery-grid img:nth-child(4) { grid-column: span 8; }
+      .gallery-grid img:nth-child(2), .gallery-grid img:nth-child(3) { grid-column: span 4; }
+      .marquee-mask { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+      .marquee-track { display: flex; gap: .8rem; width: max-content; animation: marqueeScroll 34s linear infinite; }
+      .marquee-card { width: 340px; flex: 0 0 auto; background: rgba(255,255,255,.94); }
+      .marquee-head { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
+      .marquee-head strong { display: block; color: var(--text); font-size: .95rem; }
+      .marquee-head span { color: #d78b34; font-size: .8rem; letter-spacing: .08em; }
+      .faq-shell { display: grid; gap: 1rem; }
+      .faq-grid-accordion { display: grid; gap: .72rem; }
+      .faq-item { padding: 0; overflow: hidden; background: rgba(255,255,255,.92); }
+      .faq-item summary { position: relative; padding: 1rem 3rem 1rem 1rem; list-style: none; cursor: pointer; color: var(--text); font-weight: 800; }
+      .faq-item summary::after { content: "+"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--brand); font-size: 1.1rem; }
+      .faq-item[open] summary::after { content: "-"; }
+      .faq-item p { padding: 0 1rem 1rem; color: var(--muted); }
+      .cta-wrap, .contact-grid { display: grid; gap: .85rem; grid-template-columns: .95fr 1.05fr; }
+      .cta-box { padding: 1rem; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(240,245,255,.94)); }
+      .field { width: 100%; padding: .82rem .9rem; border-radius: 14px; border: 1px solid var(--line-strong); background: rgba(255,255,255,.92); color: var(--text); font: inherit; }
+      select.field { appearance: none; }
+      .ok { display: none; padding: .82rem .9rem; border-radius: 14px; border: 1px solid rgba(34,197,94,.28); background: rgba(240,253,244,.92); color: #166534; font-size: .9rem; }
+      .footer { padding-top: 1rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto auto; gap: .8rem; align-items: center; color: var(--muted); }
+      .footer-brand { display: grid; gap: .22rem; }
+      .footer-brand strong { color: var(--text); }
+      .footer-links a, .footer-meta a { color: #284273; font-weight: 700; }
+      .wa { position: fixed; right: 1rem; bottom: 1rem; width: 58px; height: 58px; border-radius: 999px; display: grid; place-items: center; background: #25d366; color: #fff; border: 3px solid rgba(255,255,255,.88); box-shadow: 0 18px 38px rgba(44,58,102,.22); }
+      @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      @media (max-width: 1100px) { .hero-grid, .cta-wrap, .contact-grid { grid-template-columns: 1fr; } .hero-media__card { position: static; max-width: none; margin-top: .75rem; } }
+      @media (max-width: 920px) { .nav-links { display: none; } .benefits-layout, .process-grid, .services-showcase, .plans-grid, .gallery-grid, .footer { grid-template-columns: 1fr; } .benefit-card, .benefit-card-main, .benefit-card-accent, .benefit-card-proof, .process-card-main, .process-card-aside, .process-card-small, .process-community, .gallery-grid img { grid-column: auto !important; } .plan-card-featured { transform: none; } .process-community { flex-direction: column; } .footer-meta { justify-content: flex-start; } }
+      @media (max-width: 640px) { .container { width: min(100% - 1rem, 1180px); } .section { padding: 1rem; } h1 { max-width: none; font-size: clamp(2rem, 13vw, 3rem); } .hero-media img { min-height: 320px; } }
+    </style>
+  </head>
+  <body>
+    <div class="demo-bar">Atencion: esta es una pagina de demostracion para Business. Los datos son ficticios.</div>
+    <nav class="nav">
+      <div class="container nav-row">
+        <div class="brand"><div class="brand-mark">C</div><span>Capital Brick Investments</span></div>
+        <div class="nav-links"><a href="#beneficios">Beneficios</a><a href="#galeria">Galeria</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></div>
+        <div class="nav-cta">
+          <a href="#contacto" class="btn btn-primary">Descargar brochure</a>
+          <a href="#servicios" class="btn btn-secondary">Ver proyecto</a>
+        </div>
+      </div>
+    </nav>
+    <main class="container">
+      <section class="hero section" id="hero">
+  <div class="hero-grid">
+    <article class="hero-copy">
+      <p class="eyebrow">Business | foco en leads</p>
+      <h1>Landing para Real Estate Investment</h1>
+      <p class="hero-lead">landing de conversion para acelerar consultas comerciales</p>
+      <p class="hero-body">Landing para desarrollos e inversion inmobiliaria con foco en rentabilidad, brochure y contacto comercial.</p>
+      <ul class="hero-trust" aria-label="Puntos clave de conversion">
+        <li><span>conversion first</span></li>
+        <li><span>estructura comercial</span></li>
+        <li><span>base para escalar</span></li>
+      </ul>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contacto">Descargar brochure</a>
+        <a class="btn btn-secondary" href="#servicios">Ver proyecto</a>
+      </div>
+      <div class="kpi-grid" aria-label="Metricas clave">
+        <article class="kpi-card">
+          <strong>Premium</strong>
+          <span>presentacion visual</span>
+        </article>
+        <article class="kpi-card">
+          <strong>Lead ready</strong>
+          <span>contacto guiado</span>
+        </article>
+        <article class="kpi-card">
+          <strong>Escalable</strong>
+          <span>campanas y SEO</span>
+        </article>
+      </div>
+    </article>
+
+    <aside class="hero-media">
+      <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=80" alt="Landing para Real Estate Investment" loading="eager" />
+      <article class="hero-media__card hero-media__card--top">
+        <span class="hero-media__label">Mensaje</span>
+        <strong>Propuesta clara y CTA visible</strong>
+        <p>La demo ordena oferta, credibilidad y contacto para acelerar la decision.</p>
+      </article>
+      <article class="hero-media__card hero-media__card--bottom">
+        <span class="hero-media__label">Resultado</span>
+        <strong>Premium presentacion visual</strong>
+        <p>Estructura pensada para convertir interes en una accion concreta.</p>
+      </article>
+    </aside>
+  </div>
+</section>
+
+      <section class="section gallery-wrap" id="galeria">
+  <header class="section-head">
+    <p class="eyebrow">Galeria</p>
+    <h2>Visuales que transmiten confianza</h2>
+  </header>
+  <div class="gallery-grid">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="Galeria 1 Capital Brick Investments" loading="lazy" />
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80" alt="Galeria 2 Capital Brick Investments" loading="lazy" />
+    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=900&q=80" alt="Galeria 3 Capital Brick Investments" loading="lazy" />
+    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80" alt="Galeria 4 Capital Brick Investments" loading="lazy" />
+  </div>
+</section>
+
+      <section class="section" id="beneficios">
+  <header class="section-head benefits-head">
+    <p class="eyebrow">Beneficios</p>
+    <h2>Una propuesta pensada para convertir sin friccion</h2>
+    <p>Bloques con jerarquia, copy comercial y una lectura mas premium para que la decision sea simple.</p>
+  </header>
+  <div class="benefits-layout">
+    <article class="benefit-card benefit-card-main">
+      <div class="card-icon" aria-hidden="true">01</div>
+      <h3>Oferta estructurada</h3>
+      <p>mas oportunidades comerciales</p>
+      <span class="feature-meta">Lead calificado</span>
+      <a href="#contacto" class="process-link">Descargar brochure</a>
+    </article>
+    <article class="benefit-card benefit-card-accent">
+      <div class="card-icon" aria-hidden="true">02</div>
+      <h3>Mensaje preciso</h3>
+      <p>oferta estructurada</p>
+      <span class="feature-meta">Decision simple</span>
+    </article>
+    <article class="benefit-card">
+      <div class="card-icon" aria-hidden="true">03</div>
+      <h3>Lead listo para avanzar</h3>
+      <p>mejor conversion de trafico</p>
+      <span class="feature-meta">Embudo listo</span>
+    </article>
+    <article class="benefit-card benefit-card-proof">
+      <div class="card-icon" aria-hidden="true">04</div>
+      <h3>Conversion visible</h3>
+      <p>La propuesta deja clara la accion esperada desde el primer scroll.</p>
+      <div class="benefit-proof">
+        <strong>Escalable</strong>
+        <span>campanas y SEO</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <section class="section process" id="metodologia">
+  <header class="section-head process-head">
+    <p class="eyebrow">Nuestro metodo</p>
+    <h2>Como convertimos trafico en oportunidades comerciales</h2>
+    <p>Composicion editorial con mas aire visual, storytelling comercial y jerarquia premium.</p>
+  </header>
+  <div class="process-grid">
+    <article class="process-card process-card-main process-card-featured">
+      <div class="process-index">01</div>
+      <p class="process-label">Fase principal</p>
+      <h3>Alineacion comercial</h3>
+      <p>Definimos oferta, segmento y promesa principal para que la landing venda sin friccion.</p>
+      <a href="#contacto" class="process-link">Descargar brochure</a>
+    </article>
+    <article class="process-card process-card-aside">
+      <div class="process-index">02</div>
+      <p class="process-label">Fase de claridad</p>
+      <h3>Diseño del embudo visible</h3>
+      <p>Armamos jerarquia, servicios, prueba social y CTA con logica de conversion.</p>
+    </article>
+    <article class="process-card process-card-small">
+      <div class="process-index">03</div>
+      <p class="process-label">Fase de activacion</p>
+      <h3>Activacion y seguimiento</h3>
+      <p>La pagina se entrega lista para anuncios, SEO y primeras iteraciones de mejora.</p>
+    </article>
+    <article class="process-community">
+      <div>
+        <p class="process-label">Ejecucion guiada</p>
+        <h3>Implementacion guiada y comercial</h3>
+        <p>Convertimos la estrategia en una landing operativa para captar leads con mas claridad.</p>
+      </div>
+      <a href="#contacto" class="btn btn-secondary">Ver proyecto</a>
+    </article>
+  </div>
+</section>
+
+      <section class="section service-catalog" id="servicios">
+  <header class="section-head">
+    <p class="eyebrow">Catalogo comercial</p>
+    <h2>Experiencia, oferta y argumento</h2>
+    <p>visitas sin conversion. mensaje poco claro. oferta dispersa. Cada bloque responde una objecion clave de compra.</p>
+  </header>
+  <div class="services-showcase">
+    <article class="service-card">
+      <div class="service-card__media">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="Oferta principal Capital Brick Investments" loading="lazy" />
+      </div>
+      <div class="service-card__body">
+        <span class="service-badge">Oferta principal</span>
+        <h3>Oferta principal</h3>
+        <p>mas oportunidades comerciales</p>
+        <div class="service-tags"><span>Conversion</span><span>Oferta</span></div>
+      </div>
+    </article>
+    <article class="service-card service-card--featured">
+      <div class="service-card__media">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80" alt="Diferencial comercial Capital Brick Investments" loading="lazy" />
+      </div>
+      <div class="service-card__body">
+        <span class="service-badge">Diferencial</span>
+        <h3>Diferencial comercial</h3>
+        <p>oferta estructurada</p>
+        <div class="service-tags"><span>Autoridad</span><span>Confianza</span></div>
+      </div>
+    </article>
+    <article class="service-card">
+      <div class="service-card__media">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80" alt="Canal de cierre Capital Brick Investments" loading="lazy" />
+      </div>
+      <div class="service-card__body">
+        <span class="service-badge">Canal comercial</span>
+        <h3>Canal de cierre</h3>
+        <p>mejor conversion de trafico</p>
+        <div class="service-tags"><span>Cierre</span><span>WhatsApp</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <section class="section plans" id="planes">
+  <header class="section-head plans-head">
+    <p class="eyebrow">Membresias y planes</p>
+    <h2>Paquetes de captacion para negocios y B2B</h2>
+    <p>Distintos niveles de profundidad segun el volumen de leads y la madurez comercial del negocio.</p>
+  </header>
+  <div class="plans-grid">
+    <article class="plan-card">
+      <div class="plan-card__body">
+        <h3>Lead start</h3>
+        <p class="plan-price">$XX.XXX/mes</p>
+        <p>Landing clara para validar oferta y captar primeras consultas.</p>
+        <ul class="plan-features">
+          <li>Configuracion base del embudo</li>
+          <li>CTA estrategicos por seccion</li>
+          <li>Jerarquia clara del mensaje</li>
+        </ul>
+      </div>
+      <div class="plan-card__footer">
+        <a href="#contacto" class="btn btn-secondary">Consultar</a>
+      </div>
+    </article>
+    <article class="plan-card plan-card-featured">
+      <div class="plan-card__body">
+        <p class="plan-pill">Recomendado</p>
+        <h3>Growth</h3>
+        <p class="plan-price">$XX.XXX/mes</p>
+        <p>Mayor foco en conversion, claridad de servicios y CTA prioritarios.</p>
+        <ul class="plan-features">
+          <li>Prueba social avanzada</li>
+          <li>Optimizacion para campanas</li>
+          <li>Analitica de conversion</li>
+        </ul>
+      </div>
+      <div class="plan-card__footer">
+        <a href="#contacto" class="btn btn-primary">Descargar brochure</a>
+      </div>
+    </article>
+    <article class="plan-card">
+      <div class="plan-card__body">
+        <h3>Pipeline</h3>
+        <p class="plan-price">$XX.XXX/mes</p>
+        <p>Preparado para industrias, ciudades y un catalogo comercial mas amplio.</p>
+        <ul class="plan-features">
+          <li>Escalado por industria y ciudad</li>
+          <li>Estructura lista para growth SEO</li>
+          <li>Ruta clara hacia nuevos casos de uso</li>
+        </ul>
+      </div>
+      <div class="plan-card__footer">
+        <a href="#contacto" class="btn btn-secondary">Consultar</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <section class="section testimonials-marquee" id="testimonios-carrusel">
+  <header class="section-head">
+    <p class="eyebrow">Prueba social</p>
+    <h2>Reputacion que sostiene la propuesta</h2>
+    <p>Una narrativa mas premium para negocios que necesitan elevar percepcion y calidad del lead.</p>
+  </header>
+  <div class="marquee-mask">
+    <div class="marquee-track">
+      <article class="marquee-card">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium A</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"La propuesta quedo mucho mas clara y empezamos a recibir leads con mejor contexto."</p>
+      </article>
+      <article class="marquee-card">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium B</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"Ahora el visitante entiende rapido el servicio y llega al contacto con mas intencion."</p>
+      </article>
+      <article class="marquee-card">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium C</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"La nueva estructura ordeno el mensaje y mejoro la calidad del primer contacto."</p>
+      </article>
+      <article class="marquee-card" aria-hidden="true">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium A</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"La propuesta quedo mucho mas clara y empezamos a recibir leads con mejor contexto."</p>
+      </article>
+      <article class="marquee-card" aria-hidden="true">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium B</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"Ahora el visitante entiende rapido el servicio y llega al contacto con mas intencion."</p>
+      </article>
+      <article class="marquee-card" aria-hidden="true">
+        <div class="marquee-head">
+          <div class="avatar">C</div>
+          <div><strong>Cliente Premium C</strong><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+        </div>
+        <p>"La nueva estructura ordeno el mensaje y mejoro la calidad del primer contacto."</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+      <section class="section faq" id="faq">
+  <div class="faq-shell">
+    <header class="section-head faq-shell__intro">
+      <p class="eyebrow">Dudas frecuentes</p>
+      <h2>Resolvemos tus dudas antes del contacto</h2>
+      <p>Respuestas breves para bajar friccion, ordenar expectativas y facilitar la accion.</p>
+    </header>
+    <div class="faq-grid faq-grid-accordion">
+      <details class="faq-item" open>
+        <summary>Para que tipo de negocio funciona?</summary>
+        <p>Para servicios locales, b2b y propuestas comerciales.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Incluye planes?</summary>
+        <p>Si, con estructura clara por nivel de servicio.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Puedo usarla en anuncios?</summary>
+        <p>Si, esta preparada para trafico pago y SEO.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como miden conversion?</summary>
+        <p>Con eventos de CTA, demo click y lead submit.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Se puede iterar rapido?</summary>
+        <p>Si, se optimiza por fases sin rehacer la landing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Incluye contacto directo?</summary>
+        <p>Si, con CTA a WhatsApp y formulario.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+      <section class="cta-wrap" id="cta-final">
+  <article class="cta-box">
+    <h2>Busco una landing premium para captar leads</h2>
+    <p>Pensada para marcas que quieren mas presencia, mejor percepcion y un contacto comercial mas calificado.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="#contacto">Descargar brochure</a>
+      <a class="btn btn-secondary" href="#servicios">Ver proyecto</a>
+    </div>
+  </article>
+  <article class="cta-box">
+    <p class="eyebrow">Siguiente paso</p>
+    <h3>Recibe una propuesta clara en 24 horas</h3>
+    <p>Comparte objetivo, canal de contacto y prioridad comercial. Te devolvemos una propuesta lista para validar.</p>
+    <div class="contact-chips">
+      <span>Brief comercial</span>
+      <span>Enfoque en conversion</span>
+      <span>Salida en WhatsApp</span>
+    </div>
+  </article>
+</section>
+
+      <section class="section contact-split" id="contacto">
+  <div class="contact-grid">
+    <aside class="contact-panel">
+      <p class="eyebrow">Contacto comercial</p>
+      <h3>Hablemos de tu negocio business</h3>
+      <p>Te ayudamos a activar una landing comercial lista para captar consultas.</p>
+      <div class="contact-chips">
+        <span>Brief en 24h</span>
+        <span>Propuesta por WhatsApp</span>
+        <span>Sin compromiso</span>
+      </div>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> real-estate-investment@demo.captiva</li>
+        <li><strong>WhatsApp:</strong> +54 9 3571 417960</li>
+        <li><strong>Rubro:</strong> Business</li>
+      </ul>
+    </aside>
+    <form class="form" id="leadForm">
+      <p class="form-kicker">Completa el brief inicial</p>
+      <label>
+        <span class="field-label">Nombre y apellido</span>
+        <input class="field" placeholder="Nombre completo" required />
+      </label>
+      <label>
+        <span class="field-label">WhatsApp o telefono</span>
+        <input class="field" placeholder="+54 9 ..." required type="tel" />
+      </label>
+      <label>
+        <span class="field-label">Email</span>
+        <input class="field" placeholder="email@empresa.com" type="email" />
+      </label>
+      <label>
+        <span class="field-label">Objetivo</span>
+        <select class="field" required>
+          <option value="" selected disabled>Selecciona tu objetivo</option>
+          <option>Solicitar propuesta</option>
+          <option>Ver opciones de plan</option>
+          <option>Coordinar una llamada</option>
+        </select>
+      </label>
+      <label>
+        <span class="field-label">Necesidad puntual</span>
+        <textarea class="field" placeholder="Contanos que necesitas" rows="4"></textarea>
+      </label>
+      <button class="btn btn-primary" id="submitBtn" type="submit">Descargar brochure</button>
+      <p class="ok" id="okMsg">Solicitud simulada enviada. En produccion iria a CRM / WhatsApp.</p>
+    </form>
+  </div>
+</section>
+
+      <footer class="footer">
+  <div class="footer-brand">
+    <strong>Capital Brick Investments</strong>
+    <span>Demo premium para Business</span>
+  </div>
+  <nav class="footer-links" aria-label="Links de navegacion de demo">
+    <a href="#metodologia">Metodo</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#planes">Planes</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="footer-meta">
+    <a href="/captiva/demos">Ver mas demos</a>
+    <a href="/captiva">Captiva</a>
+    <span>Captiva by Tuwebai</span>
+  </div>
+</footer>
+
+    </main>
+    <a href="#" class="wa" id="waButton" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg style="width:30px;height:30px;fill:currentColor" viewBox="0 0 24 24"><path d="M12.03 6.17a5.78 5.78 0 00-5.78 5.78 5.78 5.78 0 005.78 5.78 5.78 5.78 0 005.78-5.78 5.78 5.78 0 00-5.78-5.78zm3.33 8.35c-.14.39-.81.77-1.14.81-.32.05-.76.15-2.14-.45-1.66-.72-2.73-2.43-2.82-2.54-.08-.1-.67-.89-.67-1.7 0-.81.42-1.22.57-1.38.15-.16.33-.2.44-.2.12 0 .23 0 .34.01.1 0 .25-.05.39.29.14.35.49 1.21.54 1.31.04.09.07.2.01.32-.06.12-.09.19-.17.29-.09.1-.19.23-.26.31-.08.09-.17.19-.08.36.1.17.43.72.93 1.16.64.58 1.18.76 1.35.85.17.09.27.08.37-.04.1-.11.43-.5.55-.67.12-.18.23-.15.39-.09.16.06 1 .47 1.17.56.17.09.28.13.33.2.04.07.04.39-.1.79z"/></svg>
+    </a>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const waMessage = encodeURIComponent("Hola Capital Brick Investments, quiero informacion sobre Landing para Real Estate Investment.");
+        const waHref = `https://wa.me/5493571417960?text=${waMessage}`;
+        const waButton = document.getElementById("waButton");
+        if (waButton) waButton.href = waHref;
+        const leadForm = document.getElementById("leadForm");
+        const submitBtn = document.getElementById("submitBtn");
+        const okMsg = document.getElementById("okMsg");
+        if (!leadForm || !submitBtn || !okMsg) return;
+        leadForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Enviando...";
+          setTimeout(() => {
+            okMsg.style.display = "block";
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Descargar brochure";
+            leadForm.reset();
+          }, 900);
+        });
+      });
+    </script>
+  </body>
+</html>

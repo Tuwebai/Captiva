@@ -1,10 +1,10 @@
 <section class="hero section" id="hero">
   <div class="hero-grid">
-    <article>
-      <p class="eyebrow">{{CATEGORY_LABEL}} demo</p>
+    <article class="hero-copy">
+      <p class="eyebrow">{{CATEGORY_LABEL}} | foco en {{GOAL_LABEL}}</p>
       <h1>{{TITLE}}</h1>
       <p class="hero-lead">{{HEADLINE}}</p>
-      <p class="hero-lead">{{DESCRIPTION}}</p>
+      <p class="hero-body">{{DESCRIPTION}}</p>
       <ul class="hero-trust" aria-label="Puntos clave de conversion">
         <li><span>{{TRUST_1}}</span></li>
         <li><span>{{TRUST_2}}</span></li>
@@ -29,8 +29,19 @@
         </article>
       </div>
     </article>
+
     <aside class="hero-media">
       <img src="{{HERO_IMAGE}}" alt="{{TITLE}}" loading="eager" />
+      <article class="hero-media__card hero-media__card--top">
+        <span class="hero-media__label">Mensaje</span>
+        <strong>Propuesta clara y CTA visible</strong>
+        <p>La demo ordena oferta, credibilidad y contacto para acelerar la decision.</p>
+      </article>
+      <article class="hero-media__card hero-media__card--bottom">
+        <span class="hero-media__label">Resultado</span>
+        <strong>{{PROOF_VALUE_1}} {{PROOF_LABEL_1}}</strong>
+        <p>Estructura pensada para convertir interes en una accion concreta.</p>
+      </article>
     </aside>
   </div>
 </section>

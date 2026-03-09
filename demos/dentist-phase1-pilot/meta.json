@@ -1,0 +1,35 @@
+{
+  "title": "Landing para Dentista Premium",
+  "description": "Landing optimizada para captar pacientes, ordenar tratamientos y facilitar consultas comerciales para clinicas dentales.",
+  "category": "odontologia",
+  "industry": "dentista",
+  "preview": "/demos/dentist-phase1-pilot/preview.png",
+  "slug": "dentist-phase1-pilot",
+  "template": "service-business",
+  "layout": "landing-a",
+  "variant": "landing-a",
+  "goal": "appointments",
+  "style": "premium",
+  "status": "active",
+  "tags": [
+    "captiva",
+    "demo",
+    "health",
+    "service-business",
+    "dentista"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate"
+  ],
+  "tier": "legacy"
+}

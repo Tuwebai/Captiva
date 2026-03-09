@@ -1,0 +1,103 @@
+{
+  "blocks": [
+    {
+      "id": "hero-premium",
+      "category": "hero",
+      "status": "approved",
+      "file": "hero.html",
+      "placeholder": "BLOCK_HERO",
+      "sourceReference": "ui-ux-pro-max",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "benefits-enterprise",
+      "category": "benefits",
+      "status": "approved",
+      "file": "features.html",
+      "placeholder": "BLOCK_FEATURES",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "process-premium",
+      "category": "process",
+      "status": "approved",
+      "file": "methodology.html",
+      "placeholder": "BLOCK_METHODOLOGY",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "services-catalog",
+      "category": "services",
+      "status": "approved",
+      "file": "services.html",
+      "placeholder": "BLOCK_SERVICES",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "plans-premium",
+      "category": "plans",
+      "status": "approved",
+      "file": "plans.html",
+      "placeholder": "BLOCK_PLANS",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "gallery-premium",
+      "category": "gallery",
+      "status": "approved",
+      "file": "gallery.html",
+      "placeholder": "BLOCK_GALLERY",
+      "sourceReference": "ui-ux-pro-max",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "testimonials-carousel",
+      "category": "testimonials",
+      "status": "approved",
+      "file": "testimonials-carousel.html",
+      "placeholder": "BLOCK_TESTIMONIALS_CAROUSEL",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "faq-premium",
+      "category": "faq",
+      "status": "approved",
+      "file": "faq.html",
+      "placeholder": "BLOCK_FAQ",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "cta-final",
+      "category": "cta",
+      "status": "approved",
+      "file": "cta.html",
+      "placeholder": "BLOCK_CTA",
+      "sourceReference": "captiva",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "contact-split",
+      "category": "contact",
+      "status": "approved",
+      "file": "contact-split.html",
+      "placeholder": "BLOCK_CONTACT_SPLIT",
+      "sourceReference": "golden-demos",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    },
+    {
+      "id": "footer-corporate",
+      "category": "footer",
+      "status": "approved",
+      "file": "footer.html",
+      "placeholder": "BLOCK_FOOTER",
+      "sourceReference": "captiva",
+      "compatibleTemplates": ["service-business", "catalog-premium", "real-estate-split"]
+    }
+  ]
+}

@@ -6,11 +6,16 @@ import react from '@vitejs/plugin-react';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 const demosManifestPath = resolve(rootDir, 'src/config/demos.generated.json');
+const demoSlugMapPath = resolve(rootDir, 'public/demo-slugs.json');
 const publicDemosPath = resolve(rootDir, 'public/demos');
 
 type DemoManifestItem = {
   slug: string;
-  publicSlug: string;
+  publicSlug?: string;
+};
+
+type DemoSlugMap = {
+  canonicalToPublic?: Record<string, string>;
 };
 
 function demoProxyDevPlugin(): Plugin {
@@ -46,6 +51,9 @@ function demoProxyDevPlugin(): Plugin {
         }
 
         const manifest = JSON.parse(readFileSync(demosManifestPath, 'utf8')) as DemoManifestItem[];
+        const slugMap = existsSync(demoSlugMapPath)
+          ? (JSON.parse(readFileSync(demoSlugMapPath, 'utf8')) as DemoSlugMap)
+          : {};
         const demo = manifest.find((item) => item.slug === slug);
 
         if (!demo) {
@@ -55,7 +63,16 @@ function demoProxyDevPlugin(): Plugin {
           return;
         }
 
-        const demoIndexPath = resolve(publicDemosPath, demo.publicSlug, 'index.html');
+        const publicSlug = demo.publicSlug ?? slugMap.canonicalToPublic?.[slug];
+
+        if (!publicSlug) {
+          res.statusCode = 500;
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+          res.end('Demo public slug could not be resolved. Run npm run generate:demos');
+          return;
+        }
+
+        const demoIndexPath = resolve(publicDemosPath, publicSlug, 'index.html');
         if (!existsSync(demoIndexPath)) {
           res.statusCode = 404;
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');

@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Version: `1.5`  
+Version: `1.6`  
 Updated: `2026-03-08`
 
 ## Instruction Priority
@@ -156,21 +156,45 @@ Before closing a task, evaluate regressions in:
 
 ## Local Skills and Agents Inventory (audited)
 
-### Skills
+### Project-local skills (`.claude/skills`)
 - `ui-ux-pro-max`
   - file: `.claude/skills/ui-ux-pro-max/SKILL.md`
+  - role: UI/UX system, accessibility, layout, responsive, visual quality
 - `software-architecture`
   - file: `.claude/skills/software-architecture/SKILL.md`
+  - role: architecture decisions, modularity, system design
+- `senior-frontend`
+  - file: `.claude/skills/senior-frontend/SKILL.md`
+  - role: frontend implementation, performance, modern React/TypeScript workflows
+- `senior-security`
+  - file: `.claude/skills/senior-security/SKILL.md`
+  - role: application security, auditing, threat modeling, hardening
+- `parallel-agents`
+  - file: `.claude/skills/parallel-agents/SKILL.md`
+  - role: multi-agent orchestration patterns for complex analysis/review
+- `content-creator`
+  - file: `.claude/skills/content-creator/SKILL.md`
+  - role: SEO content, brand voice, marketing copy, content planning
 - `skill-creator`
   - file: `.claude/skills/skill-creator/SKILL.md`
+  - role: local skill authoring and maintenance
 - `deslop`
   - file: `.claude/skills/deslop/SKILL.md`
+  - role: local project-specific workflow support
 
-### Agents
+### Project-local agents (`.claude/agents`)
 - `security-engineer`
   - file: `.claude/agents/security-engineer.md`
 - `se-technical-writer`
   - file: `.claude/agents/se-technical-writer.md`
+
+### System Codex skills (`C:\Users\juan\.codex\skills`)
+- `skill-creator`
+  - file: `C:/Users/juan/.codex/skills/.system/skill-creator/SKILL.md`
+  - role: system-level skill creation workflow
+- `skill-installer`
+  - file: `C:/Users/juan/.codex/skills/.system/skill-installer/SKILL.md`
+  - role: install curated or repo-based skills into Codex
 
 ---
 

@@ -1,0 +1,36 @@
+{
+  "title": "Landing para Coach Personal Brand",
+  "description": "Landing para coaches y profesionales independientes con foco en autoridad, propuesta y captacion de leads.",
+  "category": "b2b",
+  "industry": "coach",
+  "preview": "/demos/coach-personal-brand/preview.png",
+  "slug": "coach-personal-brand",
+  "template": "service-business",
+  "layout": "landing-a",
+  "variant": "v1",
+  "goal": "leads",
+  "style": "premium",
+  "status": "required",
+  "tags": [
+    "captiva",
+    "demo",
+    "coach",
+    "business",
+    "tier1",
+    "personal-brand"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate"
+  ],
+  "tier": "tier1"
+}

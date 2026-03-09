@@ -4,5 +4,31 @@
   "category": "estetica",
   "industry": "estetica",
   "preview": "preview.png",
-  "slug": "demo-estetica"
+  "slug": "demo-estetica",
+  "goal": "appointments",
+  "style": "premium",
+  "status": "active",
+  "template": "service-business",
+  "tags": [
+    "captiva",
+    "demo",
+    "estetica",
+    "beauty",
+    "service-business"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate"
+  ],
+  "tier": "legacy",
+  "variant": "default"
 }

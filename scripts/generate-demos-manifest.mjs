@@ -1,5 +1,5 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { basename, join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
 import { loadBlogEntries } from './lib/blog-content.mjs';
 
@@ -13,6 +13,8 @@ const publicDemosRoot = resolve(publicRoot, 'demos');
 const robotsPath = resolve(publicRoot, 'robots.txt');
 const sitemapPath = resolve(publicRoot, 'sitemap.xml');
 const slugMapPath = resolve(publicRoot, 'demo-slugs.json');
+const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
+const templateRegistryPath = resolve(process.cwd(), 'scripts/contracts/template-registry.json');
 const cityLandingsPath = resolve(process.cwd(), 'src/config/landing-city.generated.json');
 const examplesPath = resolve(process.cwd(), 'src/config/landing-examples.generated.json');
 const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
@@ -21,6 +23,9 @@ const blogContentDir = resolve(process.cwd(), 'src/content/blog');
 const industryCatalog = existsSync(industryCatalogPath)
   ? JSON.parse(readFileSync(industryCatalogPath, 'utf8'))
   : {};
+const templateRegistry = existsSync(templateRegistryPath)
+  ? JSON.parse(readFileSync(templateRegistryPath, 'utf8'))
+  : { templates: [] };
 
 function slugify(value) {
   return value
@@ -43,8 +48,84 @@ function buildControlledHref(canonicalSlug) {
 
 function normalizePreview(publicSlug, preview) {
   if (!preview) return null;
-  if (preview.startsWith('/')) return preview;
+  if (preview.startsWith('/')) {
+    return `/demos/${publicSlug}/${basename(preview)}`;
+  }
   return `/demos/${publicSlug}/${preview}`;
+}
+
+function inferGoal(category) {
+  const normalized = String(category ?? '').toLowerCase();
+  if (normalized === 'fitness') return 'memberships';
+  if (normalized === 'salud' || normalized === 'odontologia' || normalized === 'estetica') return 'appointments';
+  if (normalized === 'legal') return 'consultations';
+  if (normalized === 'automotriz') return 'test-drives';
+  if (normalized === 'restaurant') return 'bookings';
+  return 'leads';
+}
+
+function inferTemplate(category, meta) {
+  if (typeof meta.template === 'string' && meta.template.trim()) return meta.template.trim();
+  const normalized = String(category ?? '').toLowerCase();
+  if (normalized === 'automotriz') return 'catalog-premium';
+  if (normalized === 'negocios-locales' && String(meta.industry ?? '').toLowerCase() === 'inmobiliaria') {
+    return 'real-estate-split';
+  }
+  return 'service-business';
+}
+
+function inferStyle(meta) {
+  if (typeof meta.style === 'string' && meta.style.trim()) return meta.style.trim();
+  return 'premium';
+}
+
+function inferStatus(meta) {
+  if (typeof meta.status === 'string' && meta.status.trim()) return meta.status.trim();
+  return 'active';
+}
+
+function inferTier(meta) {
+  if (typeof meta.tier === 'string' && meta.tier.trim()) return meta.tier.trim();
+  if (Array.isArray(meta.tags) && meta.tags.includes('pilot')) return 'pilot';
+  return 'legacy';
+}
+
+function inferVariant(meta, template) {
+  if (typeof meta.variant === 'string' && meta.variant.trim()) return meta.variant.trim();
+  if (typeof meta.layout === 'string' && meta.layout.trim()) return meta.layout.trim();
+  return template === 'real-estate-split' ? 'landing-c' : 'default';
+}
+
+function inferTags(meta, item) {
+  if (Array.isArray(meta.tags) && meta.tags.length > 0) {
+    return meta.tags.filter((tag) => typeof tag === 'string' && tag.trim()).map((tag) => tag.trim());
+  }
+
+  return [...new Set(['captiva', 'demo', item.category, item.industry].filter(Boolean))];
+}
+
+function inferSections(meta, template) {
+  if (Array.isArray(meta.sections) && meta.sections.length > 0) {
+    return meta.sections.filter((section) => typeof section === 'string' && section.trim()).map((section) => section.trim());
+  }
+
+  const templateEntry = templateRegistry.templates.find((entry) => entry.id === template);
+  if (templateEntry && Array.isArray(templateEntry.sections) && templateEntry.sections.length > 0) {
+    return templateEntry.sections;
+  }
+
+  return [
+    'hero-premium',
+    'benefits-enterprise',
+    'process-premium',
+    'services-catalog',
+    'plans-premium',
+    'gallery-premium',
+    'testimonials-carousel',
+    'faq-premium',
+    'cta-final',
+    'contact-split',
+  ];
 }
 
 function toAbsoluteUrl(pathname) {
@@ -384,6 +465,35 @@ function writeDemoSlugMap(manifest) {
   writeFileSync(slugMapPath, `${JSON.stringify(payload, null, 2)}\n`);
 }
 
+function buildDemosManifestPayload(manifest) {
+  return {
+    generatedAt: new Date().toISOString(),
+    demos: manifest.map((item) => ({
+      slug: item.slug,
+      folderName: item.folderName,
+      publicSlug: item.publicSlug,
+      title: item.title,
+      description: item.description,
+      category: item.category,
+      industry: item.industry,
+      goal: item.goal,
+      template: item.template,
+      variant: item.variant,
+      tier: item.tier,
+      style: item.style,
+      tags: item.tags,
+      sections: item.sections,
+      preview: item.preview,
+      status: item.status,
+      href: item.href,
+    })),
+  };
+}
+
+function writeDemosManifest(payload) {
+  writeFileSync(demosManifestPath, `${JSON.stringify(payload, null, 2)}\n`);
+}
+
 async function main() {
   rmSync(publicDemosRoot, { recursive: true, force: true });
   mkdirSync(publicDemosRoot, { recursive: true });
@@ -420,6 +530,7 @@ async function main() {
     const publicSlug = buildPublicSlug(folderName);
     cpSync(join(demosRoot, folderName), join(publicDemosRoot, publicSlug), { recursive: true });
 
+    const template = inferTemplate(meta.category || meta.industry, meta);
     const item = {
       slug: canonicalSlug,
       folderName,
@@ -428,9 +539,20 @@ async function main() {
       description: meta.description,
       industry: meta.industry,
       category: meta.category,
+      goal: inferGoal(meta.category || meta.industry),
+      template,
+      variant: inferVariant(meta, template),
+      tier: inferTier(meta),
+      style: inferStyle(meta),
+      status: inferStatus(meta),
+      tags: [],
+      sections: [],
       preview: normalizePreview(publicSlug, meta.preview),
       href: buildControlledHref(canonicalSlug),
     };
+
+    item.tags = inferTags(meta, item);
+    item.sections = inferSections(meta, template);
 
     await optimizeDemoHtml(item);
     manifest.push(item);
@@ -438,7 +560,9 @@ async function main() {
 
   manifest.sort((left, right) => left.title.localeCompare(right.title, 'es'));
 
-  writeFileSync(outputPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  const centralManifest = buildDemosManifestPayload(manifest);
+  writeDemosManifest(centralManifest);
+  writeFileSync(outputPath, `${JSON.stringify(centralManifest.demos, null, 2)}\n`);
   writeDemoSlugMap(manifest);
   await writeSitemap(manifest);
   writeRobots();

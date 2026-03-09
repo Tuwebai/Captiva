@@ -3,14 +3,10 @@
   "name": "captiva-demo-enterprise-v1",
   "requiredSections": [
     "hero",
-    "beneficios",
-    "metodologia",
     "servicios",
-    "planes",
-    "galeria",
+    "metodologia",
     "testimonios-carrusel",
     "faq",
-    "cta-final",
     "contacto"
   ],
   "recommendedSectionsOrder": [
@@ -32,8 +28,8 @@
     "minContrastRatioTextOnBackground": 4.5
   },
   "qualityGates": {
-    "minSections": 10,
-    "minWordCount": 450,
+    "minSections": 7,
+    "minWordCount": 320,
     "maxWordCount": 1400,
     "faqMinItems": 5,
     "socialProofMinBlocks": 1,

@@ -47,6 +47,13 @@ export function resolvePageContextFromPath(pathname: string): PageContext {
   if (path === '/captiva/demos') {
     return { path, pageType: 'demos' };
   }
+  if (path.startsWith('/captiva/demos/industria/')) {
+    return {
+      path,
+      pageType: 'demos',
+      industry: path.split('/').filter(Boolean).at(3),
+    };
+  }
   if (path.startsWith('/demo/')) {
     return { path, pageType: 'demo', slug: path.split('/').filter(Boolean).at(1) };
   }

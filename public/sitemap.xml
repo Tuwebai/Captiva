@@ -163,6 +163,18 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://captiva.tuweb-ai.com/landing-page-para-esteticas</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/landing-page-para-empresas-b2b</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://captiva.tuweb-ai.com/landing-page-para-salud</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -170,12 +182,6 @@
   </url>
   <url>
     <loc>https://captiva.tuweb-ai.com/landing-page-para-dentistas</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://captiva.tuweb-ai.com/landing-page-para-esteticas</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -193,7 +199,7 @@
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://captiva.tuweb-ai.com/landing-page-para-empresas-b2b</loc>
+    <loc>https://captiva.tuweb-ai.com/landing-page-para-restaurant</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -889,6 +895,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://captiva.tuweb-ai.com/demo/aesthetic-clinic</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/aesthetic-premium</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/agency-lead-gen</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://captiva.tuweb-ai.com/demo/demo-alegra-salud</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -896,6 +920,42 @@
   </url>
   <url>
     <loc>https://captiva.tuweb-ai.com/demo/demo-clinica-dental-sonrisa</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/coach-personal-brand</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/consulting-b2b</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/dentist-minimal</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/dentist-modern</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/dentist-phase1-pilot</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/dentist-premium-pilot</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -920,6 +980,36 @@
   </url>
   <url>
     <loc>https://captiva.tuweb-ai.com/demo/demo-estudio-juridico</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/lawyer-consultation</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/lawyer-litigation</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/gym-membership</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/gym-premium-pilot</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/gym-transformation</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -956,6 +1046,36 @@
   </url>
   <url>
     <loc>https://captiva.tuweb-ai.com/demo/demo-real-estate</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/real-estate-investment</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/real-estate-premium</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/real-estate-premium-pilot</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/restaurant-delivery</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://captiva.tuweb-ai.com/demo/restaurant-reservation</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

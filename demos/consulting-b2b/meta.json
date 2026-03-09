@@ -1,0 +1,36 @@
+{
+  "title": "Landing para Consulting B2B",
+  "description": "Landing B2B para consultorias con foco en propuesta clara, autoridad y reuniones comerciales.",
+  "category": "b2b",
+  "industry": "consultoria-b2b",
+  "preview": "/demos/consulting-b2b/preview.png",
+  "slug": "consulting-b2b",
+  "template": "service-business",
+  "layout": "landing-b",
+  "variant": "v2",
+  "goal": "leads",
+  "style": "premium",
+  "status": "required",
+  "tags": [
+    "captiva",
+    "demo",
+    "b2b",
+    "consultoria",
+    "tier1",
+    "business"
+  ],
+  "sections": [
+    "hero-premium",
+    "benefits-enterprise",
+    "process-premium",
+    "services-catalog",
+    "plans-premium",
+    "gallery-premium",
+    "testimonials-carousel",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate"
+  ],
+  "tier": "tier1"
+}
