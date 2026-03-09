@@ -3,7 +3,7 @@
   "description": "Landing optimizada para captar nuevos alumnos, mostrar planes claros y acelerar consultas comerciales para gimnasios.",
   "category": "fitness",
   "industry": "gimnasio",
-  "preview": "/demos/gym-premium-pilot/preview.png",
+  "preview": "/assets/placeholders/captiva-demo-preview.svg",
   "slug": "gym-premium-pilot",
   "template": "service-business",
   "layout": "landing-a",

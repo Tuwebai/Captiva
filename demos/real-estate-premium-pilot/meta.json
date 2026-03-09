@@ -3,7 +3,7 @@
   "description": "Landing premium para captar consultas inmobiliarias, presentar propiedades y ordenar el contacto comercial.",
   "category": "negocios-locales",
   "industry": "inmobiliaria",
-  "preview": "/demos/real-estate-premium-pilot/preview.png",
+  "preview": "/assets/placeholders/captiva-demo-preview.svg",
   "slug": "real-estate-premium-pilot",
   "template": "real-estate-split",
   "layout": "landing-c",

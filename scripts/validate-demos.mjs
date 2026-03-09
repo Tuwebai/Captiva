@@ -1,14 +1,59 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
+import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH } from './lib/demo-factory/constants.mjs';
 
 const projectRoot = process.cwd();
 const demosRoot = resolve(projectRoot, 'demos');
 const publicRoot = resolve(projectRoot, 'public');
 const demosManifestPath = resolve(projectRoot, 'demos/manifest.json');
 const errors = [];
+const warnings = [];
 
 function addError(message) {
   errors.push(message);
+}
+
+function addWarning(message) {
+  warnings.push(message);
+}
+
+function isCatalogDuplicateCandidate(item) {
+  const tier = String(item?.tier ?? '').toLowerCase();
+  const slug = String(item?.slug ?? '').toLowerCase();
+
+  if (tier === 'pilot') return false;
+  if (slug.includes('phase1-pilot') || slug.endsWith('-pilot')) return false;
+  return true;
+}
+
+function normalizeTextKey(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function buildCatalogSignature(item) {
+  return [
+    String(item?.industry ?? '').toLowerCase(),
+    String(item?.template ?? '').toLowerCase(),
+    String(item?.variant ?? '').toLowerCase(),
+    String(item?.goal ?? '').toLowerCase(),
+    String(item?.tier ?? '').toLowerCase(),
+  ]
+    .filter(Boolean)
+    .join('__');
+}
+
+function isFactoryGeneratedCandidate(item) {
+  const slug = String(item?.slug ?? '').toLowerCase();
+  const tier = String(item?.tier ?? '').toLowerCase();
+
+  if (tier === 'tier1' || tier === 'pilot') return true;
+  if (slug.includes('phase1-pilot') || slug.endsWith('-pilot')) return true;
+  return false;
 }
 
 function isNonEmptyString(value) {
@@ -90,7 +135,8 @@ function normalizeFolderSlug(folderName) {
 }
 
 function resolvePreviewPath(preview, folderPath, folderName) {
-  if (!isNonEmptyString(preview)) return null;
+  if (!isNonEmptyString(preview)) return DEFAULT_DEMO_PREVIEW_PATH;
+  if (preview === DEFAULT_DEMO_PREVIEW) return DEFAULT_DEMO_PREVIEW_PATH;
   if (preview.startsWith('/demos/')) {
     const localPreview = folderName ? join(demosRoot, folderName, basename(preview)) : join(folderPath, basename(preview));
     if (existsSync(localPreview)) {
@@ -152,6 +198,34 @@ function validateCentralManifest() {
       }
     }
   });
+
+  const catalogItems = manifest.demos.filter(isCatalogDuplicateCandidate);
+  const titleMap = new Map();
+  const signatureMap = new Map();
+
+  catalogItems.forEach((item) => {
+    const title = normalizeTextKey(item?.title);
+    if (!title) return;
+    titleMap.set(title, [...(titleMap.get(title) ?? []), item.slug]);
+
+    const signature = buildCatalogSignature(item);
+    if (!signature) return;
+    signatureMap.set(signature, [...(signatureMap.get(signature) ?? []), item.slug]);
+  });
+
+  for (const [title, slugs] of titleMap.entries()) {
+    if (slugs.length > 1) {
+      addWarning(`demos/manifest.json duplicate catalog title "${title}" across: ${slugs.join(', ')}`);
+    }
+  }
+
+  for (const [signature, slugs] of signatureMap.entries()) {
+    const signatureItems = catalogItems.filter((item) => buildCatalogSignature(item) === signature);
+    const hasGenerated = signatureItems.some(isFactoryGeneratedCandidate);
+    if (slugs.length > 1 && hasGenerated) {
+      addWarning(`demos/manifest.json duplicate catalog signature "${signature}" across: ${slugs.join(', ')}`);
+    }
+  }
 }
 
 function validateDemoDirectory(folderName) {
@@ -215,4 +289,8 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log('Validation completed: 0 warning(s), 0 error(s).');
+warnings.forEach((message) => {
+  console.warn(`WARN ${message}`);
+});
+
+console.log(`Validation completed: ${warnings.length} warning(s), 0 error(s).`);

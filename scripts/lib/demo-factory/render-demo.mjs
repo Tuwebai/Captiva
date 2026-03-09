@@ -1,3 +1,5 @@
+import { DEFAULT_DEMO_PREVIEW } from './constants.mjs';
+
 function renderTemplate(template, replacements, templatePath) {
   return template.replace(/{{([A-Z0-9_]+)}}/g, (_match, key) => {
     if (!(key in replacements)) {
@@ -20,13 +22,12 @@ export function renderDemo(context) {
     context.layoutPath,
   );
 
-  const preview = `/demos/${context.args.name}/preview.png`;
   const meta = {
     title: context.args.title,
     description: context.args.description,
     category: context.args.category,
     industry: context.requestedIndustry,
-    preview,
+    preview: DEFAULT_DEMO_PREVIEW,
     slug: context.args.name,
     template: context.selectedTemplate.id,
     layout: context.layoutKey,

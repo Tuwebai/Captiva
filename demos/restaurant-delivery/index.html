@@ -10,11 +10,11 @@
     <style>
       :root { --brand: #f28f52; --accent: #3f78ff; --bg: #060a16; --bg-panel: rgba(12,18,34,.94); --panel-soft: rgba(255,255,255,.03); --text: #f4f7ff; --muted: #9eadd1; --line: rgba(106,125,179,.18); --line-strong: rgba(106,125,179,.34); --shadow: 0 26px 60px rgba(3,6,16,.38); --radius: 30px; }
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text); background: radial-gradient(circle at 12% 18%, rgba(88,132,255,.18), transparent 26%), radial-gradient(circle at 88% 76%, rgba(240,143,92,.16), transparent 24%), linear-gradient(180deg, #050812 0%, #0a1225 100%); }
+      html { scroll-behavior: smooth; overflow-x: clip; }
+      body { margin: 0; width: 100%; max-width: 100%; overflow-x: clip; font-family: Inter, system-ui, sans-serif; color: var(--text); background: radial-gradient(circle at 12% 18%, rgba(88,132,255,.18), transparent 26%), radial-gradient(circle at 88% 76%, rgba(240,143,92,.16), transparent 24%), linear-gradient(180deg, #050812 0%, #0a1225 100%); }
       img { display: block; max-width: 100%; }
       a { color: inherit; text-decoration: none; }
-      .container { width: min(1200px, calc(100% - 2rem)); margin: 0 auto; }
+      .container { width: min(1200px, calc(100% - 2rem)); max-width: 100%; margin: 0 auto; }
       .demo-bar { padding: .6rem 1rem; background: linear-gradient(90deg, rgba(190,24,93,.95), rgba(239,68,68,.95)); color: #fff; text-align: center; font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
       .nav { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: rgba(6,10,22,.86); backdrop-filter: blur(16px); }
       .nav-row { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
@@ -27,8 +27,9 @@
       .btn:hover { transform: translateY(-1px); }
       .btn-primary { background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 55%, #ffffff)); color: #fff; box-shadow: 0 18px 36px rgba(58,98,231,.28); }
       .btn-secondary { background: rgba(255,255,255,.03); color: var(--text); border-color: var(--line); }
-      main { padding: 1.5rem 0 2rem; display: grid; gap: 1.35rem; }
-      .section { padding: 1.45rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-panel); box-shadow: var(--shadow); }
+      main { padding: 1.8rem 0 2.55rem; display: grid; gap: 2.35rem; max-width: 100%; }
+      main > *, .section, .hero-grid > *, .kpi-grid > *, .benefits-layout > *, .process-grid > *, .services-showcase > *, .plans-grid > *, .gallery-grid > *, .cta-wrap > *, .contact-grid > *, .faq-shell > * { min-width: 0; }
+      .section { padding: 1.68rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-panel); box-shadow: var(--shadow); }
       .section-head { display: grid; gap: .45rem; margin-bottom: 1rem; }
       .eyebrow, .process-label, .field-label, .hero-media__label, .form-kicker { margin: 0; color: #94a9d9; text-transform: uppercase; letter-spacing: .16em; font-size: .7rem; font-weight: 800; }
       h1, h2, h3 { margin: 0; font-family: "Plus Jakarta Sans", Inter, sans-serif; line-height: 1.05; letter-spacing: -.04em; }
@@ -37,27 +38,27 @@
       h3 { font-size: 1.18rem; }
       p { margin: 0; line-height: 1.7; }
       .hero { padding: 1.6rem; background: linear-gradient(145deg, rgba(12,18,36,.98), rgba(18,27,52,.96)); }
-      .hero-grid { display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 1.1rem; align-items: stretch; }
+      .hero-grid { display: grid; grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr); gap: 1.35rem; align-items: stretch; }
       .hero-copy { display: grid; gap: .95rem; align-content: start; }
       .hero-lead { font-size: clamp(1.05rem, 1.7vw, 1.25rem); color: #d7e3ff; max-width: 18ch; }
       .hero-body, .section-head p, .service-card__body p, .benefit-card p, .process-card p, .faq-item p, .contact-panel p, .footer-brand span, .form-note { color: var(--muted); }
       .hero-trust { padding: 0; list-style: none; }
       .hero-trust span, .service-tags span, .contact-chips span { display: inline-flex; align-items: center; min-height: 2rem; padding: .34rem .72rem; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: .76rem; font-weight: 700; color: #dfe8ff; }
-      .hero-media { position: relative; display: grid; gap: .8rem; }
+      .hero-media { position: relative; display: grid; gap: .8rem; overflow: clip; }
       .hero-media img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; border-radius: 24px; border: 1px solid var(--line-strong); }
       .hero-media__card { position: absolute; right: 1rem; left: auto; max-width: 250px; padding: .9rem 1rem; border-radius: 20px; border: 1px solid var(--line); background: rgba(8,12,24,.82); box-shadow: var(--shadow); }
       .hero-media__card--top { top: 1rem; }
       .hero-media__card--bottom { bottom: 1rem; }
       .hero-media__card strong { display: block; margin: .25rem 0 .35rem; font-size: 1rem; }
       .hero-media__card p { font-size: .86rem; color: var(--muted); }
-      .kpi-grid, .plans-grid { display: grid; gap: .8rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .services-showcase { display: grid; gap: .8rem; grid-template-columns: 1.2fr .8fr; }
+      .kpi-grid, .plans-grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .services-showcase { display: grid; gap: 1rem; grid-template-columns: 1.2fr .8fr; }
       .service-card:last-child { grid-column: span 2; }
       .kpi-card, .benefit-card, .process-card, .service-card, .plan-card, .faq-item, .contact-panel, .form, .marquee-card { border: 1px solid var(--line); border-radius: 24px; background: var(--panel-soft); }
       .kpi-card { padding: .9rem; }
       .kpi-card strong { display: block; color: #fff; font-size: 1.45rem; }
       .kpi-card span { color: #bbcae8; font-size: .73rem; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; }
-      .benefits-layout { display: grid; gap: .8rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .benefits-layout { display: grid; gap: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .benefit-card { padding: 1rem; }
       .benefit-card-main { grid-column: span 2; background: linear-gradient(145deg, rgba(17,28,55,.98), rgba(24,39,74,.92)); }
       .benefit-card-accent { background: linear-gradient(145deg, rgba(43,21,67,.9), rgba(22,30,66,.92)); }
@@ -65,7 +66,7 @@
       .benefit-proof strong { font-size: 1.6rem; color: #fff; }
       .benefit-proof span, .feature-meta { color: #d7e3ff; font-size: .78rem; font-weight: 700; }
       .card-icon, .process-index, .avatar { width: 40px; height: 40px; border-radius: 14px; display: grid; place-items: center; background: rgba(255,255,255,.08); color: #fff; font-weight: 800; }
-      .process-grid { display: grid; gap: .8rem; grid-template-columns: 1fr 1fr; }
+      .process-grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
       .process-card, .process-community { padding: 1rem; }
       .process-card-main { grid-row: span 2; background: linear-gradient(145deg, rgba(14,24,48,.98), rgba(19,32,63,.94)); }
       .process-community { border-radius: 24px; border: 1px solid rgba(224,143,92,.26); background: linear-gradient(145deg, rgba(15,25,47,.98), rgba(43,26,52,.94)); display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
@@ -83,29 +84,29 @@
       .plan-features { margin: 0; padding-left: 1rem; color: var(--muted); display: grid; gap: .42rem; }
       .plan-card__footer { margin-top: auto; padding: 0 1rem 1rem; }
       .plan-card__footer .btn { width: 100%; }
-      .gallery-grid { display: grid; gap: .75rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .gallery-grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .gallery-grid img:first-child { grid-column: span 2; }
       .gallery-grid img { width: 100%; height: 235px; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); }
-      .marquee-mask { overflow: hidden; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
-      .marquee-track { display: flex; gap: .8rem; width: max-content; animation: marqueeScroll 34s linear infinite; }
-      .marquee-card { width: 340px; flex: 0 0 auto; }
+      .marquee-mask { overflow: hidden; overflow-x: clip; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
+      .marquee-track { display: flex; gap: .8rem; width: max-content; min-width: max-content; animation: marqueeScroll 34s linear infinite; }
+      .marquee-card { width: min(340px, calc(100vw - 4rem)); flex: 0 0 auto; }
       .marquee-head { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
       .marquee-head strong { display: block; color: #fff; font-size: .95rem; }
       .marquee-head span { color: #ffd36a; font-size: .8rem; letter-spacing: .08em; }
-      .faq-shell { display: grid; gap: 1rem; grid-template-columns: 320px minmax(0, 1fr); align-items: start; }
+      .faq-shell { display: grid; gap: 1.15rem; grid-template-columns: 320px minmax(0, 1fr); align-items: start; }
       .faq-shell__intro { padding-right: .5rem; }
-      .faq-grid-accordion { display: grid; gap: .72rem; }
+      .faq-grid-accordion { display: grid; gap: .92rem; }
       .faq-item { padding: 0; overflow: hidden; background: rgba(9,14,27,.88); }
       .faq-item summary { position: relative; padding: 1rem 3rem 1rem 1rem; list-style: none; cursor: pointer; color: #fff; font-weight: 800; }
       .faq-item summary::after { content: "+"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: #ffd36a; font-size: 1.1rem; }
       .faq-item[open] summary::after { content: "-"; }
       .faq-item p { padding: 0 1rem 1rem; color: var(--muted); }
-      .cta-wrap, .contact-grid { display: grid; gap: .85rem; grid-template-columns: .95fr 1.05fr; }
+      .cta-wrap, .contact-grid { display: grid; gap: 1rem; grid-template-columns: .95fr 1.05fr; }
       .cta-box { padding: 1rem; border-radius: 24px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(17,28,55,.98), rgba(11,18,34,.94)); }
       .field { width: 100%; padding: .82rem .9rem; border-radius: 14px; border: 1px solid var(--line-strong); background: rgba(9,14,27,.72); color: #fff; font: inherit; }
       select.field { appearance: none; }
       .ok { display: none; padding: .82rem .9rem; border-radius: 14px; border: 1px solid rgba(34,197,94,.4); background: rgba(13,58,39,.4); color: #9ff3be; font-size: .9rem; }
-      .footer { padding-top: 1rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto auto; gap: .8rem; align-items: center; color: var(--muted); }
+      .footer { padding-top: 1.1rem; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: center; color: var(--muted); }
       .footer-brand { display: grid; gap: .22rem; }
       .footer-brand strong { color: #fff; }
       .footer-links a, .footer-meta a { color: #dce8ff; font-weight: 700; }
@@ -113,7 +114,7 @@
       @keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
       @media (max-width: 1100px) { .hero-grid, .faq-shell, .cta-wrap, .contact-grid { grid-template-columns: 1fr; } .hero-media__card { position: static; max-width: none; } }
       @media (max-width: 920px) { .nav-links { display: none; } .benefits-layout, .process-grid, .services-showcase, .plans-grid, .gallery-grid, .footer { grid-template-columns: 1fr; } .service-card:last-child, .benefit-card-main, .gallery-grid img:first-child { grid-column: auto; } .plan-card-featured { transform: none; } .process-community { flex-direction: column; } .footer-meta { justify-content: flex-start; } }
-      @media (max-width: 640px) { .container { width: min(100% - 1rem, 1200px); } .section, .hero, .cta-box { padding: 1rem; } h1 { max-width: none; font-size: clamp(2rem, 13vw, 3rem); } .hero-media img { min-height: 320px; } }
+      @media (max-width: 640px) { .container { width: min(100% - 1rem, 1200px); } main { gap: 1.3rem; padding: 1.25rem 0 2rem; } .section, .hero, .cta-box { padding: 1.08rem; } h1 { max-width: none; font-size: clamp(2rem, 13vw, 3rem); } .hero-media img { min-height: 320px; } }
     </style>
   </head>
   <body>

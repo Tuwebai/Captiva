@@ -91,6 +91,31 @@ function isValidResourceReference(value) {
   return false;
 }
 
+function collectSectionIds(html) {
+  const ids = [];
+  const regex = /<section[^>]*id="([^"]+)"/gi;
+  let match = regex.exec(html);
+  while (match) {
+    ids.push(match[1]);
+    match = regex.exec(html);
+  }
+  return ids;
+}
+
+function collectRiskyOverflowPatterns(html) {
+  const findings = [];
+  if (/left:\s*-\d/i.test(html) || /right:\s*-\d/i.test(html)) {
+    findings.push('negative horizontal offsets detected in inline layout CSS');
+  }
+  if (/width:\s*max-content/i.test(html) && !/overflow:\s*hidden/i.test(html) && !/overflow-x:\s*(hidden|clip)/i.test(html)) {
+    findings.push('max-content container without horizontal overflow guard');
+  }
+  if (!/overflow-x:\s*(hidden|clip)/i.test(html)) {
+    findings.push('missing global overflow-x guard');
+  }
+  return findings;
+}
+
 export function loadDesignContract(projectRoot = process.cwd()) {
   const contractPath = resolve(projectRoot, 'scripts/contracts/design-contract.json');
   return JSON.parse(readFileSync(contractPath, 'utf8'));
@@ -113,6 +138,12 @@ export function evaluateDemoQuality({ html, meta, designContract, demoName = 'un
     if (!sectionRegex.test(html)) {
       errors.push(`${demoName}: missing required section id="${sectionId}".`);
     }
+  }
+
+  const sectionIds = collectSectionIds(html);
+  const duplicateSectionIds = [...new Set(sectionIds.filter((id, index) => sectionIds.indexOf(id) !== index))];
+  if (duplicateSectionIds.length > 0) {
+    errors.push(`${demoName}: duplicated section ids detected (${duplicateSectionIds.join(', ')}).`);
   }
 
   const h1Count = (html.match(/<h1\b/gi) ?? []).length;
@@ -162,6 +193,11 @@ export function evaluateDemoQuality({ html, meta, designContract, demoName = 'un
     if (invalidReferences.length > 0) {
       errors.push(`${demoName}: found invalid links/assets (${invalidReferences.slice(0, 3).join(', ')}).`);
     }
+  }
+
+  const overflowFindings = collectRiskyOverflowPatterns(html);
+  if (overflowFindings.length > 0) {
+    errors.push(`${demoName}: horizontal overflow risk detected (${overflowFindings.join('; ')}).`);
   }
 
   if (gates.requiresCompleteMetadata) {

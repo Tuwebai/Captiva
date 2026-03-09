@@ -2,6 +2,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { basename, join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
 import { loadBlogEntries } from './lib/blog-content.mjs';
+import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH } from './lib/demo-factory/constants.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const controlledDemoBase = '/demo';
@@ -26,6 +27,18 @@ const industryCatalog = existsSync(industryCatalogPath)
 const templateRegistry = existsSync(templateRegistryPath)
   ? JSON.parse(readFileSync(templateRegistryPath, 'utf8'))
   : { templates: [] };
+const archivedGeneratedCatalogSlugs = new Set([
+  'aesthetic-clinic',
+  'aesthetic-premium',
+  'coach-personal-brand',
+  'consulting-b2b',
+  'dentist-minimal',
+  'dentist-modern',
+  'gym-membership',
+  'lawyer-litigation',
+  'real-estate-investment',
+  'restaurant-delivery',
+]);
 
 function slugify(value) {
   return value
@@ -48,10 +61,15 @@ function buildControlledHref(canonicalSlug) {
 
 function normalizePreview(publicSlug, preview) {
   if (!preview) return null;
+  if (preview === DEFAULT_DEMO_PREVIEW) return DEFAULT_DEMO_PREVIEW;
   if (preview.startsWith('/')) {
     return `/demos/${publicSlug}/${basename(preview)}`;
   }
   return `/demos/${publicSlug}/${preview}`;
+}
+
+function resolveManifestPreview(item) {
+  return DEFAULT_DEMO_PREVIEW;
 }
 
 function inferGoal(category) {
@@ -79,7 +97,19 @@ function inferStyle(meta) {
   return 'premium';
 }
 
-function inferStatus(meta) {
+function inferStatus(meta, canonicalSlug) {
+  const slug = String(canonicalSlug ?? meta.slug ?? '').trim().toLowerCase();
+  const tier = inferTier(meta).toLowerCase();
+
+  if (
+    tier === 'pilot' ||
+    slug.includes('phase1-pilot') ||
+    slug.endsWith('-pilot') ||
+    archivedGeneratedCatalogSlugs.has(slug)
+  ) {
+    return 'archived';
+  }
+
   if (typeof meta.status === 'string' && meta.status.trim()) return meta.status.trim();
   return 'active';
 }
@@ -495,6 +525,10 @@ function writeDemosManifest(payload) {
 }
 
 async function main() {
+  if (!existsSync(DEFAULT_DEMO_PREVIEW_PATH)) {
+    throw new Error(`Default demo preview not found: ${DEFAULT_DEMO_PREVIEW_PATH}`);
+  }
+
   rmSync(publicDemosRoot, { recursive: true, force: true });
   mkdirSync(publicDemosRoot, { recursive: true });
 
@@ -544,15 +578,16 @@ async function main() {
       variant: inferVariant(meta, template),
       tier: inferTier(meta),
       style: inferStyle(meta),
-      status: inferStatus(meta),
+      status: inferStatus(meta, canonicalSlug),
       tags: [],
       sections: [],
-      preview: normalizePreview(publicSlug, meta.preview),
+      preview: meta.preview ?? DEFAULT_DEMO_PREVIEW,
       href: buildControlledHref(canonicalSlug),
     };
 
     item.tags = inferTags(meta, item);
     item.sections = inferSections(meta, template);
+    item.preview = resolveManifestPreview(item);
 
     await optimizeDemoHtml(item);
     manifest.push(item);

@@ -3,10 +3,12 @@
   "name": "captiva-demo-enterprise-v1",
   "requiredSections": [
     "hero",
+    "beneficios",
     "servicios",
     "metodologia",
     "testimonios-carrusel",
     "faq",
+    "cta-final",
     "contacto"
   ],
   "recommendedSectionsOrder": [

@@ -5,9 +5,9 @@ import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { DemosGallerySection } from '../sections/DemosGallerySection';
 import type { DemoManifestItem } from '../types/demo';
-import { getActiveDemos, getIndustryFilterOptions } from '../utils/demos';
+import { getCatalogDemos, getIndustryFilterOptions } from '../utils/demos';
 
-const activeDemos = getActiveDemos(demosManifest as DemoManifestItem[]);
+const activeDemos = getCatalogDemos(demosManifest as DemoManifestItem[]);
 const industryFilters = getIndustryFilterOptions(activeDemos);
 
 function getCatalogPath(industry?: string) {

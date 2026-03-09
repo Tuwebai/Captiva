@@ -21,7 +21,7 @@ const placeholderMap = {
 export function selectBlocks(context) {
   const approvedBlockMap = new Map(
     context.blockRegistry.blocks
-      .filter((entry) => entry.status === 'approved')
+      .filter((entry) => entry.status === 'approved' && (entry.tier ?? 'enterprise') === 'enterprise')
       .map((entry) => [entry.id, entry]),
   );
 

@@ -8,6 +8,7 @@ export type DemoFilterOption = {
 };
 
 const publishedStatuses = new Set(['active', 'required', 'pilot']);
+const catalogExcludedTiers = new Set(['pilot']);
 
 const industryLabels: Record<string, string> = {
   abogado: 'Abogados',
@@ -88,6 +89,48 @@ export function getPublishedDemos(demos: DemoManifestItem[]) {
 }
 
 export const getActiveDemos = getPublishedDemos;
+
+function normalizeTextKey(value: string) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function getCatalogPriority(demo: DemoManifestItem) {
+  const tier = String(demo.tier ?? '').toLowerCase();
+  if (tier === 'tier1') return 50;
+  if (tier === 'legacy') return 40;
+  if (tier === 'pilot') return 10;
+  return 20;
+}
+
+function isCatalogEligible(demo: DemoManifestItem) {
+  const tier = String(demo.tier ?? '').toLowerCase();
+  const slug = String(demo.slug ?? '').toLowerCase();
+
+  if (catalogExcludedTiers.has(tier)) return false;
+  if (slug.includes('phase1-pilot') || slug.endsWith('-pilot')) return false;
+  return true;
+}
+
+export function getCatalogDemos(demos: DemoManifestItem[]) {
+  const published = getPublishedDemos(demos).filter(isCatalogEligible);
+  const dedupedByTitle = new Map<string, DemoManifestItem>();
+
+  published.forEach((demo) => {
+    const key = normalizeTextKey(demo.title);
+    const current = dedupedByTitle.get(key);
+
+    if (!current || getCatalogPriority(demo) > getCatalogPriority(current)) {
+      dedupedByTitle.set(key, demo);
+    }
+  });
+
+  return [...dedupedByTitle.values()].sort((left, right) => left.title.localeCompare(right.title, 'es'));
+}
 
 export function getIndustryLabel(industry: string) {
   return industryLabels[industry] ?? toTitleCase(industry);

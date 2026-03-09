@@ -7,7 +7,8 @@ const demosRoot = resolve(projectRoot, 'demos');
 const stateDir = resolve(projectRoot, '.cache');
 const statePath = resolve(stateDir, 'demo-previews-state.json');
 const host = '127.0.0.1';
-const port = 4177;
+const basePort = 4177;
+let activePort = basePort;
 
 const mimeByExtension = {
   '.html': 'text/html; charset=utf-8',
@@ -109,14 +110,31 @@ function serveStaticFile(reqPath, response) {
 }
 
 function startStaticServer() {
-  const server = createServer((request, response) => {
-    const reqUrl = new URL(request.url ?? '/', `http://${host}:${port}`);
-    serveStaticFile(reqUrl.pathname, response);
-  });
+  const maxAttempts = 12;
 
   return new Promise((resolveServer, rejectServer) => {
-    server.on('error', rejectServer);
-    server.listen(port, host, () => resolveServer(server));
+    const tryListen = (portOffset) => {
+      const candidatePort = basePort + portOffset;
+      const server = createServer((request, response) => {
+        const reqUrl = new URL(request.url ?? '/', `http://${host}:${candidatePort}`);
+        serveStaticFile(reqUrl.pathname, response);
+      });
+
+      server.once('error', (error) => {
+        if (error?.code === 'EADDRINUSE' && portOffset + 1 < maxAttempts) {
+          tryListen(portOffset + 1);
+          return;
+        }
+        rejectServer(error);
+      });
+
+      server.listen(candidatePort, host, () => {
+        activePort = candidatePort;
+        resolveServer(server);
+      });
+    };
+
+    tryListen(0);
   });
 }
 
@@ -136,7 +154,7 @@ function folderToUrl(folderName) {
     .split('/')
     .map((part) => encodeURIComponent(part))
     .join('/');
-  return `http://${host}:${port}/demo/${encoded}/index.html?preview=1`;
+  return `http://${host}:${activePort}/demo/${encoded}/index.html?preview=1`;
 }
 
 async function main() {

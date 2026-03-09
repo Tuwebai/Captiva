@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-09T04:51:41.637Z",
+  "generatedAt": "2026-03-09T22:12:33.281Z",
   "demos": [
     {
       "slug": "automotriz-premium-enterprise",
@@ -32,7 +32,7 @@
         "cta-final",
         "contact-split"
       ],
-      "preview": "/demos/DEMO-automotriz-premium-enterprise/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/automotriz-premium-enterprise"
     },
@@ -69,7 +69,7 @@
         "cta-final",
         "contact-split"
       ],
-      "preview": "/demos/DEMO-concesionaria-autos-premium/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/concesionaria-autos-premium"
     },
@@ -107,8 +107,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-aesthetic-clinic/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/aesthetic-clinic"
     },
     {
@@ -145,8 +145,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-aesthetic-premium/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/aesthetic-premium"
     },
     {
@@ -183,7 +183,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-agency-lead-gen/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "required",
       "href": "/demo/agency-lead-gen"
     },
@@ -220,7 +220,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-AlegraSalud/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-alegra-salud"
     },
@@ -258,7 +258,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-ClinicaDentalSonrisa/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-clinica-dental-sonrisa"
     },
@@ -296,8 +296,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-coach-personal-brand/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/coach-personal-brand"
     },
     {
@@ -334,8 +334,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-consulting-b2b/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/consulting-b2b"
     },
     {
@@ -372,8 +372,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-dentist-minimal/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/dentist-minimal"
     },
     {
@@ -410,8 +410,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-dentist-modern/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/dentist-modern"
     },
     {
@@ -447,8 +447,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-dentist-phase1-pilot/preview.png",
-      "status": "active",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/dentist-phase1-pilot"
     },
     {
@@ -485,8 +485,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-dentist-premium-pilot/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/dentist-premium-pilot"
     },
     {
@@ -523,7 +523,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-Dentista/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-dentista"
     },
@@ -561,7 +561,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-CarbonDetail/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-carbon-detail"
     },
@@ -598,7 +598,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-Estetica/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-estetica"
     },
@@ -635,7 +635,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-EstudioJuridico/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-estudio-juridico"
     },
@@ -673,7 +673,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-lawyer-consultation/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "required",
       "href": "/demo/lawyer-consultation"
     },
@@ -711,8 +711,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-lawyer-litigation/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/lawyer-litigation"
     },
     {
@@ -749,8 +749,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-gym-membership/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/gym-membership"
     },
     {
@@ -787,8 +787,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-gym-premium-pilot/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/gym-premium-pilot"
     },
     {
@@ -825,7 +825,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-gym-transformation/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "required",
       "href": "/demo/gym-transformation"
     },
@@ -862,7 +862,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-Gimnasio/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-gimnasio"
     },
@@ -900,7 +900,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-Inmobiliaria/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-inmobiliaria"
     },
@@ -937,7 +937,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-MaximusCycle-Gym/logomaxymus.jpg",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-maximus-cycle-gym"
     },
@@ -974,7 +974,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-MBGYM/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-mb-gym"
     },
@@ -1011,7 +1011,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-SanBernardoOdontologiayEsteticaFacial/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-san-bernardo-odontologia-y-estetica-facial"
     },
@@ -1049,7 +1049,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-RealEstate/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-real-estate"
     },
@@ -1087,8 +1087,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-real-estate-investment/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/real-estate-investment"
     },
     {
@@ -1125,7 +1125,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-real-estate-premium/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "required",
       "href": "/demo/real-estate-premium"
     },
@@ -1163,8 +1163,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-real-estate-premium-pilot/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/real-estate-premium-pilot"
     },
     {
@@ -1200,8 +1200,8 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-restaurant-delivery/preview.png",
-      "status": "required",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "archived",
       "href": "/demo/restaurant-delivery"
     },
     {
@@ -1237,7 +1237,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-restaurant-reservation/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "required",
       "href": "/demo/restaurant-reservation"
     },
@@ -1274,7 +1274,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-RocketGrowthB2B/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-rocketgrowth-b2b"
     },
@@ -1312,7 +1312,7 @@
         "contact-split",
         "footer-corporate"
       ],
-      "preview": "/demos/DEMO-Veterinaria/preview.png",
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-veterinaria"
     }

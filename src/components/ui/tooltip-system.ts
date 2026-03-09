@@ -16,6 +16,12 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 
+function isTooltipTargetStillInteractive(target: HTMLElement | null): boolean {
+  if (!target || !target.isConnected) return false;
+  const activeElement = document.activeElement;
+  return target.matches(':hover') || target === activeElement || target.contains(activeElement);
+}
+
 function positionTooltip(tooltip: HTMLElement, target: HTMLElement, pointerX?: number): void {
   const rect = target.getBoundingClientRect();
   const tooltipRect = tooltip.getBoundingClientRect();
@@ -52,6 +58,16 @@ export function initTooltipSystem(): () => void {
     tooltip.setAttribute('aria-hidden', 'true');
     activeTarget = null;
     pointerX = undefined;
+  };
+
+  const syncTooltipState = () => {
+    if (!activeTarget) return;
+    if (!isTooltipTargetStillInteractive(activeTarget)) {
+      hideTooltip();
+      return;
+    }
+
+    positionTooltip(tooltip, activeTarget, pointerX);
   };
 
   const showTooltip = (target: HTMLElement, nextPointerX?: number) => {
@@ -128,19 +144,31 @@ export function initTooltipSystem(): () => void {
   };
 
   const handleViewportChange = () => {
-    if (!activeTarget) return;
-    positionTooltip(tooltip, activeTarget, pointerX);
+    syncTooltipState();
   };
 
   const handleVisibilityChange = () => {
-    if (document.hidden) hideTooltip();
+    if (document.hidden) {
+      hideTooltip();
+      return;
+    }
+
+    window.requestAnimationFrame(syncTooltipState);
   };
 
   const handleWindowBlur = () => {
     hideTooltip();
   };
 
+  const handleWindowFocus = () => {
+    window.requestAnimationFrame(syncTooltipState);
+  };
+
   const handlePointerDown = () => {
+    hideTooltip();
+  };
+
+  const handleDocumentLeave = () => {
     hideTooltip();
   };
 
@@ -156,9 +184,11 @@ export function initTooltipSystem(): () => void {
   document.addEventListener('visibilitychange', handleVisibilityChange);
   document.addEventListener('pointerdown', handlePointerDown, true);
   document.addEventListener('keydown', handleEscape, true);
+  document.addEventListener('mouseleave', handleDocumentLeave, true);
   window.addEventListener('scroll', handleViewportChange, true);
   window.addEventListener('resize', handleViewportChange);
   window.addEventListener('blur', handleWindowBlur);
+  window.addEventListener('focus', handleWindowFocus);
 
   return () => {
     hideTooltip();
@@ -170,8 +200,10 @@ export function initTooltipSystem(): () => void {
     document.removeEventListener('visibilitychange', handleVisibilityChange);
     document.removeEventListener('pointerdown', handlePointerDown, true);
     document.removeEventListener('keydown', handleEscape, true);
+    document.removeEventListener('mouseleave', handleDocumentLeave, true);
     window.removeEventListener('scroll', handleViewportChange, true);
     window.removeEventListener('resize', handleViewportChange);
     window.removeEventListener('blur', handleWindowBlur);
+    window.removeEventListener('focus', handleWindowFocus);
   };
 }

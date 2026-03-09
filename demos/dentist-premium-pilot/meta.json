@@ -3,7 +3,7 @@
   "description": "Landing optimizada para captar pacientes, ordenar tratamientos y facilitar consultas comerciales para clinicas dentales.",
   "category": "odontologia",
   "industry": "dentista",
-  "preview": "/demos/dentist-premium-pilot/preview.png",
+  "preview": "/assets/placeholders/captiva-demo-preview.svg",
   "slug": "dentist-premium-pilot",
   "template": "service-business",
   "layout": "landing-a",

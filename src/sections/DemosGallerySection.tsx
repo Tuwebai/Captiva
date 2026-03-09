@@ -12,15 +12,15 @@ import type { DemoManifestItem } from '../types/demo';
 import { trackEvent } from '../utils/analytics';
 import { getTopCityLandings } from '../utils/city-landings';
 import {
+  getCatalogDemos,
   getIndustryFilterOptions,
   getIndustryLabel,
-  getPublishedDemos,
   getTagFilterOptions,
   groupDemosByCategory,
 } from '../utils/demos';
 import { getIndustryPages } from '../utils/industry';
 
-const activeDemos = getPublishedDemos(demosManifest as DemoManifestItem[]);
+const activeDemos = getCatalogDemos(demosManifest as DemoManifestItem[]);
 const demoCategories = groupDemosByCategory(activeDemos);
 const placeholderPreview = '/demo-placeholder.svg';
 const industryByCategory = new Map(getIndustryPages().map((item) => [item.category, item]));
@@ -264,12 +264,12 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                               <span className="demo-gallery-card__chip">{getIndustryLabel(item.industry)}</span>
                               {item.goal ? <span className="demo-gallery-card__chip">{item.goal}</span> : null}
                             </div>
-                            <h3>{item.title}</h3>
-                            <p>{item.description}</p>
+                            <h3 className="demo-gallery-card__title">{item.title}</h3>
+                            <p className="demo-gallery-card__description">{item.description}</p>
                           </div>
 
                           <a
-                            className="text-link"
+                            className="text-link demo-gallery-card__cta"
                             href={item.href}
                             target="_blank"
                             rel="noreferrer"

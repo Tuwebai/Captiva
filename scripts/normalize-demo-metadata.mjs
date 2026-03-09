@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { DEFAULT_DEMO_PREVIEW } from './lib/demo-factory/constants.mjs';
 
 const demosRoot = resolve(process.cwd(), 'demos');
 const templateRegistryPath = resolve(process.cwd(), 'scripts/contracts/template-registry.json');
@@ -93,6 +94,10 @@ function normalizeMeta(meta) {
   const template = inferTemplate(meta.category, meta.industry, meta.template);
   return {
     ...meta,
+    preview:
+      typeof meta.preview === 'string' && meta.preview.trim().length > 0
+        ? meta.preview
+        : DEFAULT_DEMO_PREVIEW,
     goal: meta.goal ?? inferGoal(meta.category ?? meta.industry),
     style: meta.style ?? 'premium',
     status: meta.status ?? 'active',
