@@ -1,5 +1,5 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
 import { loadBlogEntries } from './lib/blog-content.mjs';
 import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH, DEFAULT_DEMO_SECTIONS } from './lib/demos/constants.mjs';
@@ -7,7 +7,7 @@ import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH, DEFAULT_DEMO_SECTIONS 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const controlledDemoBase = '/demo';
 const demosRoot = resolve(process.cwd(), 'demos');
-const outputPath = resolve(process.cwd(), 'src/config/demos.generated.json');
+const outputPath = resolve(process.cwd(), 'src/generated/demos-index.json');
 const publicRoot = resolve(process.cwd(), 'public');
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const publicDemosRoot = resolve(publicRoot, 'demos');
@@ -15,8 +15,8 @@ const robotsPath = resolve(publicRoot, 'robots.txt');
 const sitemapPath = resolve(publicRoot, 'sitemap.xml');
 const slugMapPath = resolve(publicRoot, 'demo-slugs.json');
 const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
-const cityLandingsPath = resolve(process.cwd(), 'src/config/landing-city.generated.json');
-const examplesPath = resolve(process.cwd(), 'src/config/landing-examples.generated.json');
+const cityLandingsPath = resolve(process.cwd(), 'src/generated/city-landings.generated.json');
+const examplesPath = resolve(process.cwd(), 'src/generated/landing-examples.generated.json');
 const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
 const staticRoutes = ['/captiva', '/captiva/demos'];
 const blogContentDir = resolve(process.cwd(), 'src/content/blog');
@@ -577,6 +577,7 @@ async function main() {
 
   const centralManifest = buildDemosManifestPayload(manifest);
   writeDemosManifest(centralManifest);
+  mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(centralManifest.demos, null, 2)}\n`);
   writeDemoSlugMap(manifest);
   await writeSitemap(manifest);

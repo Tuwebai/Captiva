@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
+import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { trackEvent } from '../utils/analytics';
@@ -14,6 +15,7 @@ function buildSlug(param: string | undefined) {
 }
 
 export function ComparisonPage() {
+  const comparisonCta = getRouteCta('comparatives');
   const { comparison } = useParams<{ comparison: string }>();
   const slug = buildSlug(comparison);
   const entry = getComparisonBySlug(slug);
@@ -102,7 +104,7 @@ export function ComparisonPage() {
           <p>Podemos recomendarte el formato ideal según tu objetivo de captación y ciclo comercial.</p>
           <div className="cta-row">
             <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
-              Ver demos
+              {comparisonCta.primary}
             </Link>
             <ButtonLink
               href={siteConfig.contact.ctaHref}
@@ -116,7 +118,7 @@ export function ComparisonPage() {
               variant="secondary"
               onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: `${entry.slug}-whatsapp` })}
             >
-              Hablar por WhatsApp
+              {comparisonCta.secondary ?? 'Hablar por WhatsApp'}
             </ButtonLink>
           </div>
         </div>

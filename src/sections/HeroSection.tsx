@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
+import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { trackEvent } from '../utils/analytics';
 
 export function HeroSection() {
+  const homeCta = getRouteCta('home');
   const metricIcons = ['conversion', 'clarity', 'design', 'contact'] as const;
   const [flowStart, flowMiddle, flowEnd] = siteConfig.hero.panelFlowNodes;
 
@@ -35,11 +37,11 @@ export function HeroSection() {
               data-tooltip="Explora ejemplos reales de landing pages por industria."
               onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'ver-demos' })}
             >
-              {siteConfig.hero.demosCtaLabel}
+              {homeCta.primary}
             </Link>
             <span data-tooltip="Solicita una landing optimizada para captar clientes.">
               <PrimaryCTA
-                label={siteConfig.hero.primaryProductCtaLabel}
+                label={homeCta.secondary ?? siteConfig.hero.primaryProductCtaLabel}
                 mode="lead-form"
                 leadFormId="lead-form-hero"
                 source="hero"

@@ -1,11 +1,11 @@
-import comparisonsData from '../config/comparisons.json';
-import examplesData from '../config/landing-examples.generated.json';
-import demosManifest from '../config/demos.generated.json';
+import comparativesData from '../generated/comparatives-index.json';
+import demosManifest from '../generated/demos-index.json';
+import seoManifestData from '../generated/seo-manifest.json';
 import type { DemoManifestItem } from '../types/demo';
 import type { ComparisonEntry, LandingExample } from '../types/seo-cluster';
 
-const landingExamples = examplesData as LandingExample[];
-const comparisons = comparisonsData as ComparisonEntry[];
+const landingExamples = (seoManifestData as { landingExamples: LandingExample[] }).landingExamples;
+const comparisons = comparativesData as ComparisonEntry[];
 const demos = demosManifest as DemoManifestItem[];
 
 export function getLandingExamples() {

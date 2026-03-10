@@ -1,0 +1,115 @@
+[
+  {
+    "title": "Errores comunes al crear una landing page (y cómo solucionarlos)",
+    "description": "Descubre los errores más comunes que hacen que una landing page no convierta y cómo corregirlos para captar más clientes.",
+    "slug": "errores-landing-page",
+    "date": "2026-03-08",
+    "readingTime": 7,
+    "tags": [
+      "landing pages",
+      "conversion",
+      "marketing"
+    ],
+    "excerpt": "Introducción Muchas landing pages no convierten por un problema de estructura, no de diseño. Se ven correctas, tienen información, pero no guían al usuario hacia una acción clara. Cuando una página no transform…",
+    "ogImage": "/blog-og/errores-landing-page.svg"
+  },
+  {
+    "title": "Landing page para negocios locales: guía completa para captar clientes",
+    "description": "Aprende cómo una landing page puede ayudar a negocios locales a conseguir más consultas y clientes.",
+    "slug": "landing-page-negocios-locales",
+    "date": "2026-03-08",
+    "readingTime": 8,
+    "tags": [
+      "landing pages",
+      "negocios locales",
+      "marketing"
+    ],
+    "excerpt": "El problema de muchos negocios locales Muchos negocios locales dependen de recomendaciones y redes sociales, pero no tienen una página enfocada en convertir. El resultado suele ser: web genérica sin propuesta c…",
+    "ogImage": "/blog-og/landing-page-negocios-locales.svg"
+  },
+  {
+    "title": "Cómo crear una landing page que consiga clientes (método Captiva)",
+    "description": "Aprende paso a paso cómo crear una landing page que convierta visitantes en clientes usando el framework Captiva.",
+    "slug": "crear-landing-page-captiva",
+    "date": "2026-03-07",
+    "readingTime": 8,
+    "tags": [
+      "landing pages",
+      "conversion",
+      "marketing",
+      "captiva"
+    ],
+    "excerpt": "El problema actual: muchas páginas se ven bien, pero no convierten Muchos negocios invierten tiempo y dinero en una web que termina funcionando como un folleto digital. Tiene información y diseño, pero no consi…",
+    "ogImage": "/blog-og/crear-landing-page-captiva.svg"
+  },
+  {
+    "title": "Cómo conseguir clientes con una landing page",
+    "description": "Estrategias prácticas para transformar visitas en consultas usando una landing page enfocada en conversión.",
+    "slug": "como-conseguir-clientes-con-una-landing-page",
+    "date": "2026-03-01",
+    "readingTime": 6,
+    "tags": [
+      "conversion",
+      "landing pages",
+      "captacion"
+    ],
+    "excerpt": "Por qué una landing vende mejor que una página genérica Una landing page elimina distracciones y concentra al usuario en una sola acción: consultar. Cuando el mensaje está enfocado y el CTA es visible, la tasa…",
+    "ogImage": "/blog-og/como-conseguir-clientes-con-una-landing-page.svg"
+  },
+  {
+    "title": "Landing page vs sitio web: qué conviene para vender",
+    "description": "Comparativa real entre landing page y sitio institucional para elegir la mejor estructura según objetivo comercial.",
+    "slug": "landing-page-vs-sitio-web-que-conviene-para-vender",
+    "date": "2026-02-24",
+    "readingTime": 7,
+    "tags": [
+      "estrategia",
+      "conversion",
+      "ventas"
+    ],
+    "excerpt": "Diferencia clave: objetivo único vs navegación abierta Una landing está diseñada para una conversión concreta. Un sitio web tradicional reparte la atención entre secciones y suele funcionar mejor para branding…",
+    "ogImage": "/blog-og/landing-page-vs-sitio-web-que-conviene-para-vender.svg"
+  },
+  {
+    "title": "10 ejemplos de landing pages que convierten",
+    "description": "Patrones comunes de landing pages con buena conversion y como aplicarlos en distintos rubros.",
+    "slug": "10-ejemplos-de-landing-pages-que-convierten",
+    "date": "2026-02-15",
+    "readingTime": 8,
+    "tags": [
+      "ejemplos",
+      "ux",
+      "conversion"
+    ],
+    "excerpt": "Que tienen en comun las landing pages efectivas Mas alla del rubro, las paginas que convierten comparten estructura, claridad y una llamada a la accion dominante. Patrones que se repiten Hero con beneficio prin…",
+    "ogImage": "/blog-og/10-ejemplos-de-landing-pages-que-convierten.svg"
+  },
+  {
+    "title": "Landing page para dentistas: guía práctica para captar consultas",
+    "description": "Cómo estructurar una landing odontológica para mejorar confianza, explicar tratamientos y aumentar reservas.",
+    "slug": "landing-page-para-dentistas-guia-practica",
+    "date": "2026-02-07",
+    "readingTime": 6,
+    "tags": [
+      "salud",
+      "dentistas",
+      "conversion"
+    ],
+    "excerpt": "Problema típico en clínicas odontológicas Muchas clínicas dependen de redes sociales o recomendación boca a boca, pero no tienen una página enfocada en convertir pacientes listos para reservar. Secciones que no…",
+    "ogImage": "/blog-og/landing-page-para-dentistas-guia-practica.svg"
+  },
+  {
+    "title": "Landing page para gimnasios: qué debe incluir para convertir",
+    "description": "Checklist de bloques clave para que un gimnasio convierta visitas en consultas de nuevos alumnos.",
+    "slug": "landing-page-para-gimnasios-que-debe-incluir",
+    "date": "2026-01-30",
+    "readingTime": 6,
+    "tags": [
+      "fitness",
+      "gimnasios",
+      "captacion"
+    ],
+    "excerpt": "Objetivo principal de una landing para gimnasio La página debe llevar al visitante a pedir información o agendar una clase de prueba. Todo bloque que no aporte a eso debe simplificarse. Bloques recomendados Pro…",
+    "ogImage": "/blog-og/landing-page-para-gimnasios-que-debe-incluir.svg"
+  }
+]

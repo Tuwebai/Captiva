@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-10T02:37:17.465Z",
+  "generatedAt": "2026-03-10T04:30:35.706Z",
   "canonicalToPublic": {
     "demo-alegra-salud": "DEMO-AlegraSalud",
     "demo-clinica-dental-sonrisa": "DEMO-ClinicaDentalSonrisa",
@@ -15,6 +15,7 @@
     "demo-peluqueria": "DEMO-Peluqueria",
     "demo-real-estate": "DEMO-RealEstate",
     "demo-rocketgrowth-b2b": "DEMO-RocketGrowthB2B",
+    "demo-trading-platform": "DEMO-TradingPlatform",
     "demo-veterinaria": "DEMO-Veterinaria"
   },
   "aliasToCanonical": {
@@ -56,6 +57,9 @@
     "demo-rocketgrowthb2b": "demo-rocketgrowth-b2b",
     "demo rocketgrowth b2b": "demo-rocketgrowth-b2b",
     "demorocketgrowthb2b": "demo-rocketgrowth-b2b",
+    "demo-tradingplatform": "demo-trading-platform",
+    "demo trading platform": "demo-trading-platform",
+    "demotradingplatform": "demo-trading-platform",
     "demo veterinaria": "demo-veterinaria",
     "demoveterinaria": "demo-veterinaria"
   }

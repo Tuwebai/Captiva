@@ -1,4 +1,4 @@
-import demosManifest from '../config/demos.generated.json';
+import demosManifest from '../generated/demos-index.json';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';

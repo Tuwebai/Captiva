@@ -5,6 +5,7 @@ import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
+import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import type { BlogPostContent } from '../types/blog';
@@ -15,6 +16,7 @@ import { getIndustryLinks } from '../utils/seo-autolinks';
 const blogContentModules = import.meta.glob('../content/blog-content/*.json');
 
 export function BlogPostPage() {
+  const blogCta = getRouteCta('blog');
   const navigate = useNavigate();
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
@@ -165,7 +167,7 @@ export function BlogPostPage() {
               <h2>{siteConfig.pages.blog.sidebarDemosTitle}</h2>
               <p>{siteConfig.pages.blog.sidebarDemosDescription}</p>
               <Link className="text-link" to={siteConfig.routes.captivaDemos}>
-                {siteConfig.pages.blog.sidebarDemosLinkLabel}
+                {blogCta.primary}
               </Link>
             </SurfaceCard>
 
@@ -173,7 +175,7 @@ export function BlogPostPage() {
               <h2>{siteConfig.pages.blog.sidebarCtaTitle}</h2>
               <p>{siteConfig.pages.blog.sidebarCtaDescription}</p>
               <PrimaryCTA
-                label={siteConfig.pages.blog.sidebarCtaButtonLabel}
+                label={blogCta.secondary ?? siteConfig.pages.blog.sidebarCtaButtonLabel}
                 mode="lead-form"
                 leadFormId={`lead-form-blog-${post.slug}`}
                 source="blog-post"
@@ -187,7 +189,7 @@ export function BlogPostPage() {
               <p>Seguí este flujo para pasar de contenido a implementación comercial.</p>
               <div className="cta-row">
                 <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
-                  Ver demos
+                  {blogCta.primary}
                 </Link>
                 {featuredIndustry ? (
                   <Link className="button-link button-link--secondary" to={featuredIndustry.href}>
@@ -195,7 +197,7 @@ export function BlogPostPage() {
                   </Link>
                 ) : null}
                 <PrimaryCTA
-                  label="Quiero mi landing"
+                  label={blogCta.secondary ?? 'Quiero mi landing'}
                   mode="lead-form"
                   leadFormId={`lead-form-blog-${post.slug}`}
                   source="blog-post"

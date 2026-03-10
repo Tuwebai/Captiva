@@ -1,0 +1,3078 @@
+{
+  "generatedAt": "2026-03-10T04:30:40.956Z",
+  "cityLandings": [
+    {
+      "slug": "landing-page-para-gimnasios-madrid",
+      "path": "/landing-page-para-gimnasios-madrid",
+      "title": "Landing page para gimnasios en Madrid",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-barcelona",
+      "path": "/landing-page-para-gimnasios-barcelona",
+      "title": "Landing page para gimnasios en Barcelona",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-valencia",
+      "path": "/landing-page-para-gimnasios-valencia",
+      "title": "Landing page para gimnasios en Valencia",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-buenos-aires",
+      "path": "/landing-page-para-gimnasios-buenos-aires",
+      "title": "Landing page para gimnasios en Buenos Aires",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-cordoba",
+      "path": "/landing-page-para-gimnasios-cordoba",
+      "title": "Landing page para gimnasios en Cordoba",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-rosario",
+      "path": "/landing-page-para-gimnasios-rosario",
+      "title": "Landing page para gimnasios en Rosario",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-ciudad-de-mexico",
+      "path": "/landing-page-para-gimnasios-ciudad-de-mexico",
+      "title": "Landing page para gimnasios en Ciudad de Mexico",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-guadalajara",
+      "path": "/landing-page-para-gimnasios-guadalajara",
+      "title": "Landing page para gimnasios en Guadalajara",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-monterrey",
+      "path": "/landing-page-para-gimnasios-monterrey",
+      "title": "Landing page para gimnasios en Monterrey",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-gimnasios-bogota",
+      "path": "/landing-page-para-gimnasios-bogota",
+      "title": "Landing page para gimnasios en Bogota",
+      "description": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "gimnasios",
+        "name": "gimnasios",
+        "title": "Landing Page para Gimnasios",
+        "industrySlug": "landing-page-para-gimnasios",
+        "category": "fitness"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-madrid",
+      "path": "/landing-page-para-dentistas-madrid",
+      "title": "Landing page para dentistas en Madrid",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-barcelona",
+      "path": "/landing-page-para-dentistas-barcelona",
+      "title": "Landing page para dentistas en Barcelona",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-valencia",
+      "path": "/landing-page-para-dentistas-valencia",
+      "title": "Landing page para dentistas en Valencia",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-buenos-aires",
+      "path": "/landing-page-para-dentistas-buenos-aires",
+      "title": "Landing page para dentistas en Buenos Aires",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-cordoba",
+      "path": "/landing-page-para-dentistas-cordoba",
+      "title": "Landing page para dentistas en Cordoba",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-rosario",
+      "path": "/landing-page-para-dentistas-rosario",
+      "title": "Landing page para dentistas en Rosario",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-ciudad-de-mexico",
+      "path": "/landing-page-para-dentistas-ciudad-de-mexico",
+      "title": "Landing page para dentistas en Ciudad de Mexico",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-guadalajara",
+      "path": "/landing-page-para-dentistas-guadalajara",
+      "title": "Landing page para dentistas en Guadalajara",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-monterrey",
+      "path": "/landing-page-para-dentistas-monterrey",
+      "title": "Landing page para dentistas en Monterrey",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-dentistas-bogota",
+      "path": "/landing-page-para-dentistas-bogota",
+      "title": "Landing page para dentistas en Bogota",
+      "description": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "dentistas",
+        "name": "dentistas",
+        "title": "Landing Page para Dentistas",
+        "industrySlug": "landing-page-para-dentistas",
+        "category": "odontologia"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-madrid",
+      "path": "/landing-page-para-esteticas-madrid",
+      "title": "Landing page para esteticas en Madrid",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-barcelona",
+      "path": "/landing-page-para-esteticas-barcelona",
+      "title": "Landing page para esteticas en Barcelona",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-valencia",
+      "path": "/landing-page-para-esteticas-valencia",
+      "title": "Landing page para esteticas en Valencia",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-buenos-aires",
+      "path": "/landing-page-para-esteticas-buenos-aires",
+      "title": "Landing page para esteticas en Buenos Aires",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-cordoba",
+      "path": "/landing-page-para-esteticas-cordoba",
+      "title": "Landing page para esteticas en Cordoba",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-rosario",
+      "path": "/landing-page-para-esteticas-rosario",
+      "title": "Landing page para esteticas en Rosario",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-ciudad-de-mexico",
+      "path": "/landing-page-para-esteticas-ciudad-de-mexico",
+      "title": "Landing page para esteticas en Ciudad de Mexico",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-guadalajara",
+      "path": "/landing-page-para-esteticas-guadalajara",
+      "title": "Landing page para esteticas en Guadalajara",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-monterrey",
+      "path": "/landing-page-para-esteticas-monterrey",
+      "title": "Landing page para esteticas en Monterrey",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-esteticas-bogota",
+      "path": "/landing-page-para-esteticas-bogota",
+      "title": "Landing page para esteticas en Bogota",
+      "description": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "esteticas",
+        "name": "esteticas",
+        "title": "Landing Page para Esteticas",
+        "industrySlug": "landing-page-para-esteticas",
+        "category": "estetica"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-madrid",
+      "path": "/landing-page-para-abogados-madrid",
+      "title": "Landing page para abogados en Madrid",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-barcelona",
+      "path": "/landing-page-para-abogados-barcelona",
+      "title": "Landing page para abogados en Barcelona",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-valencia",
+      "path": "/landing-page-para-abogados-valencia",
+      "title": "Landing page para abogados en Valencia",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-buenos-aires",
+      "path": "/landing-page-para-abogados-buenos-aires",
+      "title": "Landing page para abogados en Buenos Aires",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-cordoba",
+      "path": "/landing-page-para-abogados-cordoba",
+      "title": "Landing page para abogados en Cordoba",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-rosario",
+      "path": "/landing-page-para-abogados-rosario",
+      "title": "Landing page para abogados en Rosario",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-ciudad-de-mexico",
+      "path": "/landing-page-para-abogados-ciudad-de-mexico",
+      "title": "Landing page para abogados en Ciudad de Mexico",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-guadalajara",
+      "path": "/landing-page-para-abogados-guadalajara",
+      "title": "Landing page para abogados en Guadalajara",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-monterrey",
+      "path": "/landing-page-para-abogados-monterrey",
+      "title": "Landing page para abogados en Monterrey",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-abogados-bogota",
+      "path": "/landing-page-para-abogados-bogota",
+      "title": "Landing page para abogados en Bogota",
+      "description": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "abogados",
+        "name": "abogados",
+        "title": "Landing Page para Abogados",
+        "industrySlug": "landing-page-para-abogados",
+        "category": "legal"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-madrid",
+      "path": "/landing-page-para-salud-madrid",
+      "title": "Landing page para servicios de salud en Madrid",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-barcelona",
+      "path": "/landing-page-para-salud-barcelona",
+      "title": "Landing page para servicios de salud en Barcelona",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-valencia",
+      "path": "/landing-page-para-salud-valencia",
+      "title": "Landing page para servicios de salud en Valencia",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-buenos-aires",
+      "path": "/landing-page-para-salud-buenos-aires",
+      "title": "Landing page para servicios de salud en Buenos Aires",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-cordoba",
+      "path": "/landing-page-para-salud-cordoba",
+      "title": "Landing page para servicios de salud en Cordoba",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-rosario",
+      "path": "/landing-page-para-salud-rosario",
+      "title": "Landing page para servicios de salud en Rosario",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-ciudad-de-mexico",
+      "path": "/landing-page-para-salud-ciudad-de-mexico",
+      "title": "Landing page para servicios de salud en Ciudad de Mexico",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-guadalajara",
+      "path": "/landing-page-para-salud-guadalajara",
+      "title": "Landing page para servicios de salud en Guadalajara",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-monterrey",
+      "path": "/landing-page-para-salud-monterrey",
+      "title": "Landing page para servicios de salud en Monterrey",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-salud-bogota",
+      "path": "/landing-page-para-salud-bogota",
+      "title": "Landing page para servicios de salud en Bogota",
+      "description": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "salud",
+        "name": "servicios de salud",
+        "title": "Landing Page para Servicios de Salud",
+        "industrySlug": "landing-page-para-salud",
+        "category": "salud"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-madrid",
+      "path": "/landing-page-para-negocios-locales-madrid",
+      "title": "Landing page para negocios locales en Madrid",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-barcelona",
+      "path": "/landing-page-para-negocios-locales-barcelona",
+      "title": "Landing page para negocios locales en Barcelona",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-valencia",
+      "path": "/landing-page-para-negocios-locales-valencia",
+      "title": "Landing page para negocios locales en Valencia",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-buenos-aires",
+      "path": "/landing-page-para-negocios-locales-buenos-aires",
+      "title": "Landing page para negocios locales en Buenos Aires",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-cordoba",
+      "path": "/landing-page-para-negocios-locales-cordoba",
+      "title": "Landing page para negocios locales en Cordoba",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-rosario",
+      "path": "/landing-page-para-negocios-locales-rosario",
+      "title": "Landing page para negocios locales en Rosario",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-ciudad-de-mexico",
+      "path": "/landing-page-para-negocios-locales-ciudad-de-mexico",
+      "title": "Landing page para negocios locales en Ciudad de Mexico",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-guadalajara",
+      "path": "/landing-page-para-negocios-locales-guadalajara",
+      "title": "Landing page para negocios locales en Guadalajara",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-monterrey",
+      "path": "/landing-page-para-negocios-locales-monterrey",
+      "title": "Landing page para negocios locales en Monterrey",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-negocios-locales-bogota",
+      "path": "/landing-page-para-negocios-locales-bogota",
+      "title": "Landing page para negocios locales en Bogota",
+      "description": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "negocios-locales",
+        "name": "negocios locales",
+        "title": "Landing Page para Negocios Locales",
+        "industrySlug": "landing-page-para-negocios-locales",
+        "category": "negocios-locales"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-madrid",
+      "path": "/landing-page-para-empresas-b2b-madrid",
+      "title": "Landing page para empresas b2b en Madrid",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-barcelona",
+      "path": "/landing-page-para-empresas-b2b-barcelona",
+      "title": "Landing page para empresas b2b en Barcelona",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-valencia",
+      "path": "/landing-page-para-empresas-b2b-valencia",
+      "title": "Landing page para empresas b2b en Valencia",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-buenos-aires",
+      "path": "/landing-page-para-empresas-b2b-buenos-aires",
+      "title": "Landing page para empresas b2b en Buenos Aires",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-cordoba",
+      "path": "/landing-page-para-empresas-b2b-cordoba",
+      "title": "Landing page para empresas b2b en Cordoba",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-rosario",
+      "path": "/landing-page-para-empresas-b2b-rosario",
+      "title": "Landing page para empresas b2b en Rosario",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-ciudad-de-mexico",
+      "path": "/landing-page-para-empresas-b2b-ciudad-de-mexico",
+      "title": "Landing page para empresas b2b en Ciudad de Mexico",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-guadalajara",
+      "path": "/landing-page-para-empresas-b2b-guadalajara",
+      "title": "Landing page para empresas b2b en Guadalajara",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-monterrey",
+      "path": "/landing-page-para-empresas-b2b-monterrey",
+      "title": "Landing page para empresas b2b en Monterrey",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-empresas-b2b-bogota",
+      "path": "/landing-page-para-empresas-b2b-bogota",
+      "title": "Landing page para empresas b2b en Bogota",
+      "description": "Landing pages B2B para convertir trafico en reuniones con decision makers. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "empresas-b2b",
+        "name": "empresas b2b",
+        "title": "Landing Page para Empresas B2B",
+        "industrySlug": "landing-page-para-empresas-b2b",
+        "category": "b2b"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-madrid",
+      "path": "/landing-page-para-veterinarias-madrid",
+      "title": "Landing page para veterinarias en Madrid",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-barcelona",
+      "path": "/landing-page-para-veterinarias-barcelona",
+      "title": "Landing page para veterinarias en Barcelona",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-valencia",
+      "path": "/landing-page-para-veterinarias-valencia",
+      "title": "Landing page para veterinarias en Valencia",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-buenos-aires",
+      "path": "/landing-page-para-veterinarias-buenos-aires",
+      "title": "Landing page para veterinarias en Buenos Aires",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-cordoba",
+      "path": "/landing-page-para-veterinarias-cordoba",
+      "title": "Landing page para veterinarias en Cordoba",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-rosario",
+      "path": "/landing-page-para-veterinarias-rosario",
+      "title": "Landing page para veterinarias en Rosario",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-ciudad-de-mexico",
+      "path": "/landing-page-para-veterinarias-ciudad-de-mexico",
+      "title": "Landing page para veterinarias en Ciudad de Mexico",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-guadalajara",
+      "path": "/landing-page-para-veterinarias-guadalajara",
+      "title": "Landing page para veterinarias en Guadalajara",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-monterrey",
+      "path": "/landing-page-para-veterinarias-monterrey",
+      "title": "Landing page para veterinarias en Monterrey",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-veterinarias-bogota",
+      "path": "/landing-page-para-veterinarias-bogota",
+      "title": "Landing page para veterinarias en Bogota",
+      "description": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "veterinarias",
+        "name": "veterinarias",
+        "title": "Landing Page para Veterinarias",
+        "industrySlug": "landing-page-para-veterinarias",
+        "category": "veterinaria"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-madrid",
+      "path": "/landing-page-para-inmobiliarias-madrid",
+      "title": "Landing page para inmobiliarias en Madrid",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-barcelona",
+      "path": "/landing-page-para-inmobiliarias-barcelona",
+      "title": "Landing page para inmobiliarias en Barcelona",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-valencia",
+      "path": "/landing-page-para-inmobiliarias-valencia",
+      "title": "Landing page para inmobiliarias en Valencia",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-buenos-aires",
+      "path": "/landing-page-para-inmobiliarias-buenos-aires",
+      "title": "Landing page para inmobiliarias en Buenos Aires",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-cordoba",
+      "path": "/landing-page-para-inmobiliarias-cordoba",
+      "title": "Landing page para inmobiliarias en Cordoba",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-rosario",
+      "path": "/landing-page-para-inmobiliarias-rosario",
+      "title": "Landing page para inmobiliarias en Rosario",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-ciudad-de-mexico",
+      "path": "/landing-page-para-inmobiliarias-ciudad-de-mexico",
+      "title": "Landing page para inmobiliarias en Ciudad de Mexico",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-guadalajara",
+      "path": "/landing-page-para-inmobiliarias-guadalajara",
+      "title": "Landing page para inmobiliarias en Guadalajara",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-monterrey",
+      "path": "/landing-page-para-inmobiliarias-monterrey",
+      "title": "Landing page para inmobiliarias en Monterrey",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-inmobiliarias-bogota",
+      "path": "/landing-page-para-inmobiliarias-bogota",
+      "title": "Landing page para inmobiliarias en Bogota",
+      "description": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "inmobiliarias",
+        "name": "inmobiliarias",
+        "title": "Landing Page para Inmobiliarias",
+        "industrySlug": "landing-page-para-inmobiliarias",
+        "category": "inmobiliaria"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-madrid",
+      "path": "/landing-page-para-restaurantes-madrid",
+      "title": "Landing page para restaurantes en Madrid",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Madrid, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "madrid",
+        "name": "Madrid",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-barcelona",
+      "path": "/landing-page-para-restaurantes-barcelona",
+      "title": "Landing page para restaurantes en Barcelona",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Barcelona, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "barcelona",
+        "name": "Barcelona",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-valencia",
+      "path": "/landing-page-para-restaurantes-valencia",
+      "title": "Landing page para restaurantes en Valencia",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Valencia, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "valencia",
+        "name": "Valencia",
+        "country": "Espana"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-buenos-aires",
+      "path": "/landing-page-para-restaurantes-buenos-aires",
+      "title": "Landing page para restaurantes en Buenos Aires",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Buenos Aires, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "buenos-aires",
+        "name": "Buenos Aires",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-cordoba",
+      "path": "/landing-page-para-restaurantes-cordoba",
+      "title": "Landing page para restaurantes en Cordoba",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Cordoba, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "cordoba",
+        "name": "Cordoba",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-rosario",
+      "path": "/landing-page-para-restaurantes-rosario",
+      "title": "Landing page para restaurantes en Rosario",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Rosario, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "rosario",
+        "name": "Rosario",
+        "country": "Argentina"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-ciudad-de-mexico",
+      "path": "/landing-page-para-restaurantes-ciudad-de-mexico",
+      "title": "Landing page para restaurantes en Ciudad de Mexico",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Ciudad de Mexico, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "ciudad-de-mexico",
+        "name": "Ciudad de Mexico",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-guadalajara",
+      "path": "/landing-page-para-restaurantes-guadalajara",
+      "title": "Landing page para restaurantes en Guadalajara",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Guadalajara, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "guadalajara",
+        "name": "Guadalajara",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-monterrey",
+      "path": "/landing-page-para-restaurantes-monterrey",
+      "title": "Landing page para restaurantes en Monterrey",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Monterrey, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "monterrey",
+        "name": "Monterrey",
+        "country": "Mexico"
+      }
+    },
+    {
+      "slug": "landing-page-para-restaurantes-bogota",
+      "path": "/landing-page-para-restaurantes-bogota",
+      "title": "Landing page para restaurantes en Bogota",
+      "description": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva. Enfoque local para Bogota, con estructura clara, CTA directo y conversion orientada a consultas.",
+      "niche": {
+        "slug": "restaurantes",
+        "name": "restaurantes",
+        "title": "Landing Page para Restaurantes",
+        "industrySlug": "landing-page-para-restaurantes",
+        "category": "restaurantes"
+      },
+      "city": {
+        "slug": "bogota",
+        "name": "Bogota",
+        "country": "Colombia"
+      }
+    }
+  ],
+  "landingExamples": [
+    {
+      "slug": "ejemplo-landing-page-gimnasios",
+      "path": "/ejemplo-landing-page-gimnasios",
+      "industry": "gimnasios",
+      "industrySlug": "landing-page-para-gimnasios",
+      "category": "fitness",
+      "demo": "DEMO-Gimnasio",
+      "title": "Ejemplo de landing page para gimnasios",
+      "description": "Descubri como es una landing page optimizada para gimnasios, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp.",
+      "highlights": [
+        "Mas consultas de potenciales alumnos",
+        "Presentacion profesional de planes y clases",
+        "Proceso de contacto rapido y sin friccion"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-dentistas",
+      "path": "/ejemplo-landing-page-dentistas",
+      "industry": "dentistas",
+      "industrySlug": "landing-page-para-dentistas",
+      "category": "odontologia",
+      "demo": "DEMO-Dentista",
+      "title": "Ejemplo de landing page para dentistas",
+      "description": "Descubri como es una landing page optimizada para dentistas, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta.",
+      "highlights": [
+        "Mejor confianza desde el primer vistazo",
+        "Mayor volumen de consultas calificadas",
+        "Informacion de tratamientos ordenada y clara"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-esteticas",
+      "path": "/ejemplo-landing-page-esteticas",
+      "industry": "esteticas",
+      "industrySlug": "landing-page-para-esteticas",
+      "category": "estetica",
+      "demo": "DEMO-Estetica",
+      "title": "Ejemplo de landing page para esteticas",
+      "description": "Descubri como es una landing page optimizada para esteticas, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato.",
+      "highlights": [
+        "Mas reservas y consultas desde la web",
+        "Comunicacion clara de servicios y beneficios",
+        "Marca visualmente consistente y profesional"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-abogados",
+      "path": "/ejemplo-landing-page-abogados",
+      "industry": "abogados",
+      "industrySlug": "landing-page-para-abogados",
+      "category": "legal",
+      "demo": "DEMO-EstudioJuridico",
+      "title": "Ejemplo de landing page para abogados",
+      "description": "Descubri como es una landing page optimizada para abogados, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato.",
+      "highlights": [
+        "Mas consultas sobre areas de practica",
+        "Imagen institucional solida",
+        "Flujo de contacto mas rapido y ordenado"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-salud",
+      "path": "/ejemplo-landing-page-salud",
+      "industry": "salud",
+      "industrySlug": "landing-page-para-salud",
+      "category": "salud",
+      "demo": "DEMO-AlegraSalud",
+      "title": "Ejemplo de landing page para servicios de salud",
+      "description": "Descubri como es una landing page optimizada para servicios de salud, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos.",
+      "highlights": [
+        "Mayor confianza en la primera visita",
+        "Informacion medica clara y accesible",
+        "Mas consultas y turnos desde la web"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-negocios-locales",
+      "path": "/ejemplo-landing-page-negocios-locales",
+      "industry": "negocios-locales",
+      "industrySlug": "landing-page-para-negocios-locales",
+      "category": "negocios-locales",
+      "demo": "DEMO-RocketGrowthB2B",
+      "title": "Ejemplo de landing page para negocios locales",
+      "description": "Descubri como es una landing page optimizada para negocios locales, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato.",
+      "highlights": [
+        "Mas contactos de clientes cercanos",
+        "Propuesta comercial mejor comunicada",
+        "Canal de contacto inmediato y profesional"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-empresas-b2b",
+      "path": "/ejemplo-landing-page-empresas-b2b",
+      "industry": "empresas-b2b",
+      "industrySlug": "landing-page-para-empresas-b2b",
+      "category": "b2b",
+      "demo": "DEMO-RocketGrowthB2B",
+      "title": "Ejemplo de landing page para empresas b2b",
+      "description": "Descubri como es una landing page optimizada para empresas b2b, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages B2B para convertir trafico en reuniones con decision makers.",
+      "highlights": [
+        "Leads comerciales de mayor calidad",
+        "Propuesta de valor mas clara para decision makers",
+        "Mejor tasa de conversion del trafico organico"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-veterinarias",
+      "path": "/ejemplo-landing-page-veterinarias",
+      "industry": "veterinarias",
+      "industrySlug": "landing-page-para-veterinarias",
+      "category": "veterinaria",
+      "demo": "DEMO-Veterinaria",
+      "title": "Ejemplo de landing page para veterinarias",
+      "description": "Descubri como es una landing page optimizada para veterinarias, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido.",
+      "highlights": [
+        "Mas turnos y consultas por web",
+        "Mejor confianza de propietarios de mascotas",
+        "Canales de contacto claros"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-inmobiliarias",
+      "path": "/ejemplo-landing-page-inmobiliarias",
+      "industry": "inmobiliarias",
+      "industrySlug": "landing-page-para-inmobiliarias",
+      "category": "inmobiliaria",
+      "demo": "DEMO-Inmobiliaria",
+      "title": "Ejemplo de landing page para inmobiliarias",
+      "description": "Descubri como es una landing page optimizada para inmobiliarias, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo.",
+      "highlights": [
+        "Mas solicitudes de visita",
+        "Mas contactos para tasaciones",
+        "Presentacion profesional de activos"
+      ]
+    },
+    {
+      "slug": "ejemplo-landing-page-restaurantes",
+      "path": "/ejemplo-landing-page-restaurantes",
+      "industry": "restaurantes",
+      "industrySlug": "landing-page-para-restaurantes",
+      "category": "restaurantes",
+      "demo": "DEMO-RocketGrowthB2B",
+      "title": "Ejemplo de landing page para restaurantes",
+      "description": "Descubri como es una landing page optimizada para restaurantes, enfocada en captar consultas y convertir visitas en clientes.",
+      "focus": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva.",
+      "highlights": [
+        "Mas reservas directas",
+        "Mejor presentacion de menu y experiencia",
+        "Canal de contacto centralizado"
+      ]
+    }
+  ],
+  "industries": [
+    {
+      "category": "legal",
+      "slug": "landing-page-para-abogados",
+      "name": "Abogados",
+      "industryName": "abogados",
+      "title": "Landing Page para Abogados",
+      "heroTitle": "Landing page para abogados orientada a consultas",
+      "heroDescription": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato.",
+      "problem": "Muchos estudios juridicos no convierten visitas porque su propuesta no esta estructurada para explicar especialidades y generar consulta.",
+      "solution": "Captiva crea paginas legales con claridad, respaldo profesional y canales de contacto directos.",
+      "painPoints": [
+        "Areas de practica sin jerarquia ni enfoque comercial",
+        "Mensaje institucional sin propuesta concreta",
+        "Formularios largos que frenan el contacto"
+      ],
+      "benefits": [
+        "Mas consultas sobre areas de practica",
+        "Imagen institucional solida",
+        "Flujo de contacto mas rapido y ordenado"
+      ],
+      "faq": [
+        {
+          "question": "Una landing legal mejora la captacion?",
+          "answer": "Si, porque prioriza especialidades, confianza y un camino claro de contacto."
+        },
+        {
+          "question": "Se puede adaptar por tipo de derecho?",
+          "answer": "Si, la estructura se personaliza segun civil, laboral, penal o corporativo."
+        }
+      ],
+      "demo": "DEMO-EstudioJuridico"
+    },
+    {
+      "category": "odontologia",
+      "slug": "landing-page-para-dentistas",
+      "name": "Dentistas",
+      "industryName": "dentistas",
+      "title": "Landing Page para Dentistas",
+      "heroTitle": "Landing page para dentistas que buscan mas consultas",
+      "heroDescription": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta.",
+      "problem": "Clinicas odontologicas pierden pacientes cuando su presencia digital no transmite confianza ni explica tratamientos con claridad.",
+      "solution": "Captiva diseña paginas para dentistas con foco en autoridad, servicios, testimonios y CTA de reserva.",
+      "painPoints": [
+        "Webs informativas que no convierten en reservas",
+        "Mensaje tecnico dificil de entender para pacientes nuevos",
+        "Canales de contacto sin prioridad ni seguimiento"
+      ],
+      "benefits": [
+        "Mejor confianza desde el primer vistazo",
+        "Mayor volumen de consultas calificadas",
+        "Informacion de tratamientos ordenada y clara"
+      ],
+      "faq": [
+        {
+          "question": "Una landing para dentistas sirve para captar pacientes nuevos?",
+          "answer": "Si, cuando el mensaje, la oferta y el CTA estan organizados para convertir visitas en consultas."
+        },
+        {
+          "question": "Se puede integrar WhatsApp y formulario?",
+          "answer": "Si, Captiva permite ambos canales para reducir friccion y aumentar conversion."
+        }
+      ],
+      "demo": "DEMO-Dentista"
+    },
+    {
+      "category": "b2b",
+      "slug": "landing-page-para-empresas-b2b",
+      "name": "Empresas B2B",
+      "industryName": "empresas b2b",
+      "title": "Landing Page para Empresas B2B",
+      "heroTitle": "Landing page para empresas B2B con foco en reuniones comerciales",
+      "heroDescription": "Landing pages B2B para convertir trafico en reuniones con decision makers.",
+      "problem": "En B2B la decision es racional y comparativa. Sin una landing clara, se pierde autoridad y oportunidad comercial.",
+      "solution": "Captiva estructura paginas B2B con foco en propuesta, credenciales, casos y conversion.",
+      "painPoints": [
+        "Mensaje tecnico sin traduccion a beneficio comercial",
+        "Casos y credenciales sin estructura de lectura",
+        "CTA sin contexto para agendar reuniones"
+      ],
+      "benefits": [
+        "Leads comerciales de mayor calidad",
+        "Propuesta de valor mas clara para decision makers",
+        "Mejor tasa de conversion del trafico organico"
+      ],
+      "faq": [
+        {
+          "question": "Captiva funciona para servicios B2B de ticket alto?",
+          "answer": "Si, porque organiza prueba, propuesta y CTA para ventas consultivas."
+        },
+        {
+          "question": "Se puede orientar a demos comerciales?",
+          "answer": "Si, la estructura puede optimizarse para reuniones y discovery calls."
+        }
+      ],
+      "demo": "DEMO-RocketGrowthB2B"
+    },
+    {
+      "category": "estetica",
+      "slug": "landing-page-para-esteticas",
+      "name": "Esteticas",
+      "industryName": "esteticas",
+      "title": "Landing Page para Esteticas",
+      "heroTitle": "Landing page para esteticas con enfoque en reservas",
+      "heroDescription": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato.",
+      "problem": "Sin una landing optimizada, centros esteticos pierden reservas por falta de estructura y confianza visual.",
+      "solution": "Captiva construye landings para esteticas con servicios jerarquizados y contacto directo.",
+      "painPoints": [
+        "Demasiadas opciones sin orden de decision",
+        "Imagen visual inconsistente entre secciones",
+        "CTA poco visible en mobile"
+      ],
+      "benefits": [
+        "Mas reservas y consultas desde la web",
+        "Comunicacion clara de servicios y beneficios",
+        "Marca visualmente consistente y profesional"
+      ],
+      "faq": [
+        {
+          "question": "Que servicios se suelen destacar en la landing?",
+          "answer": "Los mas demandados y rentables, con prioridad de lectura y CTA en cada bloque clave."
+        },
+        {
+          "question": "La landing puede adaptarse a promociones?",
+          "answer": "Si, se puede ajustar para campañas puntuales sin perder estructura de conversion."
+        }
+      ],
+      "demo": "DEMO-Estetica"
+    },
+    {
+      "category": "fitness",
+      "slug": "landing-page-para-gimnasios",
+      "name": "Gimnasios",
+      "industryName": "gimnasios",
+      "title": "Landing Page para Gimnasios",
+      "heroTitle": "Landing page para gimnasios que quieren mas alumnos",
+      "heroDescription": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp.",
+      "problem": "Muchos gimnasios dependen de redes sociales y pierden consultas por no tener una pagina clara con propuesta, planes y horarios.",
+      "solution": "Captiva crea landing pages para gimnasios con estructura de conversion, oferta visible y contacto directo.",
+      "painPoints": [
+        "Informacion dispersa entre historias, publicaciones y mensajes privados",
+        "Planes y diferenciales poco claros para visitas nuevas",
+        "Proceso de contacto sin un CTA dominante"
+      ],
+      "benefits": [
+        "Mas consultas de potenciales alumnos",
+        "Presentacion profesional de planes y clases",
+        "Proceso de contacto rapido y sin friccion"
+      ],
+      "faq": [
+        {
+          "question": "Cuanto tarda una landing para gimnasios?",
+          "answer": "En la mayoria de los casos puede publicarse en pocos dias, segun la disponibilidad de contenido y feedback."
+        },
+        {
+          "question": "Que incluye esta landing?",
+          "answer": "Incluye estructura de conversion, bloques de servicios, prueba social y CTA de contacto directo."
+        }
+      ],
+      "demo": "DEMO-Gimnasio"
+    },
+    {
+      "category": "inmobiliaria",
+      "slug": "landing-page-para-inmobiliarias",
+      "name": "Inmobiliarias",
+      "industryName": "inmobiliarias",
+      "title": "Landing Page para Inmobiliarias",
+      "heroTitle": "Landing page para inmobiliarias orientada a visitas y tasaciones",
+      "heroDescription": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo.",
+      "problem": "Inmobiliarias pierden leads cuando sus propiedades y diferenciales no estan presentados con estructura.",
+      "solution": "Captiva diseña landings inmobiliarias con foco en conversion a visita, consulta o tasacion.",
+      "painPoints": [
+        "Listados sin propuesta de valor del servicio",
+        "Falta de confianza en la primera visita",
+        "CTA no orientado a accion concreta"
+      ],
+      "benefits": [
+        "Mas solicitudes de visita",
+        "Mas contactos para tasaciones",
+        "Presentacion profesional de activos"
+      ],
+      "faq": [
+        {
+          "question": "La landing puede enfocarse en captacion de propietarios?",
+          "answer": "Si, se puede orientar a tasaciones y captacion de inmuebles."
+        },
+        {
+          "question": "Incluye filtros o secciones por tipo de propiedad?",
+          "answer": "Se puede estructurar por vertical para facilitar navegacion y conversion."
+        }
+      ],
+      "demo": "DEMO-Inmobiliaria"
+    },
+    {
+      "category": "negocios-locales",
+      "slug": "landing-page-para-negocios-locales",
+      "name": "Negocios Locales",
+      "industryName": "negocios locales",
+      "title": "Landing Page para Negocios Locales",
+      "heroTitle": "Landing page para negocios locales que quieren mas consultas",
+      "heroDescription": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato.",
+      "problem": "Muchos negocios locales pierden oportunidades por no tener una pagina enfocada en propuesta, ubicacion y contacto.",
+      "solution": "Captiva desarrolla paginas para negocios locales preparadas para captar demanda directa.",
+      "painPoints": [
+        "Dependencia total de redes sociales",
+        "Sin propuesta de valor clara en web",
+        "Poca visibilidad de ubicacion y horarios"
+      ],
+      "benefits": [
+        "Mas contactos de clientes cercanos",
+        "Propuesta comercial mejor comunicada",
+        "Canal de contacto inmediato y profesional"
+      ],
+      "faq": [
+        {
+          "question": "Sirve para negocios con una sola sede?",
+          "answer": "Si, es ideal para convertir trafico local en consultas directas."
+        },
+        {
+          "question": "Se puede conectar con mapa y horarios?",
+          "answer": "Si, se integran datos clave para acelerar decisiones de contacto."
+        }
+      ],
+      "demo": "DEMO-RocketGrowthB2B"
+    },
+    {
+      "category": "restaurantes",
+      "slug": "landing-page-para-restaurantes",
+      "name": "Restaurantes",
+      "industryName": "restaurantes",
+      "title": "Landing Page para Restaurantes",
+      "heroTitle": "Landing page para restaurantes orientada a reservas",
+      "heroDescription": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva.",
+      "problem": "Muchos restaurantes dependen de plataformas externas y no convierten trafico propio en reservas directas.",
+      "solution": "Captiva crea landings para restaurantes con propuesta culinaria clara y accion directa.",
+      "painPoints": [
+        "Menus desactualizados o poco legibles",
+        "Falta de CTA claro para reserva",
+        "Poca diferenciacion de experiencia"
+      ],
+      "benefits": [
+        "Mas reservas directas",
+        "Mejor presentacion de menu y experiencia",
+        "Canal de contacto centralizado"
+      ],
+      "faq": [
+        {
+          "question": "Puede integrarse con WhatsApp para reservas?",
+          "answer": "Si, es uno de los canales recomendados para conversion rapida."
+        },
+        {
+          "question": "Sirve para restaurantes con delivery?",
+          "answer": "Si, se puede orientar a reservas, pedidos o ambos."
+        }
+      ],
+      "demo": "DEMO-RocketGrowthB2B"
+    },
+    {
+      "category": "salud",
+      "slug": "landing-page-para-salud",
+      "name": "Servicios de Salud",
+      "industryName": "servicios de salud",
+      "title": "Landing Page para Servicios de Salud",
+      "heroTitle": "Landing page para salud con foco en confianza y turnos",
+      "heroDescription": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos.",
+      "problem": "Centros de salud requieren confianza y claridad. Sin una landing profesional, cae la conversion de visitas a turnos.",
+      "solution": "Captiva implementa landings para salud con contenido estructurado, autoridad visual y contacto simple.",
+      "painPoints": [
+        "Informacion medica extensa sin orden de decision",
+        "Falta de CTA de turnos visible",
+        "Canales de contacto inconsistentes"
+      ],
+      "benefits": [
+        "Mayor confianza en la primera visita",
+        "Informacion medica clara y accesible",
+        "Mas consultas y turnos desde la web"
+      ],
+      "faq": [
+        {
+          "question": "La landing puede mostrar especialidades y profesionales?",
+          "answer": "Si, se organiza por servicios y perfiles para facilitar la decision del paciente."
+        },
+        {
+          "question": "Incluye contacto por WhatsApp y formulario?",
+          "answer": "Si, se configuran canales directos para turnos y consultas."
+        }
+      ],
+      "demo": "DEMO-AlegraSalud"
+    },
+    {
+      "category": "veterinaria",
+      "slug": "landing-page-para-veterinarias",
+      "name": "Veterinarias",
+      "industryName": "veterinarias",
+      "title": "Landing Page para Veterinarias",
+      "heroTitle": "Landing page para veterinarias enfocada en turnos y confianza",
+      "heroDescription": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido.",
+      "problem": "Muchas veterinarias tienen informacion dispersa y pierden consultas por falta de estructura de conversion.",
+      "solution": "Captiva organiza servicios, urgencias y canales de contacto para aumentar conversion.",
+      "painPoints": [
+        "Servicios sin jerarquia ni claridad",
+        "Falta de visibilidad de turnos y urgencias",
+        "Contactos sin flujo de accion"
+      ],
+      "benefits": [
+        "Mas turnos y consultas por web",
+        "Mejor confianza de propietarios de mascotas",
+        "Canales de contacto claros"
+      ],
+      "faq": [
+        {
+          "question": "Se puede mostrar guardia y urgencias?",
+          "answer": "Si, se prioriza ese bloque para facilitar contacto inmediato."
+        },
+        {
+          "question": "La landing sirve para veterinarias de barrio?",
+          "answer": "Si, es especialmente efectiva para captacion local."
+        }
+      ],
+      "demo": "DEMO-Veterinaria"
+    }
+  ],
+  "comparatives": [
+    {
+      "slug": "landing-page-vs-sitio-web",
+      "title": "Landing page vs sitio web: que conviene para conseguir clientes",
+      "description": "Comparativa entre landing pages y sitios web tradicionales para captacion comercial.",
+      "rows": [
+        {
+          "criteria": "Objetivo",
+          "landingPage": "Conversion a consulta o lead",
+          "alternative": "Informacion general de marca"
+        },
+        {
+          "criteria": "Estructura",
+          "landingPage": "Mensaje unico y CTA dominante",
+          "alternative": "Multiples secciones y navegacion amplia"
+        },
+        {
+          "criteria": "Tiempo de salida",
+          "landingPage": "Implementacion rapida y enfocada",
+          "alternative": "Mayor tiempo de definicion y contenido"
+        },
+        {
+          "criteria": "Rendimiento comercial",
+          "landingPage": "Alta orientacion a conversion",
+          "alternative": "Menor foco en accion inmediata"
+        }
+      ]
+    },
+    {
+      "slug": "landing-page-vs-webflow",
+      "title": "Landing page vs Webflow: que elegir para convertir mas rapido",
+      "description": "Comparativa entre estrategia de landing orientada a conversion y construccion generica en Webflow.",
+      "rows": [
+        {
+          "criteria": "Enfoque",
+          "landingPage": "Estrategia comercial definida",
+          "alternative": "Herramienta flexible sin estrategia por defecto"
+        },
+        {
+          "criteria": "Complejidad",
+          "landingPage": "Implementacion guiada y acotada",
+          "alternative": "Requiere definir estructura y UX desde cero"
+        },
+        {
+          "criteria": "Go to market",
+          "landingPage": "Salida a produccion en dias",
+          "alternative": "Depende de curva tecnica y decisiones de diseno"
+        }
+      ]
+    },
+    {
+      "slug": "landing-page-vs-wordpress",
+      "title": "Landing page vs WordPress: cual conviene para captar consultas",
+      "description": "Comparativa entre una landing enfocada en conversion y un sitio montado en WordPress.",
+      "rows": [
+        {
+          "criteria": "Arquitectura",
+          "landingPage": "Una sola conversion principal",
+          "alternative": "Plantillas multiproposito"
+        },
+        {
+          "criteria": "Mantenimiento",
+          "landingPage": "Baja complejidad operativa",
+          "alternative": "Plugins, updates y riesgo de deuda tecnica"
+        },
+        {
+          "criteria": "Resultado esperado",
+          "landingPage": "Captar leads con menor friccion",
+          "alternative": "Mayor dispersion de atencion"
+        }
+      ]
+    }
+  ],
+  "demos": [
+    {
+      "slug": "demo-alegra-salud",
+      "folderName": "DEMO Alegra Salud",
+      "publicSlug": "DEMO-AlegraSalud",
+      "title": "Landing para Alegra Salud",
+      "description": "Demo para servicios de salud con estructura clara, beneficios visibles y llamada a consulta.",
+      "category": "salud",
+      "industry": "salud",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "salud",
+        "health",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-alegra-salud"
+    },
+    {
+      "slug": "demo-clinica-dental-sonrisa",
+      "folderName": "DEMO Clinica Dental Sonrisa",
+      "publicSlug": "DEMO-ClinicaDentalSonrisa",
+      "title": "Landing para Clínica Dental",
+      "description": "Demo para clínica dental con servicios destacados, confianza visual y CTA clara.",
+      "category": "odontologia",
+      "industry": "clinica-dental",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "odontologia",
+        "clinica-dental",
+        "health",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-clinica-dental-sonrisa"
+    },
+    {
+      "slug": "demo-dentista",
+      "folderName": "DEMO Dentista",
+      "publicSlug": "DEMO-Dentista",
+      "title": "Landing para Dentistas",
+      "description": "Landing optimizada para captar pacientes, presentar tratamientos y facilitar consultas.",
+      "category": "odontologia",
+      "industry": "dentista",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "odontologia",
+        "dentista",
+        "health",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-dentista"
+    },
+    {
+      "slug": "demo-carbon-detail",
+      "folderName": "DEMO Carbon Detail",
+      "publicSlug": "DEMO-CarbonDetail",
+      "title": "Landing para Detailing",
+      "description": "Demo para negocios de detailing y servicios locales con foco en propuesta, confianza y contacto.",
+      "category": "negocios-locales",
+      "industry": "detailing",
+      "goal": "leads",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "negocios-locales",
+        "detailing",
+        "business",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-carbon-detail"
+    },
+    {
+      "slug": "demo-estetica",
+      "folderName": "DEMO Estetica",
+      "publicSlug": "DEMO-Estetica",
+      "title": "Landing para Estética",
+      "description": "Landing profesional para centros estéticos que necesitan transmitir confianza y facilitar el contacto.",
+      "category": "estetica",
+      "industry": "estetica",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "estetica",
+        "beauty",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-estetica"
+    },
+    {
+      "slug": "demo-estudio-juridico",
+      "folderName": "DEMO Estudio Juridico",
+      "publicSlug": "DEMO-EstudioJuridico",
+      "title": "Landing para Estudio Jurídico",
+      "description": "Landing orientada a transmitir respaldo, áreas de práctica y contacto para estudios jurídicos.",
+      "category": "legal",
+      "industry": "abogado",
+      "goal": "consultations",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "legal",
+        "abogado",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-estudio-juridico"
+    },
+    {
+      "slug": "demo-gimnasio",
+      "folderName": "DEMO Gimnasio",
+      "publicSlug": "DEMO-Gimnasio",
+      "title": "Landing para Gimnasios",
+      "description": "Landing optimizada para captar nuevos alumnos y mostrar planes de entrenamiento de forma clara.",
+      "category": "fitness",
+      "industry": "gimnasio",
+      "goal": "memberships",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "fitness",
+        "gimnasio",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-gimnasio"
+    },
+    {
+      "slug": "demo-inmobiliaria",
+      "folderName": "DEMO Inmobiliaria",
+      "publicSlug": "DEMO-Inmobiliaria",
+      "title": "Landing para Inmobiliaria",
+      "description": "Landing inmobiliaria para presentar propiedades, proceso y canal de consulta profesional.",
+      "category": "negocios-locales",
+      "industry": "inmobiliaria",
+      "goal": "leads",
+      "template": "real-estate-split",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "negocios-locales",
+        "inmobiliaria",
+        "business",
+        "real-estate-split"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-inmobiliaria"
+    },
+    {
+      "slug": "demo-maximus-cycle-gym",
+      "folderName": "DEMO Maximus Cycle & Gym",
+      "publicSlug": "DEMO-MaximusCycle-Gym",
+      "title": "Landing para Maximus Cycle & Gym",
+      "description": "Landing para estudio fitness con identidad fuerte, clases destacadas y captación de consultas.",
+      "category": "fitness",
+      "industry": "gimnasio",
+      "goal": "memberships",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "fitness",
+        "gimnasio",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-maximus-cycle-gym"
+    },
+    {
+      "slug": "demo-mb-gym",
+      "folderName": "DEMO MB GYM",
+      "publicSlug": "DEMO-MBGYM",
+      "title": "Landing para MB GYM",
+      "description": "Demo para gimnasio urbano con foco en membresías, propuesta de valor y contacto directo.",
+      "category": "fitness",
+      "industry": "gimnasio",
+      "goal": "memberships",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "fitness",
+        "gimnasio",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-mb-gym"
+    },
+    {
+      "slug": "demo-san-bernardo-odontologia-y-estetica-facial",
+      "folderName": "DEMO San Bernardo Odontologia y Estetica Facial",
+      "publicSlug": "DEMO-SanBernardoOdontologiayEsteticaFacial",
+      "title": "Landing para Odontología y Estética Facial",
+      "description": "Landing médica premium para tratamientos odontológicos y estética facial con enfoque comercial.",
+      "category": "odontologia",
+      "industry": "odontologia",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "odontologia",
+        "health",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-san-bernardo-odontologia-y-estetica-facial"
+    },
+    {
+      "slug": "demo-peluqueria",
+      "folderName": "DEMO Peluqueria",
+      "publicSlug": "DEMO-Peluqueria",
+      "title": "Landing para Peluqueria",
+      "description": "Landing premium para peluquerias que necesitan mostrar trabajos, ordenar reservas y captar clientas por WhatsApp.",
+      "category": "estetica",
+      "industry": "peluqueria",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "peluqueria",
+        "beauty",
+        "service-business"
+      ],
+      "sections": [
+        "demo-banner",
+        "hero-premium",
+        "benefits-enterprise",
+        "services-catalog",
+        "process-premium",
+        "social-proof",
+        "differential",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate",
+        "watermark"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-peluqueria"
+    },
+    {
+      "slug": "demo-real-estate",
+      "folderName": "DEMO Real Estate",
+      "publicSlug": "DEMO-RealEstate",
+      "title": "Landing para Real Estate",
+      "description": "Demo de real estate con enfoque institucional y estructura de alta conversión.",
+      "category": "negocios-locales",
+      "industry": "inmobiliaria",
+      "goal": "leads",
+      "template": "real-estate-split",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "negocios-locales",
+        "inmobiliaria",
+        "business",
+        "real-estate-split"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-real-estate"
+    },
+    {
+      "slug": "demo-rocketgrowth-b2b",
+      "folderName": "DEMO RocketGrowth B2B",
+      "publicSlug": "DEMO-RocketGrowthB2B",
+      "title": "Landing para RocketGrowth B2B",
+      "description": "Demo B2B orientada a propuesta comercial clara, autoridad y generación de leads.",
+      "category": "b2b",
+      "industry": "b2b",
+      "goal": "leads",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "b2b",
+        "business",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-rocketgrowth-b2b"
+    },
+    {
+      "slug": "demo-trading-platform",
+      "folderName": "DEMO Trading Platform",
+      "publicSlug": "DEMO-TradingPlatform",
+      "title": "Landing para Trading Platform",
+      "description": "Demo premium para plataformas de trading y educacion financiera con foco en captacion de traders, autoridad visual y activacion comercial.",
+      "category": "b2b",
+      "industry": "trading",
+      "goal": "leads",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "trading",
+        "fintech",
+        "platform"
+      ],
+      "sections": [
+        "demo-banner",
+        "hero-premium",
+        "metrics-strip",
+        "benefits-enterprise",
+        "platform-features",
+        "trading-types",
+        "testimonials-carousel",
+        "process-premium",
+        "cta-final",
+        "footer-corporate",
+        "watermark"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-trading-platform"
+    },
+    {
+      "slug": "demo-veterinaria",
+      "folderName": "DEMO Veterinaria",
+      "publicSlug": "DEMO-Veterinaria",
+      "title": "Landing para Veterinaria",
+      "description": "Página orientada a confianza, servicios y contacto rápido para clínicas veterinarias.",
+      "category": "salud",
+      "industry": "veterinaria",
+      "goal": "appointments",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "salud",
+        "veterinaria",
+        "health",
+        "service-business"
+      ],
+      "sections": [
+        "hero-premium",
+        "benefits-enterprise",
+        "process-premium",
+        "services-catalog",
+        "plans-premium",
+        "gallery-premium",
+        "testimonials-carousel",
+        "faq-premium",
+        "cta-final",
+        "contact-split",
+        "footer-corporate"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-veterinaria"
+    }
+  ],
+  "blog": [
+    {
+      "title": "Errores comunes al crear una landing page (y cómo solucionarlos)",
+      "description": "Descubre los errores más comunes que hacen que una landing page no convierta y cómo corregirlos para captar más clientes.",
+      "slug": "errores-landing-page",
+      "date": "2026-03-08",
+      "readingTime": 7,
+      "tags": [
+        "landing pages",
+        "conversion",
+        "marketing"
+      ],
+      "excerpt": "Introducción Muchas landing pages no convierten por un problema de estructura, no de diseño. Se ven correctas, tienen información, pero no guían al usuario hacia una acción clara. Cuando una página no transform…",
+      "ogImage": "/blog-og/errores-landing-page.svg"
+    },
+    {
+      "title": "Landing page para negocios locales: guía completa para captar clientes",
+      "description": "Aprende cómo una landing page puede ayudar a negocios locales a conseguir más consultas y clientes.",
+      "slug": "landing-page-negocios-locales",
+      "date": "2026-03-08",
+      "readingTime": 8,
+      "tags": [
+        "landing pages",
+        "negocios locales",
+        "marketing"
+      ],
+      "excerpt": "El problema de muchos negocios locales Muchos negocios locales dependen de recomendaciones y redes sociales, pero no tienen una página enfocada en convertir. El resultado suele ser: web genérica sin propuesta c…",
+      "ogImage": "/blog-og/landing-page-negocios-locales.svg"
+    },
+    {
+      "title": "Cómo crear una landing page que consiga clientes (método Captiva)",
+      "description": "Aprende paso a paso cómo crear una landing page que convierta visitantes en clientes usando el framework Captiva.",
+      "slug": "crear-landing-page-captiva",
+      "date": "2026-03-07",
+      "readingTime": 8,
+      "tags": [
+        "landing pages",
+        "conversion",
+        "marketing",
+        "captiva"
+      ],
+      "excerpt": "El problema actual: muchas páginas se ven bien, pero no convierten Muchos negocios invierten tiempo y dinero en una web que termina funcionando como un folleto digital. Tiene información y diseño, pero no consi…",
+      "ogImage": "/blog-og/crear-landing-page-captiva.svg"
+    },
+    {
+      "title": "Cómo conseguir clientes con una landing page",
+      "description": "Estrategias prácticas para transformar visitas en consultas usando una landing page enfocada en conversión.",
+      "slug": "como-conseguir-clientes-con-una-landing-page",
+      "date": "2026-03-01",
+      "readingTime": 6,
+      "tags": [
+        "conversion",
+        "landing pages",
+        "captacion"
+      ],
+      "excerpt": "Por qué una landing vende mejor que una página genérica Una landing page elimina distracciones y concentra al usuario en una sola acción: consultar. Cuando el mensaje está enfocado y el CTA es visible, la tasa…",
+      "ogImage": "/blog-og/como-conseguir-clientes-con-una-landing-page.svg"
+    },
+    {
+      "title": "Landing page vs sitio web: qué conviene para vender",
+      "description": "Comparativa real entre landing page y sitio institucional para elegir la mejor estructura según objetivo comercial.",
+      "slug": "landing-page-vs-sitio-web-que-conviene-para-vender",
+      "date": "2026-02-24",
+      "readingTime": 7,
+      "tags": [
+        "estrategia",
+        "conversion",
+        "ventas"
+      ],
+      "excerpt": "Diferencia clave: objetivo único vs navegación abierta Una landing está diseñada para una conversión concreta. Un sitio web tradicional reparte la atención entre secciones y suele funcionar mejor para branding…",
+      "ogImage": "/blog-og/landing-page-vs-sitio-web-que-conviene-para-vender.svg"
+    },
+    {
+      "title": "10 ejemplos de landing pages que convierten",
+      "description": "Patrones comunes de landing pages con buena conversion y como aplicarlos en distintos rubros.",
+      "slug": "10-ejemplos-de-landing-pages-que-convierten",
+      "date": "2026-02-15",
+      "readingTime": 8,
+      "tags": [
+        "ejemplos",
+        "ux",
+        "conversion"
+      ],
+      "excerpt": "Que tienen en comun las landing pages efectivas Mas alla del rubro, las paginas que convierten comparten estructura, claridad y una llamada a la accion dominante. Patrones que se repiten Hero con beneficio prin…",
+      "ogImage": "/blog-og/10-ejemplos-de-landing-pages-que-convierten.svg"
+    },
+    {
+      "title": "Landing page para dentistas: guía práctica para captar consultas",
+      "description": "Cómo estructurar una landing odontológica para mejorar confianza, explicar tratamientos y aumentar reservas.",
+      "slug": "landing-page-para-dentistas-guia-practica",
+      "date": "2026-02-07",
+      "readingTime": 6,
+      "tags": [
+        "salud",
+        "dentistas",
+        "conversion"
+      ],
+      "excerpt": "Problema típico en clínicas odontológicas Muchas clínicas dependen de redes sociales o recomendación boca a boca, pero no tienen una página enfocada en convertir pacientes listos para reservar. Secciones que no…",
+      "ogImage": "/blog-og/landing-page-para-dentistas-guia-practica.svg"
+    },
+    {
+      "title": "Landing page para gimnasios: qué debe incluir para convertir",
+      "description": "Checklist de bloques clave para que un gimnasio convierta visitas en consultas de nuevos alumnos.",
+      "slug": "landing-page-para-gimnasios-que-debe-incluir",
+      "date": "2026-01-30",
+      "readingTime": 6,
+      "tags": [
+        "fitness",
+        "gimnasios",
+        "captacion"
+      ],
+      "excerpt": "Objetivo principal de una landing para gimnasio La página debe llevar al visitante a pedir información o agendar una clase de prueba. Todo bloque que no aporte a eso debe simplificarse. Bloques recomendados Pro…",
+      "ogImage": "/blog-og/landing-page-para-gimnasios-que-debe-incluir.svg"
+    }
+  ]
+}

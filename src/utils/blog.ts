@@ -1,4 +1,4 @@
-import blogIndex from '../config/blog.index.generated.json';
+import blogIndex from '../generated/blog-index.json';
 import type { BlogPostIndex } from '../types/blog';
 
 const posts = blogIndex as BlogPostIndex[];

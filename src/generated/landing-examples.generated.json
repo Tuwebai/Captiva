@@ -1,0 +1,162 @@
+[
+  {
+    "slug": "ejemplo-landing-page-gimnasios",
+    "path": "/ejemplo-landing-page-gimnasios",
+    "industry": "gimnasios",
+    "industrySlug": "landing-page-para-gimnasios",
+    "category": "fitness",
+    "demo": "DEMO-Gimnasio",
+    "title": "Ejemplo de landing page para gimnasios",
+    "description": "Descubri como es una landing page optimizada para gimnasios, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp.",
+    "highlights": [
+      "Mas consultas de potenciales alumnos",
+      "Presentacion profesional de planes y clases",
+      "Proceso de contacto rapido y sin friccion"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-dentistas",
+    "path": "/ejemplo-landing-page-dentistas",
+    "industry": "dentistas",
+    "industrySlug": "landing-page-para-dentistas",
+    "category": "odontologia",
+    "demo": "DEMO-Dentista",
+    "title": "Ejemplo de landing page para dentistas",
+    "description": "Descubri como es una landing page optimizada para dentistas, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta.",
+    "highlights": [
+      "Mejor confianza desde el primer vistazo",
+      "Mayor volumen de consultas calificadas",
+      "Informacion de tratamientos ordenada y clara"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-esteticas",
+    "path": "/ejemplo-landing-page-esteticas",
+    "industry": "esteticas",
+    "industrySlug": "landing-page-para-esteticas",
+    "category": "estetica",
+    "demo": "DEMO-Estetica",
+    "title": "Ejemplo de landing page para esteticas",
+    "description": "Descubri como es una landing page optimizada para esteticas, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato.",
+    "highlights": [
+      "Mas reservas y consultas desde la web",
+      "Comunicacion clara de servicios y beneficios",
+      "Marca visualmente consistente y profesional"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-abogados",
+    "path": "/ejemplo-landing-page-abogados",
+    "industry": "abogados",
+    "industrySlug": "landing-page-para-abogados",
+    "category": "legal",
+    "demo": "DEMO-EstudioJuridico",
+    "title": "Ejemplo de landing page para abogados",
+    "description": "Descubri como es una landing page optimizada para abogados, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato.",
+    "highlights": [
+      "Mas consultas sobre areas de practica",
+      "Imagen institucional solida",
+      "Flujo de contacto mas rapido y ordenado"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-salud",
+    "path": "/ejemplo-landing-page-salud",
+    "industry": "salud",
+    "industrySlug": "landing-page-para-salud",
+    "category": "salud",
+    "demo": "DEMO-AlegraSalud",
+    "title": "Ejemplo de landing page para servicios de salud",
+    "description": "Descubri como es una landing page optimizada para servicios de salud, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos.",
+    "highlights": [
+      "Mayor confianza en la primera visita",
+      "Informacion medica clara y accesible",
+      "Mas consultas y turnos desde la web"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-negocios-locales",
+    "path": "/ejemplo-landing-page-negocios-locales",
+    "industry": "negocios-locales",
+    "industrySlug": "landing-page-para-negocios-locales",
+    "category": "negocios-locales",
+    "demo": "DEMO-RocketGrowthB2B",
+    "title": "Ejemplo de landing page para negocios locales",
+    "description": "Descubri como es una landing page optimizada para negocios locales, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato.",
+    "highlights": [
+      "Mas contactos de clientes cercanos",
+      "Propuesta comercial mejor comunicada",
+      "Canal de contacto inmediato y profesional"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-empresas-b2b",
+    "path": "/ejemplo-landing-page-empresas-b2b",
+    "industry": "empresas-b2b",
+    "industrySlug": "landing-page-para-empresas-b2b",
+    "category": "b2b",
+    "demo": "DEMO-RocketGrowthB2B",
+    "title": "Ejemplo de landing page para empresas b2b",
+    "description": "Descubri como es una landing page optimizada para empresas b2b, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages B2B para convertir trafico en reuniones con decision makers.",
+    "highlights": [
+      "Leads comerciales de mayor calidad",
+      "Propuesta de valor mas clara para decision makers",
+      "Mejor tasa de conversion del trafico organico"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-veterinarias",
+    "path": "/ejemplo-landing-page-veterinarias",
+    "industry": "veterinarias",
+    "industrySlug": "landing-page-para-veterinarias",
+    "category": "veterinaria",
+    "demo": "DEMO-Veterinaria",
+    "title": "Ejemplo de landing page para veterinarias",
+    "description": "Descubri como es una landing page optimizada para veterinarias, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido.",
+    "highlights": [
+      "Mas turnos y consultas por web",
+      "Mejor confianza de propietarios de mascotas",
+      "Canales de contacto claros"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-inmobiliarias",
+    "path": "/ejemplo-landing-page-inmobiliarias",
+    "industry": "inmobiliarias",
+    "industrySlug": "landing-page-para-inmobiliarias",
+    "category": "inmobiliaria",
+    "demo": "DEMO-Inmobiliaria",
+    "title": "Ejemplo de landing page para inmobiliarias",
+    "description": "Descubri como es una landing page optimizada para inmobiliarias, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo.",
+    "highlights": [
+      "Mas solicitudes de visita",
+      "Mas contactos para tasaciones",
+      "Presentacion profesional de activos"
+    ]
+  },
+  {
+    "slug": "ejemplo-landing-page-restaurantes",
+    "path": "/ejemplo-landing-page-restaurantes",
+    "industry": "restaurantes",
+    "industrySlug": "landing-page-para-restaurantes",
+    "category": "restaurantes",
+    "demo": "DEMO-RocketGrowthB2B",
+    "title": "Ejemplo de landing page para restaurantes",
+    "description": "Descubri como es una landing page optimizada para restaurantes, enfocada en captar consultas y convertir visitas en clientes.",
+    "focus": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva.",
+    "highlights": [
+      "Mas reservas directas",
+      "Mejor presentacion de menu y experiencia",
+      "Canal de contacto centralizado"
+    ]
+  }
+]

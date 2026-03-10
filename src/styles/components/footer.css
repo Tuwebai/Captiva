@@ -1,0 +1,119 @@
+.final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  background: var(--cta-panel-surface);
+}
+
+.site-footer {
+  padding: 0 0 2.5rem;
+}
+
+.site-footer--with-rail {
+  padding-left: 18rem;
+  transition: padding-left 220ms ease;
+}
+
+.site-footer--rail-collapsed {
+  padding-left: 6.5rem;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.9fr);
+  align-items: start;
+  gap: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--footer-divider);
+}
+
+.footer-title {
+  margin-bottom: 0.5rem;
+}
+
+.footer-title a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-title a:hover,
+.footer-title a:focus-visible {
+  color: var(--link-hover-strong);
+}
+
+.footer-brand {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  max-width: 44rem;
+}
+
+.footer-brand__logo {
+  height: 4.1rem;
+  width: auto;
+  object-fit: contain;
+  justify-self: start;
+  margin-left: -0.8rem;
+}
+
+.footer-title,
+.footer-copy {
+  max-width: 58ch;
+}
+
+.footer-contact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: 100%;
+  color: var(--text-muted);
+  align-self: start;
+}
+
+.footer-contact__card {
+  display: grid;
+  align-content: start;
+  gap: 0.28rem;
+  min-height: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--footer-card-border);
+  border-radius: 12px;
+  background: var(--footer-card-surface);
+  transition: border-color 200ms ease, transform 200ms ease, background-color 200ms ease;
+}
+
+.footer-contact__card:hover,
+.footer-contact__card:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--footer-card-border-hover);
+}
+
+.footer-contact__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.footer-contact__value {
+  font-size: 0.98rem;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.footer-contact__card--legal {
+  grid-column: 1 / -1;
+  gap: 0.55rem;
+  padding-block: 1rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.5rem;
+}

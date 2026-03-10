@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO: Vanta Markets | Trading Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0c1a2d;
+      --surface: rgba(12, 26, 45, 0.88);
+      --surface-strong: rgba(14, 31, 53, 0.98);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(115, 148, 212, 0.24);
+      --text: #f4f7fb;
+      --text-soft: rgba(244, 247, 251, 0.72);
+      --text-muted: rgba(244, 247, 251, 0.5);
+      --accent: #33d69f;
+      --accent-2: #4d7dff;
+      --danger: #ff5d7d;
+      --warning: #f7b84b;
+      --shadow-lg: 0 28px 60px rgba(1, 9, 18, 0.42);
+      --shadow-sm: 0 14px 28px rgba(1, 9, 18, 0.24);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1240px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(77, 125, 255, 0.22), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(51, 214, 159, 0.16), transparent 22%),
+        linear-gradient(180deg, #081321 0%, #07111f 48%, #091628 100%);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max-width), calc(100% - 40px)); margin: 0 auto; }
+    .demo-banner {
+      background: linear-gradient(90deg, rgba(255, 93, 125, 0.95), rgba(247, 184, 75, 0.95));
+      color: #fff;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      padding: 11px 18px;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(6, 14, 24, 0.8);
+      border-bottom: 1px solid var(--line);
+    }
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 82px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand__mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(77, 125, 255, 0.96), rgba(51, 214, 159, 0.82));
+      color: #fff;
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      box-shadow: 0 18px 34px rgba(77, 125, 255, 0.28);
+    }
+    .brand__meta strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.08rem;
+      letter-spacing: -0.04em;
+    }
+    .brand__meta span {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .header-nav a:hover { color: var(--text); }
+    .header-actions { display: flex; align-items: center; gap: 14px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      cursor: pointer;
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button--primary {
+      background: linear-gradient(135deg, var(--accent-2), #5f8fff);
+      color: #fff;
+      box-shadow: 0 18px 34px rgba(77, 125, 255, 0.28);
+    }
+    .button--secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-color: var(--line);
+    }
+    .section { padding: 42px 0; }
+    .hero { padding: 34px 0 24px; }
+    .hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+    .hero__content, .hero__visual {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10, 24, 42, 0.92), rgba(7, 17, 31, 0.96));
+      box-shadow: var(--shadow-lg);
+    }
+    .hero__content { padding: 40px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #9dc2ff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .hero h1, .section h2, .section h3 {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: -0.05em;
+    }
+    .hero h1 {
+      margin-top: 22px;
+      font-size: clamp(3rem, 5vw, 4.7rem);
+      line-height: 0.98;
+    }
+    .hero p {
+      margin: 20px 0 0;
+      max-width: 650px;
+      color: var(--text-soft);
+      font-size: 1.06rem;
+      line-height: 1.8;
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 30px;
+    }
+    .hero__signals {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .hero__signal {
+      padding: 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .hero__signal strong {
+      display: block;
+      font-size: 1.5rem;
+      font-family: "Space Grotesk", sans-serif;
+    }
+    .hero__signal span {
+      display: block;
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+    .hero__visual {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+    .dashboard-card {
+      border-radius: 24px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, rgba(14, 31, 53, 0.98), rgba(10, 21, 38, 0.98));
+      overflow: hidden;
+    }
+    .dashboard-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .dashboard-topbar__dots { display: flex; gap: 7px; }
+    .dashboard-topbar__dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+    }
+    .dashboard-topbar__dots span:nth-child(1) { background: var(--danger); }
+    .dashboard-topbar__dots span:nth-child(2) { background: var(--warning); }
+    .dashboard-topbar__dots span:nth-child(3) { background: var(--accent); }
+    .dashboard-body {
+      display: grid;
+      gap: 18px;
+      padding: 22px;
+    }
+    .chart-shell {
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent), rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 22px;
+    }
+    .chart-shell__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .chart-shell__head strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.45rem;
+    }
+    .chart-shell__head span {
+      color: #87f1ca;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      align-items: end;
+      height: 180px;
+    }
+    .chart-grid span {
+      border-radius: 16px 16px 6px 6px;
+      background: linear-gradient(180deg, rgba(77, 125, 255, 0.95), rgba(51, 214, 159, 0.75));
+      box-shadow: 0 14px 24px rgba(77, 125, 255, 0.18);
+    }
+    .chart-grid span:nth-child(1) { height: 26%; }
+    .chart-grid span:nth-child(2) { height: 34%; }
+    .chart-grid span:nth-child(3) { height: 45%; }
+    .chart-grid span:nth-child(4) { height: 61%; }
+    .chart-grid span:nth-child(5) { height: 78%; }
+    .chart-grid span:nth-child(6) { height: 100%; }
+    .metrics-inline {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .metrics-inline article {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .metrics-inline strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .metrics-inline span {
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .metrics-strip { padding-top: 18px; }
+    .metrics-strip__row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .metrics-strip__row article {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .metrics-strip__row strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .metrics-strip__row span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .metrics-strip__row p {
+      margin: 14px 0 0;
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .section__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 26px;
+    }
+    .section__header h2 { font-size: clamp(2.15rem, 4vw, 3.45rem); }
+    .section__header p {
+      margin: 10px 0 0;
+      max-width: 620px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    .section__eyebrow {
+      color: #9dc2ff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .benefits-grid, .types-grid, .testimonials-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .benefits-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+    .benefit-panel, .type-card, .testimonial-card, .step-card, .footer-panel, .cta-panel, .feature-copy, .feature-visual {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .benefit-panel {
+      min-height: 290px;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .benefit-panel--dominant {
+      background: linear-gradient(180deg, rgba(77, 125, 255, 0.2), rgba(14, 31, 53, 0.98));
+      border-color: rgba(115, 148, 212, 0.34);
+    }
+    .benefit-panel h3, .type-card h3, .testimonial-card h3, .step-card h3, .feature-copy h3, .cta-panel h2 {
+      font-size: 1.55rem;
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.08;
+      margin-top: 0;
+    }
+    .benefit-panel p, .type-card p, .testimonial-card p, .step-card p, .feature-copy p, .footer-panel p, .cta-panel p {
+      color: var(--text-soft);
+      line-height: 1.75;
+      font-size: 0.98rem;
+    }
+    .feature-shell {
+      display: grid;
+      grid-template-columns: minmax(360px, 0.95fr) minmax(0, 1.05fr);
+      gap: 18px;
+    }
+    .feature-visual {
+      background: linear-gradient(180deg, rgba(13, 24, 41, 0.98), rgba(9, 18, 30, 0.98));
+      padding: 22px;
+      overflow: hidden;
+    }
+    .platform-window {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+    .platform-window__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .platform-window__body {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      min-height: 315px;
+    }
+    .platform-window__menu {
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      display: grid;
+      gap: 14px;
+      padding: 18px 14px;
+      align-content: start;
+    }
+    .platform-window__menu span {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .platform-window__content {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+    .platform-window__chart {
+      border-radius: 18px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(6, 14, 24, 0.05));
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      min-height: 170px;
+      position: relative;
+      overflow: hidden;
+    }
+    .platform-window__chart::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: 0.42;
+    }
+    .platform-window__chart svg { position: relative; z-index: 1; }
+    .platform-window__stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .platform-window__stats article {
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px;
+    }
+    .platform-window__stats strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.35rem;
+    }
+    .platform-window__stats span {
+      display: block;
+      margin-top: 6px;
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+    }
+    .feature-copy {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 30px;
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    .feature-list li:first-child { border-top: 0; padding-top: 0; }
+    .feature-list__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(77, 125, 255, 0.95), rgba(51, 214, 159, 0.85));
+      box-shadow: 0 14px 28px rgba(77, 125, 255, 0.18);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+    .feature-list strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .types-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .type-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 22px;
+    }
+    .type-card__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      color: #9dc2ff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .type-card__accent {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(51, 214, 159, 0.14);
+    }
+    .testimonials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .testimonial-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.03));
+      padding: 24px;
+    }
+    .testimonial-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .testimonial-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(77, 125, 255, 0.92), rgba(51, 214, 159, 0.72));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #fff;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .step-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 24px;
+      min-height: 240px;
+    }
+    .step-card__number {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--line);
+      color: #9dc2ff;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .cta-panel {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 20px;
+      background: linear-gradient(135deg, rgba(77, 125, 255, 0.2), rgba(7, 17, 31, 0.94));
+    }
+    .cta-copy {
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+    .cta-card {
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .cta-card form { display: grid; gap: 14px; }
+    .input {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      padding: 15px 16px;
+      font: inherit;
+    }
+    .input::placeholder { color: rgba(244, 247, 251, 0.38); }
+    .footer-panel {
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: end;
+    }
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+    .watermark {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(244, 247, 251, 0.26);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(12, 26, 45, 0.44);
+      backdrop-filter: blur(12px);
+    }
+    @media (max-width: 1180px) {
+      .hero__grid, .feature-shell, .cta-panel { grid-template-columns: 1fr; }
+      .benefits-grid, .metrics-strip__row, .types-grid, .testimonials-grid, .steps-grid, .footer-grid, .hero__signals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 820px) {
+      .container { width: min(var(--max-width), calc(100% - 28px)); }
+      .site-header__inner { flex-wrap: wrap; padding: 14px 0; }
+      .header-nav { display: none; }
+      .metrics-inline, .benefits-grid, .metrics-strip__row, .types-grid, .testimonials-grid, .steps-grid, .hero__signals {
+        grid-template-columns: 1fr;
+      }
+      .platform-window__body { grid-template-columns: 1fr; }
+      .platform-window__menu { display: none; }
+      .cta-panel, .feature-shell, .footer-grid { grid-template-columns: 1fr; }
+      .hero__content, .hero__visual, .cta-panel { padding-left: 22px; padding-right: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">Version demo para trading platform. Datos, volumenes y resultados visuales son demostrativos.</div>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="brand">
+        <div class="brand__mark">V</div>
+        <div class="brand__meta">
+          <strong>Vanta Markets</strong>
+          <span>Trading platform</span>
+        </div>
+      </div>
+      <nav class="header-nav" aria-label="Navegacion principal">
+        <a href="#beneficios">Ventajas</a>
+        <a href="#plataforma">Plataforma</a>
+        <a href="#mercados">Mercados</a>
+        <a href="#proceso">Proceso</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button button--secondary" href="#plataforma">Ver plataforma</a>
+        <a class="button button--primary" href="#cta-final">Crear cuenta demo</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="hero section">
+      <div class="container hero__grid">
+        <article class="hero__content">
+          <span class="eyebrow">Trading platform para captar traders</span>
+          <h1>Operá con claridad, velocidad y una experiencia que transmite autoridad financiera.</h1>
+          <p>Landing premium para plataformas de trading o academias que necesitan mostrar confianza, visual de producto, acceso a múltiples mercados y una activación clara de usuarios nuevos.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#cta-final">Empezar ahora</a>
+            <a class="button button--secondary" href="#testimonios">Ver resultados</a>
+          </div>
+          <div class="hero__signals">
+            <div class="hero__signal"><strong>4.9/5</strong><span>Trust score</span></div>
+            <div class="hero__signal"><strong>24/5</strong><span>Soporte de mesa</span></div>
+            <div class="hero__signal"><strong>0.1s</strong><span>Ejecucion media</span></div>
+          </div>
+        </article>
+        <aside class="hero__visual">
+          <div class="dashboard-card">
+            <div class="dashboard-topbar">
+              <div class="dashboard-topbar__dots"><span></span><span></span><span></span></div>
+              <strong style="font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted);">Live dashboard</strong>
+            </div>
+            <div class="dashboard-body">
+              <div class="chart-shell">
+                <div class="chart-shell__head">
+                  <div>
+                    <strong>+18.6%</strong>
+                    <p style="margin:8px 0 0; color:var(--text-muted); font-size:0.84rem; text-transform:uppercase; letter-spacing:0.16em;">Performance semanal</p>
+                  </div>
+                  <span>+7.4 pts</span>
+                </div>
+                <div class="chart-grid" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="metrics-inline">
+                <article><strong>BTC / USD</strong><span>Alta liquidez</span></article>
+                <article><strong>1:500</strong><span>Apalancamiento</span></article>
+                <article><strong>0.2 pips</strong><span>Spread desde</span></article>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="metrics-strip section">
+      <div class="container">
+        <div class="metrics-strip__row">
+          <article>
+            <strong>+82k</strong>
+            <span>Traders activos</span>
+            <p>Base de usuarios global con onboarding preparado para conversion mobile y desktop.</p>
+          </article>
+          <article>
+            <strong>US$ 940M</strong>
+            <span>Volumen mensual</span>
+            <p>La comunicacion enfatiza liquidez y confianza antes de pedir registro.</p>
+          </article>
+          <article>
+            <strong>12 anos</strong>
+            <span>Track record</span>
+            <p>Tiempo suficiente para anclar autoridad, respaldo y cultura de riesgo profesional.</p>
+          </article>
+          <article>
+            <strong>+18M</strong>
+            <span>Operaciones</span>
+            <p>Metrica social fuerte para sostener propuesta de plataforma seria y escalable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">Beneficios</span>
+            <h2>La landing prioriza confianza, lectura rapida y activacion clara.</h2>
+          </div>
+          <p>En verticales financieras no alcanza con verse moderna. La pagina tiene que transmitir seriedad, velocidad y control desde el primer scroll.</p>
+        </div>
+        <div class="benefits-grid">
+          <article class="benefit-panel benefit-panel--dominant">
+            <span class="section__eyebrow" style="color:#c8dcff;">Pieza dominante</span>
+            <h3>Dashboard visual que vende producto, no humo.</h3>
+            <p>El hero combina headline, metricas, CTA y una UI tipo terminal de trading para explicar que obtiene el usuario antes de pedir registro.</p>
+          </article>
+          <article class="benefit-panel">
+            <span class="section__eyebrow">Autoridad</span>
+            <h3>Prueba numerica visible</h3>
+            <p>Metricas, confianza y testimonios aparecen temprano para bajar la friccion tipica de productos financieros.</p>
+          </article>
+          <article class="benefit-panel">
+            <span class="section__eyebrow">Conversion</span>
+            <h3>CTA y registro sin ruido</h3>
+            <p>La activacion queda enfocada en demo account, educacion y primer deposito sin desordenar la lectura.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plataforma" class="section">
+      <div class="container">
+        <div class="feature-shell">
+          <article class="feature-visual">
+            <span class="section__eyebrow">Platform features</span>
+            <div class="platform-window">
+              <div class="platform-window__bar">
+                <span>Workspace</span>
+                <span>TRD-01</span>
+              </div>
+              <div class="platform-window__body">
+                <div class="platform-window__menu" aria-hidden="true">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="platform-window__content">
+                  <div class="platform-window__chart">
+                    <svg width="100%" height="130" viewBox="0 0 420 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10 105C55 96 70 82 116 86C164 90 188 34 236 36C274 38 286 76 332 68C362 63 386 41 410 18" stroke="#33D69F" stroke-width="4" stroke-linecap="round"/>
+                      <path d="M10 112C55 108 86 98 116 102C158 107 188 64 236 66C278 67 293 92 332 88C362 85 388 74 410 52" stroke="#4D7DFF" stroke-width="3" stroke-linecap="round" opacity="0.82"/>
+                    </svg>
+                  </div>
+                  <div class="platform-window__stats">
+                    <article><strong>4 paneles</strong><span>Vista multi chart</span></article>
+                    <article><strong>1 clic</strong><span>Orden rapida</span></article>
+                    <article><strong>Alertas</strong><span>Eventos clave</span></article>
+                    <article><strong>Copy trading</strong><span>Estrategias</span></article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="feature-copy">
+            <span class="section__eyebrow">Por que convierte</span>
+            <h3>La plataforma se explica como producto premium, no como promesa abstracta.</h3>
+            <p>El bloque combina visual de terminal, detalle funcional y benefits de producto para que la persona entienda por que probar la demo o crear una cuenta.</p>
+            <ul class="feature-list">
+              <li>
+                <div class="feature-list__icon">01</div>
+                <div>
+                  <strong>Dashboard moderno</strong>
+                  <p>Diseno oscuro, claro y profesional para transmitir velocidad, precision y entorno institucional.</p>
+                </div>
+              </li>
+              <li>
+                <div class="feature-list__icon">02</div>
+                <div>
+                  <strong>Educacion integrada</strong>
+                  <p>Ideal para plataformas que mezclan operativa con contenido formativo y quieren captar traders nuevos.</p>
+                </div>
+              </li>
+              <li>
+                <div class="feature-list__icon">03</div>
+                <div>
+                  <strong>Flujo a lead o deposito</strong>
+                  <p>La landing puede empujar a demo account, onboarding o conversacion comercial sin cambiar estructura.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="mercados" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">Trading types</span>
+            <h2>Mercados ordenados para que el usuario se identifique rapido.</h2>
+          </div>
+          <p>Una grilla horizontal con etiquetas fuertes ayuda a que el usuario vea si la propuesta encaja con su perfil operativo sin saturar el hero con demasiada informacion.</p>
+        </div>
+        <div class="types-grid">
+          <article class="type-card">
+            <span class="type-card__label"><span class="type-card__accent"></span>Forex</span>
+            <h3 style="margin-top:18px;">Pairs con alta liquidez</h3>
+            <p>Sesiones globales, spreads competitivos y ejecucion enfocada en operativa diaria.</p>
+          </article>
+          <article class="type-card">
+            <span class="type-card__label"><span class="type-card__accent"></span>Crypto</span>
+            <h3 style="margin-top:18px;">Volatilidad y timing</h3>
+            <p>Mercado 24/7 con panel visual fuerte para traders que priorizan velocidad y analisis.</p>
+          </article>
+          <article class="type-card">
+            <span class="type-card__label"><span class="type-card__accent"></span>Indices</span>
+            <h3 style="margin-top:18px;">Exposicion macro</h3>
+            <p>Instrumentos para operar contexto global con foco en estructura y diversificacion.</p>
+          </article>
+          <article class="type-card">
+            <span class="type-card__label"><span class="type-card__accent"></span>Commodities</span>
+            <h3 style="margin-top:18px;">Oro, petroleo y mas</h3>
+            <p>Oferta clara para traders que buscan cobertura, momentum y lectura institucional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">Testimonials</span>
+            <h2>Prueba social con lenguaje de traders reales.</h2>
+          </div>
+          <p>Los testimonios deben sonar precisos, enfocados en uso de la plataforma, velocidad de soporte y claridad del entorno.</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <div class="testimonial-avatar">MG</div>
+              <div>
+                <h3 style="margin-bottom:6px;">Martin G.</h3>
+                <p style="margin:0; color:var(--text-muted); font-size:0.84rem;">Forex intradia</p>
+              </div>
+            </div>
+            <p>“La demo dejo claro como se ve la mesa, donde estan las alertas y que tan rapido puedo ejecutar. Me transmitio control antes de abrir cuenta.”</p>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <div class="testimonial-avatar">LC</div>
+              <div>
+                <h3 style="margin-bottom:6px;">Laura C.</h3>
+                <p style="margin:0; color:var(--text-muted); font-size:0.84rem;">Swing crypto</p>
+              </div>
+            </div>
+            <p>“Lo que mas me convencio fue el equilibrio entre visual premium y claridad comercial. No parece una promesa vacia: parece producto.”</p>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-head">
+              <div class="testimonial-avatar">RS</div>
+              <div>
+                <h3 style="margin-bottom:6px;">Ricardo S.</h3>
+                <p style="margin:0; color:var(--text-muted); font-size:0.84rem;">Indices y commodities</p>
+              </div>
+            </div>
+            <p>“El paso a demo account es directo y el mensaje comercial esta bien ordenado. La landing se siente como una plataforma seria, no una promo improvisada.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="section">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="section__eyebrow">How it works</span>
+            <h2>Un flujo simple para pasar de visitante a trader activo.</h2>
+          </div>
+          <p>El proceso comercial esta explicado en tres pasos para reducir ansiedad, ordenar la activacion y empujar el primer paso correcto.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-card__number">01</div>
+            <h3>Crear cuenta</h3>
+            <p>Registro simple para demo account o onboarding guiado, con foco en velocidad y confianza.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-card__number">02</div>
+            <h3>Analizar mercado</h3>
+            <p>Dashboard, watchlists, alertas y materiales formativos ayudan a tomar decisiones con mas contexto.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-card__number">03</div>
+            <h3>Operar</h3>
+            <p>El CTA final guia a la accion concreta: probar, fondear o hablar con un advisor segun el modelo de negocio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta-final" class="section">
+      <div class="container">
+        <div class="cta-panel">
+          <div class="cta-copy">
+            <span class="section__eyebrow">CTA final</span>
+            <h2>Si el producto se ve solido, el lead llega mas convencido.</h2>
+            <p>Captiva diseña landings que hacen que una trading platform se sienta institucional, clara y lista para captar registros o conversaciones de alto valor.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:14px;">
+              <a class="button button--primary" href="https://wa.me/5491145567788?text=Hola%2C%20quiero%20una%20landing%20como%20la%20demo%20de%20trading." target="_blank" rel="noreferrer">Hablar por WhatsApp</a>
+              <a class="button button--secondary" href="/captiva/demos">Ver mas demos</a>
+            </div>
+          </div>
+          <aside class="cta-card">
+            <span class="section__eyebrow">Contacto demo</span>
+            <form id="lead-form">
+              <input class="input" type="text" placeholder="Nombre completo" required>
+              <input class="input" type="email" placeholder="Email profesional" required>
+              <textarea class="input" rows="4" placeholder="Quiero una landing premium para captar traders y activar demo accounts."></textarea>
+              <button class="button button--primary" type="submit" style="width:100%;">Solicitar landing</button>
+            </form>
+            <p id="lead-feedback" style="display:none; margin-top:14px; color:#bde9d9; line-height:1.7;">Demo enviada. En un proyecto real, este contacto activaria WhatsApp o flujo comercial estructurado.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section" style="padding-top: 12px; padding-bottom: 40px;">
+    <div class="container">
+      <div class="footer-panel">
+        <div class="footer-grid">
+          <div>
+            <div class="brand">
+              <div class="brand__mark">C</div>
+              <div class="brand__meta">
+                <strong>Captiva</strong>
+                <span>Producto de Tuwebai</span>
+              </div>
+            </div>
+            <p style="margin-top:18px;">Demo manual de catalogo para vertical fintech/trading. El foco esta en autoridad visual, lectura comercial clara y activacion de usuarios interesados en operar.</p>
+          </div>
+          <div class="footer-links">
+            <a href="/captiva">Captiva</a>
+            <a href="/captiva/demos">Biblioteca de demos</a>
+            <a href="/politica-de-privacidad">Politica de privacidad</a>
+            <a href="/terminos-de-servicio">Terminos de servicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="watermark">Captiva Demo</div>
+
+  <script>
+    const leadForm = document.getElementById("lead-form");
+    const feedback = document.getElementById("lead-feedback");
+    leadForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      feedback.style.display = "block";
+      leadForm.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.container {
+  width: min(calc(100% - 2rem), var(--container-width));
+  margin: 0 auto;
+}
+
+.site-shell {
+  min-height: 100vh;
+  position: relative;
+}
+
+.site-main {
+  min-height: 50vh;
+}
+
+.site-main--with-rail {
+  padding-left: 18rem;
+  transition: padding-left 220ms ease;
+}
+
+.site-main--rail-collapsed {
+  padding-left: 6.5rem;
+}
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+.mobile-floating-theme-switch {
+  display: none;
+}
+

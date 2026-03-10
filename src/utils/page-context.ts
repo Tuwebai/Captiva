@@ -1,7 +1,6 @@
-import cityLandingsData from '../config/landing-city.generated.json';
-import comparisonsData from '../config/comparisons.json';
-import examplesData from '../config/landing-examples.generated.json';
-import industryCatalogData from '../config/industry.catalog.json';
+import comparativesData from '../generated/comparatives-index.json';
+import industriesData from '../generated/industries-index.json';
+import seoManifestData from '../generated/seo-manifest.json';
 import type { CityLandingEntry } from '../types/city-landing';
 import type { ComparisonEntry, LandingExample } from '../types/seo-cluster';
 
@@ -26,16 +25,20 @@ export type PageContext = {
   slug?: string;
 };
 
-const cityLandings = cityLandingsData as CityLandingEntry[];
-const landingExamples = examplesData as LandingExample[];
-const comparisons = comparisonsData as ComparisonEntry[];
-const industryCatalog = industryCatalogData as Record<string, { slug: string; industryName?: string; name?: string }>;
+const seoManifest = seoManifestData as {
+  cityLandings: CityLandingEntry[];
+  landingExamples: LandingExample[];
+};
+const cityLandings = seoManifest.cityLandings;
+const landingExamples = seoManifest.landingExamples;
+const comparisons = comparativesData as ComparisonEntry[];
+const industries = industriesData as Array<{ slug: string; industryName?: string; name?: string }>;
 
 const cityByPath = new Map(cityLandings.map((entry) => [entry.path, entry]));
 const exampleByPath = new Map(landingExamples.map((entry) => [`/${entry.slug}`, entry]));
 const comparisonByPath = new Map(comparisons.map((entry) => [`/${entry.slug}`, entry]));
 const industryByPath = new Map(
-  Object.values(industryCatalog).map((entry) => [`/${entry.slug}`, entry]),
+  industries.map((entry) => [`/${entry.slug}`, entry]),
 );
 
 export function resolvePageContextFromPath(pathname: string): PageContext {

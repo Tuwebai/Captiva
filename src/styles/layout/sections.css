@@ -1,0 +1,311 @@
+.hero-section,
+.content-section {
+  padding: 5rem 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.9fr);
+  gap: 2rem;
+  align-items: stretch;
+  padding-top: 2.25rem;
+}
+
+.hero-copy,
+.hero-panel,
+.surface-card,
+.final-cta {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px);
+}
+
+.hero-copy {
+  padding: clamp(2rem, 3vw, 4rem);
+  background: var(--hero-copy-surface);
+}
+
+.hero-product-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2rem;
+  margin-bottom: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--hero-product-badge-border);
+  border-radius: 999px;
+  background: var(--hero-product-badge-surface);
+  color: var(--hero-product-badge-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hero-product-badge:hover,
+.hero-product-badge:focus-visible {
+  color: var(--hero-product-badge-hover-text);
+  border-color: var(--hero-product-badge-hover-border);
+  background: var(--hero-product-badge-hover-surface);
+}
+
+.hero-copy__eyebrow,
+.section-heading__eyebrow,
+.hero-panel__label,
+.demo-card__header span {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1,
+.hero-copy h2,
+.section-heading h2,
+.final-cta h2 {
+  margin: 0;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.hero-copy h1 {
+  max-width: 13.5ch;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  background: var(--hero-title-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy h2 {
+  margin-top: 0.75rem;
+  max-width: 11ch;
+  font-size: clamp(1.85rem, 3vw, 3rem);
+  color: var(--text);
+}
+
+.hero-copy__body,
+.section-heading p,
+.surface-card p,
+.final-cta p,
+.footer-copy {
+  color: var(--text-muted);
+}
+
+.hero-copy__body {
+  max-width: 62ch;
+  margin: 1rem 0 0;
+  font-size: 0.98rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-contact-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0.85rem 0;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.hero-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 2rem;
+  background: var(--hero-panel-surface);
+}
+
+.hero-panel__visual {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  min-height: 210px;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--hero-panel-visual-surface);
+}
+
+.hero-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.hero-flow__node {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--hero-flow-node-surface);
+}
+
+.hero-flow__arrow {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-conversion-kpi {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+}
+
+.hero-conversion-kpi strong {
+  margin: 0;
+  color: var(--hero-kpi);
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.hero-conversion-kpi span {
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-conversion-chart {
+  display: flex;
+  justify-content: center;
+  min-height: 62px;
+}
+
+.hero-conversion-chart svg {
+  width: min(100%, 210px);
+  height: auto;
+  overflow: visible;
+}
+
+.hero-conversion-chart__line {
+  fill: none;
+  stroke: var(--hero-chart-line);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px var(--hero-chart-glow));
+  stroke-dasharray: 210;
+  stroke-dashoffset: 0;
+}
+
+.hero-conversion-chart__dot {
+  fill: var(--hero-chart-line);
+  filter: drop-shadow(0 0 5px var(--hero-chart-glow));
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-conversion-chart__line {
+    stroke-dashoffset: 210;
+    animation: heroLineDraw 1.2s ease-out forwards;
+  }
+
+  .hero-conversion-chart__dot {
+    opacity: 0;
+    animation: heroDotFade 0.45s ease forwards;
+  }
+
+  .hero-conversion-chart__dot:nth-of-type(2) { animation-delay: 0.15s; }
+  .hero-conversion-chart__dot:nth-of-type(3) { animation-delay: 0.3s; }
+  .hero-conversion-chart__dot:nth-of-type(4) { animation-delay: 0.45s; }
+  .hero-conversion-chart__dot:nth-of-type(5) { animation-delay: 0.6s; }
+  .hero-conversion-chart__dot:nth-of-type(6) { animation-delay: 0.75s; }
+}
+
+@keyframes heroLineDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes heroDotFade {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-metrics {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero-metrics li {
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--hero-metric-surface);
+}
+
+.hero-metrics__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
+}
+
+.hero-metrics__title .feature-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: 0;
+  border-radius: 0.65rem;
+}
+
+.hero-metrics strong,
+.surface-card h3,
+.process-list__item h3,
+.footer-title {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-metrics span {
+  color: var(--text-muted);
+}
+
+.content-section--alt {
+  background: transparent;
+}
+
+.content-section--cta {
+  padding-top: 1rem;
+}
+
+.section-heading {
+  display: grid;
+  gap: 1rem;
+  max-width: 58rem;
+  margin-bottom: 2rem;
+}
+
+.section-heading h2,
+.final-cta h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+

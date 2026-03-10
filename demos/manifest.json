@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-10T02:37:17.462Z",
+  "generatedAt": "2026-03-10T04:30:35.701Z",
   "demos": [
     {
       "slug": "demo-alegra-salud",
@@ -524,6 +524,43 @@
       "preview": "/assets/placeholders/captiva-demo-preview.svg",
       "status": "active",
       "href": "/demo/demo-rocketgrowth-b2b"
+    },
+    {
+      "slug": "demo-trading-platform",
+      "folderName": "DEMO Trading Platform",
+      "publicSlug": "DEMO-TradingPlatform",
+      "title": "Landing para Trading Platform",
+      "description": "Demo premium para plataformas de trading y educacion financiera con foco en captacion de traders, autoridad visual y activacion comercial.",
+      "category": "b2b",
+      "industry": "trading",
+      "goal": "leads",
+      "template": "service-business",
+      "variant": "default",
+      "tier": "legacy",
+      "style": "premium",
+      "tags": [
+        "captiva",
+        "demo",
+        "trading",
+        "fintech",
+        "platform"
+      ],
+      "sections": [
+        "demo-banner",
+        "hero-premium",
+        "metrics-strip",
+        "benefits-enterprise",
+        "platform-features",
+        "trading-types",
+        "testimonials-carousel",
+        "process-premium",
+        "cta-final",
+        "footer-corporate",
+        "watermark"
+      ],
+      "preview": "/assets/placeholders/captiva-demo-preview.svg",
+      "status": "active",
+      "href": "/demo/demo-trading-platform"
     },
     {
       "slug": "demo-veterinaria",

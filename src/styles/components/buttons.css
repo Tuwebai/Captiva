@@ -1,0 +1,51 @@
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.button-link:hover,
+.button-link:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-link:focus-visible,
+.text-link:focus-visible,
+.hero-contact-link:focus-visible,
+.footer-contact a:focus-visible,
+.brand-mark:focus-visible {
+  box-shadow: var(--focus-ring);
+  outline: none;
+  outline-offset: 3px;
+}
+
+.button-link--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: var(--accent-contrast);
+  box-shadow: var(--mobile-nav-cta-shadow);
+}
+
+.button-link--primary:hover,
+.button-link--primary:focus-visible {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent-hover));
+}
+
+.button-link--secondary {
+  border-color: var(--line-strong);
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+

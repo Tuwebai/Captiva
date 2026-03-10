@@ -6,7 +6,8 @@ import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
-import demosManifest from '../config/demos.generated.json';
+import { getRouteCta } from '../config/cta-strategy';
+import demosManifest from '../generated/demos-index.json';
 import { siteConfig } from '../config/site';
 import type { DemoCategoryGroup, DemoManifestItem } from '../types/demo';
 import { trackEvent } from '../utils/analytics';
@@ -106,6 +107,7 @@ type DemosGallerySectionProps = {
 };
 
 export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) {
+  const demosCta = getRouteCta('demos');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const params = useParams();
@@ -338,6 +340,56 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                 </SurfaceCard>
               )}
             </div>
+
+            <div className="demos-catalog-followup">
+              <div className="industry-cta">
+                <h2>{siteConfig.demos.ctaTitle}</h2>
+                <p>{siteConfig.demos.ctaDescription}</p>
+                <span data-tooltip="Solicita una landing optimizada para captar clientes.">
+                  <PrimaryCTA
+                    label={demosCta.primary}
+                    variant="primary"
+                    mode="lead-form"
+                    leadFormId="lead-form-demos"
+                    source="demos"
+                    context={normalizedIndustryFilterKey === 'all' ? 'captiva-demos' : `captiva-demos-${normalizedIndustryFilterKey}`}
+                    industry={normalizedIndustryFilterKey === 'all' ? undefined : normalizedIndustryFilterKey}
+                  />
+                </span>
+              </div>
+
+              <LeadFormSection
+                id="lead-form-demos"
+                source="demos"
+                context={normalizedIndustryFilterKey === 'all' ? 'captiva-demos' : `captiva-demos-${normalizedIndustryFilterKey}`}
+                industry={normalizedIndustryFilterKey === 'all' ? undefined : normalizedIndustryFilterKey}
+                title="Solicitar una landing basada en estas demos"
+                description="Te contactamos por WhatsApp con una propuesta segun el rubro y la estructura que mas te guste."
+              />
+
+              {topCityLandings.length > 0 ? (
+                <section className="industry-links">
+                  <h2>Landing pages por ciudad</h2>
+                  <div className="card-grid card-grid--three">
+                    {topCityLandings.map((item) => (
+                      <SurfaceCard key={item.slug}>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                        <Link
+                          className="text-link"
+                          to={item.path}
+                          onClick={() => trackEvent({ event: 'internal_nav', category: 'city-landing', label: item.slug })}
+                        >
+                          Ver pagina por ciudad
+                        </Link>
+                      </SurfaceCard>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              <RelatedLinksSection title="Guias y recursos relacionados" maxLinks={7} />
+            </div>
           </div>
 
           <aside
@@ -506,54 +558,6 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
             </SurfaceCard>
           </aside>
         </div>
-
-        <div className="industry-cta">
-          <h2>{siteConfig.demos.ctaTitle}</h2>
-          <p>{siteConfig.demos.ctaDescription}</p>
-          <span data-tooltip="Solicita una landing optimizada para captar clientes.">
-            <PrimaryCTA
-              label={siteConfig.demos.ctaButtonLabel}
-              variant="primary"
-              mode="lead-form"
-              leadFormId="lead-form-demos"
-              source="demos"
-              context={normalizedIndustryFilterKey === 'all' ? 'captiva-demos' : `captiva-demos-${normalizedIndustryFilterKey}`}
-              industry={normalizedIndustryFilterKey === 'all' ? undefined : normalizedIndustryFilterKey}
-            />
-          </span>
-        </div>
-
-        <LeadFormSection
-          id="lead-form-demos"
-          source="demos"
-          context={normalizedIndustryFilterKey === 'all' ? 'captiva-demos' : `captiva-demos-${normalizedIndustryFilterKey}`}
-          industry={normalizedIndustryFilterKey === 'all' ? undefined : normalizedIndustryFilterKey}
-          title="Solicitar una landing basada en estas demos"
-          description="Te contactamos por WhatsApp con una propuesta segun el rubro y la estructura que mas te guste."
-        />
-
-        {topCityLandings.length > 0 ? (
-          <section className="industry-links">
-            <h2>Landing pages por ciudad</h2>
-            <div className="card-grid card-grid--three">
-              {topCityLandings.map((item) => (
-                <SurfaceCard key={item.slug}>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                  <Link
-                    className="text-link"
-                    to={item.path}
-                    onClick={() => trackEvent({ event: 'internal_nav', category: 'city-landing', label: item.slug })}
-                  >
-                    Ver pagina por ciudad
-                  </Link>
-                </SurfaceCard>
-              ))}
-            </div>
-          </section>
-        ) : null}
-
-        <RelatedLinksSection title="Guias y recursos relacionados" maxLinks={7} />
       </div>
     </section>
   );

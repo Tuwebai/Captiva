@@ -1,0 +1,261 @@
+
+.footer-legal-links .text-link {
+  font-weight: 600;
+}
+
+.industry-seo-grid,
+.industry-benefits,
+.industry-demos,
+.industry-links,
+.offer-block,
+.faq-list,
+.faq-cta,
+.industry-cta,
+.lead-form-section {
+  margin-top: 1.5rem;
+}
+
+.industry-benefits h2,
+.industry-demos h2,
+.industry-links h2,
+.industry-cta h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+}
+
+.industry-cta {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--footer-card-surface);
+}
+
+.industry-cta p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.cta-row .button-link {
+  min-width: 10.5rem;
+  justify-content: center;
+}
+
+.industry-links__toggle {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.offer-block h3 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  letter-spacing: -0.02em;
+}
+
+.offer-plans-head p {
+  margin: -0.45rem 0 1rem;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+.offer-block .surface-card h4 {
+  margin: 0;
+  font-size: 1.06rem;
+  letter-spacing: -0.01em;
+}
+
+.offer-block .surface-card p {
+  margin: 0.5rem 0 0;
+  color: var(--text-muted);
+}
+
+.offer-plan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.65rem;
+  height: 100%;
+  min-height: 100%;
+  border-width: 1px;
+  border-color: var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+.offer-plan-card--highlight {
+  border-color: var(--accent);
+  background:
+    radial-gradient(circle at 50% -15%, rgba(75, 124, 255, 0.22), transparent 48%),
+    linear-gradient(180deg, var(--surface-elevated), var(--surface));
+  box-shadow:
+    0 0 0 1px rgba(75, 124, 255, 0.35),
+    0 16px 34px rgba(36, 74, 176, 0.28);
+  transform: translateY(-6px);
+}
+
+.offer-plan-card__badge {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.45rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.offer-plan-card__guarantee {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 1.3rem;
+  width: fit-content;
+  padding: 0.08rem 0.46rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--chip-surface);
+  color: var(--text-soft);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.offer-plan-card h4 {
+  margin-top: 0.08rem;
+}
+
+.offer-plan-card__audience {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.offer-plan-card__list {
+  margin: 0;
+  padding: 0;
+  color: var(--text-muted);
+  display: grid;
+  gap: 0.42rem;
+  list-style: none;
+}
+
+.offer-plan-card__list li {
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.offer-plan-card__list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.offer-plan-card .button-link {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.offer-block .card-grid--three {
+  align-items: stretch;
+}
+
+.offer-delivery-time {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.offer-workflow-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1rem;
+  color: var(--text-muted);
+  display: grid;
+  gap: 0.3rem;
+}
+
+.offer-guarantee-card {
+  border-color: var(--line-strong);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(75, 124, 255, 0.15), transparent 40%),
+    var(--surface-elevated);
+}
+
+.offer-guarantee {
+  margin: 1rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 1180px) {
+  .offer-plan-card--highlight {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .offer-block .card-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .social-proof-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.social-proof-metrics .surface-card {
+  display: grid;
+  gap: 0.18rem;
+  align-content: start;
+}
+
+.social-proof-metrics strong {
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.social-proof-metrics span {
+  color: var(--text-muted);
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--faq-surface);
+  padding: 0.9rem 1rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+}
+

@@ -1,9 +1,9 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const citiesPath = resolve(process.cwd(), 'src/config/seo-cities.json');
-const outputPath = resolve(process.cwd(), 'src/config/landing-city.generated.json');
+const outputPath = resolve(process.cwd(), 'src/generated/city-landings.generated.json');
 
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, 'utf8'));
@@ -85,6 +85,7 @@ function generate() {
     }),
   );
 
+  mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(combinations, null, 2)}\n`, 'utf8');
   console.log(`Generated city landings with ${combinations.length} entries.`);
 }

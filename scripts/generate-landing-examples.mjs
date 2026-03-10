@@ -1,8 +1,8 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
 
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
-const outputPath = resolve(process.cwd(), 'src/config/landing-examples.generated.json');
+const outputPath = resolve(process.cwd(), 'src/generated/landing-examples.generated.json');
 
 function stripIndustryPrefix(slug) {
   return String(slug).replace(/^landing-page-para-/, '');
@@ -47,6 +47,7 @@ function generate() {
     };
   });
 
+  mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(examples, null, 2)}\n`, 'utf8');
   console.log(`Generated landing examples with ${examples.length} entries.`);
 }

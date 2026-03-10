@@ -1,0 +1,322 @@
+[
+  {
+    "category": "legal",
+    "slug": "landing-page-para-abogados",
+    "name": "Abogados",
+    "industryName": "abogados",
+    "title": "Landing Page para Abogados",
+    "heroTitle": "Landing page para abogados orientada a consultas",
+    "heroDescription": "Landing pages para estudios juridicos con autoridad, especialidades claras y contacto inmediato.",
+    "problem": "Muchos estudios juridicos no convierten visitas porque su propuesta no esta estructurada para explicar especialidades y generar consulta.",
+    "solution": "Captiva crea paginas legales con claridad, respaldo profesional y canales de contacto directos.",
+    "painPoints": [
+      "Areas de practica sin jerarquia ni enfoque comercial",
+      "Mensaje institucional sin propuesta concreta",
+      "Formularios largos que frenan el contacto"
+    ],
+    "benefits": [
+      "Mas consultas sobre areas de practica",
+      "Imagen institucional solida",
+      "Flujo de contacto mas rapido y ordenado"
+    ],
+    "faq": [
+      {
+        "question": "Una landing legal mejora la captacion?",
+        "answer": "Si, porque prioriza especialidades, confianza y un camino claro de contacto."
+      },
+      {
+        "question": "Se puede adaptar por tipo de derecho?",
+        "answer": "Si, la estructura se personaliza segun civil, laboral, penal o corporativo."
+      }
+    ],
+    "demo": "DEMO-EstudioJuridico"
+  },
+  {
+    "category": "odontologia",
+    "slug": "landing-page-para-dentistas",
+    "name": "Dentistas",
+    "industryName": "dentistas",
+    "title": "Landing Page para Dentistas",
+    "heroTitle": "Landing page para dentistas que buscan mas consultas",
+    "heroDescription": "Landing pages para clinicas dentales enfocadas en confianza, tratamientos claros y reserva de consulta.",
+    "problem": "Clinicas odontologicas pierden pacientes cuando su presencia digital no transmite confianza ni explica tratamientos con claridad.",
+    "solution": "Captiva diseña paginas para dentistas con foco en autoridad, servicios, testimonios y CTA de reserva.",
+    "painPoints": [
+      "Webs informativas que no convierten en reservas",
+      "Mensaje tecnico dificil de entender para pacientes nuevos",
+      "Canales de contacto sin prioridad ni seguimiento"
+    ],
+    "benefits": [
+      "Mejor confianza desde el primer vistazo",
+      "Mayor volumen de consultas calificadas",
+      "Informacion de tratamientos ordenada y clara"
+    ],
+    "faq": [
+      {
+        "question": "Una landing para dentistas sirve para captar pacientes nuevos?",
+        "answer": "Si, cuando el mensaje, la oferta y el CTA estan organizados para convertir visitas en consultas."
+      },
+      {
+        "question": "Se puede integrar WhatsApp y formulario?",
+        "answer": "Si, Captiva permite ambos canales para reducir friccion y aumentar conversion."
+      }
+    ],
+    "demo": "DEMO-Dentista"
+  },
+  {
+    "category": "b2b",
+    "slug": "landing-page-para-empresas-b2b",
+    "name": "Empresas B2B",
+    "industryName": "empresas b2b",
+    "title": "Landing Page para Empresas B2B",
+    "heroTitle": "Landing page para empresas B2B con foco en reuniones comerciales",
+    "heroDescription": "Landing pages B2B para convertir trafico en reuniones con decision makers.",
+    "problem": "En B2B la decision es racional y comparativa. Sin una landing clara, se pierde autoridad y oportunidad comercial.",
+    "solution": "Captiva estructura paginas B2B con foco en propuesta, credenciales, casos y conversion.",
+    "painPoints": [
+      "Mensaje tecnico sin traduccion a beneficio comercial",
+      "Casos y credenciales sin estructura de lectura",
+      "CTA sin contexto para agendar reuniones"
+    ],
+    "benefits": [
+      "Leads comerciales de mayor calidad",
+      "Propuesta de valor mas clara para decision makers",
+      "Mejor tasa de conversion del trafico organico"
+    ],
+    "faq": [
+      {
+        "question": "Captiva funciona para servicios B2B de ticket alto?",
+        "answer": "Si, porque organiza prueba, propuesta y CTA para ventas consultivas."
+      },
+      {
+        "question": "Se puede orientar a demos comerciales?",
+        "answer": "Si, la estructura puede optimizarse para reuniones y discovery calls."
+      }
+    ],
+    "demo": "DEMO-RocketGrowthB2B"
+  },
+  {
+    "category": "estetica",
+    "slug": "landing-page-para-esteticas",
+    "name": "Esteticas",
+    "industryName": "esteticas",
+    "title": "Landing Page para Esteticas",
+    "heroTitle": "Landing page para esteticas con enfoque en reservas",
+    "heroDescription": "Landing pages para centros esteticos con servicios destacados, posicionamiento visual y CTA inmediato.",
+    "problem": "Sin una landing optimizada, centros esteticos pierden reservas por falta de estructura y confianza visual.",
+    "solution": "Captiva construye landings para esteticas con servicios jerarquizados y contacto directo.",
+    "painPoints": [
+      "Demasiadas opciones sin orden de decision",
+      "Imagen visual inconsistente entre secciones",
+      "CTA poco visible en mobile"
+    ],
+    "benefits": [
+      "Mas reservas y consultas desde la web",
+      "Comunicacion clara de servicios y beneficios",
+      "Marca visualmente consistente y profesional"
+    ],
+    "faq": [
+      {
+        "question": "Que servicios se suelen destacar en la landing?",
+        "answer": "Los mas demandados y rentables, con prioridad de lectura y CTA en cada bloque clave."
+      },
+      {
+        "question": "La landing puede adaptarse a promociones?",
+        "answer": "Si, se puede ajustar para campañas puntuales sin perder estructura de conversion."
+      }
+    ],
+    "demo": "DEMO-Estetica"
+  },
+  {
+    "category": "fitness",
+    "slug": "landing-page-para-gimnasios",
+    "name": "Gimnasios",
+    "industryName": "gimnasios",
+    "title": "Landing Page para Gimnasios",
+    "heroTitle": "Landing page para gimnasios que quieren mas alumnos",
+    "heroDescription": "Landing pages optimizadas para captar alumnos, presentar planes y acelerar consultas por WhatsApp.",
+    "problem": "Muchos gimnasios dependen de redes sociales y pierden consultas por no tener una pagina clara con propuesta, planes y horarios.",
+    "solution": "Captiva crea landing pages para gimnasios con estructura de conversion, oferta visible y contacto directo.",
+    "painPoints": [
+      "Informacion dispersa entre historias, publicaciones y mensajes privados",
+      "Planes y diferenciales poco claros para visitas nuevas",
+      "Proceso de contacto sin un CTA dominante"
+    ],
+    "benefits": [
+      "Mas consultas de potenciales alumnos",
+      "Presentacion profesional de planes y clases",
+      "Proceso de contacto rapido y sin friccion"
+    ],
+    "faq": [
+      {
+        "question": "Cuanto tarda una landing para gimnasios?",
+        "answer": "En la mayoria de los casos puede publicarse en pocos dias, segun la disponibilidad de contenido y feedback."
+      },
+      {
+        "question": "Que incluye esta landing?",
+        "answer": "Incluye estructura de conversion, bloques de servicios, prueba social y CTA de contacto directo."
+      }
+    ],
+    "demo": "DEMO-Gimnasio"
+  },
+  {
+    "category": "inmobiliaria",
+    "slug": "landing-page-para-inmobiliarias",
+    "name": "Inmobiliarias",
+    "industryName": "inmobiliarias",
+    "title": "Landing Page para Inmobiliarias",
+    "heroTitle": "Landing page para inmobiliarias orientada a visitas y tasaciones",
+    "heroDescription": "Landing pages para inmobiliarias con propiedades destacadas y solicitud de contacto directo.",
+    "problem": "Inmobiliarias pierden leads cuando sus propiedades y diferenciales no estan presentados con estructura.",
+    "solution": "Captiva diseña landings inmobiliarias con foco en conversion a visita, consulta o tasacion.",
+    "painPoints": [
+      "Listados sin propuesta de valor del servicio",
+      "Falta de confianza en la primera visita",
+      "CTA no orientado a accion concreta"
+    ],
+    "benefits": [
+      "Mas solicitudes de visita",
+      "Mas contactos para tasaciones",
+      "Presentacion profesional de activos"
+    ],
+    "faq": [
+      {
+        "question": "La landing puede enfocarse en captacion de propietarios?",
+        "answer": "Si, se puede orientar a tasaciones y captacion de inmuebles."
+      },
+      {
+        "question": "Incluye filtros o secciones por tipo de propiedad?",
+        "answer": "Se puede estructurar por vertical para facilitar navegacion y conversion."
+      }
+    ],
+    "demo": "DEMO-Inmobiliaria"
+  },
+  {
+    "category": "negocios-locales",
+    "slug": "landing-page-para-negocios-locales",
+    "name": "Negocios Locales",
+    "industryName": "negocios locales",
+    "title": "Landing Page para Negocios Locales",
+    "heroTitle": "Landing page para negocios locales que quieren mas consultas",
+    "heroDescription": "Landing pages para negocios locales con propuesta clara, ubicacion visible y contacto inmediato.",
+    "problem": "Muchos negocios locales pierden oportunidades por no tener una pagina enfocada en propuesta, ubicacion y contacto.",
+    "solution": "Captiva desarrolla paginas para negocios locales preparadas para captar demanda directa.",
+    "painPoints": [
+      "Dependencia total de redes sociales",
+      "Sin propuesta de valor clara en web",
+      "Poca visibilidad de ubicacion y horarios"
+    ],
+    "benefits": [
+      "Mas contactos de clientes cercanos",
+      "Propuesta comercial mejor comunicada",
+      "Canal de contacto inmediato y profesional"
+    ],
+    "faq": [
+      {
+        "question": "Sirve para negocios con una sola sede?",
+        "answer": "Si, es ideal para convertir trafico local en consultas directas."
+      },
+      {
+        "question": "Se puede conectar con mapa y horarios?",
+        "answer": "Si, se integran datos clave para acelerar decisiones de contacto."
+      }
+    ],
+    "demo": "DEMO-RocketGrowthB2B"
+  },
+  {
+    "category": "restaurantes",
+    "slug": "landing-page-para-restaurantes",
+    "name": "Restaurantes",
+    "industryName": "restaurantes",
+    "title": "Landing Page para Restaurantes",
+    "heroTitle": "Landing page para restaurantes orientada a reservas",
+    "heroDescription": "Landing pages para restaurantes con menu claro, horarios y CTA de reserva.",
+    "problem": "Muchos restaurantes dependen de plataformas externas y no convierten trafico propio en reservas directas.",
+    "solution": "Captiva crea landings para restaurantes con propuesta culinaria clara y accion directa.",
+    "painPoints": [
+      "Menus desactualizados o poco legibles",
+      "Falta de CTA claro para reserva",
+      "Poca diferenciacion de experiencia"
+    ],
+    "benefits": [
+      "Mas reservas directas",
+      "Mejor presentacion de menu y experiencia",
+      "Canal de contacto centralizado"
+    ],
+    "faq": [
+      {
+        "question": "Puede integrarse con WhatsApp para reservas?",
+        "answer": "Si, es uno de los canales recomendados para conversion rapida."
+      },
+      {
+        "question": "Sirve para restaurantes con delivery?",
+        "answer": "Si, se puede orientar a reservas, pedidos o ambos."
+      }
+    ],
+    "demo": "DEMO-RocketGrowthB2B"
+  },
+  {
+    "category": "salud",
+    "slug": "landing-page-para-salud",
+    "name": "Servicios de Salud",
+    "industryName": "servicios de salud",
+    "title": "Landing Page para Servicios de Salud",
+    "heroTitle": "Landing page para salud con foco en confianza y turnos",
+    "heroDescription": "Landing pages para clinicas y centros de salud orientadas a claridad de servicios y solicitud de turnos.",
+    "problem": "Centros de salud requieren confianza y claridad. Sin una landing profesional, cae la conversion de visitas a turnos.",
+    "solution": "Captiva implementa landings para salud con contenido estructurado, autoridad visual y contacto simple.",
+    "painPoints": [
+      "Informacion medica extensa sin orden de decision",
+      "Falta de CTA de turnos visible",
+      "Canales de contacto inconsistentes"
+    ],
+    "benefits": [
+      "Mayor confianza en la primera visita",
+      "Informacion medica clara y accesible",
+      "Mas consultas y turnos desde la web"
+    ],
+    "faq": [
+      {
+        "question": "La landing puede mostrar especialidades y profesionales?",
+        "answer": "Si, se organiza por servicios y perfiles para facilitar la decision del paciente."
+      },
+      {
+        "question": "Incluye contacto por WhatsApp y formulario?",
+        "answer": "Si, se configuran canales directos para turnos y consultas."
+      }
+    ],
+    "demo": "DEMO-AlegraSalud"
+  },
+  {
+    "category": "veterinaria",
+    "slug": "landing-page-para-veterinarias",
+    "name": "Veterinarias",
+    "industryName": "veterinarias",
+    "title": "Landing Page para Veterinarias",
+    "heroTitle": "Landing page para veterinarias enfocada en turnos y confianza",
+    "heroDescription": "Landing pages para clinicas veterinarias con servicios visibles y contacto rapido.",
+    "problem": "Muchas veterinarias tienen informacion dispersa y pierden consultas por falta de estructura de conversion.",
+    "solution": "Captiva organiza servicios, urgencias y canales de contacto para aumentar conversion.",
+    "painPoints": [
+      "Servicios sin jerarquia ni claridad",
+      "Falta de visibilidad de turnos y urgencias",
+      "Contactos sin flujo de accion"
+    ],
+    "benefits": [
+      "Mas turnos y consultas por web",
+      "Mejor confianza de propietarios de mascotas",
+      "Canales de contacto claros"
+    ],
+    "faq": [
+      {
+        "question": "Se puede mostrar guardia y urgencias?",
+        "answer": "Si, se prioriza ese bloque para facilitar contacto inmediato."
+      },
+      {
+        "question": "La landing sirve para veterinarias de barrio?",
+        "answer": "Si, es especialmente efectiva para captacion local."
+      }
+    ],
+    "demo": "DEMO-Veterinaria"
+  }
+]

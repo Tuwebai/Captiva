@@ -1,0 +1,34 @@
+{
+  "title": "Landing para Trading Platform",
+  "description": "Demo premium para plataformas de trading y educacion financiera con foco en captacion de traders, autoridad visual y activacion comercial.",
+  "category": "b2b",
+  "industry": "trading",
+  "slug": "demo-trading-platform",
+  "goal": "leads",
+  "style": "premium",
+  "status": "active",
+  "template": "service-business",
+  "tags": [
+    "captiva",
+    "demo",
+    "trading",
+    "fintech",
+    "platform"
+  ],
+  "sections": [
+    "demo-banner",
+    "hero-premium",
+    "metrics-strip",
+    "benefits-enterprise",
+    "platform-features",
+    "trading-types",
+    "testimonials-carousel",
+    "process-premium",
+    "cta-final",
+    "footer-corporate",
+    "watermark"
+  ],
+  "tier": "legacy",
+  "variant": "default",
+  "preview": "/assets/placeholders/captiva-demo-preview.svg"
+}

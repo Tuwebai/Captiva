@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { loadBlogEntries } from './lib/blog-content.mjs';
 
 const blogContentDir = resolve(process.cwd(), 'src/content/blog');
-const indexOutputPath = resolve(process.cwd(), 'src/config/blog.index.generated.json');
+const indexOutputPath = resolve(process.cwd(), 'src/generated/blog-index.json');
 const contentOutputDir = resolve(process.cwd(), 'src/content/blog-content');
 const ogOutputDir = resolve(process.cwd(), 'public/blog-og');
 

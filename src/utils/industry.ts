@@ -1,9 +1,9 @@
-import industryCatalog from '../config/industry.catalog.json';
-import demosManifest from '../config/demos.generated.json';
+import demosManifest from '../generated/demos-index.json';
+import industriesIndex from '../generated/industries-index.json';
 import type { DemoManifestItem } from '../types/demo';
 import type { IndustryPageData } from '../types/industry';
 
-const catalog = industryCatalog as Record<string, Omit<IndustryPageData, 'category'>>;
+const catalogEntries = industriesIndex as IndustryPageData[];
 const demos = demosManifest as DemoManifestItem[];
 
 function fallbackFromCategory(category: string): IndustryPageData {
@@ -45,9 +45,7 @@ function fallbackFromCategory(category: string): IndustryPageData {
 }
 
 export function getAllIndustries(): IndustryPageData[] {
-  return Object.entries(catalog)
-    .map(([category, item]) => ({ category, ...item }))
-    .sort((left, right) => left.title.localeCompare(right.title, 'es'));
+  return [...catalogEntries].sort((left, right) => left.title.localeCompare(right.title, 'es'));
 }
 
 export function getIndustryPages(): IndustryPageData[] {

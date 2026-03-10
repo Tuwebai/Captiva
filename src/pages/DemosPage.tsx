@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from 'react-router-dom';
 
-import demosManifest from '../config/demos.generated.json';
+import demosManifest from '../generated/demos-index.json';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { DemosGallerySection } from '../sections/DemosGallerySection';

@@ -6,6 +6,7 @@ import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
+import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { trackEvent } from '../utils/analytics';
@@ -16,6 +17,7 @@ import { CityIndustryLandingPage } from './CityIndustryLandingPage';
 const placeholderPreview = '/demo-placeholder.svg';
 
 export function IndustryPage() {
+  const industriesCta = getRouteCta('industries');
   const params = useParams<{ industry: string; slug: string }>();
   const slug = params.slug ?? `landing-page-para-${params.industry ?? ''}`;
   const cityLanding = getCityLandingBySlug(slug);
@@ -161,7 +163,7 @@ export function IndustryPage() {
                   rel="noreferrer"
                   onClick={() => trackEvent({ event: 'demo_click', category: industry.category, label: demo.publicSlug })}
                 >
-                  {siteConfig.pages.industry.demoCardCtaLabel}
+                  {industriesCta.primary}
                 </a>
               </SurfaceCard>
             ))}
@@ -206,10 +208,10 @@ export function IndustryPage() {
           <p>{siteConfig.pages.industry.ctaDescription}</p>
           <div className="cta-row">
             <Link className="button-link button-link--secondary" to={siteConfig.routes.captivaDemos}>
-              Ver demos
+              {industriesCta.primary}
             </Link>
             <PrimaryCTA
-              label="Quiero mi landing"
+              label={industriesCta.secondary ?? 'Quiero mi landing'}
               mode="lead-form"
               leadFormId={`lead-form-${industry.slug}`}
               source="industry"

@@ -10,10 +10,11 @@
     "generate:landing-examples": "node scripts/generate-landing-examples.mjs",
     "generate:blog": "node scripts/generate-blog-manifest.mjs",
     "generate:demos": "npm run normalize:demos && node scripts/generate-demos-manifest.mjs",
+    "generate:seo-indexes": "node scripts/build/generate-seo-indexes.mjs",
     "obfuscate:demos": "node scripts/obfuscate-demo-scripts.mjs",
     "build:demos": "npm run generate:demos && npm run obfuscate:demos",
-    "dev": "npm run validate:demos && npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run build:demos && vite",
-    "build": "npm run validate:demos && npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run build:demos && tsc -b && vite build",
+    "dev": "npm run validate:demos && npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run build:demos && npm run generate:seo-indexes && vite",
+    "build": "npm run validate:demos && npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run build:demos && npm run generate:seo-indexes && tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
