@@ -1,0 +1,35 @@
+{
+  "title": "Landing para Peluqueria",
+  "description": "Landing premium para peluquerias que necesitan mostrar trabajos, ordenar reservas y captar clientas por WhatsApp.",
+  "category": "estetica",
+  "industry": "peluqueria",
+  "slug": "demo-peluqueria",
+  "goal": "appointments",
+  "style": "premium",
+  "status": "active",
+  "template": "service-business",
+  "tags": [
+    "captiva",
+    "demo",
+    "peluqueria",
+    "beauty",
+    "service-business"
+  ],
+  "sections": [
+    "demo-banner",
+    "hero-premium",
+    "benefits-enterprise",
+    "services-catalog",
+    "process-premium",
+    "social-proof",
+    "differential",
+    "faq-premium",
+    "cta-final",
+    "contact-split",
+    "footer-corporate",
+    "watermark"
+  ],
+  "tier": "legacy",
+  "variant": "default",
+  "preview": "/assets/placeholders/captiva-demo-preview.svg"
+}

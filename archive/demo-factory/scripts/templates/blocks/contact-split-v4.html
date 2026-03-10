@@ -1,0 +1,45 @@
+<section class="section contact-split" id="contacto">
+  <div class="contact-shell contact-shell--brief">
+    <aside class="contact-brief">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>{{CONTACT_TITLE}}</h2>
+      <p>{{CONTACT_DESC}}</p>
+      <ol class="contact-brief-list">
+        <li>Nos compartes tu objetivo y prioridad comercial.</li>
+        <li>Ordenamos propuesta, CTA y canal de contacto.</li>
+        <li>Te respondemos con una salida clara para validar.</li>
+      </ol>
+      <div class="contact-chips">
+        <span>Orden comercial</span>
+        <span>WhatsApp primero</span>
+        <span>Sin friccion</span>
+      </div>
+    </aside>
+    <form class="form form--brief" id="leadForm">
+      <p class="form-kicker">Completa el brief inicial</p>
+      <label>
+        <span class="field-label">Nombre y apellido</span>
+        <input class="field" placeholder="Nombre completo" required />
+      </label>
+      <label>
+        <span class="field-label">WhatsApp o telefono</span>
+        <input class="field" placeholder="+54 9 ..." required type="tel" />
+      </label>
+      <label>
+        <span class="field-label">Email</span>
+        <input class="field" placeholder="email@empresa.com" type="email" />
+      </label>
+      <label>
+        <span class="field-label">Objetivo</span>
+        <select class="field" required>
+          <option value="" selected disabled>Selecciona tu objetivo</option>
+          <option>{{CONTACT_GOAL_1}}</option>
+          <option>{{CONTACT_GOAL_2}}</option>
+          <option>{{CONTACT_GOAL_3}}</option>
+        </select>
+      </label>
+      <button class="btn btn-primary" id="submitBtn" type="submit">{{CTA_TEXT}}</button>
+      <p class="ok" id="okMsg">Solicitud simulada enviada. En produccion iria a CRM / WhatsApp.</p>
+    </form>
+  </div>
+</section>

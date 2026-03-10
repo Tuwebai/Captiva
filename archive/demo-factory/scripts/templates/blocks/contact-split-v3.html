@@ -1,0 +1,50 @@
+<section class="section contact-split" id="contacto">
+  <div class="contact-shell contact-shell--proof">
+    <aside class="contact-panel contact-panel--dark">
+      <p class="eyebrow">Canal directo</p>
+      <h3>{{CONTACT_TITLE}}</h3>
+      <p>{{CONTACT_DESC}}</p>
+      <div class="contact-proof-grid">
+        <article class="contact-proof-card">
+          <strong>Brief</strong>
+          <span>simple y accionable</span>
+        </article>
+        <article class="contact-proof-card">
+          <strong>Respuesta</strong>
+          <span>por WhatsApp o email</span>
+        </article>
+      </div>
+      <ul class="contact-list">
+        <li><strong>Email:</strong> {{CONTACT_EMAIL}}</li>
+        <li><strong>WhatsApp:</strong> +54 9 3571 417960</li>
+        <li><strong>Rubro:</strong> {{CATEGORY_LABEL}}</li>
+      </ul>
+    </aside>
+    <form class="form form--dense" id="leadForm">
+      <p class="form-kicker">Comparte tu contexto</p>
+      <label>
+        <span class="field-label">Nombre y apellido</span>
+        <input class="field" placeholder="Nombre completo" required />
+      </label>
+      <label>
+        <span class="field-label">WhatsApp o telefono</span>
+        <input class="field" placeholder="+54 9 ..." required type="tel" />
+      </label>
+      <label>
+        <span class="field-label">Objetivo</span>
+        <select class="field" required>
+          <option value="" selected disabled>Selecciona tu objetivo</option>
+          <option>{{CONTACT_GOAL_1}}</option>
+          <option>{{CONTACT_GOAL_2}}</option>
+          <option>{{CONTACT_GOAL_3}}</option>
+        </select>
+      </label>
+      <label>
+        <span class="field-label">Necesidad puntual</span>
+        <textarea class="field" placeholder="Contanos que necesitas" rows="4"></textarea>
+      </label>
+      <button class="btn btn-primary" id="submitBtn" type="submit">{{CTA_TEXT}}</button>
+      <p class="ok" id="okMsg">Solicitud simulada enviada. En produccion iria a CRM / WhatsApp.</p>
+    </form>
+  </div>
+</section>

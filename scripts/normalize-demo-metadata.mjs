@@ -1,13 +1,8 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { DEFAULT_DEMO_PREVIEW } from './lib/demo-factory/constants.mjs';
+import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_SECTIONS } from './lib/demos/constants.mjs';
 
 const demosRoot = resolve(process.cwd(), 'demos');
-const templateRegistryPath = resolve(process.cwd(), 'scripts/contracts/template-registry.json');
-
-const templateRegistry = existsSync(templateRegistryPath)
-  ? JSON.parse(readFileSync(templateRegistryPath, 'utf8'))
-  : { templates: [] };
 
 const templateAliases = {
   abogado: 'legal',
@@ -55,22 +50,8 @@ function inferTemplate(category, industry, currentTemplate) {
 }
 
 function inferSections(template) {
-  const templateEntry = templateRegistry.templates.find((entry) => entry.id === template);
-  if (templateEntry && Array.isArray(templateEntry.sections) && templateEntry.sections.length > 0) {
-    return templateEntry.sections;
-  }
-  return [
-    'hero-premium',
-    'benefits-enterprise',
-    'process-premium',
-    'services-catalog',
-    'plans-premium',
-    'gallery-premium',
-    'testimonials-carousel',
-    'faq-premium',
-    'cta-final',
-    'contact-split',
-  ];
+  void template;
+  return DEFAULT_DEMO_SECTIONS;
 }
 
 function inferTags(category, industry, template) {

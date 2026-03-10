@@ -1532,15 +1532,18 @@ code {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: 0;
   height: 100%;
+  min-height: 32rem;
 }
 
 .demo-gallery-card__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-rows: minmax(3.35rem, auto) minmax(4.9rem, auto) minmax(9rem, 1fr);
+  gap: 0.9rem;
   margin-bottom: 0.85rem;
   flex: 1 1 auto;
+  align-content: start;
 }
 
 .demo-gallery-card__chips {
@@ -1548,7 +1551,7 @@ code {
   flex-wrap: wrap;
   gap: 0.5rem;
   align-content: start;
-  min-height: 2.9rem;
+  min-height: 3.35rem;
 }
 
 .demo-gallery-card__chip {
@@ -1591,21 +1594,23 @@ code {
 
 .demo-gallery-card__title {
   display: block;
-  min-height: 4.8rem;
   margin: 0;
   line-height: 1.25;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .demo-gallery-card__description {
   display: block;
-  min-height: 7.5rem;
   margin: 0;
   line-height: 1.65;
   flex: 1 1 auto;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .demo-gallery-card__cta {
-  align-self: end;
+  align-self: flex-start;
   margin-top: auto;
 }
 

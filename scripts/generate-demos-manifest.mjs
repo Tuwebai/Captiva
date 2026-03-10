@@ -2,7 +2,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, write
 import { basename, join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
 import { loadBlogEntries } from './lib/blog-content.mjs';
-import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH } from './lib/demo-factory/constants.mjs';
+import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH, DEFAULT_DEMO_SECTIONS } from './lib/demos/constants.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const controlledDemoBase = '/demo';
@@ -15,7 +15,6 @@ const robotsPath = resolve(publicRoot, 'robots.txt');
 const sitemapPath = resolve(publicRoot, 'sitemap.xml');
 const slugMapPath = resolve(publicRoot, 'demo-slugs.json');
 const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
-const templateRegistryPath = resolve(process.cwd(), 'scripts/contracts/template-registry.json');
 const cityLandingsPath = resolve(process.cwd(), 'src/config/landing-city.generated.json');
 const examplesPath = resolve(process.cwd(), 'src/config/landing-examples.generated.json');
 const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
@@ -24,9 +23,6 @@ const blogContentDir = resolve(process.cwd(), 'src/content/blog');
 const industryCatalog = existsSync(industryCatalogPath)
   ? JSON.parse(readFileSync(industryCatalogPath, 'utf8'))
   : {};
-const templateRegistry = existsSync(templateRegistryPath)
-  ? JSON.parse(readFileSync(templateRegistryPath, 'utf8'))
-  : { templates: [] };
 const archivedGeneratedCatalogSlugs = new Set([
   'aesthetic-clinic',
   'aesthetic-premium',
@@ -138,24 +134,8 @@ function inferSections(meta, template) {
   if (Array.isArray(meta.sections) && meta.sections.length > 0) {
     return meta.sections.filter((section) => typeof section === 'string' && section.trim()).map((section) => section.trim());
   }
-
-  const templateEntry = templateRegistry.templates.find((entry) => entry.id === template);
-  if (templateEntry && Array.isArray(templateEntry.sections) && templateEntry.sections.length > 0) {
-    return templateEntry.sections;
-  }
-
-  return [
-    'hero-premium',
-    'benefits-enterprise',
-    'process-premium',
-    'services-catalog',
-    'plans-premium',
-    'gallery-premium',
-    'testimonials-carousel',
-    'faq-premium',
-    'cta-final',
-    'contact-split',
-  ];
+  void template;
+  return DEFAULT_DEMO_SECTIONS;
 }
 
 function toAbsoluteUrl(pathname) {

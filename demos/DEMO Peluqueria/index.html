@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEMO: Atelier Nacar | Peluqueria premium</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nacar: {
+              50: "#f7f3ef",
+              100: "#efe5dc",
+              200: "#ddc9b7",
+              300: "#c89f76",
+              400: "#b87d4e",
+              500: "#9a6038",
+              700: "#4a2e1b",
+              900: "#18110f"
+            },
+            ink: {
+              900: "#0d1320",
+              800: "#162033",
+              700: "#21304b"
+            },
+            mist: {
+              100: "#f5f0ea",
+              200: "#ebe3da"
+            }
+          },
+          fontFamily: {
+            sans: ["Inter", "system-ui", "sans-serif"],
+            display: ["Manrope", "Inter", "system-ui", "sans-serif"]
+          },
+          boxShadow: {
+            halo: "0 24px 70px rgba(17, 24, 39, 0.16)",
+            soft: "0 16px 38px rgba(16, 24, 40, 0.12)"
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(200, 159, 118, 0.18), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(72, 95, 142, 0.18), transparent 26%),
+        #f7f3ef;
+      color: #18110f;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    .section-shell {
+      border-radius: 2rem;
+      border: 1px solid rgba(24, 17, 15, 0.08);
+      box-shadow: 0 24px 60px rgba(17, 24, 39, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .section-spacing {
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      .section-spacing {
+        margin-top: 4rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+        align-items: stretch;
+      }
+    }
+
+    .accent-line {
+      background: linear-gradient(90deg, #c89f76, #7394d4);
+    }
+
+    .work-card img,
+    .testimonial-photo,
+    .service-photo {
+      object-fit: cover;
+    }
+
+    .faq-item[open] {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .watermark {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 50;
+      pointer-events: none;
+      user-select: none;
+      color: rgba(24, 17, 15, 0.22);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 17, 15, 0.08);
+      background: rgba(255, 255, 255, 0.34);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="selection:bg-nacar-300 selection:text-ink-900">
+  <div class="bg-[#e11d48] text-white text-center text-[11px] font-semibold uppercase tracking-[0.24em] px-4 py-2">
+    Version demo de Captiva para peluquerias. Los datos, marcas y resultados son demostrativos.
+  </div>
+
+  <header class="sticky top-0 z-40 border-b border-white/50 bg-[rgba(247,243,239,0.8)] backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink-900 text-sm font-bold text-white shadow-soft">A</div>
+        <div>
+          <div class="font-display text-lg font-extrabold tracking-tight text-ink-900">Atelier Nacar</div>
+          <div class="text-[11px] uppercase tracking-[0.24em] text-ink-900/55">Peluqueria premium</div>
+        </div>
+      </div>
+
+      <nav class="hidden items-center gap-8 text-sm font-medium text-ink-900/70 lg:flex">
+        <a href="#beneficios" class="transition hover:text-nacar-500">Beneficios</a>
+        <a href="#servicios" class="transition hover:text-nacar-500">Servicios</a>
+        <a href="#proceso" class="transition hover:text-nacar-500">Proceso</a>
+        <a href="#faq" class="transition hover:text-nacar-500">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#servicios" class="hidden rounded-full border border-ink-900/10 px-5 py-3 text-sm font-semibold text-ink-900 transition hover:border-nacar-300 hover:bg-white lg:inline-flex">Ver servicios</a>
+        <a href="#contacto" class="inline-flex rounded-full bg-ink-900 px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ink-800">Reservar diagnostico</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="mx-auto max-w-7xl px-4 pb-8 pt-10 sm:px-6 lg:px-8 lg:pt-14">
+      <div class="hero-grid">
+        <div class="section-shell overflow-hidden p-7 sm:p-10 lg:p-12">
+          <div class="mb-8 flex items-center gap-3">
+            <span class="rounded-full bg-white px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Peluqueria enfocada en reservas</span>
+            <span class="hidden h-px flex-1 accent-line lg:block"></span>
+          </div>
+
+          <div class="max-w-2xl">
+            <h1 class="font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
+              Una peluqueria que se ve premium antes de que la clienta entre al salon.
+            </h1>
+            <p class="mt-6 max-w-xl text-lg leading-8 text-ink-900/72">
+              Landing pensada para mostrar resultados, ordenar reservas y convertir visitas en turnos por WhatsApp con una experiencia clara, elegante y lista para vender.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+            <a href="#contacto" class="inline-flex items-center justify-center rounded-full bg-ink-900 px-6 py-4 text-sm font-semibold text-white shadow-soft transition hover:bg-ink-800">
+              Quiero esta landing
+            </a>
+            <a href="#prueba-social" class="inline-flex items-center justify-center rounded-full border border-ink-900/10 bg-white px-6 py-4 text-sm font-semibold text-ink-900 transition hover:border-nacar-300 hover:text-nacar-500">
+              Ver resultados
+            </a>
+          </div>
+
+          <div class="mt-10 grid gap-4 sm:grid-cols-3">
+            <article class="rounded-[1.5rem] border border-ink-900/8 bg-white/80 p-5">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink-900/48">Reservas</p>
+              <p class="mt-3 text-3xl font-extrabold text-ink-900">+41%</p>
+              <p class="mt-2 text-sm leading-6 text-ink-900/68">Mas consultas desde mobile con CTA visibles y prueba visual clara.</p>
+            </article>
+            <article class="rounded-[1.5rem] border border-ink-900/8 bg-white/80 p-5">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink-900/48">Propuesta</p>
+              <p class="mt-3 text-3xl font-extrabold text-ink-900">3 s</p>
+              <p class="mt-2 text-sm leading-6 text-ink-900/68">Tiempo objetivo para entender servicios, diferenciales y como reservar.</p>
+            </article>
+            <article class="rounded-[1.5rem] border border-ink-900/8 bg-white/80 p-5">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-ink-900/48">Canal</p>
+              <p class="mt-3 text-3xl font-extrabold text-ink-900">WA</p>
+              <p class="mt-2 text-sm leading-6 text-ink-900/68">Reserva rapida por WhatsApp sin friccion ni formularios largos.</p>
+            </article>
+          </div>
+        </div>
+
+        <aside class="section-shell relative overflow-hidden p-5 sm:p-7">
+          <div class="absolute inset-x-6 top-0 h-1 rounded-b-full accent-line"></div>
+          <div class="grid gap-5">
+            <div class="overflow-hidden rounded-[2rem] bg-ink-900">
+              <img
+                src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=80"
+                alt="Coloracion y peinado premium"
+                class="service-photo h-72 w-full object-cover opacity-90 sm:h-80"
+              >
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="rounded-[1.5rem] bg-white p-5 shadow-soft">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Color y corte</p>
+                <h2 class="mt-3 text-xl font-bold leading-tight text-ink-900">Servicios que se entienden rapido</h2>
+                <p class="mt-3 text-sm leading-6 text-ink-900/65">Bloques claros para premium color, balayage, brushing y tratamientos.</p>
+              </article>
+              <article class="rounded-[1.5rem] bg-ink-900 p-5 text-white shadow-soft">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/55">Confianza visual</p>
+                <h2 class="mt-3 text-xl font-bold leading-tight">Galeria fuerte y agenda visible</h2>
+                <p class="mt-3 text-sm leading-6 text-white/68">Antes de pedir turno, la clienta ya percibe nivel, cuidado y orden.</p>
+              </article>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-2xl">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Beneficios de la landing</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">La landing vende orden, resultado y deseo de reservar.</h2>
+          </div>
+          <p class="max-w-xl text-sm leading-7 text-ink-900/65">Cada bloque esta pensado para resolver dudas rapidas, destacar trabajos reales y llevar a una conversacion directa sin dispersar la atencion.</p>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr_0.85fr]">
+          <article class="rounded-[2rem] bg-ink-900 p-7 text-white shadow-soft">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50">Pieza dominante</p>
+            <h3 class="mt-4 text-2xl font-bold">Presenta trabajos y diferenciales sin que la pagina se sienta genérica.</h3>
+            <p class="mt-4 max-w-lg text-sm leading-7 text-white/72">El hero concentra oferta, evidencia y CTA principal para que la decision de reservar empiece arriba del fold.</p>
+          </article>
+          <article class="rounded-[2rem] border border-ink-900/8 bg-white p-7">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Claridad comercial</p>
+            <h3 class="mt-4 text-xl font-bold text-ink-900">Servicios entendibles</h3>
+            <p class="mt-3 text-sm leading-7 text-ink-900/65">Categorias, precios orientativos y beneficios explicados en lenguaje comercial.</p>
+          </article>
+          <article class="rounded-[2rem] border border-ink-900/8 bg-white p-7">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Contacto directo</p>
+            <h3 class="mt-4 text-xl font-bold text-ink-900">WhatsApp listo</h3>
+            <p class="mt-3 text-sm leading-7 text-ink-900/65">La pagina evita friccion y abre una conversacion real con motivo y servicio ya contextualizado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div class="max-w-xl">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Servicios destacados</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">Servicios que justifican el valor premium y facilitan la reserva.</h2>
+            <p class="mt-5 text-base leading-8 text-ink-900/68">La estructura prioriza los servicios con mayor ticket, mejor prueba visual y mayor intención de reserva rápida.</p>
+          </div>
+
+          <div class="grid gap-5">
+            <article class="grid gap-5 rounded-[2rem] border border-ink-900/8 bg-white p-5 shadow-soft sm:grid-cols-[220px_1fr] sm:items-center">
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="Balayage premium" class="service-photo h-52 w-full rounded-[1.5rem]">
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Servicio ancla</p>
+                <h3 class="mt-3 text-2xl font-bold text-ink-900">Color premium y balayage</h3>
+                <p class="mt-3 text-sm leading-7 text-ink-900/66">Ideal para destacar transformaciones, ticket medio-alto y resultados visuales que aumentan el deseo de reservar una consulta.</p>
+              </div>
+            </article>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-6">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Corte y styling</p>
+                <h3 class="mt-3 text-xl font-bold text-ink-900">Corte, brushing y peinado social</h3>
+                <p class="mt-3 text-sm leading-7 text-ink-900/65">Paquetes claros para captar reservas recurrentes y eventos.</p>
+              </article>
+              <article class="rounded-[1.75rem] border border-ink-900/8 bg-ink-900 p-6 text-white">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/48">Cuidado capilar</p>
+                <h3 class="mt-3 text-xl font-bold">Botox, nutricion y brillo</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Tratamientos con foco en resultado visible, confianza y recompra.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="max-w-2xl">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Proceso</p>
+          <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">De la primera visita al turno confirmado en un flujo simple.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-[1.15fr_0.85fr_0.85fr]">
+          <article class="rounded-[2rem] bg-white p-7 shadow-soft">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Paso 1</p>
+                <h3 class="mt-3 text-2xl font-bold text-ink-900">La clienta entiende la propuesta enseguida</h3>
+              </div>
+              <span class="rounded-full bg-mist-200 px-3 py-1 text-sm font-bold text-ink-900">01</span>
+            </div>
+            <p class="mt-4 text-sm leading-7 text-ink-900/66">Hero, beneficios y servicios priorizados para que sepa que tratamiento encaja con su necesidad y presupuesto.</p>
+          </article>
+          <article class="rounded-[2rem] border border-ink-900/8 bg-white p-7">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-nacar-500">Paso 2</p>
+            <h3 class="mt-3 text-xl font-bold text-ink-900">Ve trabajos y valida confianza</h3>
+            <p class="mt-3 text-sm leading-7 text-ink-900/65">Prueba social, fotos y diferenciales bajan la duda antes de escribir.</p>
+          </article>
+          <article class="rounded-[2rem] border border-ink-900/8 bg-ink-900 p-7 text-white">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/50">Paso 3</p>
+            <h3 class="mt-3 text-xl font-bold">Reserva por WhatsApp</h3>
+            <p class="mt-3 text-sm leading-7 text-white/72">Formulario breve y CTA final para convertir interés en turno concreto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prueba-social" class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Prueba social</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">Resultados que sostienen una propuesta premium.</h2>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-900/45">Reservas mensuales</p>
+                <p class="mt-3 text-3xl font-extrabold text-ink-900">+120</p>
+              </article>
+              <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-ink-900/45">Tiempo de respuesta</p>
+                <p class="mt-3 text-3xl font-extrabold text-ink-900">&lt; 15m</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid gap-5">
+            <article class="rounded-[2rem] bg-white p-6 shadow-soft">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=220&q=80" alt="Clienta demo 1" class="testimonial-photo h-14 w-14 rounded-2xl">
+                <div>
+                  <p class="font-bold text-ink-900">Camila G.</p>
+                  <p class="text-sm text-ink-900/52">Balayage premium</p>
+                </div>
+              </div>
+              <p class="mt-5 text-sm leading-7 text-ink-900/68">“La pagina transmitia el mismo nivel que el salon. Vi trabajos, entendí el servicio y reservé sin vueltas.”</p>
+            </article>
+            <article class="rounded-[2rem] bg-ink-900 p-6 text-white shadow-soft">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&q=80" alt="Clienta demo 2" class="testimonial-photo h-14 w-14 rounded-2xl">
+                <div>
+                  <p class="font-bold">Lucia R.</p>
+                  <p class="text-sm text-white/55">Corte + tratamiento</p>
+                </div>
+              </div>
+              <p class="mt-5 text-sm leading-7 text-white/72">“Lo que más me convenció fue ver resultados reales y poder escribir directo con el tratamiento ya definido.”</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="grid gap-8 lg:grid-cols-[1fr_1fr]">
+          <div class="rounded-[2rem] bg-ink-900 p-7 text-white">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/48">Diferencial</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">No es solo una pagina linda. Es una agenda comercial para el salon.</h2>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+              <h3 class="text-lg font-bold text-ink-900">Autoridad visual</h3>
+              <p class="mt-3 text-sm leading-7 text-ink-900/65">Fotos, jerarquia y copy que sostienen ticket premium sin verse cargado.</p>
+            </article>
+            <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+              <h3 class="text-lg font-bold text-ink-900">Reserva sin friccion</h3>
+              <p class="mt-3 text-sm leading-7 text-ink-900/65">CTA claros para pasar de inspiración a turno confirmado.</p>
+            </article>
+            <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+              <h3 class="text-lg font-bold text-ink-900">Propuesta clara</h3>
+              <p class="mt-3 text-sm leading-7 text-ink-900/65">El servicio se entiende rápido y evita preguntas repetidas.</p>
+            </article>
+            <article class="rounded-[1.75rem] border border-ink-900/8 bg-white p-5">
+              <h3 class="text-lg font-bold text-ink-900">Catalog ready</h3>
+              <p class="mt-3 text-sm leading-7 text-ink-900/65">Diseñada para catálogo, anuncios, QR y tráfico SEO local.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section-spacing mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="section-shell p-7 sm:p-10 lg:p-12">
+        <div class="max-w-2xl">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">FAQ comercial</p>
+          <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink-900 sm:text-4xl">Preguntas que bajan dudas antes del mensaje.</h2>
+        </div>
+
+        <div class="mt-10 grid gap-4">
+          <details class="faq-item rounded-[1.5rem] border border-ink-900/8 bg-white px-6 py-5" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-bold text-ink-900">
+              ¿Se puede reservar por WhatsApp directamente?
+              <span class="text-nacar-500">+</span>
+            </summary>
+            <p class="mt-4 max-w-3xl text-sm leading-7 text-ink-900/65">Sí. La landing está pensada para llevar la consulta a WhatsApp con servicio de interés ya contextualizado.</p>
+          </details>
+          <details class="faq-item rounded-[1.5rem] border border-ink-900/8 bg-white px-6 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-bold text-ink-900">
+              ¿La pagina sirve para mostrar promociones estacionales?
+              <span class="text-nacar-500">+</span>
+            </summary>
+            <p class="mt-4 max-w-3xl text-sm leading-7 text-ink-900/65">Sí. La estructura permite destacar campañas, bonos, packs de color y tratamientos de temporada sin perder claridad.</p>
+          </details>
+          <details class="faq-item rounded-[1.5rem] border border-ink-900/8 bg-white px-6 py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-lg font-bold text-ink-900">
+              ¿Se pueden mostrar trabajos reales y precios desde la landing?
+              <span class="text-nacar-500">+</span>
+            </summary>
+            <p class="mt-4 max-w-3xl text-sm leading-7 text-ink-900/65">Sí. La propuesta está diseñada para ordenar galería, categorías, tratamientos y rangos de precio cuando convenga comercialmente.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+      <div class="section-shell overflow-hidden bg-ink-900 p-7 text-white sm:p-10 lg:p-12">
+        <div class="grid gap-8 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/48">CTA final</p>
+            <h2 class="mt-4 font-display text-3xl font-extrabold tracking-tight sm:text-5xl">Si querés más reservas, la landing tiene que sentirse tan premium como el salon.</h2>
+            <p class="mt-5 max-w-2xl text-base leading-8 text-white/72">Captiva construye demos y landings que muestran valor, ordenan la propuesta y convierten visitas en consultas reales.</p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#contacto" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-4 text-sm font-semibold text-ink-900 shadow-soft transition hover:bg-mist-100">Hablar por WhatsApp</a>
+              <a href="/captiva/demos" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-4 text-sm font-semibold text-white transition hover:bg-white/8">Ver más demos</a>
+            </div>
+          </div>
+          <div id="contacto" class="glass-panel rounded-[2rem] p-6 shadow-halo">
+            <div class="rounded-[1.5rem] bg-white p-6">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-nacar-500">Contacto demo</p>
+              <h3 class="mt-3 text-2xl font-bold text-ink-900">Contanos qué servicio querés vender mejor.</h3>
+              <form id="leadForm" class="mt-6 grid gap-4">
+                <label class="grid gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-900/55">Nombre</span>
+                  <input type="text" required class="rounded-2xl border border-ink-900/10 bg-mist-100 px-4 py-4 text-sm text-ink-900 outline-none transition focus:border-nacar-300" placeholder="Ej. Sofia">
+                </label>
+                <label class="grid gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-900/55">WhatsApp</span>
+                  <input type="tel" required class="rounded-2xl border border-ink-900/10 bg-mist-100 px-4 py-4 text-sm text-ink-900 outline-none transition focus:border-nacar-300" placeholder="+54 9 11...">
+                </label>
+                <label class="grid gap-2">
+                  <span class="text-xs font-semibold uppercase tracking-[0.2em] text-ink-900/55">Objetivo</span>
+                  <textarea rows="3" class="rounded-2xl border border-ink-900/10 bg-mist-100 px-4 py-4 text-sm text-ink-900 outline-none transition focus:border-nacar-300" placeholder="Quiero mostrar color premium y ordenar reservas por WhatsApp."></textarea>
+                </label>
+                <button type="submit" class="mt-2 rounded-full bg-ink-900 px-5 py-4 text-sm font-semibold text-white transition hover:bg-ink-800">Solicitar landing</button>
+              </form>
+              <p id="leadFeedback" class="mt-4 hidden rounded-2xl bg-mist-100 px-4 py-3 text-sm font-medium text-ink-900">Demo enviada. En un proyecto real, este contacto abriría WhatsApp con mensaje estructurado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 lg:px-8">
+    <div class="section-shell p-6 sm:p-8">
+      <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+        <div>
+          <div class="flex items-center gap-3">
+            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink-900 text-sm font-bold text-white">C</div>
+            <div>
+              <p class="font-display text-xl font-extrabold text-ink-900">Captiva</p>
+              <p class="text-xs uppercase tracking-[0.22em] text-ink-900/48">Producto de Tuwebai</p>
+            </div>
+          </div>
+          <p class="mt-5 max-w-2xl text-sm leading-7 text-ink-900/65">Demo manual para catálogo de Captiva. El objetivo es mostrar una peluquería premium orientada a reservas, autoridad visual y contacto directo.</p>
+        </div>
+        <div class="grid gap-3 text-sm text-ink-900/68">
+          <a href="/captiva" class="transition hover:text-nacar-500">Captiva</a>
+          <a href="/captiva/demos" class="transition hover:text-nacar-500">Biblioteca de demos</a>
+          <a href="/politica-de-privacidad" class="transition hover:text-nacar-500">Politica de privacidad</a>
+          <a href="/terminos-de-servicio" class="transition hover:text-nacar-500">Terminos de servicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a
+    href="https://wa.me/5491134567890?text=Hola%2C%20quiero%20una%20landing%20como%20la%20demo%20de%20peluqueria."
+    target="_blank"
+    rel="noreferrer"
+    class="fixed bottom-6 right-6 z-40 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-halo transition hover:-translate-y-1"
+    aria-label="Abrir WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" class="h-8 w-8">
+      <path d="M19.05 4.91A9.82 9.82 0 0 0 12.02 2a9.94 9.94 0 0 0-8.5 15.05L2 22l5.09-1.48a9.94 9.94 0 0 0 4.93 1.27h.01c5.49 0 9.96-4.46 9.97-9.95a9.86 9.86 0 0 0-2.95-6.93Zm-7.03 15.2h-.01a8.25 8.25 0 0 1-4.2-1.15l-.3-.18-3.02.88.9-2.94-.2-.31a8.26 8.26 0 0 1 7.02-12.69 8.1 8.1 0 0 1 5.82 2.41 8.18 8.18 0 0 1 2.42 5.81c0 4.54-3.7 8.23-8.43 8.23Zm4.52-6.14c-.25-.13-1.48-.73-1.7-.81-.23-.08-.4-.13-.57.13-.17.25-.65.81-.8.98-.14.17-.29.19-.53.06-.25-.13-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.36-1.71-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.37-.78-1.88-.21-.5-.43-.43-.57-.44l-.49-.01c-.17 0-.44.06-.66.31-.23.25-.88.86-.88 2.11 0 1.25.9 2.45 1.03 2.62.13.17 1.76 2.69 4.28 3.76.6.26 1.06.41 1.42.52.6.19 1.15.16 1.58.1.48-.07 1.48-.6 1.69-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z"/>
+    </svg>
+  </a>
+
+  <div class="watermark">Captiva Demo</div>
+
+  <script>
+    const form = document.getElementById("leadForm");
+    const feedback = document.getElementById("leadFeedback");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      feedback.classList.remove("hidden");
+      form.reset();
+    });
+  </script>
+</body>
+</html>

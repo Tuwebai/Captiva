@@ -8,7 +8,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import demosManifest from '../config/demos.generated.json';
 import { siteConfig } from '../config/site';
-import type { DemoManifestItem } from '../types/demo';
+import type { DemoCategoryGroup, DemoManifestItem } from '../types/demo';
 import { trackEvent } from '../utils/analytics';
 import { getTopCityLandings } from '../utils/city-landings';
 import {
@@ -72,6 +72,35 @@ function getVisibleCategories(filterKey: string, industryFilterKey: string, tagF
     .filter((category) => category.items.length > 0);
 }
 
+function buildIndustryScopedCategory(
+  industryKey: string,
+  filterKey: string,
+  tagFilterKey: string,
+): DemoCategoryGroup[] {
+  const scopedDemos = activeDemos.filter((item) => {
+    if (item.industry !== industryKey) return false;
+    if (tagFilterKey !== 'all' && !(item.tags ?? []).includes(tagFilterKey)) return false;
+    if (filterKey === 'all') return true;
+
+    const filter = categoryFilters.find((item) => item.key === filterKey);
+    if (!filter) return true;
+    return filter.categories.includes(item.category);
+  });
+
+  if (scopedDemos.length === 0) {
+    return [];
+  }
+
+  return [
+    {
+      slug: industryKey,
+      title: getIndustryLabel(industryKey),
+      description: `Demos para ${getIndustryLabel(industryKey).toLowerCase()} con estructura clara, CTA visible y contacto orientado a conversion.`,
+      items: scopedDemos.sort((left, right) => left.title.localeCompare(right.title, 'es')),
+    },
+  ];
+}
+
 type DemosGallerySectionProps = {
   industrySlug?: string;
 };
@@ -95,11 +124,18 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
   const validTagFilterKeys = new Set(tagFilters.map((item) => item.key));
   const activeTagFilterKey = searchParams.get('tag') ?? 'all';
   const normalizedTagFilterKey = validTagFilterKeys.has(activeTagFilterKey) ? activeTagFilterKey : 'all';
-  const visibleCategories = getVisibleCategories(
-    normalizedFilterKey,
-    normalizedIndustryFilterKey,
-    normalizedTagFilterKey,
-  );
+  const visibleCategories =
+    normalizedIndustryFilterKey === 'all'
+      ? getVisibleCategories(
+          normalizedFilterKey,
+          normalizedIndustryFilterKey,
+          normalizedTagFilterKey,
+        )
+      : buildIndustryScopedCategory(
+          normalizedIndustryFilterKey,
+          normalizedFilterKey,
+          normalizedTagFilterKey,
+        );
   const visibleCount = visibleCategories.reduce((total, category) => total + category.items.length, 0);
   const activeIndustryOption = industryFilters.find((item) => item.key === normalizedIndustryFilterKey);
   const activeTagOption = tagFilters.find((item) => item.key === normalizedTagFilterKey);

@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
-import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH } from './lib/demo-factory/constants.mjs';
+import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH } from './lib/demos/constants.mjs';
 
 const projectRoot = process.cwd();
 const demosRoot = resolve(projectRoot, 'demos');

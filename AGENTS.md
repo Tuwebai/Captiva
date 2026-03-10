@@ -120,6 +120,12 @@ Maintain event coverage:
 
 Avoid event taxonomy drift unless explicitly planned.
 
+### 2.7 Archived features
+- `archive/demo-factory/` is archived and out of the active product scope.
+- Do not restore, execute, rewire, or reference files from `archive/demo-factory/` unless the user explicitly requests reactivation.
+- Active runtime/build flows must rely only on the current manual demo pipeline under `demos/`, `public/demos/`, and the active scripts in `scripts/`.
+- If work touches demos, preserve the current manual catalog as source of truth unless instructed otherwise.
+
 ---
 
 ## 3) Coding and UI Conventions
@@ -151,6 +157,17 @@ Before closing a task, evaluate regressions in:
 - forms/leads
 - demos
 - theming/UI states
+
+### 3.5 New demos and premium visual variants
+- Any new manual demo, premium demo refresh, or future visual variant must follow this source priority:
+  1. `docs/agent.md`
+  2. `docs/SCOPE.md`
+  3. `CLAUDE.md`
+  4. `.claude/skills/ui-ux-pro-max/SKILL.md`
+  5. `src/ui-ux-pro-max/` as the primary design source of truth
+  6. `.shared/ui-ux-pro-max` and `cli/assets/*` only as mirrors or packaging layers
+- Do not approve a new demo or visual variant if it degrades the quality level of the best manual premium demos already present in the catalog.
+- All new demos must be catalog-ready, responsive, visually intentional, and consistent with `scripts/contracts/design-contract.json`.
 
 ---
 
