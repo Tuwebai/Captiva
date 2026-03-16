@@ -1,4 +1,4 @@
-import { loadDemoSlugMap, normalizeDemoKey } from './_shared/demo-slug-map';
+import { loadDemoSlugMap, normalizeDemoKey } from './_shared/demo-slug-map.ts';
 
 export default async (request: Request) => {
   const url = new URL(request.url);
