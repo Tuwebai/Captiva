@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 var rootDir = fileURLToPath(new URL('.', import.meta.url));
-var demosManifestPath = resolve(rootDir, 'src/config/demos.generated.json');
+var demosManifestPath = resolve(rootDir, 'src/generated/demos-index.json');
 var demoSlugMapPath = resolve(rootDir, 'public/demo-slugs.json');
 var publicDemosPath = resolve(rootDir, 'public/demos');
 function demoProxyDevPlugin() {

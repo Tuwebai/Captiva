@@ -37,6 +37,46 @@
     "href": "/demo/demo-alegra-salud"
   },
   {
+    "slug": "demo-arias-estudio-inmobiliario",
+    "folderName": "DEMO Arias Estudio Inmobiliario",
+    "publicSlug": "DEMO-AriasEstudioInmobiliario",
+    "title": "Landing para Arias Estudio Inmobiliario",
+    "description": "Inmobiliaria en Rio Tercero especializada en venta y alquiler de casas, terrenos y departamentos.",
+    "category": "negocios-locales",
+    "industry": "inmobiliaria",
+    "goal": "leads",
+    "template": "real-estate-split",
+    "variant": "default",
+    "tier": "legacy",
+    "style": "premium",
+    "tags": [
+      "captiva",
+      "demo",
+      "negocios-locales",
+      "inmobiliaria",
+      "rio-tercero",
+      "cordoba",
+      "business",
+      "real-estate-split"
+    ],
+    "sections": [
+      "hero-premium",
+      "benefits-enterprise",
+      "process-premium",
+      "services-catalog",
+      "plans-premium",
+      "gallery-premium",
+      "testimonials-carousel",
+      "faq-premium",
+      "cta-final",
+      "contact-split",
+      "footer-corporate"
+    ],
+    "preview": "/assets/placeholders/captiva-demo-preview.svg",
+    "status": "active",
+    "href": "/demo/demo-arias-estudio-inmobiliario"
+  },
+  {
     "slug": "demo-clinica-dental-sonrisa",
     "folderName": "DEMO Clinica Dental Sonrisa",
     "publicSlug": "DEMO-ClinicaDentalSonrisa",

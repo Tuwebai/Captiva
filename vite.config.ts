@@ -5,7 +5,7 @@ import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
-const demosManifestPath = resolve(rootDir, 'src/config/demos.generated.json');
+const demosManifestPath = resolve(rootDir, 'src/generated/demos-index.json');
 const demoSlugMapPath = resolve(rootDir, 'public/demo-slugs.json');
 const publicDemosPath = resolve(rootDir, 'public/demos');
 

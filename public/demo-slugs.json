@@ -1,7 +1,8 @@
 {
-  "generatedAt": "2026-03-11T00:51:43.117Z",
+  "generatedAt": "2026-03-16T19:50:33.839Z",
   "canonicalToPublic": {
     "demo-alegra-salud": "DEMO-AlegraSalud",
+    "demo-arias-estudio-inmobiliario": "DEMO-AriasEstudioInmobiliario",
     "demo-clinica-dental-sonrisa": "DEMO-ClinicaDentalSonrisa",
     "demo-dentista": "DEMO-Dentista",
     "demo-carbon-detail": "DEMO-CarbonDetail",
@@ -22,6 +23,9 @@
     "demo-alegrasalud": "demo-alegra-salud",
     "demo alegra salud": "demo-alegra-salud",
     "demoalegrasalud": "demo-alegra-salud",
+    "demo-ariasestudioinmobiliario": "demo-arias-estudio-inmobiliario",
+    "demo arias estudio inmobiliario": "demo-arias-estudio-inmobiliario",
+    "demoariasestudioinmobiliario": "demo-arias-estudio-inmobiliario",
     "demo-clinicadentalsonrisa": "demo-clinica-dental-sonrisa",
     "demo clinica dental sonrisa": "demo-clinica-dental-sonrisa",
     "democlinicadentalsonrisa": "demo-clinica-dental-sonrisa",

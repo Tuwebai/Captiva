@@ -10,9 +10,9 @@ export function getDemoSecurityHeaders() {
       "frame-ancestors 'self'",
       "object-src 'none'",
       "img-src 'self' data: https:",
-      "style-src 'self' 'unsafe-inline'",
-      "script-src 'self' 'unsafe-inline'",
-      "font-src 'self' data: https:",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com",
+      "font-src 'self' data: https://fonts.gstatic.com",
       "connect-src 'self'",
     ].join('; '),
   };
