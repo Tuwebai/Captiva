@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "normalize:demos": "node scripts/normalize-demo-metadata.mjs",
     "validate:demos": "npm run normalize:demos && node scripts/validate-demos.mjs",
