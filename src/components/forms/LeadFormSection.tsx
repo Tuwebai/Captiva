@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useId, useMemo, useState } from 'react';
 
 import { InfoTooltip } from '../ui/tooltip/InfoTooltip';
 import { siteConfig } from '../../config/site';
+import { scoreLead } from '../../lib/lead-scoring';
 import { trackEvent } from '../../utils/analytics';
 import { buildLeadMessage, buildWhatsAppLeadUrl, type LeadContext, type LeadFormData } from '../../utils/lead-message';
 import { resolveCurrentPageContext } from '../../utils/page-context';
@@ -54,6 +55,7 @@ export function LeadFormSection({
     }),
     [source, industry, formData.industry, city, context],
   );
+  const pageContext = useMemo(() => resolveCurrentPageContext(), []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -83,9 +85,21 @@ export function LeadFormSection({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const message = buildLeadMessage(formData, leadContext);
+    const leadScoring = scoreLead({
+      pageType: pageContext.pageType,
+      source: source ?? 'lead-form',
+      action: 'contact',
+      industry: industry ?? formData.industry,
+      city: city ?? pageContext.city,
+      context: context ?? pageContext.path,
+    });
+    const enrichedLeadContext: LeadContext = {
+      ...leadContext,
+      leadScore: leadScoring.score,
+      leadLevel: leadScoring.level,
+    };
+    const message = buildLeadMessage(formData, enrichedLeadContext);
     const whatsappUrl = buildWhatsAppLeadUrl(siteConfig.contact.whatsapp, message);
-    const pageContext = resolveCurrentPageContext();
 
     trackEvent('lead_submit', {
       source: source ?? 'lead-form',
@@ -96,12 +110,26 @@ export function LeadFormSection({
       city: city ?? pageContext.city ?? '',
       context: context ?? '',
       contact_type: formData.contact.includes('@') ? 'email' : 'whatsapp',
+      lead_score: leadScoring.score,
+      lead_level: leadScoring.level,
     });
 
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
-  const leadMessage = buildLeadMessage(formData, leadContext);
+  const previewLeadScoring = scoreLead({
+    pageType: pageContext.pageType,
+    source: source ?? 'lead-form',
+    action: 'contact',
+    industry: industry ?? formData.industry,
+    city: city ?? pageContext.city,
+    context: context ?? pageContext.path,
+  });
+  const leadMessage = buildLeadMessage(formData, {
+    ...leadContext,
+    leadScore: previewLeadScoring.score,
+    leadLevel: previewLeadScoring.level,
+  });
   const mailtoHref = `mailto:${siteConfig.contact.productEmail}?subject=${encodeURIComponent('Lead Captiva')}&body=${encodeURIComponent(leadMessage)}`;
 
   return (

@@ -8,11 +8,7 @@ import { PageShell } from '../layout/PageShell';
 import { initAnalytics } from '../utils/analytics';
 import { setupOutboundLinkTracking } from '../utils/outbound-links';
 import { initTooltipSystem } from '../components/ui/tooltip-system';
-import { DemosPage } from './DemosPage';
 import { HomePage } from './HomePage';
-import { IndustryPage } from './IndustryPage';
-import { PrivacyPolicyPage } from './PrivacyPolicyPage';
-import { TermsOfServicePage } from './TermsOfServicePage';
 
 const BlogPage = lazy(async () => {
   const module = await import('./BlogPage');
@@ -32,6 +28,26 @@ const ExampleLandingPage = lazy(async () => {
 const ComparisonPage = lazy(async () => {
   const module = await import('./ComparisonPage');
   return { default: module.ComparisonPage };
+});
+
+const DemosPage = lazy(async () => {
+  const module = await import('./DemosPage');
+  return { default: module.DemosPage };
+});
+
+const IndustryPage = lazy(async () => {
+  const module = await import('./IndustryPage');
+  return { default: module.IndustryPage };
+});
+
+const PrivacyPolicyPage = lazy(async () => {
+  const module = await import('./PrivacyPolicyPage');
+  return { default: module.PrivacyPolicyPage };
+});
+
+const TermsOfServicePage = lazy(async () => {
+  const module = await import('./TermsOfServicePage');
+  return { default: module.TermsOfServicePage };
 });
 
 function BlogRouteFallback() {
@@ -64,10 +80,38 @@ export function App() {
       <Routes>
         <Route path={siteConfig.routes.home} element={<Navigate replace to={siteConfig.routes.captiva} />} />
         <Route path={siteConfig.routes.captiva} element={<HomePage />} />
-        <Route path={siteConfig.routes.captivaDemos} element={<DemosPage />} />
-        <Route path={`${siteConfig.routes.captivaDemos}/industria/:industry`} element={<DemosPage />} />
-        <Route path={siteConfig.routes.termsOfService} element={<TermsOfServicePage />} />
-        <Route path={siteConfig.routes.privacyPolicy} element={<PrivacyPolicyPage />} />
+        <Route
+          path={siteConfig.routes.captivaDemos}
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <DemosPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={`${siteConfig.routes.captivaDemos}/industria/:industry`}
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <DemosPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={siteConfig.routes.termsOfService}
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <TermsOfServicePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path={siteConfig.routes.privacyPolicy}
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <PrivacyPolicyPage />
+            </Suspense>
+          }
+        />
         <Route
           path="/blog"
           element={
@@ -124,8 +168,22 @@ export function App() {
             </Suspense>
           }
         />
-        <Route path="/landing-page-para-:industry" element={<IndustryPage />} />
-        <Route path="/:slug" element={<IndustryPage />} />
+        <Route
+          path="/landing-page-para-:industry"
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <IndustryPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:slug"
+          element={
+            <Suspense fallback={<BlogRouteFallback />}>
+              <IndustryPage />
+            </Suspense>
+          }
+        />
       </Routes>
       <div id="global-tooltip" role="tooltip" aria-hidden="true" />
     </PageShell>

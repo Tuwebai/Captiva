@@ -1,12 +1,12 @@
-import comparativesData from '../generated/comparatives-index.json';
-import demosManifest from '../generated/demos-index.json';
 import seoManifestData from '../generated/seo-manifest.json';
+import { comparatives } from '../growth/registry/comparatives';
+import { demos } from '../growth/registry/demos';
 import type { DemoManifestItem } from '../types/demo';
 import type { ComparisonEntry, LandingExample } from '../types/seo-cluster';
 
 const landingExamples = (seoManifestData as { landingExamples: LandingExample[] }).landingExamples;
-const comparisons = comparativesData as ComparisonEntry[];
-const demos = demosManifest as DemoManifestItem[];
+const comparisonEntries = comparatives as ComparisonEntry[];
+const demoEntries = demos as DemoManifestItem[];
 
 export function getLandingExamples() {
   return landingExamples;
@@ -25,17 +25,17 @@ export function getTopLandingExamples(limit = 3) {
 }
 
 export function getComparisons() {
-  return comparisons;
+  return comparisonEntries;
 }
 
 export function getComparisonBySlug(slug: string) {
-  return comparisons.find((item) => item.slug === slug);
+  return comparisonEntries.find((item) => item.slug === slug);
 }
 
 export function getTopComparisons(limit = 3) {
-  return comparisons.slice(0, limit);
+  return comparisonEntries.slice(0, limit);
 }
 
 export function getDemoForCategory(category: string) {
-  return demos.find((item) => item.category === category);
+  return demoEntries.find((item) => item.category === category);
 }

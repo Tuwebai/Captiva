@@ -17,6 +17,12 @@ export type CityLandingEntry = {
   path: string;
   title: string;
   description: string;
+  metaDescription?: string;
+  intro?: string;
+  localHook?: string;
+  sectionVariant?: string;
+  uniqueWordCount?: number;
+  uniquenessFingerprint?: string;
   niche: CityLandingNiche;
   city: CityLandingCity;
 };

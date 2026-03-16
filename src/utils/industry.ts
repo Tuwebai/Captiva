@@ -1,10 +1,10 @@
-import demosManifest from '../generated/demos-index.json';
-import industriesIndex from '../generated/industries-index.json';
+import { demos } from '../growth/registry/demos';
+import { industries } from '../growth/registry/industries';
 import type { DemoManifestItem } from '../types/demo';
 import type { IndustryPageData } from '../types/industry';
 
-const catalogEntries = industriesIndex as IndustryPageData[];
-const demos = demosManifest as DemoManifestItem[];
+const catalogEntries = industries as IndustryPageData[];
+const demoEntries = demos as DemoManifestItem[];
 
 function fallbackFromCategory(category: string): IndustryPageData {
   const normalized = category.trim().toLowerCase();
@@ -52,7 +52,7 @@ export function getIndustryPages(): IndustryPageData[] {
   const catalogItems = getAllIndustries();
   const catalogCategories = new Set(catalogItems.map((item) => item.category));
 
-  const fallbackItems = [...new Set(demos.map((item) => item.category))]
+  const fallbackItems = [...new Set(demoEntries.map((item) => item.category))]
     .filter((category) => !catalogCategories.has(category))
     .map((category) => fallbackFromCategory(category));
 
@@ -64,5 +64,5 @@ export function getIndustryBySlug(slug: string): IndustryPageData | undefined {
 }
 
 export function getDemosByIndustry(category: string): DemoManifestItem[] {
-  return demos.filter((item) => item.category === category).sort((left, right) => left.title.localeCompare(right.title, 'es'));
+  return demoEntries.filter((item) => item.category === category).sort((left, right) => left.title.localeCompare(right.title, 'es'));
 }

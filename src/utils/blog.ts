@@ -1,7 +1,7 @@
-import blogIndex from '../generated/blog-index.json';
+import { blogPosts, blogTopics } from '../growth/registry/blog-topics';
 import type { BlogPostIndex } from '../types/blog';
 
-const posts = blogIndex as BlogPostIndex[];
+const posts = blogPosts as BlogPostIndex[];
 export const BLOG_POSTS_PER_PAGE = 10;
 
 export function slugifyTag(value: string) {
@@ -40,16 +40,7 @@ export function formatPostDate(date: string) {
 }
 
 export function getAllBlogTags() {
-  const seen = new Map<string, string>();
-  posts.forEach((post) => {
-    post.tags.forEach((tag) => {
-      const slug = slugifyTag(tag);
-      if (!seen.has(slug)) {
-        seen.set(slug, tag);
-      }
-    });
-  });
-  return Array.from(seen.entries()).map(([slug, label]) => ({ slug, label }));
+  return blogTopics.map(({ slug, label }) => ({ slug, label }));
 }
 
 export function getPostsByTagSlug(tagSlug: string) {

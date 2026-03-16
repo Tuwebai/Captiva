@@ -1,7 +1,7 @@
-import seoManifestData from '../generated/seo-manifest.json';
+import { cityLandingEntries } from '../growth/registry/cities';
 import type { CityLandingEntry } from '../types/city-landing';
 
-const cityLandings = (seoManifestData as { cityLandings: CityLandingEntry[] }).cityLandings;
+const cityLandings = cityLandingEntries as CityLandingEntry[];
 
 export function getCityLandingBySlug(slug: string): CityLandingEntry | undefined {
   return cityLandings.find((entry) => entry.slug === slug);

@@ -11,6 +11,8 @@ export type LeadContext = {
   industry?: string;
   city?: string;
   context?: string;
+  leadScore?: number;
+  leadLevel?: string;
 };
 
 function safeValue(value: string | undefined) {
@@ -32,6 +34,8 @@ export function buildLeadMessage(formData: LeadFormData, context: LeadContext = 
     `Industria: ${safeValue(context.industry)}`,
     `Ciudad: ${safeValue(context.city)}`,
     `Contexto: ${safeValue(context.context)}`,
+    `Lead score: ${safeValue(context.leadScore != null ? String(context.leadScore) : undefined)}`,
+    `Lead level: ${safeValue(context.leadLevel)}`,
   ];
 
   return lines.join('\n');

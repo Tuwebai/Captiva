@@ -1,7 +1,6 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { basename, dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { minify } from 'html-minifier-terser';
-import { loadBlogEntries } from './lib/blog-content.mjs';
 import { DEFAULT_DEMO_PREVIEW, DEFAULT_DEMO_PREVIEW_PATH, DEFAULT_DEMO_SECTIONS } from './lib/demos/constants.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
@@ -11,15 +10,8 @@ const outputPath = resolve(process.cwd(), 'src/generated/demos-index.json');
 const publicRoot = resolve(process.cwd(), 'public');
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const publicDemosRoot = resolve(publicRoot, 'demos');
-const robotsPath = resolve(publicRoot, 'robots.txt');
-const sitemapPath = resolve(publicRoot, 'sitemap.xml');
 const slugMapPath = resolve(publicRoot, 'demo-slugs.json');
 const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
-const cityLandingsPath = resolve(process.cwd(), 'src/generated/city-landings.generated.json');
-const examplesPath = resolve(process.cwd(), 'src/generated/landing-examples.generated.json');
-const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
-const staticRoutes = ['/captiva', '/captiva/demos'];
-const blogContentDir = resolve(process.cwd(), 'src/content/blog');
 const industryCatalog = existsSync(industryCatalogPath)
   ? JSON.parse(readFileSync(industryCatalogPath, 'utf8'))
   : {};
@@ -53,15 +45,6 @@ function buildPublicSlug(folderName) {
 
 function buildControlledHref(canonicalSlug) {
   return `${controlledDemoBase}/${canonicalSlug}`;
-}
-
-function normalizePreview(publicSlug, preview) {
-  if (!preview) return null;
-  if (preview === DEFAULT_DEMO_PREVIEW) return DEFAULT_DEMO_PREVIEW;
-  if (preview.startsWith('/')) {
-    return `/demos/${publicSlug}/${basename(preview)}`;
-  }
-  return `/demos/${publicSlug}/${preview}`;
 }
 
 function resolveManifestPreview(item) {
@@ -348,95 +331,6 @@ async function optimizeDemoHtml(item) {
   writeFileSync(indexPath, minified);
 }
 
-async function writeSitemap(manifest) {
-  const cityRoutes = existsSync(cityLandingsPath)
-    ? JSON.parse(readFileSync(cityLandingsPath, 'utf8')).map((entry) => entry.path)
-    : [];
-  const exampleRoutes = existsSync(examplesPath)
-    ? JSON.parse(readFileSync(examplesPath, 'utf8')).map((entry) => `/${entry.slug}`)
-    : [];
-  const comparisonRoutes = existsSync(comparisonsPath)
-    ? JSON.parse(readFileSync(comparisonsPath, 'utf8')).map((entry) => `/${entry.slug}`)
-    : [];
-  const industryRoutes = [...new Set(manifest.map((item) => `/${getIndustrySlug(item.category)}`))];
-  const blogEntries = await loadBlogEntries(blogContentDir);
-  const blogPostsPerPage = 10;
-  const totalBlogPages = Math.ceil(blogEntries.length / blogPostsPerPage);
-  const blogPageRoutes =
-    totalBlogPages > 1 ? Array.from({ length: totalBlogPages - 1 }, (_entry, index) => `/blog/page/${index + 2}`) : [];
-  const tagMap = new Map();
-  blogEntries.forEach((post) => {
-    post.tags.forEach((tag) => {
-      const tagSlug = slugify(tag);
-      if (!tagSlug) return;
-      tagMap.set(tagSlug, (tagMap.get(tagSlug) ?? 0) + 1);
-    });
-  });
-  const blogTagRoutes = [...tagMap.entries()].flatMap(([tagSlug, count]) => {
-    const tagPages = Math.ceil(count / blogPostsPerPage);
-    const paged = tagPages > 1 ? Array.from({ length: tagPages - 1 }, (_entry, index) => `/blog/tag/${tagSlug}/page/${index + 2}`) : [];
-    return [`/blog/tag/${tagSlug}`, ...paged];
-  });
-  const blogRoutes = [
-    '/blog',
-    ...blogPageRoutes,
-    ...blogTagRoutes,
-    ...blogEntries.map((post) => `/blog/${post.slug}`),
-  ];
-
-  const urls = [
-    ...staticRoutes,
-    ...blogRoutes,
-    ...industryRoutes,
-    ...cityRoutes,
-    ...exampleRoutes,
-    ...comparisonRoutes,
-    ...manifest.map((item) => buildControlledHref(item.slug)),
-  ];
-  const uniqueUrls = [...new Set(urls)];
-  const lastmod = new Date().toISOString().split('T')[0];
-
-  const entries = uniqueUrls
-    .map((path) => {
-      const priority =
-        path === '/captiva'
-          ? '1.0'
-          : path === '/captiva/demos'
-            ? '0.9'
-            : path === '/blog'
-              ? '0.88'
-              : path.startsWith('/blog/')
-                ? '0.82'
-              : path.startsWith('/landing-page-para-')
-                ? '0.85'
-                : '0.8';
-      return [
-        '  <url>',
-        `    <loc>${toAbsoluteUrl(path)}</loc>`,
-        `    <lastmod>${lastmod}</lastmod>`,
-        '    <changefreq>weekly</changefreq>',
-        `    <priority>${priority}</priority>`,
-        '  </url>',
-      ].join('\n');
-    })
-    .join('\n');
-
-  const xml = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    entries,
-    '</urlset>',
-    '',
-  ].join('\n');
-
-  writeFileSync(sitemapPath, xml);
-}
-
-function writeRobots() {
-  const robots = ['User-agent: *', 'Allow: /', '', `Sitemap: ${toAbsoluteUrl('/sitemap.xml')}`, ''].join('\n');
-  writeFileSync(robotsPath, robots);
-}
-
 function normalizeAliasKey(value) {
   const sanitized = String(value).trim().replace(/^\/+|\/+$/g, '');
   try {
@@ -580,9 +474,6 @@ async function main() {
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(centralManifest.demos, null, 2)}\n`);
   writeDemoSlugMap(manifest);
-  await writeSitemap(manifest);
-  writeRobots();
-
   console.log(`Generated demos manifest with ${manifest.length} entries.`);
 }
 

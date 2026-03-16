@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { validateCityPage } from './seo/quality-gates/city-page-validator.mjs';
 
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const citiesPath = resolve(process.cwd(), 'src/config/seo-cities.json');
@@ -35,6 +36,26 @@ function buildSeoDescription(heroDescription, cityName) {
   return `${heroDescription} Enfoque local para ${cityName}, con estructura clara, CTA directo y conversion orientada a consultas.`;
 }
 
+function buildMetaDescription(industryName, cityName, countryName) {
+  return `Captiva crea landings para ${industryName} en ${cityName}, ${countryName}, con propuesta clara, CTA directo y enfoque comercial para captar consultas reales.`;
+}
+
+function buildCityIntro(industryName, cityName, countryName) {
+  return `Si tu negocio de ${industryName} opera en ${cityName}, ${countryName}, necesitas una pagina orientada a conversion que ordene la oferta, destaque diferenciales y facilite el contacto desde el primer scroll.`;
+}
+
+function buildLocalHook(industryName, cityName) {
+  return `Contexto local para ${industryName} en ${cityName}: mensaje adaptado, referencias geograficas y CTA pensada para trafico con intencion comercial.`;
+}
+
+function buildSectionVariant(city) {
+  const normalized = String(city.country ?? '').toLowerCase();
+  if (normalized.includes('espana')) return 'city-proof';
+  if (normalized.includes('argentina')) return 'city-process';
+  if (normalized.includes('mexico')) return 'city-offer';
+  return 'city-trust';
+}
+
 function normalizeIndustries(catalog) {
   return Object.entries(catalog).map(([category, entry]) => ({
     category,
@@ -64,11 +85,15 @@ function generate() {
   const combinations = industries.flatMap((industry) =>
     cities.map((city) => {
       const slug = `landing-page-para-${industry.slug}-${city.slug}`;
-      return {
+      const entry = {
         slug,
         path: `/${slug}`,
         title: buildSeoTitle(industry.name, city.name),
         description: buildSeoDescription(industry.description, city.name),
+        metaDescription: buildMetaDescription(industry.name, city.name, city.country),
+        intro: buildCityIntro(industry.name, city.name, city.country),
+        localHook: buildLocalHook(industry.name, city.name),
+        sectionVariant: buildSectionVariant(city),
         niche: {
           slug: industry.slug,
           name: industry.name,
@@ -81,6 +106,17 @@ function generate() {
           name: city.name,
           country: city.country,
         },
+      };
+
+      const validation = validateCityPage(entry);
+      if (!validation.valid) {
+        throw new Error(`City landing "${slug}" failed quality gates: ${validation.issues.join(', ')}`);
+      }
+
+      return {
+        ...entry,
+        uniqueWordCount: validation.uniqueWordCount,
+        uniquenessFingerprint: validation.fingerprint,
       };
     }),
   );
