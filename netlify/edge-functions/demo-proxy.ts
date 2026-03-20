@@ -9,7 +9,7 @@ export default async (request: Request) => {
     return Response.redirect(new URL('/captiva/demos', url), 302);
   }
 
-  const slugMap = await loadDemoSlugMap(url);
+  const slugMap = await loadDemoSlugMap();
   const canonicalSlug = slugMap.aliasToCanonical[slug] ?? slug;
   const publicSlug = slugMap.canonicalToPublic[canonicalSlug];
 

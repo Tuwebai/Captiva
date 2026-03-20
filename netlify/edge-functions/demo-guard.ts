@@ -62,7 +62,7 @@ export default async (request: Request, context: { next: () => Promise<Response>
         (pathParts.length === 3 && pathParts[2].toLowerCase() === 'index.html'));
 
     if (isDirectDemoIndex && demoFolder) {
-      const slugMap = await loadDemoSlugMap(url);
+      const slugMap = await loadDemoSlugMap();
       const directKey = normalizeDemoKey(demoFolder);
       const canonicalSlug = slugMap.aliasToCanonical[directKey] ?? directKey;
       if (slugMap.canonicalToPublic[canonicalSlug]) {

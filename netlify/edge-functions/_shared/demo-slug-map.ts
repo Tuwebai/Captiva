@@ -1,3 +1,15 @@
+import demosManifestFile from '../../../demos/manifest.json' with { type: 'json' };
+
+type DemoManifestItem = {
+  slug: string;
+  folderName?: string;
+  publicSlug?: string;
+};
+
+type DemoManifestFile = {
+  demos?: DemoManifestItem[];
+};
+
 type DemoSlugMap = {
   canonicalToPublic: Record<string, string>;
   aliasToCanonical: Record<string, string>;
@@ -17,22 +29,39 @@ export function normalizeDemoKey(value: string): string {
   return safeDecode(value).trim().replace(/^\/+|\/+$/g, '').toLowerCase();
 }
 
-export async function loadDemoSlugMap(requestUrl: URL): Promise<DemoSlugMap> {
-  if (cache) return cache;
+function buildDemoSlugMap(): DemoSlugMap {
+  const manifest = (demosManifestFile as DemoManifestFile).demos ?? [];
+  const canonicalToPublic: Record<string, string> = {};
+  const aliasToCanonical: Record<string, string> = {};
 
-  const response = await fetch(new URL('/demo-slugs.json', requestUrl).toString(), {
-    headers: { 'cache-control': 'no-cache' },
+  manifest.forEach((item) => {
+    if (!item.slug || !item.publicSlug) return;
+
+    canonicalToPublic[normalizeDemoKey(item.slug)] = item.publicSlug;
+
+    [
+      item.publicSlug,
+      item.folderName,
+      item.folderName?.replace(/\s+/g, '-'),
+      item.folderName?.replace(/\s+/g, ''),
+    ]
+      .filter(Boolean)
+      .forEach((alias) => {
+        const normalizedAlias = normalizeDemoKey(String(alias));
+        if (normalizedAlias && normalizedAlias !== normalizeDemoKey(item.slug)) {
+          aliasToCanonical[normalizedAlias] = normalizeDemoKey(item.slug);
+        }
+      });
   });
 
-  if (!response.ok) {
-    cache = { canonicalToPublic: {}, aliasToCanonical: {} };
-    return cache;
-  }
-
-  const json = await response.json();
-  cache = {
-    canonicalToPublic: json?.canonicalToPublic ?? {},
-    aliasToCanonical: json?.aliasToCanonical ?? {},
+  return {
+    canonicalToPublic,
+    aliasToCanonical,
   };
+}
+
+export async function loadDemoSlugMap(): Promise<DemoSlugMap> {
+  if (cache) return cache;
+  cache = buildDemoSlugMap();
   return cache;
 }

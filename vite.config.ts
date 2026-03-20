@@ -5,18 +5,51 @@ import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
-const demosManifestPath = resolve(rootDir, 'src/generated/demos-index.json');
-const demoSlugMapPath = resolve(rootDir, 'public/demo-slugs.json');
+const demosManifestPath = resolve(rootDir, 'demos/manifest.json');
 const publicDemosPath = resolve(rootDir, 'public/demos');
 
 type DemoManifestItem = {
   slug: string;
+  folderName?: string;
   publicSlug?: string;
 };
 
-type DemoSlugMap = {
-  canonicalToPublic?: Record<string, string>;
+type DemoManifestFile = {
+  demos?: DemoManifestItem[];
 };
+
+function normalizeDemoKey(value: string) {
+  try {
+    return decodeURIComponent(value).trim().replace(/^\/+|\/+$/g, '').toLowerCase();
+  } catch {
+    return String(value).trim().replace(/^\/+|\/+$/g, '').toLowerCase();
+  }
+}
+
+function buildAliasToCanonicalMap(demos: DemoManifestItem[]) {
+  const aliasToCanonical = new Map<string, string>();
+
+  demos.forEach((item) => {
+    const canonical = normalizeDemoKey(item.slug);
+    if (!canonical) return;
+
+    [
+      item.publicSlug,
+      item.folderName,
+      item.folderName?.replace(/\s+/g, '-'),
+      item.folderName?.replace(/\s+/g, ''),
+    ]
+      .filter(Boolean)
+      .forEach((alias) => {
+        const normalizedAlias = normalizeDemoKey(String(alias));
+        if (normalizedAlias && normalizedAlias !== canonical) {
+          aliasToCanonical.set(normalizedAlias, canonical);
+        }
+      });
+  });
+
+  return aliasToCanonical;
+}
 
 function demoProxyDevPlugin(): Plugin {
   return {
@@ -35,7 +68,7 @@ function demoProxyDevPlugin(): Plugin {
           return;
         }
 
-        const slug = pathname.slice('/demo/'.length).trim().toLowerCase();
+        const slug = normalizeDemoKey(pathname.slice('/demo/'.length));
         if (!slug) {
           res.statusCode = 302;
           res.setHeader('Location', '/captiva/demos');
@@ -46,15 +79,15 @@ function demoProxyDevPlugin(): Plugin {
         if (!existsSync(demosManifestPath)) {
           res.statusCode = 500;
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-          res.end('Missing demos manifest. Run npm run generate:demos');
+          res.end('Missing manual demos manifest at demos/manifest.json.');
           return;
         }
 
-        const manifest = JSON.parse(readFileSync(demosManifestPath, 'utf8')) as DemoManifestItem[];
-        const slugMap = existsSync(demoSlugMapPath)
-          ? (JSON.parse(readFileSync(demoSlugMapPath, 'utf8')) as DemoSlugMap)
-          : {};
-        const demo = manifest.find((item) => item.slug === slug);
+        const manifest = JSON.parse(readFileSync(demosManifestPath, 'utf8')) as DemoManifestFile;
+        const demos = manifest.demos ?? [];
+        const aliasToCanonical = buildAliasToCanonicalMap(demos);
+        const canonicalSlug = aliasToCanonical.get(slug) ?? slug;
+        const demo = demos.find((item) => item.slug === canonicalSlug);
 
         if (!demo) {
           res.statusCode = 302;
@@ -63,12 +96,19 @@ function demoProxyDevPlugin(): Plugin {
           return;
         }
 
-        const publicSlug = demo.publicSlug ?? slugMap.canonicalToPublic?.[slug];
+        if (canonicalSlug !== slug) {
+          res.statusCode = 301;
+          res.setHeader('Location', `/demo/${canonicalSlug}`);
+          res.end();
+          return;
+        }
+
+        const publicSlug = demo.publicSlug;
 
         if (!publicSlug) {
           res.statusCode = 500;
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-          res.end('Demo public slug could not be resolved. Run npm run generate:demos');
+          res.end('Demo public slug is missing in demos/manifest.json.');
           return;
         }
 
@@ -76,7 +116,7 @@ function demoProxyDevPlugin(): Plugin {
         if (!existsSync(demoIndexPath)) {
           res.statusCode = 404;
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-          res.end('Demo not found in public assets. Run npm run generate:demos');
+          res.end('Demo not found in public assets under public/demos.');
           return;
         }
 
