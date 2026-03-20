@@ -6,7 +6,7 @@ const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.
 const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
 const cityLandingsPath = resolve(generatedDir, 'city-landings.generated.json');
 const landingExamplesPath = resolve(generatedDir, 'landing-examples.generated.json');
-const demosIndexPath = resolve(generatedDir, 'demos-index.json');
+const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
 const blogIndexPath = resolve(generatedDir, 'blog-index.json');
 const industriesIndexPath = resolve(generatedDir, 'industries-index.json');
 const comparativesIndexPath = resolve(generatedDir, 'comparatives-index.json');
@@ -35,7 +35,8 @@ function main() {
   const comparisons = readJson(comparisonsPath);
   const cityLandings = readJson(cityLandingsPath);
   const landingExamples = readJson(landingExamplesPath);
-  const demos = readJson(demosIndexPath);
+  const demosManifest = readJson(demosManifestPath);
+  const demos = demosManifest.demos ?? [];
   const blog = readJson(blogIndexPath);
 
   const industries = buildIndustriesIndex(industryCatalog);

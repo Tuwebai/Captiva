@@ -9,7 +9,7 @@ const robotsPath = resolve(publicDir, 'robots.txt');
 const legacySitemapPath = resolve(publicDir, 'sitemap.xml');
 
 const blogIndexPath = resolve(generatedDir, 'blog-index.json');
-const demosIndexPath = resolve(generatedDir, 'demos-index.json');
+const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
 const industriesIndexPath = resolve(generatedDir, 'industries-index.json');
 const comparativesIndexPath = resolve(generatedDir, 'comparatives-index.json');
 const seoManifestPath = resolve(generatedDir, 'seo-manifest.json');
@@ -119,7 +119,8 @@ function buildBlogRoutes(blogEntries) {
 
 function main() {
   const blog = existsSync(blogIndexPath) ? readJson(blogIndexPath) : [];
-  const demos = existsSync(demosIndexPath) ? readJson(demosIndexPath) : [];
+  const demosManifest = existsSync(demosManifestPath) ? readJson(demosManifestPath) : { demos: [] };
+  const demos = demosManifest.demos ?? [];
   const industries = existsSync(industriesIndexPath) ? readJson(industriesIndexPath) : [];
   const comparatives = existsSync(comparativesIndexPath) ? readJson(comparativesIndexPath) : [];
   const seoManifest = existsSync(seoManifestPath) ? readJson(seoManifestPath) : { cityLandings: [], landingExamples: [] };
