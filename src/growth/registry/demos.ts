@@ -1,7 +1,7 @@
-import demosIndex from '../../generated/demos-index.json';
+import { demosManifest } from '../../data/demosManifest';
 import type { DemoManifestItem } from '../../types/demo';
 
-export const demos = demosIndex as DemoManifestItem[];
+export const demos = demosManifest as DemoManifestItem[];
 
 export const demoSlugs = demos.map((entry) => entry.slug);
 export const demoBySlug = new Map(demos.map((entry) => [entry.slug, entry] as const));

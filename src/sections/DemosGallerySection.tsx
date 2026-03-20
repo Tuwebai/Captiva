@@ -7,9 +7,9 @@ import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { getRouteCta } from '../config/cta-strategy';
-import demosManifest from '../generated/demos-index.json';
 import { siteConfig } from '../config/site';
-import type { DemoCategoryGroup, DemoManifestItem } from '../types/demo';
+import { demosManifest } from '../data/demosManifest';
+import type { DemoCategoryGroup } from '../types/demo';
 import { trackEvent } from '../utils/analytics';
 import { getTopCityLandings } from '../utils/city-landings';
 import {
@@ -21,7 +21,7 @@ import {
 } from '../utils/demos';
 import { getIndustryPages } from '../utils/industry';
 
-const activeDemos = getCatalogDemos(demosManifest as DemoManifestItem[]);
+const activeDemos = getCatalogDemos(demosManifest);
 const demoCategories = groupDemosByCategory(activeDemos);
 const placeholderPreview = '/demo-placeholder.svg';
 const industryByCategory = new Map(getIndustryPages().map((item) => [item.category, item]));

@@ -1,13 +1,12 @@
 import { useParams, useSearchParams } from 'react-router-dom';
 
-import demosManifest from '../generated/demos-index.json';
 import { siteConfig } from '../config/site';
+import { demosManifest } from '../data/demosManifest';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { DemosGallerySection } from '../sections/DemosGallerySection';
-import type { DemoManifestItem } from '../types/demo';
 import { getCatalogDemos, getIndustryFilterOptions } from '../utils/demos';
 
-const activeDemos = getCatalogDemos(demosManifest as DemoManifestItem[]);
+const activeDemos = getCatalogDemos(demosManifest);
 const industryFilters = getIndustryFilterOptions(activeDemos);
 
 function getCatalogPath(industry?: string) {

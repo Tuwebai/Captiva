@@ -1,11 +1,10 @@
-import demosManifest from '../generated/demos-index.json';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
-import type { DemoManifestItem } from '../types/demo';
+import { demosManifest } from '../data/demosManifest';
 import { trackEvent } from '../utils/analytics';
 
-const demos = demosManifest as DemoManifestItem[];
+const demos = demosManifest;
 
 const categoryByShowcaseSlug: Record<string, string> = {
   gimnasios: 'fitness',
