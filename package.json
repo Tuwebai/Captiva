@@ -8,7 +8,7 @@
   },
   "scripts": {
     "check": "tsc -b",
-    "lint": "node scripts/quality/lint-project.mjs",
+    "lint": "node scripts/quality/lint-project.mjs && node scripts/quality/check-text-encoding.mjs",
     "smoke": "node scripts/quality/smoke-build.mjs",
     "generate:city-landings": "node scripts/generate-city-landings.mjs",
     "generate:landing-examples": "node scripts/generate-landing-examples.mjs",
