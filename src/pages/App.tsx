@@ -5,9 +5,6 @@ import { siteConfig } from '../config/site';
 import { usePageTracking } from '../hooks/usePageTracking';
 import { useScrollDepth } from '../hooks/useScrollDepth';
 import { PageShell } from '../layout/PageShell';
-import { initAnalytics } from '../utils/analytics';
-import { setupOutboundLinkTracking } from '../utils/outbound-links';
-import { initTooltipSystem } from '../components/ui/tooltip-system';
 import { HomePage } from './HomePage';
 import { ProgrammaticSeoPage } from './ProgrammaticSeoPage';
 
@@ -51,14 +48,36 @@ export function App() {
   useScrollDepth();
 
   useEffect(() => {
-    initAnalytics();
-    const cleanupOutboundTracking = setupOutboundLinkTracking();
-    return () => cleanupOutboundTracking();
+    let isMounted = true;
+    let cleanupOutboundTracking = () => {};
+
+    void Promise.all([import('../utils/analytics'), import('../utils/outbound-links')]).then(
+      ([analyticsModule, outboundLinksModule]) => {
+        if (!isMounted) return;
+        analyticsModule.initAnalytics();
+        cleanupOutboundTracking = outboundLinksModule.setupOutboundLinkTracking();
+      },
+    );
+
+    return () => {
+      isMounted = false;
+      cleanupOutboundTracking();
+    };
   }, []);
 
   useEffect(() => {
-    const cleanupTooltipSystem = initTooltipSystem();
-    return () => cleanupTooltipSystem();
+    let isMounted = true;
+    let cleanupTooltipSystem = () => {};
+
+    void import('../components/ui/tooltip-system').then((tooltipModule) => {
+      if (!isMounted) return;
+      cleanupTooltipSystem = tooltipModule.initTooltipSystem();
+    });
+
+    return () => {
+      isMounted = false;
+      cleanupTooltipSystem();
+    };
   }, []);
 
   return (

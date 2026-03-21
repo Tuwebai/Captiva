@@ -131,6 +131,28 @@ function demoProxyDevPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [react(), demoProxyDevPlugin()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react/') || id.includes('\\node_modules\\react\\') || id.includes('node_modules/react-dom/') || id.includes('\\node_modules\\react-dom\\')) {
+            return 'react-vendor';
+          }
+
+          if (
+            id.includes('node_modules/react-router/') ||
+            id.includes('\\node_modules\\react-router\\') ||
+            id.includes('node_modules/react-router-dom/') ||
+            id.includes('\\node_modules\\react-router-dom\\')
+          ) {
+            return 'router-vendor';
+          }
+
+          return undefined;
+        },
+      },
+    },
+  },
   server: {
     port: 5173,
   },
