@@ -1,7 +1,7 @@
 # AGENTS.md
 
-Version: `1.6`  
-Updated: `2026-03-08`
+Version: `1.7`  
+Updated: `2026-03-20`
 
 ## Instruction Priority
 
@@ -223,3 +223,72 @@ Implications:
 - Skills/agents may exist locally but not be versioned.
 - Team/CI availability is not guaranteed unless explicitly distributed.
 - If skills/agents must be shared, move them to a tracked path or adjust `.gitignore`.
+
+---
+
+## Enterprise Slice Workflow
+
+Every agent working in this repository must follow this mandatory workflow.
+
+### 1. Audit First
+- Before changing code:
+- review related files
+- identify the root cause
+- assess impact
+- verify where the issue is mentioned in existing documentation or audits
+
+### 2. Enterprise Mini Plan
+- Define a short 3-5 step plan that includes:
+- scope of the change
+- affected files
+- regression risk
+
+### 3. Safe Fix
+- Apply a technically appropriate solution that stays consistent with the project architecture.
+- Avoid unnecessary changes outside the scope of the bug or improvement.
+
+### 4. Update Documentation
+- If the issue appears in:
+- audits
+- documentation
+- technical reports
+
+- mark it as fixed in every section where it is mentioned.
+
+### 5. Tests Only When Appropriate
+- If code is modified, run:
+
+```bash
+npm run check
+npm run build
+```
+
+- If the change is documentation-only, tests are not required.
+
+### 6. Commit Per Slice
+- Each change must end in a clear and reversible commit.
+- The commit message must indicate:
+- type of change
+- affected area
+- reason for the fix
+
+### 7. Continuation Commands Do Not Relax Rules
+- If the user says `continue`, `continua`, `sigue`, `proceed`, `procede`, or any equivalent continuation command, the agent must keep following `AGENTS.md` at 100%.
+- Continuation commands never authorize skipping:
+- audit-first discipline
+- enterprise mini plan
+- minimal blast radius
+- quality gates
+- commit-per-slice
+- If a slice is not fully closed, the next continuation command means `continue within the same workflow`, not `ignore the workflow`.
+- The agent must not interpret a continuation command as permission to merge multiple slices, postpone the required commit, or defer mandatory validations to a later step.
+
+## 22. Final Principle
+
+When in doubt, always prioritize:
+- security
+- maintainability
+- simplicity
+- stability
+
+over implementation speed.
