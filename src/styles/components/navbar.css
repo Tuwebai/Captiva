@@ -59,6 +59,11 @@
   overscroll-behavior: contain;
 }
 
+.mobile-rail-toggle,
+.mobile-rail-backdrop {
+  display: none;
+}
+
 .section-rail__brand {
   display: grid;
   gap: 0.12rem;
@@ -223,6 +228,44 @@
 
 .section-rail--collapsed .section-rail__logo {
   width: 2.1rem;
+}
+
+.mobile-rail-toggle {
+  position: fixed;
+  top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  left: 0.75rem;
+  z-index: 36;
+  width: 2.75rem;
+  height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-elevated);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(18px);
+  color: var(--text);
+}
+
+.mobile-rail-toggle svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.mobile-rail-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 24;
+  border: 0;
+  background: color-mix(in srgb, var(--surface) 36%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.mobile-rail-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .text-link,

@@ -12,5 +12,8 @@ export type RailItem = {
     | 'blog'
     | 'industries'
     | 'process'
-    | 'contact-nav';
+    | 'contact-nav'
+    | 'page'
+    | 'ready'
+    | 'clarity';
 };

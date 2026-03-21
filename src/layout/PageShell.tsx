@@ -1,4 +1,4 @@
-import { type PropsWithChildren, type ReactEventHandler, useMemo, useState } from 'react';
+import { type PropsWithChildren, type ReactEventHandler, useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Footer } from '../components/layout/Footer';
@@ -26,6 +26,7 @@ export function PageShell({ children }: PropsWithChildren) {
     location.pathname.startsWith('/blog');
   const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
   const [isRailCollapsed, setIsRailCollapsed] = useState(false);
+  const [isMobileRailOpen, setIsMobileRailOpen] = useState(false);
 
   const railItems = useMemo<RailItem[]>(
     () => [
@@ -37,9 +38,9 @@ export function PageShell({ children }: PropsWithChildren) {
       { label: 'Por qué Captiva', href: `${siteConfig.routes.captiva}#por-que-captiva`, icon: 'solution' },
       { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
       { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
-      { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'process' },
-      { label: 'Garantía', href: `${siteConfig.routes.captiva}#garantia`, icon: 'process' },
-      { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'process' },
+      { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
+      { label: 'Garantía', href: `${siteConfig.routes.captiva}#garantia`, icon: 'ready' },
+      { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'clarity' },
       { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
     ],
     [],
@@ -65,9 +66,31 @@ export function PageShell({ children }: PropsWithChildren) {
   };
 
   const handleRailToggle = () => {
-    setIsRailCollapsed((previous) => !previous);
-    trackEvent({ event: 'internal_nav', category: 'rail', label: isRailCollapsed ? 'expand' : 'collapse' });
+    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+
+    if (isMobileViewport) {
+      setIsMobileRailOpen((previous) => {
+        const next = !previous;
+        trackEvent({ event: 'internal_nav', category: 'rail', label: next ? 'open-mobile' : 'close-mobile' });
+        return next;
+      });
+      return;
+    }
+
+    setIsRailCollapsed((previous) => {
+      const next = !previous;
+      trackEvent({ event: 'internal_nav', category: 'rail', label: next ? 'collapse' : 'expand' });
+      return next;
+    });
   };
+
+  const handleCloseMobileRail = () => {
+    setIsMobileRailOpen(false);
+  };
+
+  useEffect(() => {
+    setIsMobileRailOpen(false);
+  }, [location.pathname, location.hash]);
 
   return (
     <div className="site-shell">
@@ -76,12 +99,14 @@ export function PageShell({ children }: PropsWithChildren) {
       <Sidebar
         visible={isCaptivaContext}
         isRailCollapsed={isRailCollapsed}
+        isMobileRailOpen={isMobileRailOpen}
         isHomeNavActive={isHomeNavActive}
         fullLogoSrc={fullLogoSrc}
         onLogoError={handleLogoError}
         railItems={railItems}
         isAnchorActive={isAnchorActive}
         onToggleRail={handleRailToggle}
+        onCloseMobileRail={handleCloseMobileRail}
         onSelectAnchor={handleAnchorSelect}
       />
 
