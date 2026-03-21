@@ -18,3 +18,23 @@ export function buildUniquenessFingerprint(fields) {
     .map(([key, value]) => `${key}:${String(value ?? '').trim().toLowerCase()}`)
     .join('|');
 }
+
+export function findDuplicateFingerprints(entries) {
+  const seen = new Map();
+  const duplicates = [];
+
+  entries.forEach((entry) => {
+    const fingerprint = String(entry.uniquenessFingerprint ?? '').trim();
+    if (!fingerprint) return;
+
+    const existing = seen.get(fingerprint);
+    if (existing) {
+      duplicates.push([existing, String(entry.slug ?? '')]);
+      return;
+    }
+
+    seen.set(fingerprint, String(entry.slug ?? ''));
+  });
+
+  return duplicates;
+}

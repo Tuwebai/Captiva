@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { validateCityPage } from './seo/quality-gates/city-page-validator.mjs';
+import { findDuplicateFingerprints } from './seo/quality-gates/content-uniqueness.mjs';
 
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const citiesPath = resolve(process.cwd(), 'src/config/seo-cities.json');
@@ -120,6 +121,12 @@ function generate() {
       };
     }),
   );
+
+  const duplicateFingerprints = findDuplicateFingerprints(combinations);
+  if (duplicateFingerprints.length > 0) {
+    const collisions = duplicateFingerprints.map(([left, right]) => `${left}<->${right}`).join(', ');
+    throw new Error(`City landing uniqueness fingerprints collided: ${collisions}`);
+  }
 
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(combinations, null, 2)}\n`, 'utf8');
