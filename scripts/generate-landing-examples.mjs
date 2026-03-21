@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { loadManualDemosManifest } from './lib/demos/manual-manifest.mjs';
 
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const outputPath = resolve(process.cwd(), 'src/generated/landing-examples.generated.json');
@@ -22,6 +23,8 @@ function buildDescription(industryName) {
 
 function generate() {
   const catalog = JSON.parse(readFileSync(industryCatalogPath, 'utf8'));
+  const demosManifest = loadManualDemosManifest();
+  const demosByPublicSlug = new Map((demosManifest.demos ?? []).map((entry) => [entry.publicSlug, entry]));
   const industries = Object.entries(catalog).map(([category, item]) => ({
     category,
     ...item,
@@ -32,6 +35,10 @@ function generate() {
   }
 
   const examples = industries.map((industry) => {
+    if (industry.demo && !demosByPublicSlug.has(industry.demo)) {
+      throw new Error(`Industry "${industry.slug}" references missing demo "${industry.demo}"`);
+    }
+
     const slug = toExampleSlug(industry.slug);
     return {
       slug,

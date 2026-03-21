@@ -39,3 +39,7 @@ export function getTopComparisons(limit = 3) {
 export function getDemoForCategory(category: string) {
   return demoEntries.find((item) => item.category === category);
 }
+
+export function getDemoByPublicSlug(publicSlug: string) {
+  return demoEntries.find((item) => item.publicSlug === publicSlug);
+}

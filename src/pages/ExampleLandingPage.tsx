@@ -8,7 +8,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
-import { getDemoForCategory, getLandingExampleBySlug, getTopComparisons } from '../utils/seo-cluster';
+import { getDemoByPublicSlug, getDemoForCategory, getLandingExampleBySlug, getTopComparisons } from '../utils/seo-cluster';
 
 function buildSlug(param: string | undefined) {
   if (!param) return '';
@@ -24,7 +24,7 @@ export function ExampleLandingPage() {
     return <Navigate replace to={siteConfig.routes.captivaDemos} />;
   }
 
-  const demo = getDemoForCategory(entry.category);
+  const demo = (entry.demo ? getDemoByPublicSlug(entry.demo) : undefined) ?? getDemoForCategory(entry.category);
   const path = `/${entry.slug}`;
   const comparisons = getTopComparisons(3);
 
