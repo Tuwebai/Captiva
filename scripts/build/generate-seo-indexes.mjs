@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { loadManualDemosManifest } from '../lib/demos/manual-manifest.mjs';
+import { validateSeoClusterGovernance } from '../seo/quality-gates/cluster-governance.mjs';
 
 const generatedDir = resolve(process.cwd(), 'src/generated');
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
@@ -40,6 +41,18 @@ function main() {
   const blog = readJson(blogIndexPath);
 
   const industries = buildIndustriesIndex(industryCatalog);
+  const governance = validateSeoClusterGovernance({
+    industries,
+    cityLandings,
+    landingExamples,
+    demos,
+    comparatives: comparisons,
+    blog,
+  });
+  if (!governance.valid) {
+    throw new Error(`SEO cluster governance failed: ${governance.issues.join(', ')}`);
+  }
+
   const seoManifest = {
     generatedAt: new Date().toISOString(),
     cityLandings,
