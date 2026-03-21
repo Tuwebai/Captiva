@@ -1,12 +1,12 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { loadManualDemosManifest } from '../lib/demos/manual-manifest.mjs';
 
 const generatedDir = resolve(process.cwd(), 'src/generated');
 const industryCatalogPath = resolve(process.cwd(), 'src/config/industry.catalog.json');
 const comparisonsPath = resolve(process.cwd(), 'src/config/comparisons.json');
 const cityLandingsPath = resolve(generatedDir, 'city-landings.generated.json');
 const landingExamplesPath = resolve(generatedDir, 'landing-examples.generated.json');
-const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
 const blogIndexPath = resolve(generatedDir, 'blog-index.json');
 const industriesIndexPath = resolve(generatedDir, 'industries-index.json');
 const comparativesIndexPath = resolve(generatedDir, 'comparatives-index.json');
@@ -35,7 +35,7 @@ function main() {
   const comparisons = readJson(comparisonsPath);
   const cityLandings = readJson(cityLandingsPath);
   const landingExamples = readJson(landingExamplesPath);
-  const demosManifest = readJson(demosManifestPath);
+  const demosManifest = loadManualDemosManifest();
   const demos = demosManifest.demos ?? [];
   const blog = readJson(blogIndexPath);
 

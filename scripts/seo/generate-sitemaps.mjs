@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
+import { loadManualDemosManifest } from '../lib/demos/manual-manifest.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const generatedDir = resolve(process.cwd(), 'src/generated');
@@ -9,7 +10,6 @@ const robotsPath = resolve(publicDir, 'robots.txt');
 const legacySitemapPath = resolve(publicDir, 'sitemap.xml');
 
 const blogIndexPath = resolve(generatedDir, 'blog-index.json');
-const demosManifestPath = resolve(process.cwd(), 'demos/manifest.json');
 const industriesIndexPath = resolve(generatedDir, 'industries-index.json');
 const comparativesIndexPath = resolve(generatedDir, 'comparatives-index.json');
 const seoManifestPath = resolve(generatedDir, 'seo-manifest.json');
@@ -119,7 +119,7 @@ function buildBlogRoutes(blogEntries) {
 
 function main() {
   const blog = existsSync(blogIndexPath) ? readJson(blogIndexPath) : [];
-  const demosManifest = existsSync(demosManifestPath) ? readJson(demosManifestPath) : { demos: [] };
+  const demosManifest = loadManualDemosManifest();
   const demos = demosManifest.demos ?? [];
   const industries = existsSync(industriesIndexPath) ? readJson(industriesIndexPath) : [];
   const comparatives = existsSync(comparativesIndexPath) ? readJson(comparativesIndexPath) : [];
