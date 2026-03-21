@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
@@ -13,70 +12,29 @@ import { trackEvent } from '../utils/analytics';
 import { formatPostDate, getBlogPostBySlug, getRelatedBlogPosts } from '../utils/blog';
 import { getIndustryLinks } from '../utils/seo-autolinks';
 
-const blogContentModules = import.meta.glob('../content/blog-content/*.json');
+const blogContentModules = import.meta.glob('../content/blog-content/*.json', { eager: true });
 
-function getHydratedContent(post: { slug: string; title: string }): BlogPostContent | null {
-  if (typeof document === 'undefined') return null;
-  const contentNode = document.querySelector<HTMLElement>('[data-blog-post-content]');
-  const html = contentNode?.innerHTML?.trim();
-  if (!html) return null;
-  return {
-    slug: post.slug,
-    title: post.title,
-    contentHtml: html,
-    wordCount: 0,
-  };
+function getContentBySlug(slug: string): BlogPostContent | null {
+  const modulePath = `../content/blog-content/${slug}.json`;
+  const module = blogContentModules[modulePath] as { default?: BlogPostContent } | undefined;
+  const content = module?.default;
+  return content?.slug === slug ? content : null;
 }
 
-export function BlogPostPage() {
+export function BlogPostPageServer() {
   const blogCta = getRouteCta('blog');
-  const navigate = useNavigate();
-  const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\/blog\//, '');
   const post = slug ? getBlogPostBySlug(slug) : undefined;
-  const initialContent = post ? getHydratedContent(post) : null;
-  const [content, setContent] = useState<BlogPostContent | null>(initialContent);
-  const [isLoading, setIsLoading] = useState(!initialContent);
 
   if (!post) {
     return <Navigate replace to="/blog" />;
   }
 
-  useEffect(() => {
-    if (content?.slug === post.slug) {
-      setIsLoading(false);
-      return;
-    }
-
-    let isMounted = true;
-    const modulePath = `../content/blog-content/${post.slug}.json`;
-    const loader = blogContentModules[modulePath];
-
-    if (!loader) {
-      navigate('/blog', { replace: true });
-      return;
-    }
-
-    setIsLoading(true);
-    loader()
-      .then((module) => {
-        if (!isMounted) return;
-        const data = (module as { default: BlogPostContent }).default;
-        if (!data || data.slug !== post.slug) {
-          navigate('/blog', { replace: true });
-          return;
-        }
-        setContent(data);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        if (!isMounted) return;
-        navigate('/blog', { replace: true });
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [content?.slug, navigate, post.slug]);
+  const content = getContentBySlug(post.slug);
+  if (!content) {
+    return <Navigate replace to="/blog" />;
+  }
 
   const pagePath = `/blog/${post.slug}`;
   const relatedPosts = getRelatedBlogPosts(post, 3);
@@ -148,19 +106,9 @@ export function BlogPostPage() {
         <div className="blog-post-layout">
           <article className="blog-post-article">
             <div className="blog-post-article__topbar">
-              <button
-                className="blog-post-article__back"
-                type="button"
-                onClick={() => {
-                  if (window.history.length > 1) {
-                    navigate(-1);
-                    return;
-                  }
-                  navigate('/blog');
-                }}
-              >
-                ← Volver atrás
-              </button>
+              <Link className="blog-post-article__back" to="/blog">
+                ← Volver al blog
+              </Link>
               <p className="section-heading__eyebrow">{siteConfig.pages.blog.postEyebrow}</p>
             </div>
             <h1>{post.title}</h1>
@@ -169,17 +117,7 @@ export function BlogPostPage() {
               <span>{post.readingTime} min lectura</span>
             </p>
             <p className="blog-post-article__description">{post.description}</p>
-            {isLoading ? (
-              <div className="blog-post-content">
-                <p>Cargando artículo...</p>
-              </div>
-            ) : (
-              <div
-                className="blog-post-content"
-                data-blog-post-content="true"
-                dangerouslySetInnerHTML={{ __html: content?.contentHtml ?? '' }}
-              />
-            )}
+            <div className="blog-post-content" data-blog-post-content="true" dangerouslySetInnerHTML={{ __html: content.contentHtml }} />
           </article>
 
           <aside className="blog-post-sidebar" aria-label={siteConfig.pages.blog.sidebarAriaLabel}>

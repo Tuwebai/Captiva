@@ -9,6 +9,7 @@ import { initAnalytics } from '../utils/analytics';
 import { setupOutboundLinkTracking } from '../utils/outbound-links';
 import { initTooltipSystem } from '../components/ui/tooltip-system';
 import { HomePage } from './HomePage';
+import { ProgrammaticSeoPage } from './ProgrammaticSeoPage';
 
 const BlogPage = lazy(async () => {
   const module = await import('./BlogPage');
@@ -20,24 +21,9 @@ const BlogPostPage = lazy(async () => {
   return { default: module.BlogPostPage };
 });
 
-const ExampleLandingPage = lazy(async () => {
-  const module = await import('./ExampleLandingPage');
-  return { default: module.ExampleLandingPage };
-});
-
-const ComparisonPage = lazy(async () => {
-  const module = await import('./ComparisonPage');
-  return { default: module.ComparisonPage };
-});
-
 const DemosPage = lazy(async () => {
   const module = await import('./DemosPage');
   return { default: module.DemosPage };
-});
-
-const IndustryPage = lazy(async () => {
-  const module = await import('./IndustryPage');
-  return { default: module.IndustryPage };
 });
 
 const PrivacyPolicyPage = lazy(async () => {
@@ -153,34 +139,10 @@ export function App() {
           }
         />
         <Route
-          path="/ejemplo-landing-page-:example"
+          path="*"
           element={
             <Suspense fallback={<BlogRouteFallback />}>
-              <ExampleLandingPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/landing-page-vs-:comparison"
-          element={
-            <Suspense fallback={<BlogRouteFallback />}>
-              <ComparisonPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/landing-page-para-:industry"
-          element={
-            <Suspense fallback={<BlogRouteFallback />}>
-              <IndustryPage />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/:slug"
-          element={
-            <Suspense fallback={<BlogRouteFallback />}>
-              <IndustryPage />
+              <ProgrammaticSeoPage />
             </Suspense>
           }
         />

@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
@@ -9,15 +9,10 @@ import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { trackEvent } from '../utils/analytics';
 import { getComparisonBySlug, getTopLandingExamples } from '../utils/seo-cluster';
 
-function buildSlug(param: string | undefined) {
-  if (!param) return '';
-  return `landing-page-vs-${param}`;
-}
-
 export function ComparisonPage() {
   const comparisonCta = getRouteCta('comparatives');
-  const { comparison } = useParams<{ comparison: string }>();
-  const slug = buildSlug(comparison);
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
   const entry = getComparisonBySlug(slug);
 
   if (!entry) {

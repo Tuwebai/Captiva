@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
@@ -10,14 +10,9 @@ import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { getDemoByPublicSlug, getDemoForCategory, getLandingExampleBySlug, getTopComparisons } from '../utils/seo-cluster';
 
-function buildSlug(param: string | undefined) {
-  if (!param) return '';
-  return `ejemplo-landing-page-${param}`;
-}
-
 export function ExampleLandingPage() {
-  const { example } = useParams<{ example: string }>();
-  const slug = buildSlug(example);
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
   const entry = getLandingExampleBySlug(slug);
 
   if (!entry) {

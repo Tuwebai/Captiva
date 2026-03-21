@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
@@ -18,8 +18,8 @@ const placeholderPreview = '/demo-placeholder.svg';
 
 export function IndustryPage() {
   const industriesCta = getRouteCta('industries');
-  const params = useParams<{ industry: string; slug: string }>();
-  const slug = params.slug ?? `landing-page-para-${params.industry ?? ''}`;
+  const location = useLocation();
+  const slug = location.pathname.replace(/^\//, '');
   const cityLanding = getCityLandingBySlug(slug);
 
   if (cityLanding) {
