@@ -27,7 +27,8 @@ function ensureUnique(entries, key) {
   });
 }
 
-function validateDemoEntry(entry, index) {
+function validateDemoEntry(entry, index, options = {}) {
+  const { requirePublicAssets = false } = options;
   const slug = String(entry.slug ?? '').trim();
   const folderName = String(entry.folderName ?? '').trim();
   const publicSlug = String(entry.publicSlug ?? '').trim();
@@ -45,14 +46,17 @@ function validateDemoEntry(entry, index) {
   assert(href === `/demo/${slug}`, `Demo "${slug}" has invalid "href": ${href}`);
 
   assert(existsSync(sourceDemoDir), `Demo "${slug}" points to missing source folder: demos/${folderName}`);
-  assert(existsSync(publicDemoDir), `Demo "${slug}" points to missing public folder: public/demos/${publicSlug}`);
   assert(existsSync(sourceIndexPath), `Demo "${slug}" is missing source index: demos/${folderName}/index.html`);
   assert(existsSync(sourceMetaPath), `Demo "${slug}" is missing source meta: demos/${folderName}/meta.json`);
-  assert(existsSync(publicIndexPath), `Demo "${slug}" is missing public index: public/demos/${publicSlug}/index.html`);
-  assert(existsSync(publicMetaPath), `Demo "${slug}" is missing public meta: public/demos/${publicSlug}/meta.json`);
+
+  if (requirePublicAssets) {
+    assert(existsSync(publicDemoDir), `Demo "${slug}" points to missing public folder: public/demos/${publicSlug}`);
+    assert(existsSync(publicIndexPath), `Demo "${slug}" is missing public index: public/demos/${publicSlug}/index.html`);
+    assert(existsSync(publicMetaPath), `Demo "${slug}" is missing public meta: public/demos/${publicSlug}/meta.json`);
+  }
 }
 
-export function loadManualDemosManifest() {
+export function loadManualDemosManifest(options = {}) {
   const manifest = readJson(demosManifestPath);
   const demos = Array.isArray(manifest.demos) ? manifest.demos : [];
 
@@ -61,7 +65,7 @@ export function loadManualDemosManifest() {
   ensureUnique(demos, 'slug');
   ensureUnique(demos, 'folderName');
   ensureUnique(demos, 'publicSlug');
-  demos.forEach(validateDemoEntry);
+  demos.forEach((entry, index) => validateDemoEntry(entry, index, options));
 
   return manifest;
 }

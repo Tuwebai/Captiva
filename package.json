@@ -15,11 +15,12 @@
     "generate:blog": "node scripts/generate-blog-manifest.mjs",
     "generate:seo-indexes": "node scripts/build/generate-seo-indexes.mjs",
     "generate:sitemaps": "node scripts/seo/generate-sitemaps.mjs",
-    "dev": "npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run generate:seo-indexes && npm run generate:sitemaps && vite",
+    "sync:public-demos": "node scripts/build/sync-public-demos.mjs",
+    "dev": "npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run generate:seo-indexes && npm run generate:sitemaps && npm run sync:public-demos && vite",
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.tsx --outDir .prerender",
     "prerender:routes": "node scripts/build/prerender-static-routes.mjs",
-    "build": "npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run generate:seo-indexes && npm run generate:sitemaps && tsc -b && npm run build:client && npm run build:ssr && npm run prerender:routes",
+    "build": "npm run generate:city-landings && npm run generate:landing-examples && npm run generate:blog && npm run generate:seo-indexes && npm run generate:sitemaps && npm run sync:public-demos && tsc -b && npm run build:client && npm run build:ssr && npm run prerender:routes",
     "preview": "vite preview"
   },
   "dependencies": {
