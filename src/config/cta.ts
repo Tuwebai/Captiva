@@ -7,8 +7,8 @@ const whatsappMessage = encodeURIComponent(
 );
 
 export const contactConfig: ContactInfo = {
-  primaryEmail: 'tuwebai@gmail.com',
-  productEmail: 'captivaweb@gmail.com',
+  primaryEmail: 'captiva@tuweb-ai.com',
+  productEmail: 'captiva@tuweb-ai.com',
   whatsapp: '5493571417960',
   ctaHref: `https://wa.me/5493571417960?text=${whatsappMessage}`,
 };
