@@ -8,6 +8,8 @@ const prerenderRoot = path.join(projectRoot, '.prerender');
 const templatePath = path.join(distRoot, 'index.html');
 const serverEntryPath = path.join(prerenderRoot, 'entry-server.js');
 const seoManifestPath = path.join(projectRoot, 'src', 'generated', 'seo-manifest.json');
+const blogIndexPath = path.join(projectRoot, 'src', 'generated', 'blog-index.json');
+const BLOG_POSTS_PER_PAGE = 10;
 
 function escapeHtml(value) {
   return String(value)
@@ -37,11 +39,52 @@ function collectRoutePaths(seoManifest) {
     if (comparative.slug) routePaths.add(`/${comparative.slug}`);
   }
 
-  for (const post of seoManifest.blog ?? []) {
-    if (post.slug) routePaths.add(`/blog/${post.slug}`);
+  for (const blogPath of collectBlogRoutes(seoManifest.blog ?? [])) {
+    routePaths.add(blogPath);
   }
 
   return [...routePaths];
+}
+
+function slugify(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function collectBlogRoutes(posts) {
+  const totalPages = Math.ceil(posts.length / BLOG_POSTS_PER_PAGE);
+  const routes = new Set(['/blog']);
+
+  for (let pageNumber = 2; pageNumber <= totalPages; pageNumber += 1) {
+    routes.add(`/blog/page/${pageNumber}`);
+  }
+
+  const tagCounts = new Map();
+  for (const post of posts) {
+    if (post.slug) {
+      routes.add(`/blog/${post.slug}`);
+    }
+
+    for (const tag of post.tags ?? []) {
+      const tagSlug = slugify(tag);
+      if (!tagSlug) continue;
+      tagCounts.set(tagSlug, (tagCounts.get(tagSlug) ?? 0) + 1);
+    }
+  }
+
+  for (const [tagSlug, count] of tagCounts.entries()) {
+    routes.add(`/blog/tag/${tagSlug}`);
+    const tagPages = Math.ceil(count / BLOG_POSTS_PER_PAGE);
+    for (let pageNumber = 2; pageNumber <= tagPages; pageNumber += 1) {
+      routes.add(`/blog/tag/${tagSlug}/page/${pageNumber}`);
+    }
+  }
+
+  return [...routes];
 }
 
 function buildSupplementalHeadMarkup(metadata) {
@@ -157,13 +200,15 @@ async function cleanupPrerenderArtifacts() {
 }
 
 async function main() {
-  const [templateHtml, seoManifestRaw, serverModule] = await Promise.all([
+  const [templateHtml, seoManifestRaw, blogIndexRaw, serverModule] = await Promise.all([
     fs.readFile(templatePath, 'utf8'),
     fs.readFile(seoManifestPath, 'utf8'),
+    fs.readFile(blogIndexPath, 'utf8'),
     import(pathToFileURL(serverEntryPath).href),
   ]);
 
   const seoManifest = JSON.parse(seoManifestRaw);
+  seoManifest.blog = JSON.parse(blogIndexRaw);
   const routePaths = collectRoutePaths(seoManifest);
 
   for (const routePath of routePaths) {

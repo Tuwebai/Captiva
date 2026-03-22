@@ -10,7 +10,6 @@ const requiredFiles = [
   'public/sitemaps/sitemap-index.xml',
   'public/sitemaps/sitemap-pages.xml',
   'public/sitemaps/sitemap-blog.xml',
-  'public/sitemaps/sitemap-demos.xml',
   'public/sitemaps/sitemap-industries.xml',
   'public/sitemaps/sitemap-comparatives.xml',
 ];

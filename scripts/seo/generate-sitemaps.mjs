@@ -1,6 +1,5 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { loadManualDemosManifest } from '../lib/demos/manual-manifest.mjs';
 
 const siteUrl = 'https://captiva.tuweb-ai.com';
 const generatedDir = resolve(process.cwd(), 'src/generated');
@@ -8,6 +7,7 @@ const publicDir = resolve(process.cwd(), 'public');
 const sitemapsDir = resolve(publicDir, 'sitemaps');
 const robotsPath = resolve(publicDir, 'robots.txt');
 const legacySitemapPath = resolve(publicDir, 'sitemap.xml');
+const legacyDemosSitemapPath = resolve(sitemapsDir, 'sitemap-demos.xml');
 
 const blogIndexPath = resolve(generatedDir, 'blog-index.json');
 const industriesIndexPath = resolve(generatedDir, 'industries-index.json');
@@ -119,15 +119,12 @@ function buildBlogRoutes(blogEntries) {
 
 function main() {
   const blog = existsSync(blogIndexPath) ? readJson(blogIndexPath) : [];
-  const demosManifest = loadManualDemosManifest();
-  const demos = demosManifest.demos ?? [];
   const industries = existsSync(industriesIndexPath) ? readJson(industriesIndexPath) : [];
   const comparatives = existsSync(comparativesIndexPath) ? readJson(comparativesIndexPath) : [];
   const seoManifest = existsSync(seoManifestPath) ? readJson(seoManifestPath) : { cityLandings: [], landingExamples: [] };
 
   const pagesRoutes = staticRoutes;
   const blogRoutes = buildBlogRoutes(blog);
-  const demosRoutes = demos.map((entry) => entry.href);
   const industriesRoutes = [
     ...industries.map((entry) => `/${entry.slug}`),
     ...(seoManifest.cityLandings ?? []).map((entry) => entry.path),
@@ -138,7 +135,6 @@ function main() {
   const sitemapFiles = {
     'sitemap-pages.xml': buildUrlSet(pagesRoutes),
     'sitemap-blog.xml': buildUrlSet(blogRoutes),
-    'sitemap-demos.xml': buildUrlSet(demosRoutes),
     'sitemap-industries.xml': buildUrlSet(industriesRoutes),
     'sitemap-comparatives.xml': buildUrlSet(comparativesRoutes),
   };
@@ -147,6 +143,7 @@ function main() {
   Object.entries(sitemapFiles).forEach(([fileName, content]) => {
     writeText(resolve(sitemapsDir, fileName), content);
   });
+  rmSync(legacyDemosSitemapPath, { force: true });
 
   const sitemapIndex = buildSitemapIndex(Object.keys(sitemapFiles));
   writeText(resolve(sitemapsDir, 'sitemap-index.xml'), sitemapIndex);
@@ -162,7 +159,7 @@ function main() {
   writeText(robotsPath, robots);
 
   console.log(
-    `Generated sitemap index and ${Object.keys(sitemapFiles).length} segmented sitemaps (${pagesRoutes.length} pages, ${blogRoutes.length} blog, ${demosRoutes.length} demos, ${industriesRoutes.length} industries, ${comparativesRoutes.length} comparatives).`,
+    `Generated sitemap index and ${Object.keys(sitemapFiles).length} segmented sitemaps (${pagesRoutes.length} pages, ${blogRoutes.length} blog, ${industriesRoutes.length} industries, ${comparativesRoutes.length} comparatives).`,
   );
 }
 

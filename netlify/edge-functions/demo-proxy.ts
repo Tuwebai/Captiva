@@ -37,7 +37,7 @@ export default async (request: Request) => {
   const headers = new Headers(upstream.headers);
   headers.set('content-type', 'text/html; charset=utf-8');
   headers.set('cache-control', 'public, max-age=600');
-  headers.set('x-robots-tag', 'index, follow');
+  headers.set('x-robots-tag', 'noindex, follow');
   headers.set('x-frame-options', 'SAMEORIGIN');
   headers.set('x-content-type-options', 'nosniff');
   headers.set('referrer-policy', 'strict-origin-when-cross-origin');
