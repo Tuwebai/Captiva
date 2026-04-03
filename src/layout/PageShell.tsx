@@ -6,7 +6,7 @@ import { MainLayout } from '../components/layout/MainLayout';
 import { Navbar } from '../components/layout/Navbar';
 import { Sidebar } from '../components/layout/Sidebar';
 import type { RailItem } from '../components/layout/types';
-import { useAnalytics, usePageTracking, useScrollDepth } from '../lib/analytics';
+import { useAnalytics, useClickTracking, usePageTracking, useScrollDepth } from '../lib/analytics';
 import { useTheme } from '../components/ui/theme/useTheme';
 import { siteConfig } from '../config/site';
 import { usePageShellNavigation } from '../hooks/usePageShellNavigation';
@@ -14,6 +14,7 @@ import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 export function PageShell({ children }: PropsWithChildren) {
   const { trackEvent } = useAnalytics();
+  useClickTracking();
   usePageTracking();
   useScrollDepth();
   useScrollRestoration();

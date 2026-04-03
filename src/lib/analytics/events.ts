@@ -1,5 +1,7 @@
 export const ANALYTICS_EVENTS = {
   SESSION_BOOTSTRAP: 'captiva_session_bootstrap',
+  CLICK_ANY: 'captiva_click',
+  CLICK_ROUTE: 'captiva_route_click',
   CTA_HERO_CLICK: 'cta_hero_click',
   CTA_SECTION_CLICK: 'cta_section_click',
   CTA_STICKY_CLICK: 'cta_sticky_click',

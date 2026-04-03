@@ -4,5 +4,6 @@ export * from './events';
 export * from './gtag';
 export * from './routeTitles';
 export * from './useAnalytics';
+export * from './useClickTracking';
 export * from './usePageTracking';
 export * from './useScrollDepth';
