@@ -8,6 +8,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
+import { useAnalytics } from '../lib/analytics';
 import type { CityLandingEntry } from '../types/city-landing';
 import { getCityLandingBySlug } from '../utils/city-landings';
 import { getIndustryBySlug } from '../utils/industry';
@@ -22,6 +23,7 @@ type CityIndustryLandingPageProps = {
 };
 
 export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps) {
+  const { trackWhatsApp } = useAnalytics();
   const { cityLanding } = useParams<{ cityLanding: string }>();
   const slug = buildCitySlug(cityLanding);
   const landing = entry ?? getCityLandingBySlug(slug);
@@ -203,7 +205,13 @@ export function CityIndustryLandingPage({ entry }: CityIndustryLandingPageProps)
               context={landing.slug}
               variant="primary"
             />
-            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              onClick={() => trackWhatsApp('industry-city', `whatsapp-${landing.slug}`, landing.niche.name)}
+            >
               Hablar por WhatsApp
             </ButtonLink>
           </div>

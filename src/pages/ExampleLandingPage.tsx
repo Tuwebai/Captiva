@@ -8,9 +8,11 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
+import { useAnalytics } from '../lib/analytics';
 import { getDemoByPublicSlug, getDemoForCategory, getLandingExampleBySlug, getTopComparisons } from '../utils/seo-cluster';
 
 export function ExampleLandingPage() {
+  const { trackWhatsApp } = useAnalytics();
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
   const entry = getLandingExampleBySlug(slug);
@@ -137,7 +139,13 @@ export function ExampleLandingPage() {
               context={entry.slug}
               variant="primary"
             />
-            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              onClick={() => trackWhatsApp('example-page', `whatsapp-${entry.slug}`, entry.industry ?? entry.category)}
+            >
               Hablar por WhatsApp
             </ButtonLink>
           </div>

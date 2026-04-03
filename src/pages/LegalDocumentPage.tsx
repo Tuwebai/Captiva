@@ -6,12 +6,14 @@ import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import type { LegalDocument } from '../content/legal';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
+import { useAnalytics } from '../lib/analytics';
 
 type LegalDocumentPageProps = {
   document: LegalDocument;
 };
 
 export function LegalDocumentPage({ document }: LegalDocumentPageProps) {
+  const { trackWhatsApp } = useAnalytics();
   const location = useLocation();
   const breadcrumbSchema = useMemo(
     () => ({
@@ -95,7 +97,13 @@ export function LegalDocumentPage({ document }: LegalDocumentPageProps) {
               <Link className="button-link button-link--secondary" to={siteConfig.routes.captiva}>
                 Volver a Captiva
               </Link>
-              <a className="button-link button-link--primary" href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer">
+              <a
+                className="button-link button-link--primary"
+                href={siteConfig.contact.ctaHref}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => trackWhatsApp('legal', `whatsapp-${document.path}`)}
+              >
                 Hablar por WhatsApp
               </a>
             </div>

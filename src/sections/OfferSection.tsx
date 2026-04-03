@@ -1,11 +1,13 @@
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
-import { trackEvent } from '../utils/analytics';
 import { buildWhatsAppLeadUrl } from '../utils/lead-message';
 
 export function OfferSection() {
+  const { trackEvent, trackWhatsApp } = useAnalytics();
+
   return (
     <section className="content-section" id="oferta">
       <div className="container">
@@ -72,19 +74,18 @@ export function OfferSection() {
                   target="_blank"
                   rel="noreferrer"
                   variant="primary"
-                  onClick={() =>
+                  onClick={() => {
                     trackEvent({
-                      event: 'cta_click',
+                      action: ANALYTICS_EVENTS.CTA_SECTION_CLICK,
                       category: 'offer-plan',
                       label: plan.name.toLowerCase(),
-                      properties: {
-                        cta_text: plan.ctaLabel,
-                        location: 'offer',
-                        mode: 'whatsapp',
-                        context: `plan-${plan.name.toLowerCase()}`,
-                      },
-                    })
-                  }
+                      cta_text: plan.ctaLabel,
+                      location: 'offer',
+                      mode: 'whatsapp',
+                      context: `plan-${plan.name.toLowerCase()}`,
+                    });
+                    trackWhatsApp('offer', plan.ctaLabel, plan.name);
+                  }}
                 >
                   {plan.ctaLabel}
                 </ButtonLink>

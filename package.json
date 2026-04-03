@@ -10,6 +10,7 @@
     "check": "tsc -b",
     "lint": "node scripts/quality/lint-project.mjs && node scripts/quality/check-text-encoding.mjs",
     "smoke": "node scripts/quality/smoke-build.mjs",
+    "test": "vitest run --environment jsdom",
     "generate:city-landings": "node scripts/generate-city-landings.mjs",
     "generate:landing-examples": "node scripts/generate-landing-examples.mjs",
     "generate:blog": "node scripts/generate-blog-manifest.mjs",
@@ -34,6 +35,7 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "html-minifier-terser": "^7.2.0",
+    "jsdom": "^26.1.0",
     "rehype-stringify": "^10.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
@@ -42,6 +44,7 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
     "vite": "^7.1.3",
+    "vitest": "^3.2.4",
     "yaml": "^2.8.1"
   }
 }

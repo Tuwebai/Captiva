@@ -6,15 +6,16 @@ import { MainLayout } from '../components/layout/MainLayout';
 import { Navbar } from '../components/layout/Navbar';
 import { Sidebar } from '../components/layout/Sidebar';
 import type { RailItem } from '../components/layout/types';
+import { useAnalytics, usePageTracking, useScrollDepth } from '../lib/analytics';
 import { useTheme } from '../components/ui/theme/useTheme';
 import { siteConfig } from '../config/site';
-import { useAnalytics } from '../hooks/useAnalytics';
 import { usePageShellNavigation } from '../hooks/usePageShellNavigation';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
-import { trackEvent } from '../utils/analytics';
 
 export function PageShell({ children }: PropsWithChildren) {
-  useAnalytics();
+  const { trackEvent } = useAnalytics();
+  usePageTracking();
+  useScrollDepth();
   useScrollRestoration();
   const { resolvedTheme } = useTheme();
   const location = useLocation();
@@ -71,7 +72,7 @@ export function PageShell({ children }: PropsWithChildren) {
     if (isMobileViewport) {
       setIsMobileRailOpen((previous) => {
         const next = !previous;
-        trackEvent({ event: 'internal_nav', category: 'rail', label: next ? 'open-mobile' : 'close-mobile' });
+        trackEvent({ action: 'internal_nav', category: 'rail', label: next ? 'open-mobile' : 'close-mobile' });
         return next;
       });
       return;
@@ -79,7 +80,7 @@ export function PageShell({ children }: PropsWithChildren) {
 
     setIsRailCollapsed((previous) => {
       const next = !previous;
-      trackEvent({ event: 'internal_nav', category: 'rail', label: next ? 'collapse' : 'expand' });
+      trackEvent({ action: 'internal_nav', category: 'rail', label: next ? 'collapse' : 'expand' });
       return next;
     });
   };

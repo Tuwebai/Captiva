@@ -6,10 +6,11 @@ import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
-import { trackEvent } from '../utils/analytics';
+import { useAnalytics } from '../lib/analytics';
 import { getComparisonBySlug, getTopLandingExamples } from '../utils/seo-cluster';
 
 export function ComparisonPage() {
+  const { trackConversion, trackEvent, trackWhatsApp } = useAnalytics();
   const comparisonCta = getRouteCta('comparatives');
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
@@ -104,14 +105,21 @@ export function ComparisonPage() {
             <ButtonLink
               href={siteConfig.contact.ctaHref}
               variant="primary"
-              onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: `${entry.slug}-landing` })}
+              onClick={() => {
+                trackEvent({ action: 'cta_click', category: 'comparison-page', label: `${entry.slug}-landing` });
+                trackConversion({ conversion_type: 'cta_click', source_section: 'comparison-page' });
+                trackWhatsApp('comparison-page', `${entry.slug}-landing`);
+              }}
             >
               Quiero mi landing
             </ButtonLink>
             <ButtonLink
               href={siteConfig.contact.ctaHref}
               variant="secondary"
-              onClick={() => trackEvent({ event: 'cta_click', category: 'comparison-page', label: `${entry.slug}-whatsapp` })}
+              onClick={() => {
+                trackEvent({ action: 'cta_click', category: 'comparison-page', label: `${entry.slug}-whatsapp` });
+                trackWhatsApp('comparison-page', `${entry.slug}-whatsapp`);
+              }}
             >
               {comparisonCta.secondary ?? 'Hablar por WhatsApp'}
             </ButtonLink>

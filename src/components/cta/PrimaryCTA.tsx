@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
 import { siteConfig } from '../../config/site';
-import { trackEvent } from '../../utils/analytics';
 import { buildLeadMessage, buildWhatsAppLeadUrl, type LeadContext } from '../../utils/lead-message';
 import { resolveCurrentPageContext } from '../../utils/page-context';
 
@@ -28,11 +28,15 @@ export function PrimaryCTA({
   className,
   variant = 'primary',
 }: PrimaryCTAProps) {
+  const { trackConversion, trackEvent, trackWhatsApp } = useAnalytics();
   const classes = ['button-link', `button-link--${variant}`, className].filter(Boolean).join(' ');
   const pageContext = typeof window !== 'undefined' ? resolveCurrentPageContext() : { pageType: 'unknown' as const, path: '' };
 
   const trackCta = (modeLabel: PrimaryCTAMode) => {
-    trackEvent('cta_click', {
+    trackEvent({
+      action: ANALYTICS_EVENTS.CTA_SECTION_CLICK,
+      category: source ?? 'unknown',
+      label,
       cta_text: label,
       location: source ?? 'unknown',
       mode: modeLabel,
@@ -41,6 +45,11 @@ export function PrimaryCTA({
       industry: industry ?? pageContext.industry ?? '',
       city: city ?? pageContext.city ?? '',
       context: context ?? '',
+    });
+    trackConversion({
+      conversion_type: 'cta_click',
+      business_type: industry ?? pageContext.industry,
+      source_section: source ?? 'unknown',
     });
   };
 
@@ -83,7 +92,10 @@ export function PrimaryCTA({
       href={whatsappUrl}
       target="_blank"
       rel="noreferrer"
-      onClick={() => trackCta('whatsapp')}
+      onClick={() => {
+        trackCta('whatsapp');
+        trackWhatsApp(source ?? 'unknown', label, industry ?? pageContext.industry);
+      }}
     >
       {label}
     </a>

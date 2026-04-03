@@ -1,8 +1,8 @@
 import type { ReactEventHandler } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
 import { siteConfig } from '../../config/site';
-import { trackEvent } from '../../utils/analytics';
 import { ButtonLink } from '../ui/ButtonLink';
 import { FeatureIcon } from '../ui/FeatureIcon';
 import { PanelToggleIcon } from '../ui/PanelToggleIcon';
@@ -36,12 +36,14 @@ export function Sidebar({
   onCloseMobileRail,
   onSelectAnchor,
 }: SidebarProps) {
+  const { trackEvent, trackWhatsApp } = useAnalytics();
+
   if (!visible) {
     return null;
   }
 
   const handleNavSelection = (label: string) => {
-    trackEvent({ event: 'internal_nav', category: 'rail', label });
+    trackEvent({ action: 'internal_nav', category: 'rail', label });
     onCloseMobileRail();
   };
 
@@ -162,7 +164,8 @@ export function Sidebar({
           variant="primary"
           data-tooltip="Hablar por WhatsApp y solicitar landing"
           onClick={() => {
-            trackEvent({ event: 'cta_click', category: 'rail', label: 'solicitar-landing' });
+            trackEvent({ action: ANALYTICS_EVENTS.CTA_STICKY_CLICK, category: 'rail', label: 'solicitar-landing' });
+            trackWhatsApp('rail', 'solicitar-landing');
             onCloseMobileRail();
           }}
         >

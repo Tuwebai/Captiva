@@ -1,3 +1,4 @@
+import { useAnalytics } from '../lib/analytics';
 import { ButtonLink } from '../components/ui/ButtonLink';
 import { siteConfig } from '../config/site';
 
@@ -30,6 +31,8 @@ const faqItems = [
 ];
 
 export function FaqSection() {
+  const { trackWhatsApp } = useAnalytics();
+
   return (
     <section className="content-section" id="faq">
       <div className="container">
@@ -49,7 +52,7 @@ export function FaqSection() {
         </div>
 
         <div className="faq-cta">
-          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary">
+          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary" onClick={() => trackWhatsApp('faq', 'quiero-mi-landing')}>
             Quiero mi landing
           </ButtonLink>
         </div>

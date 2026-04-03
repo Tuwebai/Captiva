@@ -3,11 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { initTooltipSystem } from '../components/ui/tooltip-system';
 import { siteConfig } from '../config/site';
-import { usePageTracking } from '../hooks/usePageTracking';
-import { useScrollDepth } from '../hooks/useScrollDepth';
 import { PageShell } from '../layout/PageShell';
-import { initAnalytics } from '../utils/analytics';
-import { setupOutboundLinkTracking } from '../utils/outbound-links';
 import { BlogPage } from './BlogPage';
 import { BlogPostPageServer } from './BlogPostPageServer';
 import { DemosPage } from './DemosPage';
@@ -17,15 +13,6 @@ import { ProgrammaticSeoPageServer } from './ProgrammaticSeoPageServer';
 import { TermsOfServicePage } from './TermsOfServicePage';
 
 export function AppServer() {
-  usePageTracking();
-  useScrollDepth();
-
-  useEffect(() => {
-    initAnalytics();
-    const cleanupOutboundTracking = setupOutboundLinkTracking();
-    return () => cleanupOutboundTracking();
-  }, []);
-
   useEffect(() => {
     const cleanupTooltipSystem = initTooltipSystem();
     return () => cleanupTooltipSystem();

@@ -1,9 +1,9 @@
-import { FormEvent, useEffect, useId, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useId, useMemo, useRef, useState } from 'react';
 
 import { InfoTooltip } from '../ui/tooltip/InfoTooltip';
+import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
 import { siteConfig } from '../../config/site';
 import { scoreLead } from '../../lib/lead-scoring';
-import { trackEvent } from '../../utils/analytics';
 import { buildLeadMessage, buildWhatsAppLeadUrl, type LeadContext, type LeadFormData } from '../../utils/lead-message';
 import { resolveCurrentPageContext } from '../../utils/page-context';
 
@@ -34,8 +34,10 @@ export function LeadFormSection({
   context,
   className,
 }: LeadFormSectionProps) {
+  const { trackEvent, trackFormSubmit, trackLeadConversion, trackWhatsApp } = useAnalytics();
   const fallbackId = useId().replace(/:/g, '');
   const formId = id ?? `lead-form-${fallbackId}`;
+  const hasTrackedStartRef = useRef(false);
   const persistenceKey = useMemo(() => {
     const contextKey = [source ?? '', industry ?? '', city ?? '', context ?? ''].join('|');
     const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
@@ -101,7 +103,10 @@ export function LeadFormSection({
     const message = buildLeadMessage(formData, enrichedLeadContext);
     const whatsappUrl = buildWhatsAppLeadUrl(siteConfig.contact.whatsapp, message);
 
-    trackEvent('lead_submit', {
+    trackEvent({
+      action: ANALYTICS_EVENTS.FORM_SUBMIT,
+      category: source ?? 'lead-form',
+      label: formId,
       source: source ?? 'lead-form',
       page: pageContext.path,
       pageType: pageContext.pageType,
@@ -113,6 +118,14 @@ export function LeadFormSection({
       lead_score: leadScoring.score,
       lead_level: leadScoring.level,
     });
+    trackFormSubmit(source ?? 'lead-form', industry ?? formData.industry, leadScoring.score);
+    trackLeadConversion({
+      currency: 'ARS',
+      value: leadScoring.score,
+      method: 'form',
+      source_section: source ?? 'lead-form',
+    });
+    trackWhatsApp(source ?? 'lead-form', submitLabel, industry ?? formData.industry);
 
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
@@ -147,6 +160,16 @@ export function LeadFormSection({
               name="name"
               required
               value={formData.name}
+              onFocus={() => {
+                if (hasTrackedStartRef.current) return;
+                hasTrackedStartRef.current = true;
+                trackEvent({
+                  action: ANALYTICS_EVENTS.FORM_START,
+                  category: source ?? 'lead-form',
+                  label: formId,
+                  formId,
+                });
+              }}
               onChange={(event) => setFormData((current) => ({ ...current, name: event.target.value }))}
             />
           </label>
@@ -206,7 +229,13 @@ export function LeadFormSection({
             <a className="button-link button-link--secondary" href={mailtoHref}>
               Enviar por email
             </a>
-            <a className="button-link button-link--secondary" href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer">
+            <a
+              className="button-link button-link--secondary"
+              href={siteConfig.contact.ctaHref}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackWhatsApp(source ?? 'lead-form', 'whatsapp-directo', industry ?? formData.industry)}
+            >
               WhatsApp directo
             </a>
           </div>

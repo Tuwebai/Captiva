@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
 import { ThemeProvider } from './components/ui/theme/ThemeProvider';
+import { AnalyticsProvider } from './lib/analytics';
 import { App } from './pages/App';
 import './styles/globals.css';
 import './styles/theme-switch.css';
@@ -12,9 +13,11 @@ const rootElement = document.getElementById('root')!;
 const app = (
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <AnalyticsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AnalyticsProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

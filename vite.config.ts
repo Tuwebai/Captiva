@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
@@ -129,31 +129,42 @@ function demoProxyDevPlugin(): Plugin {
   };
 }
 
-export default defineConfig({
-  plugins: [react(), demoProxyDevPlugin()],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules/react/') || id.includes('\\node_modules\\react\\') || id.includes('node_modules/react-dom/') || id.includes('\\node_modules\\react-dom\\')) {
-            return 'react-vendor';
-          }
+type PublicEnv = {
+  VITE_GA4_ID?: string;
+};
 
-          if (
-            id.includes('node_modules/react-router/') ||
-            id.includes('\\node_modules\\react-router\\') ||
-            id.includes('node_modules/react-router-dom/') ||
-            id.includes('\\node_modules\\react-router-dom\\')
-          ) {
-            return 'router-vendor';
-          }
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, rootDir, 'VITE_') as PublicEnv;
 
-          return undefined;
+  return {
+    plugins: [react(), demoProxyDevPlugin()],
+    define: {
+      __CAPTIVA_GA4_ID__: JSON.stringify(env.VITE_GA4_ID ?? ''),
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/react/') || id.includes('\\node_modules\\react\\') || id.includes('node_modules/react-dom/') || id.includes('\\node_modules\\react-dom\\')) {
+              return 'react-vendor';
+            }
+
+            if (
+              id.includes('node_modules/react-router/') ||
+              id.includes('\\node_modules\\react-router\\') ||
+              id.includes('node_modules/react-router-dom/') ||
+              id.includes('\\node_modules\\react-router-dom\\')
+            ) {
+              return 'router-vendor';
+            }
+
+            return undefined;
+          },
         },
       },
     },
-  },
-  server: {
-    port: 5173,
-  },
+    server: {
+      port: 5173,
+    },
+  };
 });

@@ -9,6 +9,7 @@ import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
+import { useAnalytics } from '../lib/analytics';
 import { trackEvent } from '../utils/analytics';
 import { getCityLandingBySlug } from '../utils/city-landings';
 import { getDemosByIndustry, getIndustryBySlug, getIndustryPages } from '../utils/industry';
@@ -17,6 +18,7 @@ import { CityIndustryLandingPage } from './CityIndustryLandingPage';
 const placeholderPreview = '/demo-placeholder.svg';
 
 export function IndustryPage() {
+  const { trackWhatsApp } = useAnalytics();
   const industriesCta = getRouteCta('industries');
   const location = useLocation();
   const slug = location.pathname.replace(/^\//, '');
@@ -219,7 +221,13 @@ export function IndustryPage() {
               context={industry.slug}
               variant="primary"
             />
-            <ButtonLink href={siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" variant="secondary">
+            <ButtonLink
+              href={siteConfig.contact.ctaHref}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              onClick={() => trackWhatsApp('industry', `whatsapp-${industry.slug}`, industry.industryName)}
+            >
               Hablar por WhatsApp
             </ButtonLink>
           </div>

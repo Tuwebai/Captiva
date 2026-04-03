@@ -2,8 +2,6 @@ import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { siteConfig } from '../config/site';
-import { usePageTracking } from '../hooks/usePageTracking';
-import { useScrollDepth } from '../hooks/useScrollDepth';
 import { PageShell } from '../layout/PageShell';
 import { HomePage } from './HomePage';
 import { ProgrammaticSeoPage } from './ProgrammaticSeoPage';
@@ -44,27 +42,6 @@ function BlogRouteFallback() {
 }
 
 export function App() {
-  usePageTracking();
-  useScrollDepth();
-
-  useEffect(() => {
-    let isMounted = true;
-    let cleanupOutboundTracking = () => {};
-
-    void Promise.all([import('../utils/analytics'), import('../utils/outbound-links')]).then(
-      ([analyticsModule, outboundLinksModule]) => {
-        if (!isMounted) return;
-        analyticsModule.initAnalytics();
-        cleanupOutboundTracking = outboundLinksModule.setupOutboundLinkTracking();
-      },
-    );
-
-    return () => {
-      isMounted = false;
-      cleanupOutboundTracking();
-    };
-  }, []);
-
   useEffect(() => {
     let isMounted = true;
     let cleanupTooltipSystem = () => {};

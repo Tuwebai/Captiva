@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 var rootDir = fileURLToPath(new URL('.', import.meta.url));
 var demosManifestPath = resolve(rootDir, 'demos/manifest.json');
@@ -105,27 +105,35 @@ function demoProxyDevPlugin() {
         },
     };
 }
-export default defineConfig({
-    plugins: [react(), demoProxyDevPlugin()],
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks: function (id) {
-                    if (id.includes('node_modules/react/') || id.includes('\\node_modules\\react\\') || id.includes('node_modules/react-dom/') || id.includes('\\node_modules\\react-dom\\')) {
-                        return 'react-vendor';
-                    }
-                    if (id.includes('node_modules/react-router/') ||
-                        id.includes('\\node_modules\\react-router\\') ||
-                        id.includes('node_modules/react-router-dom/') ||
-                        id.includes('\\node_modules\\react-router-dom\\')) {
-                        return 'router-vendor';
-                    }
-                    return undefined;
+export default defineConfig(function (_a) {
+    var _b;
+    var mode = _a.mode;
+    var env = loadEnv(mode, rootDir, 'VITE_');
+    return {
+        plugins: [react(), demoProxyDevPlugin()],
+        define: {
+            __CAPTIVA_GA4_ID__: JSON.stringify((_b = env.VITE_GA4_ID) !== null && _b !== void 0 ? _b : ''),
+        },
+        build: {
+            rollupOptions: {
+                output: {
+                    manualChunks: function (id) {
+                        if (id.includes('node_modules/react/') || id.includes('\\node_modules\\react\\') || id.includes('node_modules/react-dom/') || id.includes('\\node_modules\\react-dom\\')) {
+                            return 'react-vendor';
+                        }
+                        if (id.includes('node_modules/react-router/') ||
+                            id.includes('\\node_modules\\react-router\\') ||
+                            id.includes('node_modules/react-router-dom/') ||
+                            id.includes('\\node_modules\\react-router-dom\\')) {
+                            return 'router-vendor';
+                        }
+                        return undefined;
+                    },
                 },
             },
         },
-    },
-    server: {
-        port: 5173,
-    },
+        server: {
+            port: 5173,
+        },
+    };
 });
