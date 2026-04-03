@@ -16,6 +16,7 @@ export type TrackPageViewParams = {
   page_title: string;
   page_location: string;
   page_path: string;
+  page_type?: string;
 };
 
 export type TrackConversionParams = {

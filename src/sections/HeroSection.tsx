@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
 import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
-import { trackEvent } from '../utils/analytics';
 
 export function HeroSection() {
+  const { trackEvent } = useAnalytics();
   const homeCta = getRouteCta('home');
   const metricIcons = ['conversion', 'clarity', 'design', 'contact'] as const;
   const [flowStart, flowMiddle, flowEnd] = siteConfig.hero.panelFlowNodes;
@@ -21,7 +22,7 @@ export function HeroSection() {
             href={siteConfig.hero.badgeHref}
             target="_blank"
             rel="noreferrer"
-            onClick={() => trackEvent({ event: 'outbound_click', category: 'hero', label: 'tuwebai-product-badge' })}
+            onClick={() => trackEvent({ action: ANALYTICS_EVENTS.RESOURCE_OPEN, category: 'hero', label: 'tuwebai-product-badge' })}
           >
             {siteConfig.hero.badge}
           </a>
@@ -35,7 +36,7 @@ export function HeroSection() {
               className="button-link button-link--secondary"
               to={siteConfig.routes.captivaDemos}
               data-tooltip="Explora ejemplos reales de landing pages por industria."
-              onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'ver-demos' })}
+              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'hero', label: 'ver-demos' })}
             >
               {homeCta.primary}
             </Link>
@@ -51,7 +52,7 @@ export function HeroSection() {
             <Link
               className="hero-contact-link"
               to={siteConfig.routes.captivaDemos}
-              onClick={() => trackEvent({ event: 'internal_nav', category: 'hero', label: 'captiva-demos' })}
+              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'hero', label: 'captiva-demos' })}
             >
               {siteConfig.hero.exploreLinkLabel}
             </Link>

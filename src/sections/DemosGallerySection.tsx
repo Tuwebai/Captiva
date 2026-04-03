@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
@@ -10,7 +11,6 @@ import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { demosManifest } from '../data/demosManifest';
 import type { DemoCategoryGroup } from '../types/demo';
-import { trackEvent } from '../utils/analytics';
 import { getTopCityLandings } from '../utils/city-landings';
 import {
   getCatalogDemos,
@@ -20,7 +20,6 @@ import {
   groupDemosByCategory,
 } from '../utils/demos';
 import { getIndustryPages } from '../utils/industry';
-
 const activeDemos = getCatalogDemos(demosManifest);
 const demoCategories = groupDemosByCategory(activeDemos);
 const placeholderPreview = '/demo-placeholder.svg';
@@ -107,6 +106,7 @@ type DemosGallerySectionProps = {
 };
 
 export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) {
+  const { trackEvent } = useAnalytics();
   const demosCta = getRouteCta('demos');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -187,7 +187,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
     }
 
     setSearchParams(nextParams, { replace: true });
-    trackEvent({ event: 'internal_nav', category: 'demos-filter', label: filterKey });
+    trackEvent({ action: ANALYTICS_EVENTS.DEMO_FILTER_APPLY, category: 'demos-filter', label: filterKey });
   };
 
   const handleIndustryFilterClick = (industryKey: string) => {
@@ -204,7 +204,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
       { replace: true },
     );
 
-    trackEvent({ event: 'internal_nav', category: 'demos-industry-filter', label: industryKey });
+    trackEvent({ action: ANALYTICS_EVENTS.DEMO_FILTER_APPLY, category: 'demos-industry-filter', label: industryKey });
   };
 
   const handleTagFilterClick = (tagKey: string) => {
@@ -217,7 +217,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
     }
 
     setSearchParams(nextParams, { replace: true });
-    trackEvent({ event: 'internal_nav', category: 'demos-tag-filter', label: tagKey });
+    trackEvent({ action: ANALYTICS_EVENTS.DEMO_FILTER_APPLY, category: 'demos-tag-filter', label: tagKey });
   };
 
   const toggleSidebarSection = (section: 'collections' | 'categories' | 'tags') => {
@@ -269,7 +269,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                           <Link
                             className="text-link"
                             to={`/${industryByCategory.get(category.slug)?.slug ?? ''}`}
-                            onClick={() => trackEvent({ event: 'internal_nav', category: category.slug, label: 'industry-page' })}
+                            onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: category.slug, label: 'industry-page' })}
                           >
                             {siteConfig.demos.industryLinkPrefix} {category.title.toLowerCase()}
                           </Link>
@@ -313,9 +313,11 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                             rel="noreferrer"
                             data-tooltip="Ver esta landing page en modo interactivo."
                             onClick={() =>
-                              trackEvent('demo_click', {
-                                demo: item.publicSlug ?? item.slug,
+                              trackEvent({
+                                action: ANALYTICS_EVENTS.DEMO_VIEW,
                                 category: category.slug,
+                                label: item.publicSlug ?? item.slug,
+                                demo: item.publicSlug ?? item.slug,
                                 industry: item.industry,
                                 source: 'demos_page',
                                 path: siteConfig.routes.captivaDemos,
@@ -378,7 +380,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                         <Link
                           className="text-link"
                           to={item.path}
-                          onClick={() => trackEvent({ event: 'internal_nav', category: 'city-landing', label: item.slug })}
+                          onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'city-landing', label: item.slug })}
                         >
                           Ver pagina por ciudad
                         </Link>

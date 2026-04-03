@@ -1,8 +1,8 @@
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { demosManifest } from '../data/demosManifest';
-import { trackEvent } from '../utils/analytics';
 
 const demos = demosManifest;
 
@@ -22,6 +22,8 @@ function findDemoHrefByShowcaseSlug(showcaseSlug: string) {
 }
 
 export function DemoShowcaseSection() {
+  const { trackEvent } = useAnalytics();
+
   return (
     <section className="content-section content-section--alt" id="demos">
       <div className="container">
@@ -48,7 +50,15 @@ export function DemoShowcaseSection() {
                   href={demoHref}
                   target="_blank"
                   rel="noreferrer"
-                  onClick={() => trackEvent({ event: 'demo_click', category: 'home-demos', label: item.slug })}
+                  onClick={() =>
+                    trackEvent({
+                      action: ANALYTICS_EVENTS.DEMO_CTA_CLICK,
+                      category: 'home-demos',
+                      label: item.slug,
+                      demo_slug: item.slug,
+                      source_section: 'home-demos',
+                    })
+                  }
                 >
                   {siteConfig.demos.cardCtaLabel}
                 </a>

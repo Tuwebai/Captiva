@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
+import { resolvePageContextFromPath } from '../../utils/page-context';
 import { getPageTitle } from './routeTitles';
 import { useAnalytics } from './useAnalytics';
 
@@ -23,10 +24,12 @@ export function usePageTracking() {
       }
 
       lastTrackedRef.current = routeKey;
+      const pageContext = resolvePageContextFromPath(location.pathname);
       trackPageView({
         page_title: getPageTitle(location.pathname),
         page_location: window.location.href,
         page_path: `${location.pathname}${location.search}`,
+        page_type: pageContext.pageType,
       });
     }, 100);
 

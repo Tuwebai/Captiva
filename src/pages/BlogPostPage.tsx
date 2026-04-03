@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
@@ -9,7 +10,6 @@ import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import type { BlogPostContent } from '../types/blog';
-import { trackEvent } from '../utils/analytics';
 import { formatPostDate, getBlogPostBySlug, getRelatedBlogPosts } from '../utils/blog';
 import { getIndustryLinks } from '../utils/seo-autolinks';
 
@@ -29,6 +29,7 @@ function getHydratedContent(post: { slug: string; title: string }): BlogPostCont
 }
 
 export function BlogPostPage() {
+  const { trackEvent } = useAnalytics();
   const blogCta = getRouteCta('blog');
   const navigate = useNavigate();
   const { slug } = useParams<{ slug: string }>();
@@ -142,6 +143,15 @@ export function BlogPostPage() {
     structuredData: [articleSchema, breadcrumbSchema],
   });
 
+  useEffect(() => {
+    trackEvent({
+      action: ANALYTICS_EVENTS.BLOG_POST_OPEN,
+      category: 'blog-post',
+      label: post.slug,
+      reading_time: post.readingTime,
+    });
+  }, [post.readingTime, post.slug, trackEvent]);
+
   return (
     <section className="content-section">
       <div className="container">
@@ -236,7 +246,7 @@ export function BlogPostPage() {
                       <Link
                         className="text-link"
                         to={`/blog/${item.slug}`}
-                        onClick={() => trackEvent({ event: 'internal_nav', category: 'blog-related', label: item.slug })}
+                        onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'blog-related', label: item.slug })}
                       >
                         {item.title}
                       </Link>

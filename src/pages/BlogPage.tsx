@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 
+import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
-import { trackEvent } from '../utils/analytics';
 import { BLOG_POSTS_PER_PAGE, formatPostDate, getAllBlogTags, getBlogPosts, getPostsByTagSlug, slugifyTag } from '../utils/blog';
 
 export function BlogPage() {
+  const { trackEvent } = useAnalytics();
   const [isResourcesCollapsed, setIsResourcesCollapsed] = useState(false);
   const { page: pageParam, tag: tagParam } = useParams<{ page?: string; tag?: string }>();
   const allPosts = getBlogPosts();
@@ -145,6 +146,7 @@ export function BlogPage() {
                   key={tag.slug}
                   className={`template-filter-chip${activeTagSlug === tag.slug ? ' template-filter-chip--active' : ''}`}
                   to={`/blog/tag/${tag.slug}`}
+                  onClick={() => trackEvent({ action: ANALYTICS_EVENTS.BLOG_TAG_OPEN, category: 'blog-tag', label: tag.slug })}
                 >
                   {tag.label}
                 </Link>
@@ -170,7 +172,7 @@ export function BlogPage() {
                   <Link
                     className="text-link"
                     to={`/blog/${post.slug}`}
-                    onClick={() => trackEvent({ event: 'internal_nav', category: 'blog', label: post.slug })}
+                    onClick={() => trackEvent({ action: ANALYTICS_EVENTS.BLOG_POST_OPEN, category: 'blog', label: post.slug })}
                   >
                     {siteConfig.pages.blog.readPostLabel}
                   </Link>

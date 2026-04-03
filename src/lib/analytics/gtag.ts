@@ -1,3 +1,5 @@
+import { ANALYTICS_EVENTS } from './events';
+
 type GtagCommand = 'config' | 'consent' | 'event' | 'js' | 'set';
 
 type GtagControlParams = Record<string, string | number | boolean | undefined>;
@@ -7,6 +9,7 @@ type GtagConfigParams = {
   page_title?: string;
   page_location?: string;
   page_path?: string;
+  debug_mode?: boolean;
   user_properties?: Record<string, string>;
 };
 
@@ -43,6 +46,19 @@ function isValidMeasurementId(measurementId: string) {
 
 function getSiteType(pathname: string) {
   return pathname.startsWith('/demo/') || pathname.startsWith('/demos/') ? 'captiva_demo' : 'captiva_main';
+}
+
+function isAnalyticsDebugEnabled() {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  try {
+    const url = new URL(window.location.href);
+    return url.searchParams.get('ga_debug') === '1' || window.localStorage.getItem('captiva:ga-debug') === '1';
+  } catch {
+    return false;
+  }
 }
 
 function ensureDataLayer() {
@@ -108,17 +124,24 @@ function scheduleIdle(callback: () => void) {
   window.setTimeout(callback, 0);
 }
 
-export function initGA(measurementId: string = GA4_MEASUREMENT_ID): void {
+export function bootstrapGA(measurementId: string = GA4_MEASUREMENT_ID): boolean {
   if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return;
+    return false;
   }
 
   if (!IS_ANALYTICS_ENABLED || !isValidMeasurementId(measurementId)) {
-    return;
+    return false;
   }
 
   ensureDataLayer();
   installGtagStub();
+  return true;
+}
+
+export function initGA(measurementId: string = GA4_MEASUREMENT_ID): void {
+  if (!bootstrapGA(measurementId)) {
+    return;
+  }
 
   scheduleAfterLoad(() => {
     injectScript(measurementId);
@@ -129,9 +152,16 @@ export function initGA(measurementId: string = GA4_MEASUREMENT_ID): void {
   scheduleIdle(() => {
     window.gtag?.('config', measurementId, {
       send_page_view: false,
+      debug_mode: isAnalyticsDebugEnabled(),
       user_properties: {
         site_type: getSiteType(window.location.pathname),
       },
+    });
+
+    window.gtag?.('event', ANALYTICS_EVENTS.SESSION_BOOTSTRAP, {
+      page_path: window.location.pathname,
+      site_type: getSiteType(window.location.pathname),
+      debug_mode: isAnalyticsDebugEnabled(),
     });
   });
 }

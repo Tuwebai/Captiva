@@ -1,4 +1,5 @@
 export const ANALYTICS_EVENTS = {
+  SESSION_BOOTSTRAP: 'captiva_session_bootstrap',
   CTA_HERO_CLICK: 'cta_hero_click',
   CTA_SECTION_CLICK: 'cta_section_click',
   CTA_STICKY_CLICK: 'cta_sticky_click',
@@ -14,6 +15,12 @@ export const ANALYTICS_EVENTS = {
   SCROLL_90: 'scroll_90',
   DEMO_VIEW: 'demo_view',
   DEMO_CTA_CLICK: 'demo_cta_click',
+  DEMO_FILTER_APPLY: 'demo_filter_apply',
+  BLOG_POST_OPEN: 'blog_post_open',
+  BLOG_TAG_OPEN: 'blog_tag_open',
+  RESOURCE_OPEN: 'resource_open',
+  CONTACT_EMAIL_CLICK: 'contact_email_click',
+  INTERNAL_NAV_CLICK: 'internal_nav_click',
 } as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS];
