@@ -95,7 +95,7 @@ export function OfferSection() {
           <p className="offer-guarantee">{siteConfig.offer.guarantee}</p>
         </section>
 
-        <section className="offer-block" id="garantia">
+        <section className="offer-block">
           <SurfaceCard className="offer-guarantee-card">
             <h3>{siteConfig.offer.guaranteeTitle}</h3>
             <p>{siteConfig.offer.guaranteeDescription}</p>

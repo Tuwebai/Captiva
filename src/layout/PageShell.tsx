@@ -39,7 +39,6 @@ export function PageShell({ children }: PropsWithChildren) {
       { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
       { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
       { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
-      { label: 'Garantía', href: `${siteConfig.routes.captiva}#garantia`, icon: 'ready' },
       { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'clarity' },
       { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
     ],
