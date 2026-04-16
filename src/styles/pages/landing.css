@@ -83,7 +83,7 @@
   height: 100%;
   min-height: 100%;
   border-width: 1px;
-  border-color: var(--line);
+  border-color: var(--ui-border);
   box-shadow: var(--shadow-sm);
 }
 
@@ -91,7 +91,7 @@
   border-color: var(--accent);
   background:
     radial-gradient(circle at 50% -15%, rgba(75, 124, 255, 0.22), transparent 48%),
-    linear-gradient(180deg, var(--surface-elevated), var(--surface));
+    linear-gradient(180deg, var(--ui-surface-2), var(--ui-surface));
   box-shadow:
     0 0 0 1px rgba(75, 124, 255, 0.35),
     0 16px 34px rgba(36, 74, 176, 0.28);
@@ -107,7 +107,7 @@
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--accent-soft);
-  color: var(--text);
+  color: var(--ui-text);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -179,7 +179,7 @@
   font-size: clamp(1.35rem, 2.2vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--text);
+  color: var(--ui-text);
 }
 
 .offer-workflow-list {
@@ -277,7 +277,7 @@
   align-items: center;
   min-height: 2rem;
   padding: 0.35rem 0.7rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface-muted) 82%, transparent);
 }
@@ -367,7 +367,7 @@
   display: grid;
   gap: 1rem;
   padding: clamp(1rem, 2vw, 1.5rem);
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 94%, var(--accent) 6%) 0%, var(--surface) 100%);
   box-shadow: var(--shadow-md);

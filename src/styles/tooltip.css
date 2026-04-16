@@ -53,5 +53,5 @@
 .info-tooltip-trigger:focus-visible {
   background: var(--tooltip-trigger-hover-surface, rgba(75, 124, 255, 0.18));
   color: var(--tooltip-trigger-hover-text, #f5f8ff);
-  border-color: var(--line-strong);
+  border-color: var(--ui-border-strong);
 }

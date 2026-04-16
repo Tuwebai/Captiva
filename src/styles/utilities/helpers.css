@@ -32,7 +32,7 @@
 .related-link-card-link:focus-visible .related-link-card {
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
-  border-color: var(--line-strong);
+  border-color: var(--ui-border-strong);
 }
 
 .related-link-card__kind {
