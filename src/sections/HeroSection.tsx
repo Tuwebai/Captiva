@@ -68,7 +68,7 @@ export function HeroSection() {
                   <span className="hero-preview-window__badge">Landing Captiva</span>
                   <strong>Tu negocio puede verse así</strong>
                   <p>Mensaje claro, oferta visible y CTA directo a WhatsApp.</p>
-                  <div className="hero-preview-window__cta" />
+                  <div className="hero-preview-window__cta">Quiero empezar ahora</div>
                 </div>
                 <div className="hero-preview-window__phone">
                   <div className="hero-preview-window__phone-screen">
