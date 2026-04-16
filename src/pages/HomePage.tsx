@@ -3,6 +3,7 @@ import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
 import { DemoShowcaseSection } from '../sections/DemoShowcaseSection';
 import { FaqSection, faqSchema } from '../sections/FaqSection';
 import { FinalCtaSection } from '../sections/FinalCtaSection';
+import { FloatingWhatsAppCTA } from '../sections/FloatingWhatsAppCTA';
 import { HeroSection } from '../sections/HeroSection';
 import { HowItWorksSection } from '../sections/HowItWorksSection';
 import { OfferSection } from '../sections/OfferSection';
@@ -92,6 +93,7 @@ export function HomePage() {
       <SocialProofSection />
       <FaqSection />
       <FinalCtaSection />
+      <FloatingWhatsAppCTA />
     </>
   );
 }

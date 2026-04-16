@@ -51,6 +51,11 @@ export function HeroSection() {
             </a>
           </div>
           <p className="hero-actions__microcopy">{siteConfig.hero.ctaMicrocopy}</p>
+          <div className="hero-trust-bar" aria-label="Beneficios clave">
+            <span>✓ Hosting + dominio 1 año</span>
+            <span>✓ En 5 días hábiles</span>
+            <span>✓ Sin costos ocultos</span>
+          </div>
         </div>
 
         <div className="hero-panel" aria-label={siteConfig.hero.panelAriaLabel}>
