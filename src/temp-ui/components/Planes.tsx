@@ -12,7 +12,8 @@ export default function Planes() {
 
         <div className="grid lg:grid-cols-3 gap-6">
           {tempUiBridge.plans.map((plan) => (
-            <article key={plan.name} className={`relative rounded-3xl border p-8 ${plan.highlight ? 'border-violet-500/40 bg-violet-500/10 shadow-[0_0_40px_rgba(124,58,237,.18)]' : 'border-white/10 bg-white/[0.03]'}`}>
+            <article key={plan.name} className={`relative overflow-hidden rounded-[2rem] border p-8 ${plan.highlight ? 'border-violet-500/40 bg-violet-500/10 shadow-[0_0_40px_rgba(124,58,237,.18)]' : 'border-white/10 bg-white/[0.03]'}`}>
+              <div className={`absolute inset-x-0 top-0 h-1 ${plan.highlight ? 'bg-gradient-to-r from-violet-500 to-fuchsia-500' : 'bg-gradient-to-r from-zinc-700 via-zinc-500 to-zinc-700'}`} />
               {plan.highlight ? (
                 <span className="absolute top-4 right-4 bg-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full">{plan.highlight}</span>
               ) : null}
@@ -20,6 +21,18 @@ export default function Planes() {
               <h3 className="text-white text-2xl font-bold">{plan.name}</h3>
               <div className="mt-4 text-4xl font-black text-white">{plan.price}</div>
               <p className="text-zinc-400 mt-3">{plan.description}</p>
+
+              <div className="mt-6 rounded-2xl border border-[#27272A] bg-[#111113] p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="h-3 w-16 rounded-full bg-violet-500/30" />
+                  <div className="h-8 w-20 rounded-lg bg-violet-600/80" />
+                </div>
+                <div className="space-y-2">
+                  <div className="h-3 rounded-full bg-white/10" />
+                  <div className="h-3 w-4/5 rounded-full bg-white/10" />
+                  <div className="h-3 w-3/5 rounded-full bg-white/10" />
+                </div>
+              </div>
 
               <ul className="mt-6 space-y-3">
                 {plan.includes.map((item) => (

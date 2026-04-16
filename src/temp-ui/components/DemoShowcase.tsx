@@ -12,15 +12,29 @@ export default function DemoShowcase() {
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {tempUiBridge.demos.slice(0, 6).map((demo, index) => (
-            <article key={demo.title} className="group rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden shadow-2xl">
-              <div className={`h-56 ${index === 0 ? 'bg-gradient-to-br from-violet-600/20 to-fuchsia-500/10' : 'bg-gradient-to-br from-emerald-500/15 to-cyan-500/10'} p-6 flex items-end`}>
-                <div className="w-full rounded-2xl border border-white/10 bg-[#111113] p-5">
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-violet-300/80 mb-3">{demo.eyebrow}</div>
-                  <div className="h-3 w-24 rounded-full bg-white/10 mb-4" />
+            <article key={demo.title} className="group rounded-[2rem] border border-white/10 bg-white/[0.03] overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/30">
+              <div className={`h-56 ${index % 3 === 0 ? 'bg-gradient-to-br from-violet-600/20 to-fuchsia-500/10' : index % 3 === 1 ? 'bg-gradient-to-br from-emerald-500/15 to-cyan-500/10' : 'bg-gradient-to-br from-amber-500/10 to-violet-500/10'} p-6 flex items-end`}>
+                <div className="relative w-full rounded-[1.5rem] border border-[#27272A] bg-[#111113] p-5 shadow-2xl">
+                  <div className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 text-[10px] font-bold text-emerald-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                    Activa
+                  </div>
+                  <div className="mb-3 flex items-center gap-2">
+                    <div className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+                    <div className="ml-2 h-6 flex-1 rounded-md bg-[#1A1A1F] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-zinc-500">
+                      {demo.eyebrow}
+                    </div>
+                  </div>
                   <div className="space-y-2">
+                    <div className="h-3 w-24 rounded-full bg-violet-500/30" />
                     <div className="h-3 rounded-full bg-white/10" />
                     <div className="h-3 w-4/5 rounded-full bg-white/10" />
-                    <div className="h-10 rounded-xl bg-violet-600/70 mt-4" />
+                    <div className="mt-4 flex gap-2">
+                      <div className="h-10 flex-1 rounded-xl bg-violet-600" />
+                      <div className="h-10 w-24 rounded-xl border border-zinc-600" />
+                    </div>
                   </div>
                 </div>
               </div>
