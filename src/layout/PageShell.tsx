@@ -33,12 +33,11 @@ export function PageShell({ children }: PropsWithChildren) {
   const railItems = useMemo<RailItem[]>(
     () => [
       { label: 'Inicio', href: siteConfig.routes.captiva, type: 'route', icon: 'home' },
-      { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
       { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
-      { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
-      { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
+      { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
       { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
       { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
+      { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
       { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'clarity' },
       { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
     ],

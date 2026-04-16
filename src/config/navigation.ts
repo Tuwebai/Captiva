@@ -10,11 +10,11 @@ export const productBarItems: ProductTopBarItem[] = [
 ];
 
 export const navigationItems: NavItem[] = [
-  { label: 'Cómo funciona', href: `${baseRoute}#como-funciona` },
   { label: 'Demos', href: `${baseRoute}#demos` },
-  { label: 'Prueba social', href: `${baseRoute}#prueba-social` },
+  { label: 'Cómo funciona', href: `${baseRoute}#como-funciona` },
   { label: 'Oferta', href: `${baseRoute}#oferta` },
   { label: 'Planes', href: `${baseRoute}#planes` },
+  { label: 'Prueba social', href: `${baseRoute}#prueba-social` },
   { label: 'FAQ', href: `${baseRoute}#faq` },
   { label: 'Contacto', href: `${baseRoute}#contacto` },
 ];
