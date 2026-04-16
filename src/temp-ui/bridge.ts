@@ -1,6 +1,5 @@
 import { siteConfig } from '../config/site';
 import { faqSchema } from '../sections/FaqSection';
-import { findDemoHrefByShowcaseSlug } from '../utils/demo-showcase';
 import { buildWhatsAppLeadUrl } from '../utils/lead-message';
 
 type FaqEntry = {
@@ -44,8 +43,9 @@ export const tempUiBridge = {
   ],
   demos: siteConfig.demos.items.map((item) => ({
     title: item.title,
+    eyebrow: siteConfig.demos.eyebrow,
     description: item.description,
-    href: findDemoHrefByShowcaseSlug(item.slug) ?? siteConfig.routes.captivaDemos,
+    href: siteConfig.routes.captivaDemos,
     cta: siteConfig.demos.cardCtaLabel,
   })),
   howItWorks: siteConfig.howItWorks,
@@ -57,8 +57,8 @@ export const tempUiBridge = {
     items: extractFaqItems(),
   },
   finalCta: {
-    title: siteConfig.faq.ctaTitle,
-    description: siteConfig.faq.ctaDescription,
+    title: siteConfig.demos.ctaTitle,
+    description: siteConfig.demos.ctaDescription,
     href: siteConfig.contact.ctaHref,
     label: siteConfig.primaryCtaLabel,
   },
