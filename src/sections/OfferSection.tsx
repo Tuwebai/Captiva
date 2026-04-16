@@ -18,18 +18,6 @@ export function OfferSection() {
         />
 
         <section className="offer-block">
-          <h3>{siteConfig.offer.includesTitle}</h3>
-          <div className="card-grid card-grid--three">
-            {siteConfig.offer.includes.map((item) => (
-              <SurfaceCard key={item.title}>
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
-              </SurfaceCard>
-            ))}
-          </div>
-        </section>
-
-        <section className="offer-block">
           <div className="card-grid card-grid--two">
             <SurfaceCard>
               <h3>{siteConfig.offer.notIncludesTitle}</h3>
@@ -40,9 +28,7 @@ export function OfferSection() {
               </ul>
             </SurfaceCard>
             <SurfaceCard>
-              <h3>{siteConfig.offer.deliveryTimeLabel}</h3>
-              <p className="offer-delivery-time">{siteConfig.offer.deliveryTimeValue}</p>
-              <h4>{siteConfig.offer.workflowTitle}</h4>
+              <h3>{siteConfig.offer.workflowTitle}</h3>
               <ol className="offer-workflow-list">
                 {siteConfig.offer.workflowSteps.map((step) => (
                   <li key={step}>{step}</li>
@@ -65,6 +51,7 @@ export function OfferSection() {
                 <h4>{plan.name}</h4>
                 <p className="offer-plan-card__audience">{plan.audience}</p>
                 <ul className="offer-plan-card__list">
+                  <li>{`${siteConfig.offer.deliveryTimeLabel}: ${siteConfig.offer.deliveryTimeValue}`}</li>
                   {plan.includes.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
