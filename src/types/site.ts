@@ -124,8 +124,10 @@ export type SiteConfig = {
     title: string;
     subtitle: string;
     supportingCopy: string;
+    priceAnchor: string;
     demosCtaLabel: string;
     primaryProductCtaLabel: string;
+    ctaMicrocopy: string;
     exploreLinkLabel: string;
     panelAriaLabel: string;
     panelLabel: string;

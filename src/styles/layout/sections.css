@@ -102,11 +102,24 @@
   font-size: 0.98rem;
 }
 
+.hero-copy__price {
+  margin: 1rem 0 0;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2rem;
+}
+
+.hero-actions__microcopy {
+  margin: 0.9rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
 }
 
 .hero-contact-link {

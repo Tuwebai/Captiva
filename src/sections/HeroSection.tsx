@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom';
-
 import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
-import { PrimaryCTA } from '../components/cta/PrimaryCTA';
-import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { FeatureIcon } from '../components/ui/FeatureIcon';
-import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
+import { buildWhatsAppLeadUrl } from '../utils/lead-message';
 
 export function HeroSection() {
   const { trackEvent } = useAnalytics();
-  const homeCta = getRouteCta('home');
   const metricIcons = ['conversion', 'clarity', 'design', 'contact'] as const;
   const [flowStart, flowMiddle, flowEnd] = siteConfig.hero.panelFlowNodes;
+  const heroWhatsAppUrl = buildWhatsAppLeadUrl(
+    siteConfig.contact.whatsapp,
+    'Hola, vi Captiva y quiero una landing para mi negocio.\nRubro: [rubro del visitante]\n¿Cómo arrancamos?',
+  );
 
   return (
     <section className="hero-section">
@@ -30,33 +29,28 @@ export function HeroSection() {
           <h1>{siteConfig.hero.title}</h1>
           {siteConfig.hero.subtitle ? <h2>{siteConfig.hero.subtitle}</h2> : null}
           <p className="hero-copy__body">{siteConfig.hero.supportingCopy}</p>
+          <p className="hero-copy__price">{siteConfig.hero.priceAnchor}</p>
 
           <div className="hero-actions">
-            <Link
+            <a
+              className="button-link button-link--primary"
+              href={heroWhatsAppUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.CTA_SECTION_CLICK, category: 'hero', label: 'quiero-empezar-ahora' })}
+            >
+              {siteConfig.hero.primaryProductCtaLabel}
+            </a>
+            <a
               className="button-link button-link--secondary"
-              to={siteConfig.routes.captivaDemos}
+              href="#demos"
               data-tooltip="Explora ejemplos reales de landing pages por industria."
-              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'hero', label: 'ver-demos' })}
+              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'hero', label: 'ver-ejemplos-por-rubro' })}
             >
-              {homeCta.primary}
-            </Link>
-            <span data-tooltip="Solicita una landing optimizada para captar clientes.">
-              <PrimaryCTA
-                label={homeCta.secondary ?? siteConfig.hero.primaryProductCtaLabel}
-                mode="lead-form"
-                leadFormId="lead-form-hero"
-                source="hero"
-                variant="primary"
-              />
-            </span>
-            <Link
-              className="hero-contact-link"
-              to={siteConfig.routes.captivaDemos}
-              onClick={() => trackEvent({ action: ANALYTICS_EVENTS.INTERNAL_NAV_CLICK, category: 'hero', label: 'captiva-demos' })}
-            >
-              {siteConfig.hero.exploreLinkLabel}
-            </Link>
+              {siteConfig.hero.demosCtaLabel}
+            </a>
           </div>
+          <p className="hero-actions__microcopy">{siteConfig.hero.ctaMicrocopy}</p>
         </div>
 
         <div className="hero-panel" aria-label={siteConfig.hero.panelAriaLabel}>
@@ -99,15 +93,6 @@ export function HeroSection() {
             ))}
           </ul>
         </div>
-      </div>
-      <div className="container">
-        <LeadFormSection
-          id="lead-form-hero"
-          source="hero"
-          context="captiva-home-hero"
-          title="Quiero una landing como esta"
-          description="Dejanos tus datos y abrimos WhatsApp con un brief inicial ya estructurado."
-        />
       </div>
     </section>
   );
