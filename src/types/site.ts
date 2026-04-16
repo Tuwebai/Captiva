@@ -15,20 +15,6 @@ export type HighlightMetric = {
   label: string;
 };
 
-export type ProblemItem = {
-  title: string;
-  description: string;
-};
-
-export type SolutionItem = {
-  title: string;
-  description: string;
-};
-
-export type BenefitItem = {
-  title: string;
-  description: string;
-};
 
 export type SocialProofMetric = {
   value: string;
@@ -36,11 +22,6 @@ export type SocialProofMetric = {
 };
 
 export type SocialProofItem = {
-  title: string;
-  description: string;
-};
-
-export type WhyCaptivaItem = {
   title: string;
   description: string;
 };
@@ -141,33 +122,12 @@ export type SiteConfig = {
     description: string;
     steps: HowItWorksStep[];
   };
-  problem: {
-    title: string;
-    description: string;
-    items: ProblemItem[];
-  };
-  solution: {
-    title: string;
-    description: string;
-    items: SolutionItem[];
-  };
-  benefits: {
-    title: string;
-    description: string;
-    items: BenefitItem[];
-  };
   socialProof: {
     eyebrow: string;
     title: string;
     description: string;
     metrics: SocialProofMetric[];
     items: SocialProofItem[];
-  };
-  whyCaptiva: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    items: WhyCaptivaItem[];
   };
   offer: {
     eyebrow: string;
