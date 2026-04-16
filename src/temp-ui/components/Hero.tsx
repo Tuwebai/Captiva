@@ -16,7 +16,7 @@ function HeroMockup() {
             <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
             <div className="w-3 h-3 rounded-full bg-green-500/60" />
           </div>
-          <div className="flex-1 bg-[#1A1A1F] rounded-md px-3 py-1 text-xs text-zinc-500 font-mono">tuclinica.com.ar</div>
+          <div className="flex-1 bg-[#1A1A1F] rounded-md px-3 py-1 text-xs text-zinc-500 font-mono">{tempUiBridge.hero.previewDomain}</div>
         </div>
 
         <div className="p-5 space-y-4">
@@ -63,20 +63,20 @@ function HeroMockup() {
 
         <div className="absolute top-3 right-3 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot inline-block" />
-          Live
+          {tempUiBridge.siteConfig.productName}
         </div>
       </div>
 
       <div className="absolute -bottom-2 -left-2 bg-[#18181B] border border-[#27272A] rounded-2xl px-4 py-3 shadow-xl">
-        <div className="text-xs text-zinc-500 mb-1">WhatsApps recibidos</div>
-        <div className="text-xl font-bold text-white">+24 <span className="text-emerald-400 text-sm">↑</span></div>
-        <div className="text-[10px] text-emerald-400">esta semana</div>
+        <div className="text-xs text-zinc-500 mb-1">Resultado esperado</div>
+        <div className="text-xl font-bold text-white">{tempUiBridge.hero.resultsLabel}</div>
+        <div className="text-[10px] text-emerald-400">{tempUiBridge.hero.resultsCaption}</div>
       </div>
 
       <div className="absolute -top-2 -right-2 bg-[#18181B] border border-[#27272A] rounded-2xl px-4 py-3 shadow-xl">
-        <div className="text-xs text-zinc-500 mb-1">Tiempo de entrega</div>
-        <div className="text-xl font-bold text-white">5 días</div>
-        <div className="text-[10px] text-violet-400">garantizados</div>
+        <div className="text-xs text-zinc-500 mb-1">Oferta base</div>
+        <div className="text-xl font-bold text-white">{tempUiBridge.hero.priceAnchor.replace('Desde ', '')}</div>
+        <div className="text-[10px] text-violet-400">{tempUiBridge.hero.microcopy}</div>
       </div>
     </div>
   );
@@ -144,9 +144,9 @@ export default function Hero() {
 
             <div className="flex flex-wrap gap-4 pt-1">
               {[
-                { icon: '🌐', label: 'Hosting + dominio 1 año' },
-                { icon: '⚡', label: 'En 5 días hábiles' },
-                { icon: '💰', label: 'Sin costos ocultos' },
+                { icon: '🌐', label: tempUiBridge.siteConfig.offer.guarantee },
+                { icon: '⚡', label: tempUiBridge.siteConfig.hero.panelFlowNodes.join(' → ') },
+                { icon: '💬', label: tempUiBridge.siteConfig.primaryCtaLabel },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2 text-sm text-zinc-400">
                   <span>{item.icon}</span>
