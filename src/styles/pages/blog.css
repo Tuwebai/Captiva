@@ -153,8 +153,8 @@
 
 .blog-post-article__back:hover,
 .blog-post-article__back:focus-visible {
-  color: var(--text);
-  border-color: var(--line-strong);
+  color: var(--ui-text);
+  border-color: var(--ui-border-strong);
   background: var(--blog-back-hover-surface);
 }
 
@@ -179,7 +179,7 @@
 
 .blog-post-content h2,
 .blog-post-content h3 {
-  color: var(--text);
+  color: var(--ui-text);
   letter-spacing: -0.03em;
 }
 
@@ -214,7 +214,7 @@
 
 .blog-post-content code {
   padding: 0.1rem 0.3rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 0.3rem;
   background: var(--blog-inline-code-surface);
 }

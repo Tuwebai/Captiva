@@ -191,7 +191,7 @@
 }
 
 .offer-guarantee-card {
-  border-color: var(--line-strong);
+  border-color: var(--ui-border-strong);
   background:
     radial-gradient(circle at 90% 0%, rgba(75, 124, 255, 0.15), transparent 40%),
     var(--surface-elevated);
@@ -233,9 +233,9 @@
   display: inline-flex;
   width: fit-content;
   padding: 0.5rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--ui-brand) 28%, var(--ui-border));
   border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
+  background: color-mix(in srgb, var(--ui-brand) 10%, var(--ui-surface));
 }
 
 .floating-whatsapp-cta {
@@ -268,7 +268,7 @@
 }
 
 .offer-plan-card__badge {
-  background: var(--accent);
+  background: var(--ui-brand);
   color: var(--accent-contrast);
 }
 
@@ -284,8 +284,8 @@
 
 .offer-plan-card__guarantee {
   color: var(--text-primary);
-  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
-  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line));
+  background: color-mix(in srgb, var(--ui-brand) 12%, var(--ui-surface));
+  border: 1px solid color-mix(in srgb, var(--ui-brand) 24%, var(--ui-border));
 }
 
 .offer-plan-card--highlight .offer-plan-card__guarantee,

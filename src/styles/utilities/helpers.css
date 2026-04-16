@@ -76,7 +76,7 @@
 
 .related-link-card__cta {
   margin-top: auto;
-  color: var(--accent);
+  color: var(--ui-brand);
   font-size: 0.78rem;
   font-weight: 600;
 }
