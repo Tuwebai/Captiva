@@ -10,7 +10,7 @@ html {
   scrollbar-color: var(--purple) var(--scrollbar-track);
   scrollbar-width: thin;
   background: var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3);
-  background-color: var(--bg-base-color);
+  background-color: var(--ui-bg);
 }
 
 body {
@@ -18,8 +18,8 @@ body {
   min-width: 320px;
   min-height: 100%;
   background: var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3);
-  background-color: var(--bg-base-color);
-  color: var(--text);
+  background-color: var(--ui-bg);
+  color: var(--ui-text);
   font-family:
     Inter, "Segoe UI", sans-serif;
   line-height: 1.6;
@@ -78,7 +78,7 @@ code {
 #root {
   min-height: 100%;
   background: var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3);
-  background-color: var(--bg-base-color);
+  background-color: var(--ui-bg);
   min-height: 100vh;
 }
 

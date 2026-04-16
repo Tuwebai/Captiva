@@ -12,6 +12,7 @@
   --ui-text-soft: #71717a;
   --ui-brand: #7c3aed;
   --ui-brand-strong: #8b5cf6;
+  --ui-gradient-brand: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
   --ui-success: #10b981;
   --ui-radius-xl: 1rem;
   --ui-radius-2xl: 1.5rem;
@@ -167,6 +168,7 @@
   --ui-text-soft: #71717a;
   --ui-brand: #7c3aed;
   --ui-brand-strong: #8b5cf6;
+  --ui-gradient-brand: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
   --ui-success: #059669;
   --ui-shadow-2xl: 0 24px 60px rgba(24, 24, 27, 0.12);
   --ui-grid-line: rgba(124, 58, 237, 0.035);
