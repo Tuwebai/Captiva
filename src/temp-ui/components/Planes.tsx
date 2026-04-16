@@ -1,6 +1,4 @@
-const WA_STARTER = "https://wa.me/5491100000000?text=Hola%2C+me+interesa+el+plan+Starter+de+Captiva.+Tengo+un+negocio+de+%5Brubro%5D+y+quiero+empezar+a+captar+clientes.+%C2%BFMe+pod%C3%A9s+dar+m%C3%A1s+info%3F";
-const WA_GROWTH = "https://wa.me/5491100000000?text=Hola%2C+quiero+el+plan+Growth+de+Captiva.+Tengo+un+negocio+de+%5Brubro%5D+y+quiero+una+landing+optimizada.+%C2%BFCu%C3%A1ndo+podemos+empezar%3F";
-const WA_SCALE = "https://wa.me/5491100000000?text=Hola%2C+me+interesa+el+plan+Scale+de+Captiva+para+campa%C3%B1as.+%C2%BFPueden+darme+una+propuesta%3F";
+import { tempUiBridge } from '../bridge';
 
 const planes = [
   {
@@ -11,7 +9,7 @@ const planes = [
     currency: 'USD',
     badge: null,
     highlighted: false,
-    waLink: WA_STARTER,
+    waLink: tempUiBridge.primaryWaByMessage('Hola, me interesa el plan Starter de Captiva.'),
     cta: 'Quiero el Starter',
     microcopy: 'Hosting + dominio incluidos. Sin sorpresas.',
     features: [
@@ -38,7 +36,7 @@ const planes = [
     currency: 'USD',
     badge: 'Recomendado',
     highlighted: true,
-    waLink: WA_GROWTH,
+    waLink: tempUiBridge.primaryWaByMessage('Hola, quiero el plan Growth de Captiva.'),
     cta: 'Quiero el Growth',
     microcopy: 'El más elegido. Podés empezar esta semana.',
     features: [
@@ -64,7 +62,7 @@ const planes = [
     currency: 'USD',
     badge: null,
     highlighted: false,
-    waLink: WA_SCALE,
+    waLink: tempUiBridge.primaryWaByMessage('Hola, me interesa el plan Scale de Captiva.'),
     cta: 'Quiero el Scale',
     microcopy: 'Ideal para campañas pagas o varios frentes.',
     features: [

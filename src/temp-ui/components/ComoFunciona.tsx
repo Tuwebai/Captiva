@@ -1,4 +1,4 @@
-const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
+import { tempUiBridge } from '../bridge';
 
 const steps = [
   {
@@ -117,7 +117,7 @@ export default function ComoFunciona() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href={WA_LINK}
+            href={tempUiBridge.waLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-violet-600 hover:bg-violet-500 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5"

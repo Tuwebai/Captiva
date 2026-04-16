@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
+import { tempUiBridge } from '../bridge';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -54,7 +54,7 @@ export default function Navbar() {
 
         {/* CTA */}
         <a
-          href={WA_LINK}
+          href={tempUiBridge.waLink}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/20"

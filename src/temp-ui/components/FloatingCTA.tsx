@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
+import { tempUiBridge } from '../bridge';
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
@@ -50,7 +50,7 @@ export default function FloatingCTA() {
 
       {/* WhatsApp button */}
       <a
-        href={WA_LINK}
+        href={tempUiBridge.waLink}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-[#25D366] hover:bg-[#20B958] rounded-full flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/30 transition-all duration-200 hover:scale-110"

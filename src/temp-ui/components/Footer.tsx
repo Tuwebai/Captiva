@@ -1,4 +1,4 @@
-const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
+import { tempUiBridge } from '../bridge';
 
 export default function Footer() {
   const scrollTo = (id: string) => {
@@ -41,7 +41,7 @@ export default function Footer() {
               </button>
             ))}
             <a
-              href={WA_LINK}
+              href={tempUiBridge.waLink}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-violet-400 hover:text-violet-300 transition-colors font-semibold"
