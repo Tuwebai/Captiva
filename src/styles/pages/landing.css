@@ -230,6 +230,12 @@
 .hero-copy__price {
   color: var(--text-primary);
   font-weight: 700;
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface));
 }
 
 .floating-whatsapp-cta {
@@ -264,6 +270,90 @@
 .offer-plan-card__badge {
   background: var(--accent);
   color: var(--accent-contrast);
+}
+
+.hero-trust-bar span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface-muted) 82%, transparent);
+}
+
+.offer-plan-card__guarantee {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--line));
+}
+
+.offer-plan-card--highlight .offer-plan-card__guarantee,
+.offer-plan-card--highlight .offer-plan-card__audience,
+.offer-plan-card--highlight .offer-plan-card__list {
+  color: var(--text-primary);
+}
+
+.offer-plan-card--highlight .button-link {
+  box-shadow: var(--shadow-md);
+}
+
+.floating-whatsapp-cta:hover,
+.floating-whatsapp-cta:focus-visible {
+  background: #1fba59;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 72px 0 48px;
+  }
+
+  .content-section {
+    padding: 48px 0;
+  }
+
+  .hero-copy__price {
+    font-size: 0.98rem;
+  }
+
+  .hero-trust-bar {
+    gap: 0.45rem;
+  }
+
+  .hero-trust-bar span {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .offer-plan-card--highlight {
+    order: -1;
+    transform: none;
+  }
+
+  .floating-whatsapp-cta {
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.85rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-copy__price,
+  .hero-trust-bar span,
+  .offer-plan-card__guarantee {
+    border-color: color-mix(in srgb, var(--accent) 32%, var(--line-strong));
+  }
+
+  .offer-plan-card--highlight {
+    background:
+      radial-gradient(circle at 50% -15%, rgba(99, 146, 255, 0.24), transparent 48%),
+      linear-gradient(180deg, color-mix(in srgb, var(--surface) 86%, var(--accent) 14%) 0%, var(--surface) 100%);
+  }
+
+  .offer-plan-card__badge {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  }
 }
 
 .hero-panel {
