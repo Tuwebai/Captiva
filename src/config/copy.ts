@@ -25,25 +25,25 @@ export const copyConfig = {
     ],
   },
   howItWorks: {
-    title: 'Cómo funciona Captiva',
-    description: 'Un flujo simple para pasar de idea a una landing lista para captar consultas.',
+    title: 'Tres pasos. Cinco días. Tu landing activa.',
+    description: 'Un proceso simple para lanzar rápido y empezar a recibir consultas.',
     steps: [
       {
         step: '01',
-        title: 'Elegís un modelo de landing',
-        description: 'Explorá ejemplos optimizados y definí la estructura que mejor se adapta a tu industria.',
+        title: 'Nos contás tu negocio',
+        description: 'Completás un formulario rápido o nos mandás un WhatsApp. 5 minutos y listo.',
         icon: 'analysis' as const,
       },
       {
         step: '02',
-        title: 'Adaptamos la landing a tu negocio',
-        description: 'Ajustamos contenido, propuesta, canales de contacto y foco comercial según tu objetivo.',
+        title: 'Armamos tu landing',
+        description: 'Diseño, copy y configuración técnica. Vos revisás y aprobás antes de publicar.',
         icon: 'page' as const,
       },
       {
         step: '03',
-        title: 'Empezás a recibir consultas',
-        description: 'Publicamos la landing en días para captar clientes con una estructura de conversión activa.',
+        title: 'Empezás a recibir WhatsApps',
+        description: 'Publicamos en tu dominio. Desde ese momento, cada visita puede convertirse en una consulta.',
         icon: 'launch' as const,
       },
     ],
@@ -118,8 +118,8 @@ export const copyConfig = {
     ],
   },
   socialProof: {
-    eyebrow: 'Prueba social',
-    title: 'Resultados y evidencia para decidir con confianza',
+    eyebrow: 'Resultados reales',
+    title: 'Lo que pasó cuando lanzamos estas landings',
     description:
       'Captiva ya se aplica en múltiples rubros con estructura orientada a consulta y lanzamiento rápido.',
     metrics: [
@@ -164,10 +164,10 @@ export const copyConfig = {
     ],
   },
   offer: {
-    eyebrow: 'Oferta productizada',
-    title: 'Qué incluye tu landing Captiva',
+    eyebrow: 'Precios claros, sin sorpresas',
+    title: 'Elegí el plan que necesita tu negocio',
     description:
-      'Una oferta clara y repetible para lanzar rápido un sistema de captación de clientes, sin fricción técnica.',
+      'Todos los planes incluyen hosting + dominio el primer año. Sin costos ocultos.',
     includesTitle: 'Entrega base incluida en todos los planes',
     includes: [
       {
@@ -261,13 +261,13 @@ export const copyConfig = {
     guarantee: 'Incluye hosting profesional y dominio por 1 año. Setup técnico completo, sin complicaciones.',
     guaranteeTitle: 'Garantía Captiva',
     guaranteeDescription:
-      'Incluimos una ronda de ajustes después del lanzamiento para optimizar tu landing según tu negocio.',
+      'Si tu landing no queda como la aprobaste, la rehacemos. Sin límite de revisiones hasta que estés conforme.',
   },
   demos: {
-    eyebrow: 'Galería de producto',
-    title: 'Explorá landing pages por industria',
+    eyebrow: 'Esto puede ser tu negocio',
+    title: 'Mirá lo que ya tienen tus competidores',
     description:
-      'Biblioteca de templates de Captiva orientados a distintos rubros para validar estructura, propuesta y CTA antes de implementar.',
+      'Más de 40 negocios ya tienen su landing activa. Elegís el modelo, nosotros lo adaptamos a vos.',
     filtersAriaLabel: 'Filtrar demos por categoría',
     filterLabels: {
       all: 'Todos',
@@ -278,7 +278,7 @@ export const copyConfig = {
       negocios: 'Negocios',
     },
     industryLinkPrefix: 'Ver landing page para',
-    cardCtaLabel: 'Ver demos',
+    cardCtaLabel: 'Ver esta landing',
     ctaTitle: '¿Necesitás una landing para tu negocio?',
     ctaDescription:
       'Solicitá una propuesta y te mostramos la estructura recomendada para captar consultas según tu industria.',
@@ -334,9 +334,9 @@ export const copyConfig = {
     ],
   },
   finalCta: {
-    title: 'Tu negocio merece una página que trabaje para vos.',
+    title: '¿Seguís perdiendo clientes por no tener una página?',
     description:
-      'Captiva convierte una visita dispersa en una experiencia clara, profesional y orientada al contacto, con hosting + dominio incluidos por 1 año.',
+      'Empezá hoy. Tu landing puede estar activa esta semana.',
   },
   pages: {
     industry: {

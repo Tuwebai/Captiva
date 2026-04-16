@@ -1,6 +1,6 @@
 import type { ContactInfo } from '../types/site';
 
-export const primaryCtaLabel = 'Quiero mi landing';
+export const primaryCtaLabel = 'Quiero empezar ahora';
 
 const whatsappMessage = encodeURIComponent(
   'Hola, quiero información sobre Captiva como sistema de captación de clientes. Quiero conocer opciones, tiempos de entrega y próximos pasos.',
