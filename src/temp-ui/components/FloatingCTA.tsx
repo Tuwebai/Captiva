@@ -42,9 +42,9 @@ export default function FloatingCTA() {
           showLabel ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
         }`}
       >
-        <div className="bg-[#111113] border border-[#27272A] text-zinc-300 text-xs font-semibold px-4 py-2.5 rounded-2xl whitespace-nowrap shadow-xl">
+        <div className="ui-card text-zinc-300 text-xs font-semibold px-4 py-2.5 rounded-2xl whitespace-nowrap shadow-xl">
           ¡Empezá ahora por WhatsApp!
-          <div className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-[#111113] border-r border-t border-[#27272A] rotate-45" />
+          <div className="ui-surface absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 border-r border-t ui-border rotate-45" />
         </div>
       </div>
 

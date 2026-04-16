@@ -6,12 +6,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#18181B] bg-[#09090B] py-12">
+    <footer className="border-t ui-border bg-[var(--ui-bg)] py-12">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
-            <a href="/captiva" className="inline-flex items-center">
+            <a href={tempUiBridge.siteConfig.routes.captiva} className="inline-flex items-center">
               <img
                 src="/LOGO-captiva.png"
                 alt="Captiva"
@@ -28,18 +28,19 @@ export default function Footer() {
           {/* Nav */}
           <nav className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-3">
             {[
-              { label: 'Demos', id: 'demos' },
-              { label: 'Cómo funciona', id: 'como-funciona' },
-              { label: 'Planes', id: 'planes' },
-              { label: 'FAQ', id: 'faq' },
+              { label: 'Demos', href: tempUiBridge.siteConfig.routes.captivaDemos, onClick: undefined },
+              { label: 'Cómo funciona', href: `${tempUiBridge.siteConfig.routes.captiva}#como-funciona`, onClick: () => scrollTo('como-funciona') },
+              { label: 'Planes', href: `${tempUiBridge.siteConfig.routes.captiva}#planes`, onClick: () => scrollTo('planes') },
+              { label: 'FAQ', href: `${tempUiBridge.siteConfig.routes.captiva}#faq`, onClick: () => scrollTo('faq') },
             ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={item.onClick}
                 className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
               >
                 {item.label}
-              </button>
+              </a>
             ))}
             <a
               href={tempUiBridge.waLink}
@@ -53,7 +54,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-10 pt-6 border-t border-[#18181B] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="mt-10 pt-6 border-t ui-border flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-zinc-700">
             © {new Date().getFullYear()} Captiva. Todos los derechos reservados.
           </p>

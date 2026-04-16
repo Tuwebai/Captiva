@@ -114,6 +114,58 @@ body {
   background-size: 50px 50px;
 }
 
+.ui-surface {
+  background: var(--ui-surface);
+}
+
+.ui-surface-2 {
+  background: var(--ui-surface-2);
+}
+
+.ui-surface-3 {
+  background: var(--ui-surface-3);
+}
+
+.ui-surface-topbar {
+  background: color-mix(in srgb, var(--ui-surface-topbar) 80%, transparent);
+}
+
+.ui-border {
+  border-color: var(--ui-border);
+}
+
+.ui-border-strong {
+  border-color: var(--ui-border-strong);
+}
+
+.ui-card {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  box-shadow: var(--ui-shadow-2xl);
+}
+
+.ui-card-soft {
+  background: color-mix(in srgb, var(--ui-surface) 80%, transparent);
+  border: 1px solid var(--ui-border);
+}
+
+.ui-btn-primary {
+  background: var(--ui-gradient-brand);
+}
+
+.ui-btn-primary:hover {
+  background: linear-gradient(135deg, var(--ui-brand-strong), var(--ui-brand));
+}
+
+.ui-chip {
+  background: color-mix(in srgb, var(--ui-brand) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ui-brand) 25%, transparent);
+}
+
+.ui-divider-line {
+  background: linear-gradient(90deg, transparent, var(--ui-border), transparent);
+}
+
 /* Noise texture */
 .noise-overlay::after {
   content: '';
