@@ -26,8 +26,8 @@ export function FinalCtaSection() {
           id="lead-form-final"
           source="final"
           context="captiva-home-final"
-          title="Hablar por WhatsApp con un brief listo"
-          description="Completás este formulario y abrimos WhatsApp con toda la información ordenada para avanzar rápido."
+          title="Quiero empezar ahora → WhatsApp"
+          description="Sin contrato. Sin compromiso largo. Si no te gusta el resultado, lo rehacemos."
         />
       </div>
     </section>

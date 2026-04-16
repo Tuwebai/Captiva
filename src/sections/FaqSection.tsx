@@ -4,29 +4,29 @@ import { siteConfig } from '../config/site';
 
 const faqItems = [
   {
-    question: '¿Cuánto tarda Captiva en publicar una landing lista para captar clientes?',
-    answer:
-      'Depende del rubro y volumen de contenido, pero el proceso está pensado para salir rápido: análisis, diseño y publicación.',
+    question: '¿Necesito tener dominio propio antes de empezar?',
+    answer: 'No. El dominio está incluido en todos los planes. Nosotros lo gestionamos.',
   },
   {
-    question: '¿Captiva sirve para cualquier tipo de negocio?',
-    answer:
-      'Sí. La arquitectura permite adaptar estructura y mensaje para gimnasios, salud, estética, legal, negocios locales y más categorías.',
+    question: '¿En cuánto tiempo está lista mi landing?',
+    answer: 'Entre 3 y 5 días hábiles desde que nos mandás la información de tu negocio.',
   },
   {
-    question: '¿Puedo usar demos como base para mi página final?',
-    answer:
-      'Sí. Las demos muestran estructuras reales de conversión que luego se personalizan con la propuesta de valor de cada negocio.',
+    question: '¿Puedo pedir cambios después de publicada?',
+    answer: 'Sí. Todos los planes incluyen al menos una ronda de revisión post-lanzamiento.',
   },
   {
-    question: '¿Incluye hosting y dominio?',
-    answer:
-      'Sí. La oferta productizada de Captiva incluye hosting profesional y dominio por 1 año para simplificar la puesta en marcha.',
+    question: '¿Qué pasa cuando vence el año de hosting?',
+    answer: 'Te avisamos con anticipación. Podés renovar o gestionar el hosting por tu cuenta, sin lockout.',
   },
   {
-    question: '¿Cómo solicito una propuesta para mi landing?',
+    question: '¿Funciona para cualquier rubro?',
     answer:
-      'Podés solicitar una propuesta por WhatsApp y te enviamos alcance, tiempos y pasos recomendados para lanzar tu sistema de captación.',
+      'Sí. Ya tenemos landings activas en gimnasios, odontología, inmobiliarias, estéticas, abogados y más. Si tu rubro no está en la galería, igual podemos armarlo.',
+  },
+  {
+    question: '¿Necesito saber de diseño o código?',
+    answer: 'No. Vos nos contás tu negocio, nosotros hacemos todo. Solo necesitás revisar y aprobar.',
   },
 ];
 
@@ -38,8 +38,8 @@ export function FaqSection() {
       <div className="container">
         <div className="section-heading">
           <p className="section-heading__eyebrow">FAQ</p>
-          <h2>Preguntas frecuentes sobre Captiva</h2>
-          <p>Respuestas claras para acelerar decisión y reducir fricción comercial.</p>
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas claras para resolver objeciones antes de avanzar.</p>
         </div>
 
         <div className="faq-list">
@@ -52,8 +52,8 @@ export function FaqSection() {
         </div>
 
         <div className="faq-cta">
-          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary" onClick={() => trackWhatsApp('faq', 'quiero-mi-landing')}>
-            Quiero mi landing
+          <ButtonLink href={siteConfig.contact.ctaHref} variant="primary" onClick={() => trackWhatsApp('faq', 'quiero-empezar-ahora')}>
+            Quiero empezar ahora
           </ButtonLink>
         </div>
       </div>

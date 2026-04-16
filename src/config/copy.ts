@@ -7,7 +7,7 @@ export const copyConfig = {
     subtitle: '',
     supportingCopy:
       'Armamos tu landing con diseño profesional, copy que vende y WhatsApp integrado. Hosting + dominio el primer año van incluidos. Vos solo te ocupás de responder las consultas.',
-    priceAnchor: 'Desde $XX USD — sin mensualidades',
+    priceAnchor: 'Desde $320 USD — sin mensualidades',
     demosCtaLabel: 'Ver ejemplos por rubro',
     primaryProductCtaLabel: 'Quiero empezar ahora',
     ctaMicrocopy: 'Sin compromiso. Te respondemos en menos de 2 horas.',
@@ -123,10 +123,10 @@ export const copyConfig = {
     description:
       'Captiva ya se aplica en múltiples rubros con estructura orientada a consulta y lanzamiento rápido.',
     metrics: [
-      { value: '+40', label: 'landing pages creadas' },
-      { value: '5 días', label: 'entrega promedio' },
-      { value: '10+', label: 'industrias activas' },
-      { value: '+35%', label: 'más consultas en algunos casos' },
+      { value: '+40', label: 'landings activas en rubros reales' },
+      { value: '5 días', label: 'promedio de entrega (muchas en 3)' },
+      { value: '10+', label: 'rubros de servicio' },
+      { value: 'x3', label: 'consultas en algunos casos durante el primer mes' },
     ],
     items: [
       {
@@ -167,7 +167,7 @@ export const copyConfig = {
     eyebrow: 'Precios claros, sin sorpresas',
     title: 'Elegí el plan que necesita tu negocio',
     description:
-      'Todos los planes incluyen hosting + dominio el primer año. Sin costos ocultos.',
+      'Todos los planes incluyen hosting + dominio el primer año + Entrega promedio: 3 a 5 días hábiles - Sin costos ocultos.',
     includesTitle: 'Entrega base incluida en todos los planes',
     includes: [
       {
@@ -213,47 +213,41 @@ export const copyConfig = {
     plans: [
       {
         name: 'Starter',
-        audience: 'Para validar captación rápido',
+        audience: 'Empezar a captar clientes',
         includes: [
           '1 landing page optimizada para conversión',
           'Setup técnico completo y publicación',
           'Integración de WhatsApp y formulario',
           'Tracking básico de conversiones',
-          'Hosting profesional por 1 año',
-          'Dominio profesional por 1 año',
         ],
-        ctaLabel: 'Quiero esta landing',
+        ctaLabel: 'Quiero el Starter',
         whatsappMessage:
           'Hola, estoy interesado en el plan Starter de Captiva. Quiero una landing para empezar a captar clientes.',
       },
       {
         name: 'Growth',
-        audience: 'Para optimizar resultados iniciales',
+        audience: 'El más elegido por negocios nuevos',
         includes: [
           'Landing optimizada + copy orientado a ventas',
           '1 iteración de mejora post-lanzamiento',
           'Análisis inicial de conversiones',
           'Tracking básico y ajustes prioritarios',
-          'Hosting profesional por 1 año',
-          'Dominio profesional por 1 año',
         ],
-        highlight: 'Más elegido',
-        ctaLabel: 'Quiero esta landing',
+        highlight: 'Recomendado',
+        ctaLabel: 'Quiero el Growth',
         whatsappMessage:
           'Hola, estoy interesado en el plan Growth de Captiva. Quiero una landing optimizada para captar clientes.',
       },
       {
         name: 'Scale',
-        audience: 'Para campañas y mayor alcance',
+        audience: 'Para campañas pagas o varios rubros',
         includes: [
           'Landing principal + variantes para campañas',
           'Estructura ampliada de captación',
           'Analítica avanzada de conversiones',
           'Optimización inicial de conversión',
-          'Hosting profesional por 1 año',
-          'Dominio profesional por 1 año',
         ],
-        ctaLabel: 'Quiero esta landing',
+        ctaLabel: 'Quiero el Scale',
         whatsappMessage:
           'Hola, estoy interesado en el plan Scale de Captiva. Quiero una landing para campañas o mayor captación.',
       },
