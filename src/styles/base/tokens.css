@@ -27,14 +27,14 @@
   --surface-muted: rgba(255, 255, 255, 0.05);
   --line: rgba(121, 145, 213, 0.16);
   --line-strong: rgba(121, 145, 213, 0.28);
-  --text: #fafafa;
-  --text-muted: #a1a1aa;
-  --text-soft: #d4d4d8;
-  --text-subtle: #a1a1aa;
-  --accent: #7c3aed;
+  --text: var(--ui-text);
+  --text-muted: var(--ui-text-muted);
+  --text-soft: var(--ui-text-soft);
+  --text-subtle: var(--ui-text-muted);
+  --accent: var(--ui-brand);
   --accent-strong: #6d28d9;
   --accent-hover: #5b21b6;
-  --accent-soft: rgba(124, 58, 237, 0.18);
+  --accent-soft: var(--ui-brand-soft, rgba(124, 58, 237, 0.18));
   --orange: #e28b5b;
   --orange-soft: rgba(226, 139, 91, 0.18);
   --purple: #8b5cf6;
@@ -47,15 +47,15 @@
   --shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.34);
   --shadow-soft: var(--shadow-lg);
   --shadow-card: var(--shadow-md);
-  --radius-lg: 24px;
-  --radius-md: 18px;
-  --radius-sm: 12px;
+  --radius-lg: var(--ui-radius-3xl);
+  --radius-md: var(--ui-radius-2xl);
+  --radius-sm: var(--ui-radius-xl);
   --container-width: 1160px;
 
   --bg-gradient-1: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.22), transparent 36%);
   --bg-gradient-2: radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.18), transparent 28%);
   --bg-gradient-3: radial-gradient(circle at center, #18181b 0%, #09090b 72%);
-  --bg-base-color: #09090b;
+  --bg-base-color: var(--ui-bg);
 
   --scrollbar-track: rgba(10, 16, 34, 0.56);
   --scrollbar-thumb-border: rgba(10, 16, 34, 0.56);
@@ -179,14 +179,14 @@
   --surface-muted: rgba(15, 23, 42, 0.04);
   --line: rgba(84, 101, 147, 0.22);
   --line-strong: rgba(84, 101, 147, 0.34);
-  --text: #18181b;
-  --text-muted: #52525b;
-  --text-soft: #71717a;
-  --text-subtle: #71717a;
-  --accent: #7c3aed;
+  --text: var(--ui-text);
+  --text-muted: var(--ui-text-muted);
+  --text-soft: var(--ui-text-soft);
+  --text-subtle: var(--ui-text-soft);
+  --accent: var(--ui-brand);
   --accent-strong: #6d28d9;
   --accent-hover: #5b21b6;
-  --accent-soft: rgba(124, 58, 237, 0.12);
+  --accent-soft: var(--ui-brand-soft, rgba(124, 58, 237, 0.12));
   --orange: #d97b3f;
   --orange-soft: rgba(217, 123, 63, 0.16);
   --purple: #7a46dd;
@@ -203,7 +203,7 @@
   --bg-gradient-1: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.14), transparent 38%);
   --bg-gradient-2: radial-gradient(circle at 80% 0%, rgba(16, 185, 129, 0.1), transparent 30%);
   --bg-gradient-3: radial-gradient(circle at center, #fafafa 0%, #f4f4f5 72%);
-  --bg-base-color: #fafafa;
+  --bg-base-color: var(--ui-bg);
 
   --scrollbar-track: rgba(193, 204, 232, 0.75);
   --scrollbar-thumb-border: rgba(193, 204, 232, 0.75);
