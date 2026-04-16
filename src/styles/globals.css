@@ -2,12 +2,10 @@
 @import "./base/tokens.css";
 @import "./base/reset.css";
 @import "./base/typography.css";
-@import "./base/redesign-foundation.css";
 
 @import "./layout/container.css";
 @import "./layout/grid.css";
 @import "./layout/sections.css";
-@import "./layout/hero/bridge.css";
 
 @import "./components/buttons.css";
 @import "./components/cards.css";
