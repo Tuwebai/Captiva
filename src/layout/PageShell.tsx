@@ -35,6 +35,7 @@ export function PageShell({ children }: PropsWithChildren) {
       { label: 'Inicio', href: siteConfig.routes.captiva, type: 'route', icon: 'home' },
       { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
       { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
+      { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
       { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
       { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
       { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
@@ -95,7 +96,7 @@ export function PageShell({ children }: PropsWithChildren) {
       <Navbar visible={!isCaptivaContext && !isLegalContext} fullLogoSrc={fullLogoSrc} onLogoError={handleLogoError} />
 
       <Sidebar
-        visible={isCaptivaContext}
+        visible={isCaptivaContext && !isCaptivaHome}
         isRailCollapsed={isRailCollapsed}
         isMobileRailOpen={isMobileRailOpen}
         isHomeNavActive={isHomeNavActive}
@@ -108,12 +109,12 @@ export function PageShell({ children }: PropsWithChildren) {
         onSelectAnchor={handleAnchorSelect}
       />
 
-      <MainLayout isCaptivaContext={isCaptivaContext} isRailCollapsed={isRailCollapsed}>
+      <MainLayout isCaptivaContext={isCaptivaContext && !isCaptivaHome} isRailCollapsed={isRailCollapsed}>
         {children}
       </MainLayout>
 
       <Footer
-        isCaptivaContext={isCaptivaContext}
+        isCaptivaContext={isCaptivaContext && !isCaptivaHome}
         isRailCollapsed={isRailCollapsed}
         fullLogoSrc={fullLogoSrc}
         onLogoError={handleLogoError}
