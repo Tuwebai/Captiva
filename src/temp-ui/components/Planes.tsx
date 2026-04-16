@@ -103,7 +103,7 @@ export default function Planes() {
   return (
     <section id="planes" className="py-20 md:py-28 relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#27272A] to-transparent" />
+        <div className="ui-divider-line absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px" />
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-violet-600/8 rounded-full blur-3xl" />
         <div className="absolute top-1/2 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl" />
       </div>
@@ -132,7 +132,7 @@ export default function Planes() {
               className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
                 plan.highlighted
                   ? 'bg-gradient-to-b from-violet-600/20 to-[#111113] border-2 border-violet-500/60 shadow-2xl shadow-violet-500/10 scale-[1.02] md:scale-105'
-                  : 'bg-[#111113] border border-[#27272A] hover:border-[#3F3F46]'
+                  : 'ui-surface border ui-border hover:border-zinc-700'
               }`}
             >
               {/* Recommended glow top bar */}
@@ -143,7 +143,7 @@ export default function Planes() {
               {/* Badge */}
               {plan.badge && (
                 <div className="absolute top-4 right-4">
-                  <span className="bg-violet-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="ui-btn-primary text-white text-xs font-bold px-3 py-1 rounded-full">
                     {plan.badge}
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export default function Planes() {
                 </div>
 
                 {/* Divider */}
-                <div className={`h-px mb-6 ${plan.highlighted ? 'bg-violet-500/20' : 'bg-[#27272A]'}`} />
+                <div className={`h-px mb-6 ${plan.highlighted ? 'bg-violet-500/20' : 'ui-surface-2'}`} />
 
                 {/* Features */}
                 <ul className="space-y-3 mb-6">
@@ -197,8 +197,8 @@ export default function Planes() {
                   rel="noopener noreferrer"
                   className={`w-full flex items-center justify-center gap-2 py-4 rounded-2xl font-bold text-sm transition-all duration-200 hover:-translate-y-0.5 ${
                     plan.highlighted
-                      ? 'bg-violet-600 hover:bg-violet-500 text-white shadow-lg shadow-violet-500/20 hover:shadow-violet-500/30'
-                      : 'bg-[#18181B] hover:bg-[#1F1F23] text-zinc-200 border border-[#3F3F46] hover:border-[#52525B]'
+                      ? 'ui-btn-primary text-white shadow-lg shadow-violet-500/20 hover:shadow-violet-500/30'
+                      : 'ui-surface-2 hover:bg-[#1F1F23] text-zinc-200 border ui-border-strong hover:border-zinc-500'
                   }`}
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -214,7 +214,7 @@ export default function Planes() {
 
         {/* Bottom note */}
         <div className="mt-10 text-center">
-          <div className="inline-flex items-center gap-3 bg-[#111113] border border-[#27272A] rounded-2xl px-6 py-4">
+          <div className="ui-card inline-flex items-center gap-3 rounded-2xl px-6 py-4">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>

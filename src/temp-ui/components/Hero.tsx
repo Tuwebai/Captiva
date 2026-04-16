@@ -7,8 +7,8 @@ function HeroMockup() {
     <div className="relative w-full h-full min-h-[420px] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-gradient-to-br from-violet-600/10 via-transparent to-emerald-500/5 rounded-3xl" />
 
-      <div className="relative w-full max-w-[340px] bg-[#111113] rounded-2xl border border-[#27272A] overflow-hidden shadow-2xl float-anim">
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-[#1F1F23] bg-[#0D0D0F]">
+      <div className="captiva-hero-float ui-card relative w-full max-w-[340px] rounded-2xl overflow-hidden">
+        <div className="ui-surface-topbar flex items-center gap-2 px-4 py-3 border-b ui-border">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500/60" />
             <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
@@ -20,7 +20,7 @@ function HeroMockup() {
         <div className="p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="w-20 h-5 bg-violet-500/30 rounded-md" />
-            <div className="w-16 h-7 bg-violet-600 rounded-lg flex items-center justify-center">
+            <div className="ui-btn-primary w-16 h-7 rounded-lg flex items-center justify-center">
               <div className="w-10 h-2 bg-white/60 rounded" />
             </div>
           </div>
@@ -34,7 +34,7 @@ function HeroMockup() {
           </div>
 
           <div className="flex gap-2 pt-1">
-            <div className="flex-1 h-10 bg-violet-600 rounded-xl flex items-center justify-center">
+            <div className="ui-btn-primary flex-1 h-10 rounded-xl flex items-center justify-center">
               <div className="w-24 h-2.5 bg-white/60 rounded" />
             </div>
             <div className="w-24 h-10 border border-zinc-600 rounded-xl" />
@@ -55,7 +55,7 @@ function HeroMockup() {
             { icon: '🙋', label: 'Estética' },
             { icon: '⚖️', label: 'Abogados' },
           ].map((stat) => (
-            <div key={stat.label} className="bg-[#1A1A1F] rounded-xl p-3 text-center border border-[#27272A]">
+            <div key={stat.label} className="ui-surface-3 rounded-xl p-3 text-center border ui-border">
               <div className="text-lg mb-1">{stat.icon}</div>
               <div className="text-[9px] text-zinc-400 font-medium">{stat.label}</div>
             </div>
@@ -68,13 +68,13 @@ function HeroMockup() {
         </div>
       </div>
 
-      <div className="absolute -bottom-2 -left-2 bg-[#18181B] border border-[#27272A] rounded-2xl px-4 py-3 shadow-xl">
+      <div className="captiva-hero-float-slow ui-card-soft absolute -bottom-2 -left-2 rounded-2xl px-4 py-3 shadow-xl" style={{ animationDelay: '180ms' }}>
         <div className="text-xs text-zinc-500 mb-1">WhatsApps recibidos</div>
         <div className="text-xl font-bold text-white">+24 <span className="text-emerald-400 text-sm">↑</span></div>
         <div className="text-[10px] text-emerald-400">esta semana</div>
       </div>
 
-      <div className="absolute -top-2 -right-2 bg-[#18181B] border border-[#27272A] rounded-2xl px-4 py-3 shadow-xl">
+      <div className="captiva-hero-float ui-card-soft absolute -top-2 -right-2 rounded-2xl px-4 py-3 shadow-xl" style={{ animationDelay: '320ms' }}>
         <div className="text-xs text-zinc-500 mb-1">Tiempo de entrega</div>
         <div className="text-xl font-bold text-white">5 días</div>
         <div className="text-[10px] text-violet-400">garantizados</div>
@@ -93,6 +93,24 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 overflow-hidden grid-bg">
+      <style>{`
+        @keyframes captivaHeroFloat {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes captivaHeroFloatSlow {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-6px); }
+        }
+        .captiva-hero-float {
+          animation: captivaHeroFloat 4s ease-in-out infinite !important;
+          will-change: transform;
+        }
+        .captiva-hero-float-slow {
+          animation: captivaHeroFloatSlow 4.6s ease-in-out infinite !important;
+          will-change: transform;
+        }
+      `}</style>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-violet-600/15 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-emerald-500/8 rounded-full blur-3xl" />
@@ -121,21 +139,21 @@ export default function Hero() {
             <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-lg">{tempUiBridge.hero.supportingCopy}</p>
 
             <div className="flex items-center gap-3">
-              <div className="bg-[#18181B] border border-[#27272A] rounded-2xl px-5 py-3 inline-flex items-center gap-3">
+              <div className="ui-card-soft rounded-2xl px-5 py-3 inline-flex items-center gap-3">
                 <div>
                   <div className="text-xs text-zinc-500 mb-0.5">Desde</div>
                   <div className="text-2xl font-black text-white">{tempUiBridge.hero.priceAnchor.replace('Desde ', '').replace(' — sin mensualidades', '')}</div>
                 </div>
-                <div className="w-px h-10 bg-[#27272A]" />
+                <div className="ui-surface-2 w-px h-10" />
                 <div className="text-xs text-zinc-400 max-w-[100px]">Pago único, sin mensualidades</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href={tempUiBridge.hero.primaryCtaHref} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2.5 bg-violet-600 hover:bg-violet-500 text-white font-bold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5 glow-brand-sm">
+              <a href={tempUiBridge.hero.primaryCtaHref} target="_blank" rel="noreferrer" className="ui-btn-primary inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5 glow-brand-sm">
                 {tempUiBridge.hero.primaryCtaLabel}
               </a>
-              <a href={tempUiBridge.hero.secondaryCtaHref} className="inline-flex items-center justify-center gap-2 border border-[#3F3F46] hover:border-[#52525B] text-zinc-300 hover:text-white font-semibold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:bg-white/[0.03]">
+              <a href={tempUiBridge.hero.secondaryCtaHref} className="inline-flex items-center justify-center gap-2 border ui-border-strong hover:border-zinc-500 text-zinc-300 hover:text-white font-semibold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:bg-white/[0.03]">
                 {tempUiBridge.hero.secondaryCtaLabel}
                 <span aria-hidden="true">→</span>
               </a>
@@ -157,9 +175,9 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <HeroMockup />
-          </div>
+            <div className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <HeroMockup />
+            </div>
         </div>
       </div>
     </section>

@@ -80,8 +80,8 @@ export default function SocialProof() {
   return (
     <section id="social-proof" className="py-20 md:py-28 relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#27272A] to-transparent" />
-        <div className="absolute inset-0 bg-[#111113]/50" />
+        <div className="ui-divider-line absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px" />
+        <div className="ui-surface absolute inset-0 opacity-50" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl" />
       </div>
 
@@ -102,7 +102,7 @@ export default function SocialProof() {
           {metrics.map((m) => (
             <div
               key={m.label}
-              className="bg-[#111113] border border-[#27272A] rounded-2xl p-5 text-center hover:border-[#3F3F46] transition-all duration-300"
+              className="ui-card rounded-2xl p-5 text-center hover:border-zinc-700 transition-all duration-300"
             >
               <div className="text-2xl mb-2">{m.icon}</div>
               <div className="text-3xl font-black text-white mb-1">{m.value}</div>
@@ -117,7 +117,7 @@ export default function SocialProof() {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-[#111113] border border-[#27272A] rounded-3xl p-6 flex flex-col hover:border-[#3F3F46] transition-all duration-300 hover:-translate-y-1"
+              className="ui-card rounded-3xl p-6 flex flex-col hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1"
             >
               {/* Quote icon */}
               <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="mb-4 opacity-30">
