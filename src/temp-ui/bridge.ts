@@ -1,10 +1,18 @@
 import { siteConfig } from '../config/site';
 import { faqSchema } from '../sections/FaqSection';
 import { buildWhatsAppLeadUrl } from '../utils/lead-message';
+import { demosManifest } from '../data/demos-manifest';
 
 type FaqEntry = {
   question: string;
   answer: string;
+};
+
+const categoryByShowcaseSlug: Record<string, string> = {
+  gimnasios: 'fitness',
+  esteticas: 'estetica',
+  abogados: 'legal',
+  'negocios-locales': 'negocios-locales',
 };
 
 function extractFaqItems(): FaqEntry[] {
@@ -13,6 +21,14 @@ function extractFaqItems(): FaqEntry[] {
     question: item.name,
     answer: item.acceptedAnswer.text,
   }));
+}
+
+function findDemoHrefByShowcaseSlug(showcaseSlug: string) {
+  const category = categoryByShowcaseSlug[showcaseSlug];
+  if (!category) return siteConfig.routes.captivaDemos;
+
+  const demo = demosManifest.find((item) => item.category === category);
+  return demo?.href ?? siteConfig.routes.captivaDemos;
 }
 
 export const tempUiBridge = {
@@ -48,7 +64,7 @@ export const tempUiBridge = {
     title: item.title,
     eyebrow: siteConfig.demos.eyebrow,
     description: item.description,
-    href: siteConfig.routes.captivaDemos,
+    href: findDemoHrefByShowcaseSlug(item.slug),
     cta: siteConfig.demos.cardCtaLabel,
   })),
   howItWorks: siteConfig.howItWorks,
