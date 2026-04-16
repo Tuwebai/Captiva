@@ -1,11 +1,9 @@
-const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
-
 const demos = [
   {
     rubro: 'Odontología',
     icon: '🦷',
-    name: 'Clínica Dental Sanchez',
-    domain: 'clinicasanchez.com.ar',
+    name: 'Clínica Dental',
+    domain: 'clinicadental.demo',
     color: 'from-blue-500/20 to-cyan-500/10',
     accent: 'text-blue-400',
     accentBg: 'bg-blue-500/10 border-blue-500/20',
@@ -13,12 +11,13 @@ const demos = [
     headline: 'Tu sonrisa perfecta, a un turno de distancia',
     cta: 'Reservar turno',
     metrics: '+31 consultas / mes',
+    href: '/demo/demo-clinica-dental-sonrisa',
   },
   {
     rubro: 'Estética',
     icon: '💇',
-    name: 'Beauty Studio Valeria',
-    domain: 'beautystudiovaleria.com',
+    name: 'Landing para Estética',
+    domain: 'estetica.demo',
     color: 'from-pink-500/20 to-rose-500/10',
     accent: 'text-pink-400',
     accentBg: 'bg-pink-500/10 border-pink-500/20',
@@ -26,12 +25,13 @@ const demos = [
     headline: 'Turno en menos de 2 minutos. Resultado garantizado.',
     cta: 'Quiero mi turno',
     metrics: '+28 WhatsApps / semana',
+    href: '/demo/demo-estetica',
   },
   {
     rubro: 'Gimnasio',
     icon: '🏋️',
-    name: 'FitPro Centro',
-    domain: 'fitprocentro.com.ar',
+    name: 'Landing para Gimnasios',
+    domain: 'gimnasio.demo',
     color: 'from-orange-500/20 to-amber-500/10',
     accent: 'text-orange-400',
     accentBg: 'bg-orange-500/10 border-orange-500/20',
@@ -39,12 +39,13 @@ const demos = [
     headline: 'Empezá a entrenar hoy. Primera clase gratis.',
     cta: 'Clase de prueba',
     metrics: '+19 consultas / semana',
+    href: '/demo/demo-gimnasio',
   },
   {
     rubro: 'Abogados',
     icon: '⚖️',
-    name: 'Estudio Jurídico Méndez',
-    domain: 'estudiomendez.com.ar',
+    name: 'Estudio Jurídico',
+    domain: 'legal.demo',
     color: 'from-violet-500/20 to-purple-500/10',
     accent: 'text-violet-400',
     accentBg: 'bg-violet-500/10 border-violet-500/20',
@@ -52,6 +53,7 @@ const demos = [
     headline: 'Asesoramiento legal claro y directo.',
     cta: 'Consulta gratuita',
     metrics: '+12 leads cualificados / mes',
+    href: '/demo/demo-estudio-juridico',
   },
 ];
 
@@ -113,9 +115,7 @@ function DemoCard({ demo, index }: { demo: typeof demos[0]; index: number }) {
         </div>
 
         <a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={demo.href}
           className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-semibold transition-all duration-200 group-hover:border-opacity-60 ${demo.accentBg} ${demo.accent} hover:opacity-80`}
         >
           Ver esta landing
