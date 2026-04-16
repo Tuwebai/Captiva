@@ -25,14 +25,15 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 3L8 13L13 3" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          <span className="font-bold text-lg text-white tracking-tight">Captiva</span>
-        </div>
+        <a href="/captiva" className="flex items-center">
+          <img
+            src="/LOGO-captiva.png"
+            alt="Captiva"
+            className="h-8 w-auto object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </a>
 
         {/* Nav links - desktop */}
         <nav className="hidden md:flex items-center gap-7">

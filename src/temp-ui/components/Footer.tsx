@@ -11,14 +11,15 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 3L8 13L13 3" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="font-bold text-lg text-white tracking-tight">Captiva</span>
-            </div>
+            <a href="/captiva" className="inline-flex items-center">
+              <img
+                src="/LOGO-captiva.png"
+                alt="Captiva"
+                className="h-8 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
             <p className="text-xs text-zinc-600 max-w-[200px] text-center md:text-left">
               Landings que convierten visitas en consultas.
             </p>
