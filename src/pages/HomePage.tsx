@@ -1,6 +1,5 @@
 import { siteConfig } from '../config/site';
 import { useDocumentMetadata } from '../hooks/useDocumentMetadata';
-import { BenefitsSection } from '../sections/BenefitsSection';
 import { DemoShowcaseSection } from '../sections/DemoShowcaseSection';
 import { FaqSection, faqSchema } from '../sections/FaqSection';
 import { FinalCtaSection } from '../sections/FinalCtaSection';
@@ -8,7 +7,6 @@ import { HeroSection } from '../sections/HeroSection';
 import { HowItWorksSection } from '../sections/HowItWorksSection';
 import { OfferSection } from '../sections/OfferSection';
 import { SocialProofSection } from '../sections/SocialProofSection';
-import { WhyCaptivaSection } from '../sections/WhyCaptivaSection';
 
 export function HomePage() {
   const organizationSchema = {
@@ -88,10 +86,8 @@ export function HomePage() {
   return (
     <>
       <HeroSection />
-      <HowItWorksSection />
       <DemoShowcaseSection />
-      <BenefitsSection />
-      <WhyCaptivaSection />
+      <HowItWorksSection />
       <OfferSection />
       <SocialProofSection />
       <FaqSection />
