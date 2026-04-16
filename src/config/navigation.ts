@@ -12,8 +12,6 @@ export const productBarItems: ProductTopBarItem[] = [
 export const navigationItems: NavItem[] = [
   { label: 'Cómo funciona', href: `${baseRoute}#como-funciona` },
   { label: 'Demos', href: `${baseRoute}#demos` },
-  { label: 'Beneficios', href: `${baseRoute}#beneficios` },
-  { label: 'Por qué Captiva', href: `${baseRoute}#por-que-captiva` },
   { label: 'Prueba social', href: `${baseRoute}#prueba-social` },
   { label: 'Oferta', href: `${baseRoute}#oferta` },
   { label: 'Planes', href: `${baseRoute}#planes` },

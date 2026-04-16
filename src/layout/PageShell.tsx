@@ -36,8 +36,6 @@ export function PageShell({ children }: PropsWithChildren) {
       { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
       { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
       { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
-      { label: 'Beneficios', href: `${siteConfig.routes.captiva}#beneficios`, icon: 'benefits' },
-      { label: 'Por qué Captiva', href: `${siteConfig.routes.captiva}#por-que-captiva`, icon: 'solution' },
       { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
       { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
       { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
