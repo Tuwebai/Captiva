@@ -15,9 +15,9 @@
 .hero-panel,
 .surface-card,
 .final-cta {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-2xl);
+  background: var(--ui-surface);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(18px);
 }
@@ -85,7 +85,7 @@
   margin-top: 0.75rem;
   max-width: 11ch;
   font-size: clamp(1.85rem, 3vw, 3rem);
-  color: var(--text);
+  color: var(--ui-text);
 }
 
 .hero-copy__body,
@@ -93,7 +93,7 @@
 .surface-card p,
 .final-cta p,
 .footer-copy {
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
 }
 
 .hero-copy__body {
