@@ -104,7 +104,7 @@
 
 .hero-copy__price {
   margin: 1rem 0 0;
-  color: var(--text);
+  color: var(--ui-text);
   font-size: 0.95rem;
   font-weight: 700;
 }
@@ -127,7 +127,7 @@
   align-items: center;
   min-height: 48px;
   padding: 0.85rem 0;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-weight: 600;
 }
 
@@ -146,8 +146,8 @@
   gap: 1rem;
   min-height: 210px;
   padding: 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-3xl);
   background: var(--hero-panel-visual-surface);
 }
 
@@ -164,9 +164,9 @@
   align-items: center;
   min-height: 2rem;
   padding: 0.35rem 0.7rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-size: 0.78rem;
   font-weight: 600;
   background: var(--hero-flow-node-surface);
@@ -269,8 +269,8 @@
 
 .hero-metrics li {
   padding: 1.2rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-xl);
   background: var(--hero-metric-surface);
 }
 
@@ -299,7 +299,7 @@
 }
 
 .hero-metrics span {
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
 }
 
 .content-section--alt {

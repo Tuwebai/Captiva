@@ -17,7 +17,7 @@
 }
 
 .theme-switch-wrap__state {
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-size: 0.72rem;
   font-weight: 600;
 }
@@ -29,7 +29,7 @@
   min-width: 44px;
   min-height: 44px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   cursor: pointer;
   padding: 0;
   background: transparent;

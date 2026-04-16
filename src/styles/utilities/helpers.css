@@ -41,7 +41,7 @@
   justify-self: start;
   min-height: 1.3rem;
   padding: 0.05rem 0.42rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
   background: var(--chip-surface);
   color: var(--text-soft);
@@ -65,7 +65,7 @@
 
 .related-link-card__description {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-size: 0.85rem;
   line-height: 1.35;
   display: -webkit-box;
@@ -152,7 +152,7 @@
   .site-header__inner,
   .site-footer__inner,
   .final-cta {
-    border-radius: var(--radius-lg);
+    border-radius: var(--ui-radius-2xl);
   }
 
   .site-footer__inner {
@@ -172,8 +172,8 @@
 .demo-embed iframe {
   width: 100%;
   min-height: 640px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-2xl);
   background: var(--demo-iframe-surface);
 }
 
@@ -189,7 +189,7 @@
 
 .comparison-table th,
 .comparison-table td {
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--ui-border);
   padding: 0.8rem 0.75rem;
   text-align: left;
 }
@@ -198,7 +198,7 @@
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
 }
 
 @media (max-width: 768px) {

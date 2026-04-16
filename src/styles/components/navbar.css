@@ -141,14 +141,14 @@
   min-height: 2.05rem;
   padding: 0.26rem 0.38rem;
   border-radius: 0.64rem;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-size: 0.88rem;
   transition: background-color 200ms ease, color 200ms ease;
 }
 
 .section-rail__link:hover,
 .section-rail__link:focus-visible {
-  color: var(--text);
+  color: var(--ui-text);
   background: var(--rail-link-hover-surface);
 }
 
@@ -239,12 +239,12 @@
   height: 2.75rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
   background: var(--surface-elevated);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(18px);
-  color: var(--text);
+  color: var(--ui-text);
 }
 
 .mobile-rail-toggle svg {
@@ -257,7 +257,7 @@
   inset: 0;
   z-index: 24;
   border: 0;
-  background: color-mix(in srgb, var(--surface) 36%, transparent);
+  background: color-mix(in srgb, var(--ui-surface) 36%, transparent);
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease;
@@ -282,6 +282,6 @@
 .hero-contact-link:focus-visible,
 .footer-contact a:hover,
 .footer-contact a:focus-visible {
-  color: var(--text);
+  color: var(--ui-text);
 }
 
