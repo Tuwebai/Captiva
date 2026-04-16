@@ -6,7 +6,6 @@ import Planes from './components/Planes';
 import SocialProof from './components/SocialProof';
 import FAQ from './components/FAQ';
 import CTAFinal from './components/CTAFinal';
-import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 
 export default function App() {
@@ -26,7 +25,6 @@ export default function App() {
         <CTAFinal />
       </main>
 
-      <Footer />
       <FloatingCTA />
     </div>
   );
