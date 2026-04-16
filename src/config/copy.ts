@@ -221,8 +221,9 @@ export const copyConfig = {
           'Tracking básico de conversiones',
         ],
         ctaLabel: 'Quiero el Starter',
+        ctaMicrocopy: 'Hosting + dominio incluidos. Sin sorpresas.',
         whatsappMessage:
-          'Hola, estoy interesado en el plan Starter de Captiva. Quiero una landing para empezar a captar clientes.',
+          'Hola, me interesa el plan Starter de Captiva. Tengo un negocio de [rubro] y quiero empezar a captar clientes. ¿Me podés dar más info?',
       },
       {
         name: 'Growth',
@@ -235,8 +236,9 @@ export const copyConfig = {
         ],
         highlight: 'Recomendado',
         ctaLabel: 'Quiero el Growth',
+        ctaMicrocopy: 'El más elegido. Podés empezar esta semana.',
         whatsappMessage:
-          'Hola, estoy interesado en el plan Growth de Captiva. Quiero una landing optimizada para captar clientes.',
+          'Hola, quiero el plan Growth de Captiva. Tengo un negocio de [rubro] y quiero una landing optimizada. ¿Cuándo podemos empezar?',
       },
       {
         name: 'Scale',
@@ -248,8 +250,9 @@ export const copyConfig = {
           'Optimización inicial de conversión',
         ],
         ctaLabel: 'Quiero el Scale',
+        ctaMicrocopy: 'Ideal para campañas pagas o varios frentes.',
         whatsappMessage:
-          'Hola, estoy interesado en el plan Scale de Captiva. Quiero una landing para campañas o mayor captación.',
+          'Hola, me interesa el plan Scale de Captiva para campañas. ¿Pueden darme una propuesta?',
       },
     ],
     guarantee: 'Incluye hosting profesional y dominio por 1 año. Setup técnico completo, sin complicaciones.',

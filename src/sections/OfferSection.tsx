@@ -51,7 +51,6 @@ export function OfferSection() {
                 <h4>{plan.name}</h4>
                 <p className="offer-plan-card__audience">{plan.audience}</p>
                 <ul className="offer-plan-card__list">
-                  <li>{`${siteConfig.offer.deliveryTimeLabel}: ${siteConfig.offer.deliveryTimeValue}`}</li>
                   {plan.includes.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -76,6 +75,7 @@ export function OfferSection() {
                 >
                   {plan.ctaLabel}
                 </ButtonLink>
+                <p className="offer-plan-card__microcopy">{plan.ctaMicrocopy}</p>
               </SurfaceCard>
             ))}
           </div>

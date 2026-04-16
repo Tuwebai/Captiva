@@ -37,6 +37,7 @@ export type OfferPlan = {
   includes: string[];
   highlight?: string;
   ctaLabel: string;
+  ctaMicrocopy: string;
   whatsappMessage: string;
 };
 
