@@ -1,7 +1,7 @@
 import { siteConfig } from '../config/site';
 import { faqSchema } from '../sections/FaqSection';
 import { buildWhatsAppLeadUrl } from '../utils/lead-message';
-import { demosManifest } from '../data/demos-manifest';
+import { demosManifest } from '../data/demosManifest';
 
 type FaqEntry = {
   question: string;
@@ -27,7 +27,7 @@ function findDemoHrefByShowcaseSlug(showcaseSlug: string) {
   const category = categoryByShowcaseSlug[showcaseSlug];
   if (!category) return siteConfig.routes.captivaDemos;
 
-  const demo = demosManifest.find((item) => item.category === category);
+  const demo = demosManifest.find((item: { category: string; href: string }) => item.category === category);
   return demo?.href ?? siteConfig.routes.captivaDemos;
 }
 
