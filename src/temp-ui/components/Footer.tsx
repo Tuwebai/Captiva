@@ -1,25 +1,67 @@
-import { tempUiBridge } from '../bridge';
+const WA_LINK = "https://wa.me/5491100000000?text=Hola%2C+vi+Captiva+y+quiero+una+landing+para+mi+negocio.+Rubro%3A+%5Btu+rubro%5D.+%C2%BFC%C3%B3mo+arrancamos%3F";
 
 export default function Footer() {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <footer className="border-t border-white/5 py-10 px-5 md:px-8">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded-md bg-violet-600 text-white text-xs font-black flex items-center justify-center">V</div>
-          <span className="font-bold text-lg text-white tracking-tight">{tempUiBridge.siteConfig.productName}</span>
+    <footer className="border-t border-[#18181B] bg-[#09090B] py-12">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+          {/* Brand */}
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-violet-600 flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 3L8 13L13 3" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <span className="font-bold text-lg text-white tracking-tight">Captiva</span>
+            </div>
+            <p className="text-xs text-zinc-600 max-w-[200px] text-center md:text-left">
+              Landings que convierten visitas en consultas.
+            </p>
+          </div>
+
+          {/* Nav */}
+          <nav className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-3">
+            {[
+              { label: 'Demos', id: 'demos' },
+              { label: 'Cómo funciona', id: 'como-funciona' },
+              { label: 'Planes', id: 'planes' },
+              { label: 'FAQ', id: 'faq' },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-violet-400 hover:text-violet-300 transition-colors font-semibold"
+            >
+              WhatsApp →
+            </a>
+          </nav>
         </div>
 
-        <nav className="flex flex-wrap items-center justify-center gap-5">
-          {tempUiBridge.navItems.map((item) => (
-            <a key={item.label} href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors">
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <a href={tempUiBridge.siteConfig.contact.ctaHref} target="_blank" rel="noreferrer" className="text-sm text-zinc-300 hover:text-white">
-          {tempUiBridge.siteConfig.contact.productEmail}
-        </a>
+        {/* Bottom */}
+        <div className="mt-10 pt-6 border-t border-[#18181B] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-zinc-700">
+            © {new Date().getFullYear()} Captiva. Todos los derechos reservados.
+          </p>
+          <div className="flex items-center gap-1 text-xs text-zinc-700">
+            Hecho con
+            <span className="text-red-500 mx-0.5">♥</span>
+            para negocios de Argentina y Latinoamérica
+          </div>
+        </div>
       </div>
     </footer>
   );
