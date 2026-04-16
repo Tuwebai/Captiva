@@ -73,7 +73,7 @@
 }
 
 .demos-catalog-sidebar__section p:last-child {
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-size: 0.94rem;
 }
 
@@ -84,10 +84,10 @@
   align-items: center;
   justify-content: center;
   align-self: start;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
-  background: var(--surface-muted);
-  color: var(--text-muted);
+  background: var(--ui-surface-2);
+  color: var(--ui-text-muted);
   font: inherit;
   font-size: 1rem;
   font-weight: 700;
@@ -97,7 +97,7 @@
 
 .demos-catalog-sidebar__minimize:hover,
 .demos-catalog-sidebar__minimize:focus-visible {
-  color: var(--text);
+  color: var(--ui-text);
   border-color: var(--line-strong);
   background: var(--accent-soft);
   transform: translateX(1px);

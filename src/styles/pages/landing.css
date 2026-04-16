@@ -25,14 +25,14 @@
 
 .industry-cta {
   padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-xl);
   background: var(--footer-card-surface);
 }
 
 .industry-cta p {
   margin: 0 0 1rem;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
 }
 
 .cta-row {
@@ -60,7 +60,7 @@
 
 .offer-plans-head p {
   margin: -0.45rem 0 1rem;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   max-width: 62ch;
 }
 
@@ -72,7 +72,7 @@
 
 .offer-block .surface-card p {
   margin: 0.5rem 0 0;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
 }
 
 .offer-plan-card {

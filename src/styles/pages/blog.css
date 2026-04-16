@@ -34,7 +34,7 @@
   align-items: center;
   min-height: 1.75rem;
   padding: 0.2rem 0.55rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
   background: var(--blog-tag-surface);
   color: var(--text-soft);
@@ -81,10 +81,10 @@
 }
 
 .blog-index-sidebar__toggle {
-  border: 1px solid var(--line);
+  border: 1px solid var(--ui-border);
   border-radius: 999px;
-  background: var(--surface-muted);
-  color: var(--text-muted);
+  background: var(--ui-surface-2);
+  color: var(--ui-text-muted);
   font: inherit;
   font-size: 0.75rem;
   font-weight: 700;
@@ -97,7 +97,7 @@
 
 .blog-index-sidebar__toggle:hover,
 .blog-index-sidebar__toggle:focus-visible {
-  color: var(--text);
+  color: var(--ui-text);
   border-color: var(--line-strong);
   background: var(--accent-soft);
 }

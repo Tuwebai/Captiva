@@ -58,9 +58,9 @@
 
 .legal-toc--mobile {
   display: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: var(--surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-xl);
+  background: var(--ui-surface);
   box-shadow: var(--shadow-sm);
 }
 
@@ -85,7 +85,7 @@
   padding-left: 0;
   display: grid;
   gap: 0.35rem;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   list-style: none;
 }
 
@@ -94,7 +94,7 @@
   padding: 0.6rem 0.75rem;
   border: 1px solid transparent;
   border-radius: 0.85rem;
-  color: var(--text-muted);
+  color: var(--ui-text-muted);
   font-weight: 600;
   line-height: 1.35;
   transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
