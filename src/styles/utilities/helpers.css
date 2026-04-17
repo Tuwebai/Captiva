@@ -127,10 +127,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .process-list--compact {
-    grid-template-columns: 1fr;
-  }
-
   .blog-post-layout {
     grid-template-columns: 1fr;
   }
@@ -291,17 +287,6 @@
     align-items: flex-start;
   }
 
-  .demo-gallery-card__meta {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .demo-gallery-card__chips,
-  .demo-gallery-card__title,
-  .demo-gallery-card__description {
-    min-height: 0;
-  }
-
   .legal-toc--desktop {
     display: none;
   }
@@ -327,7 +312,6 @@
   .card-grid--three,
   .benefits-grid,
   .social-proof-metrics,
-  .process-list--compact,
   .process-list__item,
   .lead-form-grid {
     grid-template-columns: 1fr;
