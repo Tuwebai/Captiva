@@ -40,7 +40,7 @@
 
 .button-link--primary:hover,
 .button-link--primary:focus-visible {
-  background: linear-gradient(135deg, var(--accent-strong), var(--accent-hover));
+  background: linear-gradient(135deg, var(--ui-brand-strong), var(--ui-brand));
 }
 
 .button-link--secondary {

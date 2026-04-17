@@ -139,20 +139,3 @@
   transform: translate(20px, -50%);
 }
 
-@media (max-width: 768px) {
-  .theme-switch.mobile-floating-theme-switch {
-    position: fixed;
-    top: calc(0.65rem + env(safe-area-inset-top, 0px));
-    right: 0.7rem;
-    z-index: 34;
-    width: 56px;
-    height: 44px;
-    box-shadow: var(--shadow-card);
-    backdrop-filter: blur(10px);
-  }
-
-  .theme-switch.mobile-floating-theme-switch .theme-switch__thumb {
-    width: 22px;
-    height: 22px;
-  }
-}
