@@ -69,35 +69,31 @@ function DemoIndustryMockup({ industry }: { industry: string }) {
   const mockup = showcaseMockupByIndustry[industry] ?? showcaseMockupByIndustry.odontologia;
 
   return (
-    <div className="h-full w-full bg-[#111113]">
-      <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
-      <div className="flex h-full flex-col gap-3 bg-linear-to-br from-white/[0.03] to-transparent p-4">
-        <div className="rounded-[18px] border border-white/8 bg-[#151518] p-3 shadow-[0_16px_32px_rgba(0,0,0,0.35)]">
-          <div className="mb-3 flex items-center gap-1.5">
-            <span className="h-2 w-2 rounded-full bg-red-400/80" />
-            <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
-            <span className="h-2 w-2 rounded-full bg-green-400/80" />
-            <div className="ml-2 rounded-md bg-white/5 px-2 py-1 text-[9px] text-zinc-500">{mockup.domain}</div>
-          </div>
-
-          <div className="space-y-2 px-1">
-            <div className="flex items-center gap-2">
-              <span className="text-xs">{mockup.icon}</span>
-              <div className="h-2 w-16 rounded-full bg-white/18" />
-            </div>
-            <div className="h-2 rounded-full bg-white/16" />
-            <div className="h-2 w-4/5 rounded-full bg-white/12" />
-            <div className="h-2 w-3/5 rounded-full bg-white/10" />
-            <div className="mt-3 flex gap-2">
-              <div className="h-7 flex-1 rounded-lg bg-linear-to-r from-violet-600 to-fuchsia-500" />
-              <div className="h-7 w-16 rounded-lg border border-white/18" />
-            </div>
-          </div>
+    <div className="bg-[#0D0D0F]/80 rounded-xl p-3 mb-4">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="flex gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
         </div>
+        <div className="flex-1 bg-[#1A1A1F] rounded-md px-2 py-1 text-[10px] text-zinc-500 font-mono truncate">
+          {mockup.domain}
+        </div>
+      </div>
 
-        <div className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold ${mockup.accentBg}`}>
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-current opacity-60" />
-          {mockup.metric}
+      <div className="space-y-2 px-1">
+        <div className="flex items-center gap-2">
+          <span className="text-base">{mockup.icon}</span>
+          <div className="w-20 h-3 bg-zinc-700 rounded-full" />
+        </div>
+        <div className="w-full h-4 bg-zinc-600/40 rounded" />
+        <div className="w-4/5 h-4 bg-zinc-600/40 rounded" />
+        <div className="w-3/5 h-3 bg-zinc-700/40 rounded" />
+        <div className="mt-3 flex gap-2">
+          <div className="flex-1 h-8 bg-violet-600/70 rounded-lg flex items-center justify-center">
+            <div className="w-16 h-2 bg-white/50 rounded" />
+          </div>
+          <div className="w-20 h-8 border border-zinc-600/50 rounded-lg" />
         </div>
       </div>
     </div>
@@ -116,14 +112,11 @@ function DemoCatalogCard({
   const mockup = showcaseMockupByIndustry[item.industry] ?? showcaseMockupByIndustry.odontologia;
 
   return (
-    <div
-      className="group relative overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
+    <div className="group relative bg-surface border border-border rounded-3xl overflow-hidden hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" style={{ animationDelay: `${index * 100}ms` }}>
       <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
 
       <a
-        className={`block bg-linear-to-br p-5 ${
+        className={`block p-5 bg-linear-to-br ${
           item.industry === 'odontologia'
             ? 'from-blue-500/20 to-cyan-500/10'
             : item.industry === 'estetica'
@@ -138,47 +131,26 @@ function DemoCatalogCard({
         data-tooltip="Ver esta landing page en modo interactivo."
         onClick={onOpen}
       >
-        <div className="mb-4 rounded-xl bg-[#0D0D0F]/80 p-3">
-          <div className="mb-3 flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-red-400/80" />
-            <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
-            <span className="h-2 w-2 rounded-full bg-green-400/80" />
-            <div className="ml-2 rounded-md bg-white/5 px-2 py-1 text-[9px] text-zinc-500">{mockup.domain}</div>
-          </div>
+        <DemoIndustryMockup industry={item.industry} />
 
-          <div className="space-y-2 px-1">
-            <div className="flex items-center gap-2">
-              <span className="text-xs">{mockup.icon}</span>
-              <div className="h-2 w-16 rounded-full bg-white/18" />
-            </div>
-            <div className="h-2 rounded-full bg-white/16" />
-            <div className="h-2 w-4/5 rounded-full bg-white/12" />
-            <div className="h-2 w-3/5 rounded-full bg-white/10" />
-            <div className="mt-3 flex gap-2">
-              <div className="h-7 flex-1 rounded-lg bg-linear-to-r from-violet-600 to-fuchsia-500" />
-              <div className="h-7 w-16 rounded-lg border border-white/18" />
-            </div>
-          </div>
-        </div>
-
-        <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold ${mockup.accentBg}`}>
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-current opacity-60" />
+        <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold ${mockup.accentBg}`}>
+          <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 inline-block" />
           {mockup.metric}
         </div>
       </a>
 
-      <div className="space-y-3 p-5">
+      <div className="p-5 space-y-3">
         <div>
-          <div className="mb-1 text-xs font-medium uppercase tracking-wide text-zinc-500">{getIndustryLabel(item.industry)}</div>
+          <div className="text-xs text-zinc-500 font-medium uppercase tracking-wide mb-1">{getIndustryLabel(item.industry)}</div>
           <h3 className="text-base font-bold text-white">{item.title}</h3>
-          <p className="mt-1 text-sm leading-snug text-zinc-400">"{item.description}"</p>
+          <p className="text-sm text-zinc-400 mt-1 leading-snug">"{item.description}"</p>
         </div>
 
         <a
           href={item.href}
           target="_blank"
           rel="noreferrer"
-          className={`flex w-full items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold transition-all duration-200 group-hover:border-opacity-60 hover:opacity-80 ${mockup.accentBg}`}
+          className={`w-full flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-semibold transition-all duration-200 group-hover:border-opacity-60 ${mockup.accentBg} hover:opacity-80`}
           data-tooltip="Ver esta landing page en modo interactivo."
           onClick={onOpen}
         >
@@ -443,7 +415,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       {category.items.map((item, index) => (
                         <DemoCatalogCard
                           key={item.slug}
