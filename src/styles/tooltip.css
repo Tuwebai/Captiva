@@ -26,32 +26,3 @@
   transform: translateY(0);
   visibility: visible;
 }
-
-.info-tooltip-trigger {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  margin-left: 0.35rem;
-  border: 1px solid var(--tooltip-trigger-border, rgba(126, 149, 214, 0.36));
-  border-radius: 999px;
-  background: var(--tooltip-trigger-surface, rgba(20, 30, 58, 0.66));
-  color: var(--tooltip-trigger-text, rgba(211, 223, 255, 0.88));
-  font-size: 0.68rem;
-  font-weight: 700;
-  line-height: 1;
-  padding: 0;
-  cursor: help;
-}
-
-.info-tooltip-trigger span {
-  transform: translateY(-0.03rem);
-}
-
-.info-tooltip-trigger:hover,
-.info-tooltip-trigger:focus-visible {
-  background: var(--tooltip-trigger-hover-surface, rgba(75, 124, 255, 0.18));
-  color: var(--tooltip-trigger-hover-text, #f5f8ff);
-  border-color: var(--ui-border-strong);
-}
