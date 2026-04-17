@@ -22,9 +22,143 @@ import {
 import { getIndustryPages } from '../utils/industry';
 const activeDemos = getCatalogDemos(demosManifest);
 const demoCategories = groupDemosByCategory(activeDemos);
-const placeholderPreview = '/demo-placeholder.svg';
 const industryByCategory = new Map(getIndustryPages().map((item) => [item.category, item]));
 const topCityLandings = getTopCityLandings(6);
+
+const showcaseMockupByIndustry: Record<
+  string,
+  {
+    domain: string;
+    icon: string;
+    metric: string;
+    topBar: string;
+    accentBg: string;
+  }
+> = {
+  odontologia: {
+    domain: 'clinicasanchez.com.ar',
+    icon: '🦷',
+    metric: '+31 consultas / mes',
+    topBar: 'from-blue-500 to-cyan-400',
+    accentBg: 'bg-blue-500/10 border-blue-500/20 text-blue-400',
+  },
+  estetica: {
+    domain: 'beautystudiovaleria.com',
+    icon: '💆‍♀️',
+    metric: '+28 WhatsApps / semana',
+    topBar: 'from-pink-500 to-rose-400',
+    accentBg: 'bg-pink-500/10 border-pink-500/20 text-pink-400',
+  },
+  gimnasio: {
+    domain: 'fitprocentro.com.ar',
+    icon: '🏋️',
+    metric: '+19 consultas / semana',
+    topBar: 'from-orange-500 to-amber-400',
+    accentBg: 'bg-orange-500/10 border-orange-500/20 text-orange-400',
+  },
+  abogados: {
+    domain: 'estudiomendez.com.ar',
+    icon: '⚖️',
+    metric: '+12 leads cualificados / mes',
+    topBar: 'from-violet-500 to-purple-400',
+    accentBg: 'bg-violet-500/10 border-violet-500/20 text-violet-400',
+  },
+};
+
+function DemoIndustryMockup({ industry }: { industry: string }) {
+  const mockup = showcaseMockupByIndustry[industry] ?? showcaseMockupByIndustry.odontologia;
+
+  return (
+    <div className="h-full w-full bg-[#111113]">
+      <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
+      <div className="flex h-full flex-col gap-3 bg-linear-to-br from-white/[0.03] to-transparent p-4">
+        <div className="rounded-[18px] border border-white/8 bg-[#151518] p-3 shadow-[0_16px_32px_rgba(0,0,0,0.35)]">
+          <div className="mb-3 flex items-center gap-1.5">
+            <span className="h-2 w-2 rounded-full bg-red-400/80" />
+            <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
+            <span className="h-2 w-2 rounded-full bg-green-400/80" />
+            <div className="ml-2 rounded-md bg-white/5 px-2 py-1 text-[9px] text-zinc-500">{mockup.domain}</div>
+          </div>
+
+          <div className="space-y-2 px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xs">{mockup.icon}</span>
+              <div className="h-2 w-16 rounded-full bg-white/18" />
+            </div>
+            <div className="h-2 rounded-full bg-white/16" />
+            <div className="h-2 w-4/5 rounded-full bg-white/12" />
+            <div className="h-2 w-3/5 rounded-full bg-white/10" />
+            <div className="mt-3 flex gap-2">
+              <div className="h-7 flex-1 rounded-lg bg-linear-to-r from-violet-600 to-fuchsia-500" />
+              <div className="h-7 w-16 rounded-lg border border-white/18" />
+            </div>
+          </div>
+        </div>
+
+        <div className={`inline-flex w-fit items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold ${mockup.accentBg}`}>
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-current opacity-60" />
+          {mockup.metric}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DemoCatalogCard({
+  item,
+  index,
+  onOpen,
+}: {
+  item: DemoCategoryGroup['items'][number];
+  index: number;
+  onOpen: () => void;
+}) {
+  const mockup = showcaseMockupByIndustry[item.industry] ?? showcaseMockupByIndustry.odontologia;
+
+  return (
+    <div
+      className="group relative overflow-hidden rounded-3xl border border-border bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-2xl"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
+
+      <a
+        className="block bg-linear-to-br from-white/[0.04] to-transparent p-5"
+        href={item.href}
+        target="_blank"
+        rel="noreferrer"
+        data-tooltip="Ver esta landing page en modo interactivo."
+        onClick={onOpen}
+      >
+        <div className="mb-4">
+          <DemoIndustryMockup industry={item.industry} />
+        </div>
+      </a>
+
+      <div className="space-y-3 p-5">
+        <div>
+          <div className="mb-1 text-xs font-medium uppercase tracking-wide text-zinc-500">{getIndustryLabel(item.industry)}</div>
+          <h3 className="text-base font-bold text-white">{item.title}</h3>
+          <p className="mt-1 text-sm leading-snug text-zinc-400">"{item.description}"</p>
+        </div>
+
+        <a
+          href={item.href}
+          target="_blank"
+          rel="noreferrer"
+          className={`flex w-full items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold transition-all duration-200 hover:opacity-80 ${mockup.accentBg}`}
+          data-tooltip="Ver esta landing page en modo interactivo."
+          onClick={onOpen}
+        >
+          Ver esta landing
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 8h8M9 5l3 3-3 3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}
 
 type CategoryFilter = {
   key: string;
@@ -277,56 +411,21 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                       </div>
                     </div>
 
-                    <div className="card-grid card-grid--three">
-                      {category.items.map((item) => (
-                        <SurfaceCard key={item.slug} className="demo-gallery-card">
-                          <a
-                            className="demo-gallery-card__preview"
-                            href={item.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            data-tooltip="Ver esta landing page en modo interactivo."
-                          >
-                            <img
-                              src={item.preview ?? placeholderPreview}
-                              alt={item.title}
-                              loading="lazy"
-                              decoding="async"
-                              width={1600}
-                              height={1000}
-                            />
-                          </a>
-
-                          <div className="demo-gallery-card__meta">
-                            <div className="demo-gallery-card__chips">
-                              <span className="demo-gallery-card__chip">{getIndustryLabel(item.industry)}</span>
-                              {item.goal ? <span className="demo-gallery-card__chip">{item.goal}</span> : null}
-                            </div>
-                            <h3 className="demo-gallery-card__title">{item.title}</h3>
-                            <p className="demo-gallery-card__description">{item.description}</p>
-                          </div>
-
-                          <a
-                            className="text-link demo-gallery-card__cta"
-                            href={item.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            data-tooltip="Ver esta landing page en modo interactivo."
-                            onClick={() =>
-                              trackEvent({
-                                action: ANALYTICS_EVENTS.DEMO_VIEW,
-                                category: category.slug,
-                                label: item.publicSlug ?? item.slug,
-                                demo: item.publicSlug ?? item.slug,
-                                industry: item.industry,
-                                source: 'demos_page',
-                                path: siteConfig.routes.captivaDemos,
-                              })
-                            }
-                          >
-                            {siteConfig.demos.cardCtaLabel}
-                          </a>
-                        </SurfaceCard>
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                      {category.items.map((item, index) => (
+                        <DemoCatalogCard
+                          key={item.slug}
+                          item={item}
+                          index={index}
+                          onOpen={() =>
+                            trackEvent({
+                              action: ANALYTICS_EVENTS.DEMO_VIEW,
+                              category: item.category,
+                              label: item.slug,
+                              path: siteConfig.routes.captivaDemos,
+                            })
+                          }
+                        />
                       ))}
                     </div>
                   </section>
