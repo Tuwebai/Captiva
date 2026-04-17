@@ -1,5 +1,6 @@
 import { trackEvent } from '../../../utils/analytics';
 import { useTheme } from './useTheme';
+import '../../../styles/theme-switch.css';
 
 type ThemeSwitchProps = {
   compact?: boolean;
