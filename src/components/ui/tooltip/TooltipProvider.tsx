@@ -1,6 +1,7 @@
 import { createContext, type PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
 
 import './tooltip.css';
+import '../../../styles/tooltip.css';
 
 type TooltipContextValue = {
   portalElement: HTMLElement | null;

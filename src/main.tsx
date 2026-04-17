@@ -6,7 +6,6 @@ import { ThemeProvider } from './components/ui/theme/ThemeProvider';
 import { AnalyticsProvider } from './lib/analytics';
 import { App } from './pages/App';
 import './styles/globals.css';
-import './styles/tooltip.css';
 
 const rootElement = document.getElementById('root')!;
 const app = (
