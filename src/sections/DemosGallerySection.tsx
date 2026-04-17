@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
@@ -253,12 +252,6 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const params = useParams();
-  const [isSidebarMinimized, setIsSidebarMinimized] = useState(false);
-  const [sidebarSections, setSidebarSections] = useState({
-    collections: true,
-    categories: true,
-    tags: true,
-  });
   const activeFilterKey = searchParams.get('category') ?? 'all';
   const routeIndustryKey = industrySlug ?? params.industry;
   const activeIndustryFilterKey = routeIndustryKey ?? searchParams.get('industry') ?? 'all';
@@ -283,41 +276,6 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
   const visibleCount = visibleCategories.reduce((total, category) => total + category.items.length, 0);
   const activeIndustryOption = industryFilters.find((item) => item.key === normalizedIndustryFilterKey);
   const activeTagOption = tagFilters.find((item) => item.key === normalizedTagFilterKey);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const savedMinimized = window.localStorage.getItem('captiva:demos-sidebar-minimized');
-    if (savedMinimized === 'true' || savedMinimized === 'false') {
-      setIsSidebarMinimized(savedMinimized === 'true');
-    }
-
-    const savedValue = window.localStorage.getItem('captiva:demos-sidebar-sections');
-    if (!savedValue) return;
-
-    try {
-      const parsed = JSON.parse(savedValue) as Partial<typeof sidebarSections>;
-      setSidebarSections((current) => ({
-        collections: parsed.collections ?? current.collections,
-        categories: parsed.categories ?? current.categories,
-        tags: parsed.tags ?? current.tags,
-      }));
-    } catch {
-      window.localStorage.removeItem('captiva:demos-sidebar-sections');
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    window.localStorage.setItem('captiva:demos-sidebar-minimized', String(isSidebarMinimized));
-  }, [isSidebarMinimized]);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    window.localStorage.setItem('captiva:demos-sidebar-sections', JSON.stringify(sidebarSections));
-  }, [sidebarSections]);
 
   const handleCategoryFilterClick = (filterKey: string) => {
     const nextParams = new URLSearchParams(searchParams);
@@ -362,14 +320,10 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
     trackEvent({ action: ANALYTICS_EVENTS.DEMO_FILTER_APPLY, category: 'demos-tag-filter', label: tagKey });
   };
 
-  const toggleSidebarSection = (section: 'collections' | 'categories' | 'tags') => {
-    setSidebarSections((current) => ({ ...current, [section]: !current[section] }));
-  };
-
   return (
     <section className="content-section">
       <div className="container">
-        <div className="demos-catalog-layout">
+        <div className="space-y-8">
           <div className="demos-catalog-main">
             <SectionHeading
               as="h1"
@@ -395,6 +349,100 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
                 </Link>
               ) : null}
             </div>
+
+            <SurfaceCard className="space-y-6 rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-[0_24px_80px_rgba(20,18,35,0.28)] backdrop-blur">
+              <div className="space-y-3">
+                <p className="section-heading__eyebrow !mb-0">Explorar catálogo</p>
+                <h2 className="text-2xl font-semibold text-white">Filtrá demos sin sidebar</h2>
+                <p className="text-sm text-zinc-300">
+                  Todo el catálogo ahora vive en el flujo principal, igual que el home: más limpio, más ancho y con foco total en las cards.
+                </p>
+              </div>
+
+              <div className="space-y-5">
+                <div className="space-y-3">
+                  <span className="section-heading__eyebrow !mb-0">Industrias</span>
+                  <div className="template-filters" role="tablist" aria-label="Filtrar demos por industria">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={normalizedIndustryFilterKey === 'all'}
+                      className={`template-filter-chip${normalizedIndustryFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
+                      onClick={() => handleIndustryFilterClick('all')}
+                    >
+                      Todas las industrias
+                    </button>
+                    {industryFilters.map((industry) => (
+                      <button
+                        key={industry.key}
+                        type="button"
+                        role="tab"
+                        aria-selected={industry.key === normalizedIndustryFilterKey}
+                        className={`template-filter-chip${industry.key === normalizedIndustryFilterKey ? ' template-filter-chip--active' : ''}`}
+                        onClick={() => handleIndustryFilterClick(industry.key)}
+                      >
+                        {industry.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <span className="section-heading__eyebrow !mb-0">Categorías</span>
+                  <div className="template-filters" role="tablist" aria-label={siteConfig.demos.filtersAriaLabel}>
+                    {categoryFilters.map((filter) => {
+                      const isActive = filter.key === normalizedFilterKey;
+
+                      return (
+                        <button
+                          key={filter.key}
+                          className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
+                          type="button"
+                          role="tab"
+                          aria-selected={isActive}
+                          onClick={() => handleCategoryFilterClick(filter.key)}
+                        >
+                          {filter.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {tagFilters.length > 0 ? (
+                  <div className="space-y-3">
+                    <span className="section-heading__eyebrow !mb-0">Etiquetas</span>
+                    <div className="template-filters" role="tablist" aria-label="Filtrar demos por etiqueta">
+                      <button
+                        className={`template-filter-chip${normalizedTagFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
+                        type="button"
+                        role="tab"
+                        aria-selected={normalizedTagFilterKey === 'all'}
+                        onClick={() => handleTagFilterClick('all')}
+                      >
+                        Todas las etiquetas
+                      </button>
+                      {tagFilters.slice(0, 10).map((filter) => {
+                        const isActive = filter.key === normalizedTagFilterKey;
+
+                        return (
+                          <button
+                            key={filter.key}
+                            className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
+                            type="button"
+                            role="tab"
+                            aria-selected={isActive}
+                            onClick={() => handleTagFilterClick(filter.key)}
+                          >
+                            {filter.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </SurfaceCard>
 
             <div className="demos-gallery">
               {visibleCategories.length > 0 ? (
@@ -500,172 +548,6 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
               <RelatedLinksSection title="Guias y recursos relacionados" maxLinks={7} />
             </div>
           </div>
-
-          <aside
-            className={`demos-catalog-sidebar${isSidebarMinimized ? ' demos-catalog-sidebar--minimized' : ''}`}
-            aria-label="Explorar catalogo de demos por industria y etiquetas"
-          >
-            <SurfaceCard className="demos-catalog-sidebar__panel">
-              <div className="demos-catalog-sidebar__header">
-                <div className="demos-catalog-sidebar__section">
-                  <p className="section-heading__eyebrow">Catalogo</p>
-                  <h2>Explorar demos</h2>
-                  {!isSidebarMinimized ? (
-                    <p>Filtra el catalogo sin comprimir las cards ni perder la vista del grid principal.</p>
-                  ) : null}
-                </div>
-
-                <button
-                  type="button"
-                  className="demos-catalog-sidebar__minimize"
-                  aria-label={isSidebarMinimized ? 'Expandir catalogo' : 'Minimizar catalogo'}
-                  aria-pressed={isSidebarMinimized}
-                  onClick={() => setIsSidebarMinimized((current) => !current)}
-                >
-                  {isSidebarMinimized ? '>' : '<'}
-                </button>
-              </div>
-
-              {!isSidebarMinimized ? (
-                <>
-                  <section className={`demos-sidebar-group${sidebarSections.collections ? ' demos-sidebar-group--open' : ''}`}>
-                <button
-                  type="button"
-                  className="demos-sidebar-group__toggle"
-                  aria-expanded={sidebarSections.collections}
-                  onClick={() => toggleSidebarSection('collections')}
-                >
-                  <span>Colecciones</span>
-                  <span className="demos-sidebar-group__chevron" aria-hidden="true">
-                    {sidebarSections.collections ? '−' : '+'}
-                  </span>
-                </button>
-
-                <div
-                  className={`demos-sidebar-group__content${sidebarSections.collections ? ' demos-sidebar-group__content--open' : ''}`}
-                >
-                  <div className="demos-catalog-sidebar__collection-list">
-                    <button
-                      type="button"
-                      className={`demos-catalog-pill${normalizedIndustryFilterKey === 'all' ? ' demos-catalog-pill--active' : ''}`}
-                      onClick={() => handleIndustryFilterClick('all')}
-                    >
-                      <span>Todas las industrias</span>
-                      <strong>{activeDemos.length}</strong>
-                    </button>
-
-                    {industryFilters.map((industry) => (
-                      <button
-                        key={industry.key}
-                        type="button"
-                        className={`demos-catalog-pill${industry.key === normalizedIndustryFilterKey ? ' demos-catalog-pill--active' : ''}`}
-                        onClick={() => handleIndustryFilterClick(industry.key)}
-                      >
-                        <span>{industry.label}</span>
-                        <strong>{industry.count}</strong>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                  </section>
-
-                  <section className={`demos-sidebar-group${sidebarSections.categories ? ' demos-sidebar-group--open' : ''}`}>
-                <button
-                  type="button"
-                  className="demos-sidebar-group__toggle"
-                  aria-expanded={sidebarSections.categories}
-                  onClick={() => toggleSidebarSection('categories')}
-                >
-                  <span>Categorias</span>
-                  <span className="demos-sidebar-group__chevron" aria-hidden="true">
-                    {sidebarSections.categories ? '−' : '+'}
-                  </span>
-                </button>
-
-                <div
-                  className={`demos-sidebar-group__content${sidebarSections.categories ? ' demos-sidebar-group__content--open' : ''}`}
-                >
-                  <div className="template-filters template-filters--stacked" role="tablist" aria-label={siteConfig.demos.filtersAriaLabel}>
-                    {categoryFilters.map((filter) => {
-                      const isActive = filter.key === normalizedFilterKey;
-
-                      return (
-                        <button
-                          key={filter.key}
-                          className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
-                          type="button"
-                          role="tab"
-                          aria-selected={isActive}
-                          onClick={() => handleCategoryFilterClick(filter.key)}
-                        >
-                          {filter.label}
-                        </button>
-                        );
-                      })}
-                  </div>
-                  </div>
-                  </section>
-
-                  {tagFilters.length > 0 ? (
-                    <section className={`demos-sidebar-group${sidebarSections.tags ? ' demos-sidebar-group--open' : ''}`}>
-                  <button
-                    type="button"
-                    className="demos-sidebar-group__toggle"
-                    aria-expanded={sidebarSections.tags}
-                    onClick={() => toggleSidebarSection('tags')}
-                  >
-                    <span>Etiquetas</span>
-                    <span className="demos-sidebar-group__chevron" aria-hidden="true">
-                      {sidebarSections.tags ? '−' : '+'}
-                    </span>
-                  </button>
-
-                  <div
-                    className={`demos-sidebar-group__content${sidebarSections.tags ? ' demos-sidebar-group__content--open' : ''}`}
-                  >
-                    <div className="template-filters template-filters--stacked" role="tablist" aria-label="Filtrar demos por etiqueta">
-                      <button
-                        className={`template-filter-chip${normalizedTagFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
-                        type="button"
-                        role="tab"
-                        aria-selected={normalizedTagFilterKey === 'all'}
-                        onClick={() => handleTagFilterClick('all')}
-                      >
-                        Todas las etiquetas
-                      </button>
-
-                      {tagFilters.slice(0, 10).map((filter) => {
-                        const isActive = filter.key === normalizedTagFilterKey;
-
-                        return (
-                          <button
-                            key={filter.key}
-                            className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
-                            type="button"
-                            role="tab"
-                            aria-selected={isActive}
-                            onClick={() => handleTagFilterClick(filter.key)}
-                          >
-                            {filter.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                    </div>
-                    </section>
-                  ) : null}
-
-                  {(normalizedIndustryFilterKey !== 'all' || normalizedFilterKey !== 'all' || normalizedTagFilterKey !== 'all') ? (
-                    <div className="demos-catalog-sidebar__footer">
-                      <Link className="text-link" to={siteConfig.routes.captivaDemos}>
-                        Limpiar todos los filtros
-                      </Link>
-                    </div>
-                  ) : null}
-                </>
-              ) : null}
-            </SurfaceCard>
-          </aside>
         </div>
       </div>
     </section>

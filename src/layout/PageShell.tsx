@@ -27,6 +27,9 @@ export function PageShell({ children }: PropsWithChildren) {
     location.pathname.startsWith('/landing-page-para-') ||
     location.pathname.startsWith('/blog');
   const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
+  const isCaptivaDemos =
+    location.pathname === siteConfig.routes.captivaDemos ||
+    location.pathname.startsWith(`${siteConfig.routes.captivaDemos}/`);
   const [isRailCollapsed, setIsRailCollapsed] = useState(false);
   const [isMobileRailOpen, setIsMobileRailOpen] = useState(false);
 
@@ -93,10 +96,14 @@ export function PageShell({ children }: PropsWithChildren) {
 
   return (
     <div className="site-shell">
-      <Navbar visible={!isCaptivaContext && !isLegalContext} fullLogoSrc={fullLogoSrc} onLogoError={handleLogoError} />
+      <Navbar
+        visible={(!isCaptivaContext || isCaptivaDemos) && !isLegalContext}
+        fullLogoSrc={fullLogoSrc}
+        onLogoError={handleLogoError}
+      />
 
       <Sidebar
-        visible={isCaptivaContext && !isCaptivaHome}
+        visible={isCaptivaContext && !isCaptivaHome && !isCaptivaDemos}
         isRailCollapsed={isRailCollapsed}
         isMobileRailOpen={isMobileRailOpen}
         isHomeNavActive={isHomeNavActive}
