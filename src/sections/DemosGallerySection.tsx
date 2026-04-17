@@ -123,15 +123,47 @@ function DemoCatalogCard({
       <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
 
       <a
-        className="block bg-linear-to-br from-white/[0.04] to-transparent p-5"
+        className={`block bg-linear-to-br p-5 ${
+          item.industry === 'odontologia'
+            ? 'from-blue-500/20 to-cyan-500/10'
+            : item.industry === 'estetica'
+              ? 'from-pink-500/20 to-rose-500/10'
+              : item.industry === 'gimnasio'
+                ? 'from-orange-500/20 to-amber-500/10'
+                : 'from-violet-500/20 to-purple-500/10'
+        }`}
         href={item.href}
         target="_blank"
         rel="noreferrer"
         data-tooltip="Ver esta landing page en modo interactivo."
         onClick={onOpen}
       >
-        <div className="mb-4">
-          <DemoIndustryMockup industry={item.industry} />
+        <div className="mb-4 rounded-xl bg-[#0D0D0F]/80 p-3">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-red-400/80" />
+            <span className="h-2 w-2 rounded-full bg-yellow-400/80" />
+            <span className="h-2 w-2 rounded-full bg-green-400/80" />
+            <div className="ml-2 rounded-md bg-white/5 px-2 py-1 text-[9px] text-zinc-500">{mockup.domain}</div>
+          </div>
+
+          <div className="space-y-2 px-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xs">{mockup.icon}</span>
+              <div className="h-2 w-16 rounded-full bg-white/18" />
+            </div>
+            <div className="h-2 rounded-full bg-white/16" />
+            <div className="h-2 w-4/5 rounded-full bg-white/12" />
+            <div className="h-2 w-3/5 rounded-full bg-white/10" />
+            <div className="mt-3 flex gap-2">
+              <div className="h-7 flex-1 rounded-lg bg-linear-to-r from-violet-600 to-fuchsia-500" />
+              <div className="h-7 w-16 rounded-lg border border-white/18" />
+            </div>
+          </div>
+        </div>
+
+        <div className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold ${mockup.accentBg}`}>
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-current opacity-60" />
+          {mockup.metric}
         </div>
       </a>
 
@@ -146,7 +178,7 @@ function DemoCatalogCard({
           href={item.href}
           target="_blank"
           rel="noreferrer"
-          className={`flex w-full items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold transition-all duration-200 hover:opacity-80 ${mockup.accentBg}`}
+          className={`flex w-full items-center justify-center gap-2 rounded-xl border py-3 text-sm font-semibold transition-all duration-200 group-hover:border-opacity-60 hover:opacity-80 ${mockup.accentBg}`}
           data-tooltip="Ver esta landing page en modo interactivo."
           onClick={onOpen}
         >
