@@ -368,7 +368,7 @@
   gap: 1rem;
   padding: clamp(1rem, 2vw, 1.5rem);
   border: 1px solid var(--ui-border);
-  border-radius: var(--radius-xl);
+  border-radius: var(--ui-radius-3xl);
   background: linear-gradient(180deg, color-mix(in srgb, var(--ui-surface) 94%, var(--ui-brand) 6%) 0%, var(--ui-surface) 100%);
   box-shadow: var(--shadow-md);
   overflow: hidden;
@@ -385,7 +385,7 @@
 
 .hero-panel__visual {
   border: 1px solid color-mix(in srgb, var(--ui-brand) 22%, var(--ui-border));
-  border-radius: calc(var(--radius-xl) - 0.1rem);
+  border-radius: calc(var(--ui-radius-3xl) - 0.1rem);
   background: linear-gradient(180deg, color-mix(in srgb, var(--ui-surface) 92%, var(--ui-brand) 8%) 0%, color-mix(in srgb, var(--ui-surface-2) 94%, transparent) 100%);
   box-shadow: var(--shadow-sm);
   overflow: hidden;

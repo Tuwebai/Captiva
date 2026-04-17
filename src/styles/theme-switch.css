@@ -9,7 +9,7 @@
 
 .theme-switch-wrap__title {
   margin: 0;
-  color: var(--text-soft);
+  color: var(--ui-text-soft);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.1em;

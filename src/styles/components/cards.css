@@ -10,7 +10,7 @@
   inset: 0 auto auto 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--orange), var(--purple));
+  background: linear-gradient(90deg, var(--ui-brand), var(--orange), var(--purple));
   opacity: 1;
 }
 
@@ -23,7 +23,7 @@
   margin-bottom: 1.25rem;
   border: 1px solid var(--feature-icon-border);
   border-radius: 1rem;
-  color: var(--accent);
+  color: var(--ui-brand);
   background: var(--feature-icon-surface);
   box-shadow:
     var(--feature-icon-inset),
@@ -42,7 +42,7 @@
 .feature-icon--home,
 .feature-icon--demos,
 .feature-icon--blog {
-  color: var(--accent);
+  color: var(--ui-brand);
   background: var(--feature-icon-accent-surface);
 }
 
@@ -89,7 +89,7 @@
   padding: 0.35rem 0.6rem;
   border-radius: 999px;
   background: var(--chip-surface);
-  color: var(--text-soft);
+  color: var(--ui-text-soft);
 }
 
 .text-link {
