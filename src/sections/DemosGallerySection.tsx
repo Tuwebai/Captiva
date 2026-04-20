@@ -325,11 +325,11 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
   };
 
   return (
-    <section className="content-section">
+    <section id="demos-catalogo" className="content-section">
       <div className="container">
         <div className="space-y-8">
           <div className="demos-catalog-main">
-            <section className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+            <section id="demos-hero" className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-400">
                   {siteConfig.demos.eyebrow}
@@ -459,7 +459,7 @@ export function DemosGallerySection({ industrySlug }: DemosGallerySectionProps) 
               </div>
             </SurfaceCard>
 
-            <div className="demos-gallery">
+            <div id="demos-rubros" className="demos-gallery">
               {visibleCategories.length > 0 ? (
                 visibleCategories.map((category) => (
                   <section key={category.slug} className="demo-category">
