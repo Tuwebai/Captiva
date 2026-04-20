@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
@@ -14,6 +15,7 @@ type PrimaryCTAProps = LeadContext & {
   href?: string;
   className?: string;
   variant?: 'primary' | 'secondary';
+  icon?: ReactNode;
 };
 
 export function PrimaryCTA({
@@ -27,6 +29,7 @@ export function PrimaryCTA({
   context,
   className,
   variant = 'primary',
+  icon,
 }: PrimaryCTAProps) {
   const { trackConversion, trackEvent, trackWhatsApp } = useAnalytics();
   const classes = ['button-link', `button-link--${variant}`, className].filter(Boolean).join(' ');
@@ -61,6 +64,7 @@ export function PrimaryCTA({
         href={target}
         onClick={() => trackCta('lead-form')}
       >
+        {icon}
         {label}
       </a>
     );
@@ -69,6 +73,7 @@ export function PrimaryCTA({
   if (mode === 'route') {
     return (
       <Link className={classes} to={href ?? siteConfig.routes.captiva} onClick={() => trackCta('route')}>
+        {icon}
         {label}
       </Link>
     );
@@ -97,6 +102,7 @@ export function PrimaryCTA({
         trackWhatsApp(source ?? 'unknown', label, industry ?? pageContext.industry);
       }}
     >
+      {icon}
       {label}
     </a>
   );
