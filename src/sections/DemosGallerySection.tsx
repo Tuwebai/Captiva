@@ -4,7 +4,6 @@ import { ANALYTICS_EVENTS, useAnalytics } from '../lib/analytics';
 import { PrimaryCTA } from '../components/cta/PrimaryCTA';
 import { LeadFormSection } from '../components/forms/LeadFormSection';
 import { RelatedLinksSection } from '../components/seo/RelatedLinksSection';
-import { SectionHeading } from '../components/ui/SectionHeading';
 import { SurfaceCard } from '../components/ui/SurfaceCard';
 import { getRouteCta } from '../config/cta-strategy';
 import { siteConfig } from '../config/site';
