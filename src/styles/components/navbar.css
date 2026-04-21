@@ -19,6 +19,10 @@
   backdrop-filter: blur(18px);
 }
 
+.site-header__inner--demos {
+  max-width: 48rem;
+}
+
 .brand-mark {
   display: inline-flex;
   align-items: center;
@@ -99,6 +103,10 @@
   .site-header__inner {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .site-header__inner--demos {
+    max-width: none;
   }
 
   .site-header__nav {
@@ -380,4 +388,3 @@
 .footer-contact a:focus-visible {
   color: var(--ui-text);
 }
-

@@ -29,7 +29,7 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
 
   return (
     <header className="site-header">
-      <div className="container site-header__inner">
+      <div className={`container site-header__inner${isDemosPage ? ' site-header__inner--demos' : ''}`}>
         <a className="brand-mark" href={siteConfig.routes.captiva}>
           <img
             className="brand-mark__logo"
