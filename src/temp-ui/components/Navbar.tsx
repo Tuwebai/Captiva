@@ -10,6 +10,7 @@ export default function Navbar() {
     { label: 'Demos', href: tempUiBridge.siteConfig.routes.captivaDemos, onClick: undefined },
     { label: 'Cómo funciona', href: `${tempUiBridge.siteConfig.routes.captiva}#como-funciona`, onClick: () => scrollTo('como-funciona') },
     { label: 'Planes', href: `${tempUiBridge.siteConfig.routes.captiva}#planes`, onClick: () => scrollTo('planes') },
+    { label: 'Blog', href: tempUiBridge.siteConfig.routes.blog, onClick: undefined },
     { label: 'FAQ', href: `${tempUiBridge.siteConfig.routes.captiva}#faq`, onClick: () => scrollTo('faq') },
   ];
 

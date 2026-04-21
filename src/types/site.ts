@@ -71,6 +71,7 @@ export type SiteRoutes = {
   home: string;
   captiva: string;
   captivaDemos: string;
+  blog: string;
   demosPublicBase: string;
   termsOfService: string;
   privacyPolicy: string;

@@ -14,14 +14,16 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
   const { trackEvent, trackWhatsApp } = useAnalytics();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
+  const isCaptivaHome = normalizedPath === siteConfig.routes.captiva;
   const isDemosPage =
-    location.pathname === siteConfig.routes.captivaDemos ||
-    location.pathname.startsWith(`${siteConfig.routes.captivaDemos}/`);
+    normalizedPath === siteConfig.routes.captivaDemos ||
+    normalizedPath.startsWith(`${siteConfig.routes.captivaDemos}/`);
   const homeNavItems = [
     { label: 'Demos', href: `${siteConfig.routes.captiva}#demos` },
     { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona` },
     { label: 'Planes', href: `${siteConfig.routes.captiva}#planes` },
+    { label: 'Blog', href: siteConfig.routes.blog },
     { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq` },
   ];
   const demosNavItems = [

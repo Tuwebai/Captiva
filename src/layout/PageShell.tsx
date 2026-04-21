@@ -20,16 +20,17 @@ export function PageShell({ children }: PropsWithChildren) {
   useScrollRestoration();
   const { resolvedTheme } = useTheme();
   const location = useLocation();
+  const normalizedPath = location.pathname.replace(/\/+$/, '') || '/';
   const isLegalContext =
-    location.pathname === siteConfig.routes.termsOfService || location.pathname === siteConfig.routes.privacyPolicy;
+    normalizedPath === siteConfig.routes.termsOfService || normalizedPath === siteConfig.routes.privacyPolicy;
   const isCaptivaContext =
-    location.pathname.startsWith(siteConfig.routes.captiva) ||
-    location.pathname.startsWith('/landing-page-para-') ||
-    location.pathname.startsWith('/blog');
-  const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
+    normalizedPath.startsWith(siteConfig.routes.captiva) ||
+    normalizedPath.startsWith('/landing-page-para-') ||
+    normalizedPath.startsWith('/blog');
+  const isCaptivaHome = normalizedPath === siteConfig.routes.captiva;
   const isCaptivaDemos =
-    location.pathname === siteConfig.routes.captivaDemos ||
-    location.pathname.startsWith(`${siteConfig.routes.captivaDemos}/`);
+    normalizedPath === siteConfig.routes.captivaDemos ||
+    normalizedPath.startsWith(`${siteConfig.routes.captivaDemos}/`);
   const [isRailCollapsed, setIsRailCollapsed] = useState(false);
   const [isMobileRailOpen, setIsMobileRailOpen] = useState(false);
 

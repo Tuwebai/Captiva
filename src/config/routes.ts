@@ -8,6 +8,7 @@ export const routes: SiteRoutes = {
   home: '/',
   captiva: baseRoute,
   captivaDemos: captivaDemosRoute,
+  blog: '/blog',
   demosPublicBase: demosPublicBaseRoute,
   termsOfService: '/terminos-de-servicio',
   privacyPolicy: '/politica-de-privacidad',
