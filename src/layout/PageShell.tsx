@@ -1,19 +1,15 @@
-import { type PropsWithChildren, type ReactEventHandler, useEffect, useMemo, useState } from 'react';
+import { type PropsWithChildren, type ReactEventHandler } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { Footer } from '../components/layout/Footer';
 import { MainLayout } from '../components/layout/MainLayout';
 import { Navbar } from '../components/layout/Navbar';
-import { Sidebar } from '../components/layout/Sidebar';
-import type { RailItem } from '../components/layout/types';
-import { useAnalytics, useClickTracking, usePageTracking, useScrollDepth } from '../lib/analytics';
+import { useClickTracking, usePageTracking, useScrollDepth } from '../lib/analytics';
 import { useTheme } from '../components/ui/theme/useTheme';
 import { siteConfig } from '../config/site';
-import { usePageShellNavigation } from '../hooks/usePageShellNavigation';
 import { useScrollRestoration } from '../hooks/useScrollRestoration';
 
 export function PageShell({ children }: PropsWithChildren) {
-  const { trackEvent } = useAnalytics();
   useClickTracking();
   usePageTracking();
   useScrollDepth();
@@ -31,29 +27,9 @@ export function PageShell({ children }: PropsWithChildren) {
   const isCaptivaDemos =
     normalizedPath === siteConfig.routes.captivaDemos ||
     normalizedPath.startsWith(`${siteConfig.routes.captivaDemos}/`);
-  const [isRailCollapsed, setIsRailCollapsed] = useState(false);
-  const [isMobileRailOpen, setIsMobileRailOpen] = useState(false);
+  const usesLegacyRail = false;
+  const isRailCollapsed = false;
 
-  const railItems = useMemo<RailItem[]>(
-    () => [
-      { label: 'Inicio', href: siteConfig.routes.captiva, type: 'route', icon: 'home' },
-      { label: 'Demos', href: siteConfig.routes.captivaDemos, type: 'route', icon: 'demos' },
-      { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona`, icon: 'how' },
-      { label: 'Blog', href: '/blog', type: 'route', icon: 'blog' },
-      { label: 'Qué incluye', href: `${siteConfig.routes.captiva}#oferta`, icon: 'industries' },
-      { label: 'Planes', href: `${siteConfig.routes.captiva}#planes`, icon: 'page' },
-      { label: 'Prueba social', href: `${siteConfig.routes.captiva}#prueba-social`, icon: 'benefits' },
-      { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq`, icon: 'clarity' },
-      { label: 'Contacto', href: `${siteConfig.routes.captiva}#contacto`, icon: 'contact-nav' },
-    ],
-    [],
-  );
-
-  const { handleAnchorSelect, isAnchorActive, isHomeNavActive } = usePageShellNavigation({
-    isCaptivaHome,
-    hash: location.hash,
-    railItems,
-  });
   const fullLogoSrc = resolvedTheme === 'light' ? '/LOGO-captiva-light.png' : '/LOGO-captiva.png';
 
   const handleLogoError: ReactEventHandler<HTMLImageElement> = (event) => {
@@ -68,33 +44,6 @@ export function PageShell({ children }: PropsWithChildren) {
     img.src = '/LOGO-captiva-icon.png';
   };
 
-  const handleRailToggle = () => {
-    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
-
-    if (isMobileViewport) {
-      setIsMobileRailOpen((previous) => {
-        const next = !previous;
-        trackEvent({ action: 'internal_nav', category: 'rail', label: next ? 'open-mobile' : 'close-mobile' });
-        return next;
-      });
-      return;
-    }
-
-    setIsRailCollapsed((previous) => {
-      const next = !previous;
-      trackEvent({ action: 'internal_nav', category: 'rail', label: next ? 'collapse' : 'expand' });
-      return next;
-    });
-  };
-
-  const handleCloseMobileRail = () => {
-    setIsMobileRailOpen(false);
-  };
-
-  useEffect(() => {
-    setIsMobileRailOpen(false);
-  }, [location.pathname, location.hash]);
-
   return (
     <div className="site-shell">
       <Navbar
@@ -103,26 +52,12 @@ export function PageShell({ children }: PropsWithChildren) {
         onLogoError={handleLogoError}
       />
 
-      <Sidebar
-        visible={isCaptivaContext && !isCaptivaHome && !isCaptivaDemos}
-        isRailCollapsed={isRailCollapsed}
-        isMobileRailOpen={isMobileRailOpen}
-        isHomeNavActive={isHomeNavActive}
-        fullLogoSrc={fullLogoSrc}
-        onLogoError={handleLogoError}
-        railItems={railItems}
-        isAnchorActive={isAnchorActive}
-        onToggleRail={handleRailToggle}
-        onCloseMobileRail={handleCloseMobileRail}
-        onSelectAnchor={handleAnchorSelect}
-      />
-
-      <MainLayout isCaptivaContext={isCaptivaContext && !isCaptivaHome} isRailCollapsed={isRailCollapsed}>
+      <MainLayout isCaptivaContext={usesLegacyRail && isCaptivaContext && !isCaptivaHome} isRailCollapsed={isRailCollapsed}>
         {children}
       </MainLayout>
 
       <Footer
-        isCaptivaContext={isCaptivaContext && !isCaptivaHome}
+        isCaptivaContext={usesLegacyRail && isCaptivaContext && !isCaptivaHome}
         isRailCollapsed={isRailCollapsed}
         fullLogoSrc={fullLogoSrc}
         onLogoError={handleLogoError}
