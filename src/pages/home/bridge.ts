@@ -31,7 +31,7 @@ function findDemoHrefByShowcaseSlug(showcaseSlug: string) {
   return demo?.href ?? siteConfig.routes.captivaDemos;
 }
 
-export const tempUiBridge = {
+export const homeBridge = {
   siteConfig,
   waLink: siteConfig.contact.ctaHref,
   primaryWaByMessage: (message: string) => buildWhatsAppLeadUrl(siteConfig.contact.whatsapp, message),

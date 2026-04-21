@@ -1,4 +1,4 @@
-import { tempUiBridge } from '../bridge';
+import { homeBridge } from '../bridge';
 
 export default function CTAFinal() {
   return (
@@ -36,7 +36,7 @@ export default function CTAFinal() {
 
         {/* Main CTA */}
         <a
-          href={tempUiBridge.waLink}
+          href={homeBridge.waLink}
           target="_blank"
           rel="noopener noreferrer"
           className="ui-btn-primary inline-flex items-center justify-center gap-3 text-white font-black text-lg px-10 py-5 rounded-2xl transition-all duration-200 hover:shadow-2xl hover:shadow-violet-500/30 hover:-translate-y-1 mb-5 glow-brand"

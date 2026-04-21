@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 
-import { tempUiBridge } from '../bridge';
+import { homeBridge } from '../bridge';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const navItems = [
-    { label: 'Demos', href: tempUiBridge.siteConfig.routes.captivaDemos, onClick: undefined },
-    { label: 'Cómo funciona', href: `${tempUiBridge.siteConfig.routes.captiva}#como-funciona`, onClick: () => scrollTo('como-funciona') },
-    { label: 'Planes', href: `${tempUiBridge.siteConfig.routes.captiva}#planes`, onClick: () => scrollTo('planes') },
-    { label: 'Blog', href: tempUiBridge.siteConfig.routes.blog, onClick: undefined },
-    { label: 'FAQ', href: `${tempUiBridge.siteConfig.routes.captiva}#faq`, onClick: () => scrollTo('faq') },
+    { label: 'Demos', href: homeBridge.siteConfig.routes.captivaDemos, onClick: undefined },
+    { label: 'Cómo funciona', href: `${homeBridge.siteConfig.routes.captiva}#como-funciona`, onClick: () => scrollTo('como-funciona') },
+    { label: 'Planes', href: `${homeBridge.siteConfig.routes.captiva}#planes`, onClick: () => scrollTo('planes') },
+    { label: 'Blog', href: homeBridge.siteConfig.routes.blog, onClick: undefined },
+    { label: 'FAQ', href: `${homeBridge.siteConfig.routes.captiva}#faq`, onClick: () => scrollTo('faq') },
   ];
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href={tempUiBridge.siteConfig.routes.captiva} className="flex items-center">
+        <a href={homeBridge.siteConfig.routes.captiva} className="flex items-center">
           <img
             src="/LOGO-captiva.png"
             alt="Captiva"
@@ -67,7 +67,7 @@ export default function Navbar() {
 
         {/* CTA */}
         {!isMobileViewport ? <a
-          href={tempUiBridge.waLink}
+          href={homeBridge.waLink}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/20"
@@ -113,7 +113,7 @@ export default function Navbar() {
             ))}
 
             <a
-              href={tempUiBridge.waLink}
+              href={homeBridge.waLink}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white"

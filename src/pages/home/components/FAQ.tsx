@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { tempUiBridge } from '../bridge';
+import { homeBridge } from '../bridge';
 
 const faqs = [
   {
@@ -96,7 +96,7 @@ export default function FAQ() {
         {/* CTA */}
         <div className="text-center">
           <a
-            href={tempUiBridge.waLink}
+            href={homeBridge.waLink}
             target="_blank"
             rel="noopener noreferrer"
             className="ui-btn-primary inline-flex items-center gap-2.5 text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5"

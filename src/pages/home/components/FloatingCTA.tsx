@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { tempUiBridge } from '../bridge';
+import { homeBridge } from '../bridge';
 
 export default function FloatingCTA() {
   const [visible, setVisible] = useState(false);
@@ -50,7 +50,7 @@ export default function FloatingCTA() {
 
       {/* WhatsApp button */}
       <a
-        href={tempUiBridge.waLink}
+        href={homeBridge.waLink}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 bg-[#25D366] hover:bg-[#20B958] rounded-full flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/30 transition-all duration-200 hover:scale-110"

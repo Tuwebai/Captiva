@@ -1,4 +1,4 @@
-import { tempUiBridge } from '../bridge';
+import { homeBridge } from '../bridge';
 
 const planes = [
   {
@@ -9,7 +9,7 @@ const planes = [
     currency: 'USD',
     badge: null,
     highlighted: false,
-    waLink: tempUiBridge.primaryWaByMessage('Hola, me interesa el plan Starter de Captiva.'),
+    waLink: homeBridge.primaryWaByMessage('Hola, me interesa el plan Starter de Captiva.'),
     cta: 'Quiero el Starter',
     microcopy: 'Hosting + dominio incluidos. Sin sorpresas.',
     features: [
@@ -36,7 +36,7 @@ const planes = [
     currency: 'USD',
     badge: 'Recomendado',
     highlighted: true,
-    waLink: tempUiBridge.primaryWaByMessage('Hola, quiero el plan Growth de Captiva.'),
+    waLink: homeBridge.primaryWaByMessage('Hola, quiero el plan Growth de Captiva.'),
     cta: 'Quiero el Growth',
     microcopy: 'El más elegido. Podés empezar esta semana.',
     features: [
@@ -62,7 +62,7 @@ const planes = [
     currency: 'USD',
     badge: null,
     highlighted: false,
-    waLink: tempUiBridge.primaryWaByMessage('Hola, me interesa el plan Scale de Captiva.'),
+    waLink: homeBridge.primaryWaByMessage('Hola, me interesa el plan Scale de Captiva.'),
     cta: 'Quiero el Scale',
     microcopy: 'Ideal para campañas pagas o varios frentes.',
     features: [
