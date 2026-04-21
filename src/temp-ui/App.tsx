@@ -10,7 +10,7 @@ import FloatingCTA from './components/FloatingCTA';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#09090B] text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[#09090B] text-white">
       <Navbar />
 
       <main>

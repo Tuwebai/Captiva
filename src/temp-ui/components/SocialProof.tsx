@@ -85,20 +85,20 @@ export default function SocialProof() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-5 md:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-5 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Resultados reales
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-[2rem] sm:text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
             Lo que pasó cuando{' '}
             <span className="gradient-text">lanzamos estas landings</span>
           </h2>
         </div>
 
         {/* Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 md:mb-14">
           {metrics.map((m) => (
             <div
               key={m.label}
@@ -113,7 +113,7 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {testimonials.map((t) => (
             <div
               key={t.name}

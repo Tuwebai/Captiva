@@ -60,14 +60,14 @@ const demos = [
 function DemoCard({ demo, index }: { demo: typeof demos[0]; index: number }) {
   return (
     <div
-      className="group relative bg-[#111113] border border-[#27272A] rounded-3xl overflow-hidden hover:border-[#3F3F46] transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      className="group relative bg-surface border border-border rounded-3xl overflow-hidden hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Gradient top bar */}
-      <div className={`h-1 w-full bg-gradient-to-r ${demo.topBar}`} />
+      <div className={`h-1 w-full bg-linear-to-r ${demo.topBar}`} />
 
       {/* Card header */}
-      <div className={`p-5 bg-gradient-to-br ${demo.color}`}>
+      <div className={`p-5 bg-linear-to-br ${demo.color}`}>
         {/* Browser bar mock */}
         <div className="bg-[#0D0D0F]/80 rounded-xl p-3 mb-4">
           <div className="flex items-center gap-2 mb-3">
@@ -132,16 +132,16 @@ export default function DemoShowcase() {
   return (
     <section id="demos" className="py-20 md:py-28 relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-[#27272A] to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-linear-to-r from-transparent via-border to-transparent" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Esto puede ser tu negocio
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-[2rem] sm:text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
             Mirá lo que ya tienen{' '}
             <span className="gradient-text">tus competidores</span>
           </h2>
@@ -151,7 +151,7 @@ export default function DemoShowcase() {
         </div>
 
         {/* Demo grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {demos.map((demo, i) => (
             <DemoCard key={demo.rubro} demo={demo} index={i} />
           ))}
@@ -165,7 +165,7 @@ export default function DemoShowcase() {
           ].map((rubro) => (
             <span
               key={rubro}
-              className="text-xs text-zinc-500 border border-[#27272A] rounded-full px-3 py-1.5"
+              className="text-xs text-zinc-500 border border-border rounded-full px-3 py-1.5"
             >
               {rubro}
             </span>

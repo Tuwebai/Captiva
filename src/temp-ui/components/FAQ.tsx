@@ -72,13 +72,13 @@ export default function FAQ() {
         <div className="ui-divider-line absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px" />
       </div>
 
-      <div className="relative max-w-3xl mx-auto px-5 md:px-8">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-5 md:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <div className="ui-card-soft inline-flex items-center gap-2 text-zinc-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Sin letra chica
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          <h2 className="text-[2rem] sm:text-3xl md:text-4xl font-black text-white mb-4">
             Preguntas frecuentes
           </h2>
           <p className="text-zinc-500 text-sm">

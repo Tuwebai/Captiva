@@ -15,7 +15,7 @@ export default function CTAFinal() {
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-bg opacity-40" />
 
-      <div className="relative max-w-3xl mx-auto px-5 md:px-8 text-center">
+      <div className="relative max-w-3xl mx-auto px-4 sm:px-5 md:px-8 text-center">
         {/* Badge */}
         <div className="ui-chip inline-flex items-center gap-2 text-violet-300 text-xs font-semibold px-4 py-2 rounded-full mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-violet-400 pulse-dot inline-block" />
@@ -23,7 +23,7 @@ export default function CTAFinal() {
         </div>
 
         {/* Headline */}
-        <h2 className="text-3xl md:text-5xl font-black text-white mb-5 leading-tight">
+        <h2 className="text-[2rem] sm:text-3xl md:text-5xl font-black text-white mb-5 leading-tight">
           ¿Seguís perdiendo clientes{' '}
           <span className="gradient-text">por no tener una página?</span>
         </h2>

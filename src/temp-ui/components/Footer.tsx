@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t ui-border bg-[var(--ui-bg)] py-12">
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 md:px-8">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start gap-3">

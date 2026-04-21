@@ -52,13 +52,13 @@ export default function ComoFunciona() {
         <div className="ui-surface absolute inset-0 opacity-40" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-5 md:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-5 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Sin complicaciones
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+          <h2 className="text-[2rem] sm:text-3xl md:text-4xl font-black text-white leading-tight">
             Tres pasos.{' '}
             <span className="gradient-text">Cinco días.</span>{' '}
             Tu landing activa.
@@ -66,14 +66,14 @@ export default function ComoFunciona() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 relative">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 relative">
           {/* Connector line - desktop only */}
           <div className="hidden md:block absolute top-12 left-[calc(16.67%+24px)] right-[calc(16.67%+24px)] h-px bg-gradient-to-r from-violet-600/30 via-violet-400/50 to-emerald-500/30" />
 
           {steps.map((step, i) => (
             <div key={step.num} className="relative">
               {/* Step card */}
-              <div className="ui-card rounded-3xl p-7 h-full hover:border-zinc-700 transition-all duration-300 hover:shadow-xl group">
+              <div className="ui-card rounded-3xl p-5 sm:p-7 h-full hover:border-zinc-700 transition-all duration-300 hover:shadow-xl group">
                 {/* Number + icon row */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="relative">

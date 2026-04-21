@@ -108,13 +108,13 @@ export default function Planes() {
         <div className="absolute top-1/2 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-5 md:px-8">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-5 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-semibold px-4 py-2 rounded-full mb-5">
             Precios claros, sin sorpresas
           </div>
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+          <h2 className="text-[2rem] sm:text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
             Elegí el plan que necesita{' '}
             <span className="gradient-text">tu negocio</span>
           </h2>
@@ -125,13 +125,13 @@ export default function Planes() {
         </div>
 
         {/* Plans grid */}
-        <div className="grid md:grid-cols-3 gap-6 items-start">
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6 items-start">
           {planes.map((plan) => (
             <div
               key={plan.id}
               className={`relative rounded-3xl overflow-hidden transition-all duration-300 ${
                 plan.highlighted
-                  ? 'bg-gradient-to-b from-violet-600/20 to-[#111113] border-2 border-violet-500/60 shadow-2xl shadow-violet-500/10 scale-[1.02] md:scale-105'
+                  ? 'bg-gradient-to-b from-violet-600/20 to-[#111113] border-2 border-violet-500/60 shadow-2xl shadow-violet-500/10 md:scale-105'
                   : 'ui-surface border ui-border hover:border-zinc-700'
               }`}
             >
