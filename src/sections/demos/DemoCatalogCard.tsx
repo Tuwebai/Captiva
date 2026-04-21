@@ -13,7 +13,7 @@ export function DemoCatalogCard({ item, index, onOpen }: DemoCatalogCardProps) {
   const mockup = showcaseMockupByIndustry[item.industry] ?? showcaseMockupByIndustry.odontologia;
 
   return (
-    <div className="group relative bg-surface border border-border rounded-3xl overflow-hidden hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" style={{ animationDelay: `${index * 100}ms` }}>
+    <div className="group relative flex h-full flex-col bg-surface border border-border rounded-3xl overflow-hidden hover:border-zinc-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl" style={{ animationDelay: `${index * 100}ms` }}>
       <div className={`h-1 w-full bg-linear-to-r ${mockup.topBar}`} />
 
       <a
@@ -28,8 +28,8 @@ export function DemoCatalogCard({ item, index, onOpen }: DemoCatalogCardProps) {
 
       </a>
 
-      <div className="p-5 space-y-3">
-        <div>
+      <div className="flex flex-1 flex-col p-5 space-y-3">
+        <div className="flex-1">
           <div className="text-xs text-zinc-500 font-medium uppercase tracking-wide mb-1">{getIndustryLabel(item.industry)}</div>
           <h3 className="text-base font-bold text-white">{item.title}</h3>
           <p className="text-sm text-zinc-400 mt-1 leading-snug">"{item.description}"</p>
