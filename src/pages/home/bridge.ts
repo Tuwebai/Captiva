@@ -1,7 +1,7 @@
-import { siteConfig } from '../config/site';
-import { faqSchema } from '../sections/FaqSection';
-import { buildWhatsAppLeadUrl } from '../utils/lead-message';
-import { demosManifest } from '../data/demosManifest';
+import { siteConfig } from '../../config/site';
+import { faqSchema } from '../../sections/FaqSection';
+import { buildWhatsAppLeadUrl } from '../../utils/lead-message';
+import { demosManifest } from '../../data/demosManifest';
 
 type FaqEntry = {
   question: string;

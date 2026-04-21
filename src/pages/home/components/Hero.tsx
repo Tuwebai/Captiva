@@ -128,7 +128,7 @@ export default function Hero() {
             <p className="text-sm text-zinc-400 font-medium tracking-wide uppercase">{tempUiBridge.hero.kicker}</p>
 
             <h1 className="text-[2.7rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.05] tracking-tight text-white">
-              {tempUiBridge.hero.title.split('5 días').map((part, index, arr) => (
+              {tempUiBridge.hero.title.split('5 días').map((part: string, index: number, arr: string[]) => (
                 <span key={`${part}-${index}`}>
                   {part}
                   {index < arr.length - 1 ? <span className="gradient-text">5 días</span> : null}

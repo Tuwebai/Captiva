@@ -1,4 +1,4 @@
-import TempLandingApp from '../temp-ui/App';
+import TempLandingApp from './home/App';
 
 export function HomePage() {
   return <TempLandingApp />;
