@@ -111,133 +111,143 @@ export function DemosCatalogContent({
               </div>
             </section>
 
-            <div className="demos-filter-toolbar">
-              <div className="demos-filter-toolbar__header">
-                <p className="section-heading__eyebrow !mb-0">Explorar catálogo</p>
-                <p className="demos-filter-toolbar__summary">Filtrá por rubro, categoría o etiqueta sin sacar protagonismo a las demos.</p>
-              </div>
-
-              <div className="demos-filter-toolbar__groups">
-                <div className="demos-filter-toolbar__group">
-                  <span className="section-heading__eyebrow !mb-0">Industrias</span>
-                  <div className="template-filters template-filters--compact" role="tablist" aria-label="Filtrar demos por industria">
-                    <button
-                      type="button"
-                      role="tab"
-                      aria-selected={normalizedIndustryFilterKey === 'all'}
-                      className={`template-filter-chip${normalizedIndustryFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
-                      onClick={() => onIndustryFilterClick('all')}
-                    >
-                      Todas las industrias
-                    </button>
-                    {industryFilters.map((industry) => (
-                      <button
-                        key={industry.key}
-                        type="button"
-                        role="tab"
-                        aria-selected={industry.key === normalizedIndustryFilterKey}
-                        className={`template-filter-chip${industry.key === normalizedIndustryFilterKey ? ' template-filter-chip--active' : ''}`}
-                        onClick={() => onIndustryFilterClick(industry.key)}
-                      >
-                        {industry.label}
-                      </button>
-                    ))}
+            <div className="demos-catalog-layout">
+              <aside className="demos-filter-sidebar" aria-label="Filtros del catálogo">
+                <div className="demos-filter-sidebar__inner">
+                  <div className="demos-filter-toolbar__header">
+                    <p className="section-heading__eyebrow mb-0">Explorar catálogo</p>
+                    <p className="demos-filter-toolbar__summary">Filtrá por rubro, categoría o etiqueta.</p>
                   </div>
-                </div>
 
-                <div className="demos-filter-toolbar__group">
-                  <span className="section-heading__eyebrow !mb-0">Categorías</span>
-                  <div className="template-filters template-filters--compact" role="tablist" aria-label={siteConfig.demos.filtersAriaLabel}>
-                    {categoryFilters.map((filter) => {
-                      const isActive = filter.key === normalizedFilterKey;
-
-                      return (
+                  <div className="demos-filter-toolbar__groups">
+                    <div className="demos-filter-toolbar__group">
+                      <span className="section-heading__eyebrow mb-0">Industrias</span>
+                      <div className="template-filters template-filters--stacked template-filters--sidebar" role="tablist" aria-label="Filtrar demos por industria">
                         <button
-                          key={filter.key}
-                          className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
                           type="button"
                           role="tab"
-                          aria-selected={isActive}
-                          onClick={() => onCategoryFilterClick(filter.key)}
+                          aria-selected={normalizedIndustryFilterKey === 'all'}
+                          className={`template-filter-chip${normalizedIndustryFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
+                          onClick={() => onIndustryFilterClick('all')}
                         >
-                          {filter.label}
+                          Todas las industrias
                         </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {tagFilters.length > 0 ? (
-                  <div className="demos-filter-toolbar__group">
-                    <span className="section-heading__eyebrow !mb-0">Etiquetas</span>
-                    <div className="template-filters template-filters--compact" role="tablist" aria-label="Filtrar demos por etiqueta">
-                      <button
-                        className={`template-filter-chip${normalizedTagFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
-                        type="button"
-                        role="tab"
-                        aria-selected={normalizedTagFilterKey === 'all'}
-                        onClick={() => onTagFilterClick('all')}
-                      >
-                        Todas las etiquetas
-                      </button>
-                      {tagFilters.slice(0, 10).map((filter) => {
-                        const isActive = filter.key === normalizedTagFilterKey;
-
-                        return (
+                        {industryFilters.map((industry) => (
                           <button
-                            key={filter.key}
-                            className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
+                            key={industry.key}
                             type="button"
                             role="tab"
-                            aria-selected={isActive}
-                            onClick={() => onTagFilterClick(filter.key)}
+                            aria-selected={industry.key === normalizedIndustryFilterKey}
+                            className={`template-filter-chip${industry.key === normalizedIndustryFilterKey ? ' template-filter-chip--active' : ''}`}
+                            onClick={() => onIndustryFilterClick(industry.key)}
                           >
-                            {filter.label}
+                            {industry.label}
                           </button>
-                        );
-                      })}
+                        ))}
+                      </div>
                     </div>
+
+                    <div className="demos-filter-toolbar__group">
+                      <span className="section-heading__eyebrow mb-0">Categorías</span>
+                      <div className="template-filters template-filters--stacked template-filters--sidebar" role="tablist" aria-label={siteConfig.demos.filtersAriaLabel}>
+                        {categoryFilters.map((filter) => {
+                          const isActive = filter.key === normalizedFilterKey;
+
+                          return (
+                            <button
+                              key={filter.key}
+                              className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
+                              type="button"
+                              role="tab"
+                              aria-selected={isActive}
+                              onClick={() => onCategoryFilterClick(filter.key)}
+                            >
+                              {filter.label}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {tagFilters.length > 0 ? (
+                      <div className="demos-filter-toolbar__group">
+                        <span className="section-heading__eyebrow mb-0">Etiquetas</span>
+                        <div className="template-filters template-filters--stacked template-filters--sidebar" role="tablist" aria-label="Filtrar demos por etiqueta">
+                          <button
+                            className={`template-filter-chip${normalizedTagFilterKey === 'all' ? ' template-filter-chip--active' : ''}`}
+                            type="button"
+                            role="tab"
+                            aria-selected={normalizedTagFilterKey === 'all'}
+                            onClick={() => onTagFilterClick('all')}
+                          >
+                            Todas las etiquetas
+                          </button>
+                          {tagFilters.slice(0, 10).map((filter) => {
+                            const isActive = filter.key === normalizedTagFilterKey;
+
+                            return (
+                              <button
+                                key={filter.key}
+                                className={`template-filter-chip${isActive ? ' template-filter-chip--active' : ''}`}
+                                type="button"
+                                role="tab"
+                                aria-selected={isActive}
+                                onClick={() => onTagFilterClick(filter.key)}
+                              >
+                                {filter.label}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {hasActiveFilters ? (
+                      <button type="button" className="demos-filter-sidebar__reset" onClick={onResetFilters}>
+                        Limpiar filtros
+                      </button>
+                    ) : null}
                   </div>
-                ) : null}
+                </div>
+              </aside>
+
+              <div id="demos-rubros" className="demos-gallery">
+                {visibleCategories.length > 0 ? (
+                  visibleCategories.map((category) => (
+                    <section key={category.slug} className="demo-category">
+                      <div className="demo-category__header">
+                        <div>
+                          <p className="section-heading__eyebrow">{category.title}</p>
+                          <h2>{category.title}</h2>
+                        </div>
+                        <div className="demo-category__meta">
+                          <p>{category.description}</p>
+                          {industryByCategory.get(category.slug) ? (
+                            <Link className="text-link" to={`/${industryByCategory.get(category.slug)?.slug ?? ''}`} onClick={() => onOpenIndustryPage(category.slug)}>
+                              {siteConfig.demos.industryLinkPrefix} {category.title.toLowerCase()}
+                            </Link>
+                          ) : null}
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {category.items.map((item, index) => (
+                          <DemoCatalogCard key={item.slug} item={item} index={index} onOpen={() => onOpenItem(item.category, item.slug)} />
+                        ))}
+                      </div>
+                    </section>
+                  ))
+                ) : (
+                  <SurfaceCard className="demos-empty-state">
+                    <p className="section-heading__eyebrow">Sin coincidencias</p>
+                    <h2>No encontramos demos para esta combinacion de filtros.</h2>
+                    <p>Proba cambiando la industria o la etiqueta para volver a ver demos activas.</p>
+                    <button type="button" className="template-filter-chip template-filter-chip--active" onClick={onResetFilters}>
+                      Ver todo el catalogo
+                    </button>
+                  </SurfaceCard>
+                )}
               </div>
-            </div>
-
-            <div id="demos-rubros" className="demos-gallery">
-              {visibleCategories.length > 0 ? (
-                visibleCategories.map((category) => (
-                  <section key={category.slug} className="demo-category">
-                    <div className="demo-category__header">
-                      <div>
-                        <p className="section-heading__eyebrow">{category.title}</p>
-                        <h2>{category.title}</h2>
-                      </div>
-                      <div className="demo-category__meta">
-                        <p>{category.description}</p>
-                        {industryByCategory.get(category.slug) ? (
-                          <Link className="text-link" to={`/${industryByCategory.get(category.slug)?.slug ?? ''}`} onClick={() => onOpenIndustryPage(category.slug)}>
-                            {siteConfig.demos.industryLinkPrefix} {category.title.toLowerCase()}
-                          </Link>
-                        ) : null}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      {category.items.map((item, index) => (
-                        <DemoCatalogCard key={item.slug} item={item} index={index} onOpen={() => onOpenItem(item.category, item.slug)} />
-                      ))}
-                    </div>
-                  </section>
-                ))
-              ) : (
-                <SurfaceCard className="demos-empty-state">
-                  <p className="section-heading__eyebrow">Sin coincidencias</p>
-                  <h2>No encontramos demos para esta combinacion de filtros.</h2>
-                  <p>Proba cambiando la industria o la etiqueta para volver a ver demos activas.</p>
-                  <button type="button" className="template-filter-chip template-filter-chip--active" onClick={onResetFilters}>
-                    Ver todo el catalogo
-                  </button>
-                </SurfaceCard>
-              )}
             </div>
 
             <div className="demos-catalog-followup">
