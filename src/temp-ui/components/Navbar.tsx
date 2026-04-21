@@ -78,11 +78,12 @@ export default function Navbar() {
         </a> : null}
 
         {/* Mobile menu button */}
-        {isMobileViewport ? <button
+        <button
           type="button"
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
           className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-600/40 text-violet-400"
+          style={{ display: isMobileViewport ? 'inline-flex' : 'none' }}
           onClick={() => setMenuOpen((current) => !current)}
         >
           <span className="flex flex-col gap-1">
@@ -90,7 +91,7 @@ export default function Navbar() {
             <span className="block h-0.5 w-4 rounded-full bg-current" />
             <span className="block h-0.5 w-4 rounded-full bg-current" />
           </span>
-        </button> : null}
+        </button>
       </div>
 
       {menuOpen && isMobileViewport ? (

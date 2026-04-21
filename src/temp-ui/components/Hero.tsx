@@ -117,8 +117,8 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-900/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-5 md:px-8 py-16 md:py-24 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-5 md:px-8 py-14 md:py-24 w-full">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className={`space-y-7 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <a href={tempUiBridge.hero.badgeHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-violet-600/10 border border-violet-500/25 text-violet-300 text-xs font-semibold px-4 py-2 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-violet-400 pulse-dot inline-block" />
@@ -127,7 +127,7 @@ export default function Hero() {
 
             <p className="text-sm text-zinc-400 font-medium tracking-wide uppercase">{tempUiBridge.hero.kicker}</p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.05] tracking-tight text-white">
+            <h1 className="text-[2.7rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-black leading-[1.05] tracking-tight text-white">
               {tempUiBridge.hero.title.split('5 días').map((part, index, arr) => (
                 <span key={`${part}-${index}`}>
                   {part}
@@ -138,22 +138,22 @@ export default function Hero() {
 
             <p className="text-base md:text-lg text-zinc-400 leading-relaxed max-w-lg">{tempUiBridge.hero.supportingCopy}</p>
 
-            <div className="flex items-center gap-3">
-              <div className="ui-card-soft rounded-2xl px-5 py-3 inline-flex items-center gap-3">
+            <div className="flex">
+              <div className="ui-card-soft w-full sm:w-auto rounded-2xl px-4 sm:px-5 py-3 inline-flex flex-col sm:flex-row items-start sm:items-center gap-3">
                 <div>
                   <div className="text-xs text-zinc-500 mb-0.5">Desde</div>
                   <div className="text-2xl font-black text-white">{tempUiBridge.hero.priceAnchor.replace('Desde ', '').replace(' — sin mensualidades', '')}</div>
                 </div>
-                <div className="ui-surface-2 w-px h-10" />
-                <div className="text-xs text-zinc-400 max-w-[100px]">Pago único, sin mensualidades</div>
+                <div className="ui-surface-2 hidden sm:block w-px h-10" />
+                <div className="text-xs text-zinc-400 max-w-none sm:max-w-[100px]">Pago único, sin mensualidades</div>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href={tempUiBridge.hero.primaryCtaHref} target="_blank" rel="noreferrer" className="ui-btn-primary inline-flex items-center justify-center gap-2.5 text-white font-bold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5 glow-brand-sm">
+              <a href={tempUiBridge.hero.primaryCtaHref} target="_blank" rel="noreferrer" className="ui-btn-primary inline-flex w-full sm:w-auto items-center justify-center gap-2.5 text-white font-bold text-base px-6 sm:px-7 py-4 rounded-2xl transition-all duration-200 hover:shadow-xl hover:shadow-violet-500/25 hover:-translate-y-0.5 glow-brand-sm">
                 {tempUiBridge.hero.primaryCtaLabel}
               </a>
-              <a href={tempUiBridge.hero.secondaryCtaHref} className="inline-flex items-center justify-center gap-2 border ui-border-strong hover:border-zinc-500 text-zinc-300 hover:text-white font-semibold text-base px-7 py-4 rounded-2xl transition-all duration-200 hover:bg-white/[0.03]">
+              <a href={tempUiBridge.hero.secondaryCtaHref} className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border ui-border-strong hover:border-zinc-500 text-zinc-300 hover:text-white font-semibold text-base px-6 sm:px-7 py-4 rounded-2xl transition-all duration-200 hover:bg-white/[0.03]">
                 {tempUiBridge.hero.secondaryCtaLabel}
                 <span aria-hidden="true">→</span>
               </a>
