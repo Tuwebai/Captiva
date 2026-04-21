@@ -26,9 +26,6 @@ export function DemoCatalogCard({ item, index, onOpen }: DemoCatalogCardProps) {
       >
         <DemoIndustryMockup industry={item.industry} />
 
-        <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold ${mockup.accentBg}`}>
-          <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 inline-block" />
-        </div>
       </a>
 
       <div className="p-5 space-y-3">
