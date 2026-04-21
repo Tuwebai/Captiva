@@ -1,5 +1,4 @@
 import type { ReactEventHandler } from 'react';
-
 import { MessageCircle } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
