@@ -14,13 +14,21 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
   const { trackEvent, trackWhatsApp } = useAnalytics();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isCaptivaHome = location.pathname === siteConfig.routes.captiva;
   const isDemosPage =
     location.pathname === siteConfig.routes.captivaDemos ||
     location.pathname.startsWith(`${siteConfig.routes.captivaDemos}/`);
+  const homeNavItems = [
+    { label: 'Demos', href: `${siteConfig.routes.captiva}#demos` },
+    { label: 'Cómo funciona', href: `${siteConfig.routes.captiva}#como-funciona` },
+    { label: 'Planes', href: `${siteConfig.routes.captiva}#planes` },
+    { label: 'FAQ', href: `${siteConfig.routes.captiva}#faq` },
+  ];
   const demosNavItems = [
     { label: 'Rubros', href: `${siteConfig.routes.captivaDemos}#demos-rubros` },
     { label: 'Contacto', href: `${siteConfig.routes.captivaDemos}#lead-form-demos` },
   ];
+  const navItems = isDemosPage ? demosNavItems : isCaptivaHome ? homeNavItems : [];
 
   if (!visible) {
     return null;
@@ -42,13 +50,13 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
           />
         </a>
 
-        {isDemosPage ? (
+        {navItems.length > 0 ? (
           <button
             type="button"
             className={`site-header__menu-toggle${isMobileMenuOpen ? ' is-open' : ''}`}
             aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMobileMenuOpen}
-            aria-controls="demos-header-nav"
+            aria-controls="primary-header-nav"
             onClick={() => setIsMobileMenuOpen((current) => !current)}
           >
             <span />
@@ -57,13 +65,13 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
           </button>
         ) : null}
 
-        {isDemosPage ? (
+        {navItems.length > 0 ? (
           <nav
-            id="demos-header-nav"
+            id="primary-header-nav"
             className={`site-header__nav${isMobileMenuOpen ? ' is-open' : ''}`}
-            aria-label="Secciones de demos"
+            aria-label="Secciones principales"
           >
-            {demosNavItems.map((item) => (
+            {navItems.map((item) => (
               <a key={item.href} className="site-header__nav-link" href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
                 {item.label}
               </a>
