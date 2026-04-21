@@ -1,4 +1,4 @@
-import type { ReactEventHandler } from 'react';
+import { useState, type ReactEventHandler } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ANALYTICS_EVENTS, useAnalytics } from '../../lib/analytics';
 import { siteConfig } from '../../config/site';
@@ -13,12 +13,11 @@ type NavbarProps = {
 export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
   const { trackEvent, trackWhatsApp } = useAnalytics();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isDemosPage =
     location.pathname === siteConfig.routes.captivaDemos ||
     location.pathname.startsWith(`${siteConfig.routes.captivaDemos}/`);
   const demosNavItems = [
-    { label: 'Hero', href: `${siteConfig.routes.captivaDemos}#demos-hero` },
-    { label: 'Catálogo', href: `${siteConfig.routes.captivaDemos}#demos-catalogo` },
     { label: 'Rubros', href: `${siteConfig.routes.captivaDemos}#demos-rubros` },
     { label: 'Contacto', href: `${siteConfig.routes.captivaDemos}#lead-form-demos` },
   ];
@@ -44,9 +43,28 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
         </a>
 
         {isDemosPage ? (
-          <nav className="site-header__nav" aria-label="Secciones de demos">
+          <button
+            type="button"
+            className={`site-header__menu-toggle${isMobileMenuOpen ? ' is-open' : ''}`}
+            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="demos-header-nav"
+            onClick={() => setIsMobileMenuOpen((current) => !current)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        ) : null}
+
+        {isDemosPage ? (
+          <nav
+            id="demos-header-nav"
+            className={`site-header__nav${isMobileMenuOpen ? ' is-open' : ''}`}
+            aria-label="Secciones de demos"
+          >
             {demosNavItems.map((item) => (
-              <a key={item.href} className="site-header__nav-link" href={item.href}>
+              <a key={item.href} className="site-header__nav-link" href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
                 {item.label}
               </a>
             ))}
@@ -59,6 +77,7 @@ export function Navbar({ visible, fullLogoSrc, onLogoError }: NavbarProps) {
             variant="primary"
             className="site-header__cta"
             onClick={() => {
+              setIsMobileMenuOpen(false);
               trackEvent({ action: ANALYTICS_EVENTS.CTA_HERO_CLICK, category: 'header', label: 'solicitar-informacion' });
               trackWhatsApp('header', 'solicitar-informacion');
             }}
