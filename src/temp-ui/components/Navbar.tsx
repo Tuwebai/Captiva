@@ -4,6 +4,13 @@ import { tempUiBridge } from '../bridge';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navItems = [
+    { label: 'Demos', href: tempUiBridge.siteConfig.routes.captivaDemos, onClick: undefined },
+    { label: 'Cómo funciona', href: `${tempUiBridge.siteConfig.routes.captiva}#como-funciona`, onClick: () => scrollTo('como-funciona') },
+    { label: 'Planes', href: `${tempUiBridge.siteConfig.routes.captiva}#planes`, onClick: () => scrollTo('planes') },
+    { label: 'FAQ', href: `${tempUiBridge.siteConfig.routes.captiva}#faq`, onClick: () => scrollTo('faq') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -19,17 +26,17 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#09090B]/90 backdrop-blur-md border-b border-[#27272A]'
+          ? 'bg-bg/90 backdrop-blur-md border-b border-border'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="/captiva" className="flex items-center">
+        <a href={tempUiBridge.siteConfig.routes.captiva} className="flex items-center">
           <img
             src="/LOGO-captiva.png"
             alt="Captiva"
-            className="h-8 w-auto object-contain"
+            className="h-20 md:h-22 w-auto object-contain"
             loading="eager"
             decoding="async"
           />
@@ -37,19 +44,15 @@ export default function Navbar() {
 
         {/* Nav links - desktop */}
         <nav className="hidden md:flex items-center gap-7">
-          {[
-            { label: 'Demos', id: 'demos' },
-            { label: 'Cómo funciona', id: 'como-funciona' },
-            { label: 'Planes', id: 'planes' },
-            { label: 'FAQ', id: 'faq' },
-          ].map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={item.onClick}
               className="text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer"
             >
               {item.label}
-            </button>
+            </a>
           ))}
         </nav>
 
@@ -68,12 +71,49 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          onClick={() => scrollTo('planes')}
-          className="md:hidden text-sm font-semibold text-violet-400 border border-violet-600/40 px-3 py-1.5 rounded-lg"
+          type="button"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+          aria-expanded={menuOpen}
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-600/40 text-violet-400"
+          onClick={() => setMenuOpen((current) => !current)}
         >
-          Ver planes
+          <span className="flex flex-col gap-1">
+            <span className="block h-0.5 w-4 rounded-full bg-current" />
+            <span className="block h-0.5 w-4 rounded-full bg-current" />
+            <span className="block h-0.5 w-4 rounded-full bg-current" />
+          </span>
         </button>
       </div>
+
+      {menuOpen ? (
+        <div className="md:hidden border-t border-white/5 bg-[#09090B]/98 backdrop-blur">
+          <nav className="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => {
+                  item.onClick?.();
+                  setMenuOpen(false);
+                }}
+                className="rounded-xl border border-white/8 px-4 py-3 text-sm font-medium text-zinc-200"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            <a
+              href={tempUiBridge.waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-violet-600 px-4 py-3 text-sm font-semibold text-white"
+              onClick={() => setMenuOpen(false)}
+            >
+              Empezar
+            </a>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }
