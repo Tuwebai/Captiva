@@ -19,3 +19,4 @@ skills/*
 proyecto-template/*
 *.md
 .env.local
+.codexignore

@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 var rootDir = fileURLToPath(new URL('.', import.meta.url));
 var demosManifestPath = resolve(rootDir, 'demos/manifest.json');
@@ -110,7 +111,7 @@ export default defineConfig(function (_a) {
     var mode = _a.mode;
     var env = loadEnv(mode, rootDir, 'VITE_');
     return {
-        plugins: [react(), demoProxyDevPlugin()],
+        plugins: [react(), tailwindcss(), demoProxyDevPlugin()],
         define: {
             __CAPTIVA_GA4_ID__: JSON.stringify((_b = env.VITE_GA4_ID) !== null && _b !== void 0 ? _b : ''),
         },
